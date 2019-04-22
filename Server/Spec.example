@@ -1,0 +1,14 @@
+  { name =
+      "example.com"
+  , listen =
+      { address = Some "address", port = Some 3000 }
+  , includes =
+      [] : List Text
+  , log =
+      { error = True, access = False }
+  , locations =
+      [ ../Location/Spec.example ]
+  , ssl =
+      ../SSL/Spec.empty
+  }
+: ./Spec

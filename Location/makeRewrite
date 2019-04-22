@@ -1,0 +1,18 @@
+let Rewrite =
+      { regex : Text, replacement : Text, flag : Optional Text, log : Bool }
+
+in    λ ( rewrite
+        : Optional
+          { regex : Text, replacement : Text, flag : Optional Text, log : Bool }
+        )
+    → "rewrite ${Optional/fold
+                 Rewrite
+                 rewrite
+                 Text
+                 (λ(t : Rewrite) → t.regex)
+                 ""} ${Optional/fold
+                       Rewrite
+                       rewrite
+                       Text
+                       (λ(t : Rewrite) → t.replacement)
+                       ""};"

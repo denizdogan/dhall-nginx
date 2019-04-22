@@ -1,0 +1,6 @@
+  λ(configuration : ./Spec)
+→ ''
+  ${./makeUpstreams configuration.upstreams}
+  
+  ${./makeServers configuration.servers}
+  ''

@@ -1,0 +1,12 @@
+  λ(proxyPass : ./ProxyPass)
+→ merge
+  { Address =
+        λ(t : { address : Text, port : Natural })
+      → "proxy_pass ${t.address}:${Natural/show t.port};"
+  , Upstream =
+        λ(t : { upstream : ../Upstream/Spec, scheme : Text })
+      → "proxy_pass ${t.scheme}${t.upstream.name};"
+  , _None =
+      λ(t : Bool) → ""
+  }
+  proxyPass

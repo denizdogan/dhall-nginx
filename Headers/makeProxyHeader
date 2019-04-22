@@ -1,0 +1,1 @@
+λ(header : ./Spec) → "proxy_set_header ${header.name} ${header.value};\n"

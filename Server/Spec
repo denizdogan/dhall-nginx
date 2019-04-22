@@ -1,0 +1,13 @@
+{ name :
+    Text
+, listen :
+    { address : Optional Text, port : Optional Natural }
+, includes :
+    List Text
+, locations :
+    List ../Location/Spec
+, log :
+    { access : Bool, error : Bool }
+, ssl :
+    ../SSL/Spec
+}

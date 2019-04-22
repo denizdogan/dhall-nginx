@@ -1,0 +1,5 @@
+  [ { name = "ProxyPass", value = "localhost:3000", always = True } : ./Spec
+  ,   { name = "X-Custom-Header", value = "Header-Content", always = False }
+    : ./Spec
+  ]
+: List ./Spec

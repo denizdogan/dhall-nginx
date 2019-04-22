@@ -1,0 +1,30 @@
+let null = https://prelude.dhall-lang.org/Optional/null
+
+in    λ ( matchType
+        : { RegularExpression_CaseInsensitive :
+              Optional Text
+          , RegularExpression_CaseSensitive :
+              Optional Text
+          , Equality :
+              Optional Text
+          , _None :
+              Optional Text
+          , BestNonRegularExpression :
+              Optional Text
+          }
+        )
+    →       if null Text matchType.RegularExpression_CaseInsensitive
+      
+      then  "= ${Optional/fold
+                 Text
+                 matchType.RegularExpression_CaseSensitive
+                 Text
+                 (λ(t : Text) → t)
+                 ""}"
+      
+      else  "~* ${Optional/fold
+                  Text
+                  matchType.RegularExpression_CaseInsensitive
+                  Text
+                  (λ(t : Text) → t)
+                  ""}"

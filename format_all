@@ -1,0 +1,3 @@
+#/bin/bash
+
+fd -E README.md -E format_all -t file -0 | xargs -0 -I '{}' dhall lint --inplace {}

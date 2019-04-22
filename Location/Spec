@@ -1,0 +1,28 @@
+{ proxy_pass :
+    ./ProxyPass
+, path :
+    { RegularExpression_CaseInsensitive :
+        Optional Text
+    , RegularExpression_CaseSensitive :
+        Optional Text
+    , Equality :
+        Optional Text
+    , _None :
+        Optional Text
+    , BestNonRegularExpression :
+        Optional Text
+    }
+, headers :
+    ../Headers/Headers
+, proxy_headers :
+    ../Headers/Headers
+, index :
+    Optional Text
+, alias :
+    Optional Text
+, return :
+    Optional { code : Optional Natural, arguments : Optional (List Text) }
+, rewrite :
+    Optional
+    { regex : Text, replacement : Text, flag : Optional Text, log : Bool }
+}

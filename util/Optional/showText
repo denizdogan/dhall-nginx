@@ -1,0 +1,1 @@
+λ(value : Optional Text) → Optional/fold Text value Text (λ(t : Text) → t) ""
