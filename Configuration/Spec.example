@@ -2,4 +2,6 @@
     [ ../Upstream/Spec.example ]
 , servers =
     [ ../Server/Spec.example ]
+, includeHttp =
+    True
 }
