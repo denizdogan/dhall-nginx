@@ -3,8 +3,10 @@ let showOptionalText = ../util/Optional/showText
 let showOptional = ../util/Optional/show
 
 in    λ(listen : ./Listen)
-    →     "listen ${showOptionalText listen.address}"
-      ++  "${showOptional
-             Natural
-             (λ(t : Natural) → Natural/show t)
-             listen.port};"
+    →     "listen "
+      ++  showOptionalText listen.address
+      ++  showOptional
+          Natural
+          (λ(t : Natural) → ":" ++ Natural/show t)
+          listen.port
+      ++  ";"
