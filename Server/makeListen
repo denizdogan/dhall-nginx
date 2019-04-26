@@ -1,10 +1,8 @@
-let Listen = { address : Optional Text, port : Optional Natural }
-
 let showOptionalText = ../util/Optional/showText
 
 let showOptional = ../util/Optional/show
 
-in    λ(listen : Listen)
+in    λ(listen : ./Listen)
     →     "listen ${showOptionalText listen.address}"
       ++  "${showOptional
              Natural
