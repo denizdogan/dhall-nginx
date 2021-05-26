@@ -1,7 +1,7 @@
   { name =
       "example.com"
   , listen =
-      { address = Some "address", port = Some 3000 }
+      ./Listen.example
   , includes =
       [] : List Text
   , log =

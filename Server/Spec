@@ -1,7 +1,7 @@
 { name :
     Text
 , listen :
-    { address : Optional Text, port : Optional Natural }
+    ./Listen
 , includes :
     List Text
 , locations :
