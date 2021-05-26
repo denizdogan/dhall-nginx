@@ -1,5 +1,5 @@
-let map = https://prelude.dhall-lang.org/List/map
+let map = https://prelude.dhall-lang.org/List/map.dhall
 
-let concat = https://prelude.dhall-lang.org/Text/concat
+let concat = https://prelude.dhall-lang.org/Text/concat.dhall
 
 in  λ(headers : List ./Spec) → concat (map ./Spec Text ./makeHeader headers)

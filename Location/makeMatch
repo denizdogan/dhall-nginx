@@ -1,32 +1,25 @@
-let null = https://prelude.dhall-lang.org/Optional/null
+let null = https://prelude.dhall-lang.org/Optional/null.dhall
 
-let Optional/fold = https://prelude.dhall-lang.org/Optional/fold
+let Optional/fold = https://prelude.dhall-lang.org/Optional/fold.dhall
 
-in    λ ( matchType
-        : { RegularExpression_CaseInsensitive :
-              Optional Text
-          , RegularExpression_CaseSensitive :
-              Optional Text
-          , Equality :
-              Optional Text
-          , _None :
-              Optional Text
-          , BestNonRegularExpression :
-              Optional Text
-          }
-        )
-    →       if null Text matchType.RegularExpression_CaseInsensitive
-      
+in  λ ( matchType
+      : { RegularExpression_CaseInsensitive : Optional Text
+        , RegularExpression_CaseSensitive : Optional Text
+        , Equality : Optional Text
+        , _None : Optional Text
+        , BestNonRegularExpression : Optional Text
+        }
+      ) →
+      if    null Text matchType.RegularExpression_CaseInsensitive
       then  "= ${Optional/fold
-                 Text
-                 matchType.RegularExpression_CaseSensitive
-                 Text
-                 (λ(t : Text) → t)
-                 ""}"
-      
+                   Text
+                   matchType.RegularExpression_CaseSensitive
+                   Text
+                   (λ(t : Text) → t)
+                   ""}"
       else  "~* ${Optional/fold
-                  Text
-                  matchType.RegularExpression_CaseInsensitive
-                  Text
-                  (λ(t : Text) → t)
-                  ""}"
+                    Text
+                    matchType.RegularExpression_CaseInsensitive
+                    Text
+                    (λ(t : Text) → t)
+                    ""}"

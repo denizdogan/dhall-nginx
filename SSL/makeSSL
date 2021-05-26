@@ -1,1 +1,4 @@
-λ(ssl : ./Spec) → "{TODO}\n"
+λ(ssl : ./Spec) →
+  ''
+  {TODO}
+  ''

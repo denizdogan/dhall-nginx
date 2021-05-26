@@ -1,2 +1,2 @@
-  λ(server : { address : Text, port : Natural })
-→ "server ${server.address}:${Natural/show server.port};"
+λ(server : { address : Text, port : Natural }) →
+  "server ${server.address}:${Natural/show server.port};"

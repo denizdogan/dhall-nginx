@@ -1,6 +1,6 @@
-let map = https://prelude.dhall-lang.org/List/map
+let map = https://prelude.dhall-lang.org/List/map.dhall
 
-let concat = https://prelude.dhall-lang.org/Text/concat
+let concat = https://prelude.dhall-lang.org/Text/concat.dhall
 
-in    λ(servers : List ../Server/Spec)
-    → concat (map ../Server/Spec Text ../Server/makeServer servers)
+in  λ(servers : List ../Server/Spec) →
+      concat (map ../Server/Spec Text ../Server/makeServer servers)

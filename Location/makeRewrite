@@ -1,20 +1,20 @@
-let Optional/fold = https://prelude.dhall-lang.org/Optional/fold
+let Optional/fold = https://prelude.dhall-lang.org/Optional/fold.dhall
 
 let Rewrite =
       { regex : Text, replacement : Text, flag : Optional Text, log : Bool }
 
-in    λ ( rewrite
-        : Optional
+in  λ ( rewrite
+      : Optional
           { regex : Text, replacement : Text, flag : Optional Text, log : Bool }
-        )
-    → "rewrite ${Optional/fold
-                 Rewrite
-                 rewrite
-                 Text
-                 (λ(t : Rewrite) → t.regex)
-                 ""} ${Optional/fold
-                       Rewrite
-                       rewrite
-                       Text
-                       (λ(t : Rewrite) → t.replacement)
-                       ""};"
+      ) →
+      "rewrite ${Optional/fold
+                   Rewrite
+                   rewrite
+                   Text
+                   (λ(t : Rewrite) → t.regex)
+                   ""} ${Optional/fold
+                           Rewrite
+                           rewrite
+                           Text
+                           (λ(t : Rewrite) → t.replacement)
+                           ""};"

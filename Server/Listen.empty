@@ -1,39 +1,20 @@
-{ address =
-    None Text
-, port =
-    None Natural
-, default_server =
-    None Text
-, ssl =
-    False
-, http2 =
-    False
-, spdy =
-    False
-, proxy_protocol =
-    False
-, setfib =
-    None Natural
-, fastopen =
-    None Natural
-, backlog =
-    None Natural
-, rcvbuf =
-    None Natural
-, sndbuf =
-    None Natural
-, accept_filter =
-    None Text
-, deferred =
-    False
-, bind =
-    False
-, ipv6only =
-    False
-, reuseport =
-    False
-, so_keepalive =
-    False
-, keepidle =
-    None { keepintv : Optional Natural, keepcnt : Optional Natural }
+{ address = None Text
+, port = None Natural
+, default_server = None Text
+, ssl = False
+, http2 = False
+, spdy = False
+, proxy_protocol = False
+, setfib = None Natural
+, fastopen = None Natural
+, backlog = None Natural
+, rcvbuf = None Natural
+, sndbuf = None Natural
+, accept_filter = None Text
+, deferred = False
+, bind = False
+, ipv6only = False
+, reuseport = False
+, so_keepalive = False
+, keepidle = None { keepintv : Optional Natural, keepcnt : Optional Natural }
 }

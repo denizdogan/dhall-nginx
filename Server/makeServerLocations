@@ -1,7 +1,8 @@
-let concat = https://prelude.dhall-lang.org/Text/concat
+let concat = https://prelude.dhall-lang.org/Text/concat.dhall
 
-let map = https://prelude.dhall-lang.org/List/map
+let map = https://prelude.dhall-lang.org/List/map.dhall
 
-in    λ(server : ./Spec)
-    → "${concat
-         (map ../Location/Spec Text ../Location/makeLocation server.locations)}"
+in  λ(server : ./Spec) →
+      "${concat
+           ( map ../Location/Spec Text ../Location/makeLocation server.locations
+           )}"

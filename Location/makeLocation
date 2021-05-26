@@ -1,5 +1,5 @@
-  λ(location : ./Spec)
-→ ''
+λ(location : ./Spec) →
+  ''
   location ${./makeMatch location.path} {
           ${./makeRewrite location.rewrite}
           ${../Headers/makeHeaders location.headers}

@@ -1,7 +1,4 @@
-< Address :
-    { address : Text, port : Natural }
-| Upstream :
-    { upstream : ../Upstream/Spec, scheme : Text }
-| _None :
-    Bool
+< Address : { address : Text, port : Natural }
+| Upstream : { upstream : ../Upstream/Spec, scheme : Text }
+| _None : Bool
 >

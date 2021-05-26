@@ -1,13 +1,7 @@
-{ name :
-    Text
-, listen :
-    ./Listen
-, includes :
-    List Text
-, locations :
-    List ../Location/Spec
-, log :
-    { access : Bool, error : Bool }
-, ssl :
-    ../SSL/Spec
+{ name : Text
+, listen : ./Listen
+, includes : List Text
+, locations : List ../Location/Spec
+, log : { access : Bool, error : Bool }
+, ssl : ../SSL/Spec
 }

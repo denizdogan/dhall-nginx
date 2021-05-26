@@ -1,5 +1,5 @@
-  λ(upstream : ./Spec)
-→ ''
+λ(upstream : ./Spec) →
+  ''
     upstream ${upstream.name} {
           ${./makeServers upstream.servers}
         }

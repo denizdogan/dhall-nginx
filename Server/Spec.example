@@ -1,14 +1,8 @@
-  { name =
-      "example.com"
-  , listen =
-      ./Listen.example
-  , includes =
-      [] : List Text
-  , log =
-      { error = True, access = False }
-  , locations =
-      [ ../Location/Spec.example ]
-  , ssl =
-      ../SSL/Spec.empty
+  { name = "example.com"
+  , listen = ./Listen.example
+  , includes = [] : List Text
+  , log = { error = True, access = False }
+  , locations = [ ../Location/Spec.example ]
+  , ssl = ../SSL/Spec.empty
   }
 : ./Spec

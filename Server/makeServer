@@ -1,11 +1,11 @@
-  λ(server : ./Spec)
-→ ''
-    server {
-        ${./makeServerName server}
-        ${./makeListen server.listen}
-  
-        ${./makeLogs server}
-    
-        ${./makeServerLocations server}
-    }
-    ''
+λ(server : ./Spec) →
+  ''
+  ${"  "}server {
+  ${"  "}    ${./makeServerName server}
+  ${"  "}    ${./makeListen server.listen}
+
+  ${"  "}    ${./makeLogs server}
+  ${"  "}
+  ${"  "}    ${./makeServerLocations server}
+  ${"  "}}
+  ${"  "}''
