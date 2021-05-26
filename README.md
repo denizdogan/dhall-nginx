@@ -4,7 +4,7 @@
 
 ## Tryout some of the examples
 
-`dhall-to-text <<< './Server/makeServer ./Server/Spec.example'`
+`dhall text <<< './Server/makeServer ./Server/Spec.example'`
 
 ```nginx
 server {
