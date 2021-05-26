@@ -2,4 +2,7 @@ let map = https://prelude.dhall-lang.org/List/map.dhall
 
 let concat = https://prelude.dhall-lang.org/Text/concat.dhall
 
-in  λ(headers : List ./Spec) → concat (map ./Spec Text ./makeHeader headers)
+let Spec = ./Spec
+
+in  λ(headers : List Spec.Type) →
+      concat (map Spec.Type Text ./makeHeader headers)

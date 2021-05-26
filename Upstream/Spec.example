@@ -1,2 +1,6 @@
-  { name = "php", servers = [ { address = "http://localhost", port = 9000 } ] }
-: ./Spec
+let Upstream = ./Spec
+
+in  Upstream::{
+    , name = "php"
+    , servers = [ { address = "http://localhost", port = 9000 } ]
+    }

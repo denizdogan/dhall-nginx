@@ -1,8 +1,10 @@
-λ(configuration : ./Spec) →
-  ''
-    ${if configuration.includeHttp then "http {" else ""}
-      ${./makeUpstreams configuration.upstreams}
-      
-      ${./makeServers configuration.servers}
-  ${if configuration.includeHttp then "}" else ""}
-    ''
+let Configuration = ./Spec
+
+in  λ(configuration : Configuration.Type) →
+      ''
+        ${if configuration.includeHttp then "http {" else ""}
+          ${./makeUpstreams configuration.upstreams}
+          
+          ${./makeServers configuration.servers}
+      ${if configuration.includeHttp then "}" else ""}
+        ''

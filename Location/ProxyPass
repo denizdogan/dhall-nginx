@@ -1,4 +1,6 @@
-< Address : { address : Text, port : Natural }
-| Upstream : { upstream : ../Upstream/Spec, scheme : Text }
-| _None : Bool
->
+let Upstream = ../Upstream/Spec
+
+in  < Address : { address : Text, port : Natural }
+    | Upstream : { upstream : Upstream.Type, scheme : Text }
+    | _None : Bool
+    >

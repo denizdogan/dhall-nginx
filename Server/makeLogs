@@ -1,9 +1,11 @@
-λ(server : ./Spec) →
-  ''
-        ${if    server.log.access
-          then  "access_log /var/log/nginx/${server.name}_access.log;"
-          else  ""}
-        ${if    server.log.error
-          then  "error_log /var/log/nginx/${server.name}_error.log;"
-          else  ""}
-  ''
+let Server = ./Spec
+
+in  λ(server : Server.Type) →
+      ''
+            ${if    server.log.access
+              then  "access_log /var/log/nginx/${server.name}_access.log;"
+              else  ""}
+            ${if    server.log.error
+              then  "error_log /var/log/nginx/${server.name}_error.log;"
+              else  ""}
+      ''

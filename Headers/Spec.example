@@ -1,1 +1,3 @@
-{ name = "ProxyPass", value = "localhost:3000", always = True } : ./Spec
+let Spec = ./Spec
+
+in  Spec::{ name = "ProxyPass", value = "localhost:3000", always = True }

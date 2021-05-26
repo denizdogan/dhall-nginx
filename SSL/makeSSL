@@ -1,4 +1,6 @@
-λ(ssl : ./Spec) →
-  ''
-  {TODO}
-  ''
+let SSL = ./Spec
+
+in  λ(ssl : SSL.Type) →
+      ''
+      {TODO}
+      ''

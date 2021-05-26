@@ -1,9 +1,11 @@
-λ(location : ./Spec) →
-  ''
-  location ${./makeMatch location.path} {
-          ${./makeRewrite location.rewrite}
-          ${../Headers/makeHeaders location.headers}
-          ${../Headers/makeProxyHeaders location.proxy_headers}
-          ${./makeProxyPass location.proxy_pass}
-      }
-  ''
+let Location = ./Spec
+
+in  λ(location : Location.Type) →
+      ''
+      location ${./makeMatch location.path} {
+              ${./makeRewrite location.rewrite}
+              ${../Headers/makeHeaders location.headers}
+              ${../Headers/makeProxyHeaders location.proxy_headers}
+              ${./makeProxyPass location.proxy_pass}
+          }
+      ''

@@ -1,1 +1,4 @@
-{ name : Text, servers : List { address : Text, port : Natural } }
+{ Type = { name : Text, servers : List { address : Text, port : Natural } }
+, default =
+  { name = "", servers = [] : List { address : Text, port : Natural } }
+}

@@ -1,11 +1,13 @@
-λ(server : ./Spec) →
-  ''
-  ${"  "}server {
-  ${"  "}    ${./makeServerName server}
-  ${"  "}    ${./makeListen server.listen}
+let Server = ./Spec
 
-  ${"  "}    ${./makeLogs server}
-  ${"  "}
-  ${"  "}    ${./makeServerLocations server}
-  ${"  "}}
-  ${"  "}''
+in  λ(server : Server.Type) →
+      ''
+      ${"  "}server {
+      ${"  "}    ${./makeServerName server}
+      ${"  "}    ${./makeListen server.listen}
+
+      ${"  "}    ${./makeLogs server}
+      ${"  "}
+      ${"  "}    ${./makeServerLocations server}
+      ${"  "}}
+      ${"  "}''

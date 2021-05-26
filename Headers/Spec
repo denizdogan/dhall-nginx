@@ -1,1 +1,3 @@
-{ name : Text, value : Text, always : Bool }
+{ Type = { name : Text, value : Text, always : Bool }
+, default = { name = "", value = "", always = False }
+}

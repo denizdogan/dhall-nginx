@@ -1,18 +1,52 @@
-{ proxy_pass : ./ProxyPass
-, path :
-    { RegularExpression_CaseInsensitive : Optional Text
-    , RegularExpression_CaseSensitive : Optional Text
-    , Equality : Optional Text
-    , _None : Optional Text
-    , BestNonRegularExpression : Optional Text
+let ProxyPass = ./ProxyPass
+
+let Headers = ../Headers/Spec
+
+in  { Type =
+        { proxy_pass : ./ProxyPass
+        , path :
+            { RegularExpression_CaseInsensitive : Optional Text
+            , RegularExpression_CaseSensitive : Optional Text
+            , Equality : Optional Text
+            , _None : Optional Text
+            , BestNonRegularExpression : Optional Text
+            }
+        , headers : List Headers.Type
+        , proxy_headers : List Headers.Type
+        , index : Optional Text
+        , alias : Optional Text
+        , return :
+            Optional
+              { code : Optional Natural, arguments : Optional (List Text) }
+        , rewrite :
+            Optional
+              { regex : Text
+              , replacement : Text
+              , flag : Optional Text
+              , log : Bool
+              }
+        }
+    , default =
+      { proxy_pass = ProxyPass._None False
+      , path =
+        { RegularExpression_CaseInsensitive = None Text
+        , RegularExpression_CaseSensitive = None Text
+        , Equality = None Text
+        , _None = None Text
+        , BestNonRegularExpression = None Text
+        }
+      , headers = [] : List Headers.Type
+      , proxy_headers = [] : List Headers.Type
+      , return =
+          None { code : Optional Natural, arguments : Optional (List Text) }
+      , rewrite =
+          None
+            { regex : Text
+            , replacement : Text
+            , flag : Optional Text
+            , log : Bool
+            }
+      , index = None Text
+      , alias = None Text
+      }
     }
-, headers : ../Headers/Headers
-, proxy_headers : ../Headers/Headers
-, index : Optional Text
-, alias : Optional Text
-, return :
-    Optional { code : Optional Natural, arguments : Optional (List Text) }
-, rewrite :
-    Optional
-      { regex : Text, replacement : Text, flag : Optional Text, log : Bool }
-}
