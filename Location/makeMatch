@@ -1,5 +1,7 @@
 let null = https://prelude.dhall-lang.org/Optional/null
 
+let Optional/fold = https://prelude.dhall-lang.org/Optional/fold
+
 in    λ ( matchType
         : { RegularExpression_CaseInsensitive :
               Optional Text

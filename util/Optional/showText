@@ -1,1 +1,3 @@
+let Optional/fold = https://prelude.dhall-lang.org/Optional/fold in
+
 λ(value : Optional Text) → Optional/fold Text value Text (λ(t : Text) → t) ""
