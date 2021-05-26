@@ -1,3 +1,5 @@
+let Optional/fold = https://prelude.dhall-lang.org/Optional/fold
+
 let Rewrite =
       { regex : Text, replacement : Text, flag : Optional Text, log : Bool }
 

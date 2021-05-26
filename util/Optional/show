@@ -1,3 +1,4 @@
+let Optional/fold = https://prelude.dhall-lang.org/Optional/fold in
   λ(type : Type)
 → λ(extractionFunction : type → Text)
 → λ(value : Optional type)
