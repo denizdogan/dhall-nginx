@@ -1,7 +1,9 @@
-{ name : Text
-, listen : ./Listen
-, includes : List Text
-, locations : List ../Location/Spec
-, log : { access : Bool, error : Bool }
-, ssl : ../SSL/Spec
-}
+let Listen = ./Listen
+
+in  { name : Text
+    , listen : Listen.Type
+    , includes : List Text
+    , locations : List ../Location/Spec
+    , log : { access : Bool, error : Bool }
+    , ssl : ../SSL/Spec
+    }

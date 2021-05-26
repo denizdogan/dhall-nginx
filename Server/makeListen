@@ -2,7 +2,9 @@ let showOptionalText = ../util/Optional/showText
 
 let showOptional = ../util/Optional/show
 
-in  λ(listen : ./Listen) →
+let Listen = ./Listen
+
+in  λ(listen : Listen.Type) →
           "listen "
       ++  showOptionalText listen.address
       ++  showOptional
