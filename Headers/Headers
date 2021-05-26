@@ -1,1 +1,1 @@
-List ./Spec
+let Header = ./Spec in List Header.Type

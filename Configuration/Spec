@@ -1,4 +1,15 @@
-{ upstreams : List ../Upstream/Spec
-, servers : List ../Server/Spec
-, includeHttp : Bool
-}
+let Server = ../Server/Spec
+
+let Upstream = ../Upstream/Spec
+
+in  { Type =
+        { upstreams : List Upstream.Type
+        , servers : List Server.Type
+        , includeHttp : Bool
+        }
+    , default =
+      { upstreams = [] : List Upstream.Type
+      , servers = [] : List Server.Type
+      , includeHttp = False
+      }
+    }

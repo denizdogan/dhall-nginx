@@ -2,7 +2,10 @@ let concat = https://prelude.dhall-lang.org/Text/concat.dhall
 
 let map = https://prelude.dhall-lang.org/List/map.dhall
 
-in  λ(server : ./Spec) →
+let Location = ../Location/Spec
+
+let Server = ./Spec
+
+in  λ(server : Server.Type) →
       "${concat
-           ( map ../Location/Spec Text ../Location/makeLocation server.locations
-           )}"
+           (map Location.Type Text ../Location/makeLocation server.locations)}"

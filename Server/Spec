@@ -1,9 +1,16 @@
 let Listen = ./Listen
 
-in  { name : Text
-    , listen : Listen.Type
-    , includes : List Text
-    , locations : List ../Location/Spec
-    , log : { access : Bool, error : Bool }
-    , ssl : ../SSL/Spec
+let Location = ../Location/Spec
+
+let SSL = ../SSL/Spec
+
+in  { Type =
+        { name : Text
+        , listen : Listen.Type
+        , includes : List Text
+        , locations : List Location.Type
+        , log : { access : Bool, error : Bool }
+        , ssl : SSL.Type
+        }
+    , default = {=}
     }

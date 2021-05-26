@@ -2,5 +2,7 @@ let map = https://prelude.dhall-lang.org/List/map.dhall
 
 let concat = https://prelude.dhall-lang.org/Text/concat.dhall
 
-in  λ(servers : List ../Upstream/Spec) →
-      concat (map ../Upstream/Spec Text ../Upstream/makeUpstream servers)
+let Upstream = ../Upstream/Spec
+
+in  λ(servers : List Upstream.Type) →
+      concat (map Upstream.Type Text ../Upstream/makeUpstream servers)
