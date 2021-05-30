@@ -1,3 +1,0 @@
-let Spec = ./Spec
-
-in  Spec::{ name = "ProxyPass", value = "localhost:3000", always = True }

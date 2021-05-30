@@ -1,8 +1,0 @@
-let Spec = ./Spec
-
-let alwaysText = λ(always : Bool) → if always then " always" else ""
-
-in  λ(header : Spec.Type) →
-      ''
-      add_header ${header.name} ${header.value}${alwaysText header.always};
-      ''

@@ -1,6 +1,0 @@
-let map = https://prelude.dhall-lang.org/List/map.dhall
-
-let concat = https://prelude.dhall-lang.org/Text/concat.dhall
-
-in  λ(servers : List { address : Text, port : Natural }) →
-      concat (map { address : Text, port : Natural } Text ./makeServer servers)

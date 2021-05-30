@@ -1,5 +1,0 @@
-Some
-  { fullchain = Some "fullchain"
-  , private_key = Some "private_key"
-  , ssh_dhparam = Some "ssh_dhparam"
-  }

@@ -8,4 +8,4 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: dhall-lang/setup-dhall@v4.2.0
-      - run: dhall text <<< './Server/makeServer ./Server/Spec.example'
+      - run: dhall text <<< './example.dhall'

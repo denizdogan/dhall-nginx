@@ -1,7 +1,0 @@
-let Configuration = ./Spec
-
-in  Configuration::{
-    , upstreams = [ ../Upstream/Spec.example ]
-    , servers = [ ../Server/Spec.example ]
-    , includeHttp = True
-    }

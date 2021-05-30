@@ -1,6 +1,0 @@
-let SSL = ./Spec
-
-in  λ(ssl : SSL.Type) →
-      ''
-      {TODO}
-      ''

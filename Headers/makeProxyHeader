@@ -1,6 +1,0 @@
-let Spec = ./Spec
-
-in  λ(header : Spec.Type) →
-      ''
-      proxy_set_header ${header.name} ${header.value};
-      ''

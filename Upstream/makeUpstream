@@ -1,8 +1,0 @@
-let Upstream = ./Spec
-
-in  λ(upstream : Upstream.Type) →
-      ''
-        upstream ${upstream.name} {
-              ${./makeServers upstream.servers}
-            }
-      ''

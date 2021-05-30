@@ -1,8 +1,0 @@
-let Spec = ./Spec
-
-in    [   { name = "ProxyPass", value = "localhost:3000", always = True }
-        : Spec.Type
-      ,   { name = "X-Custom-Header", value = "Header-Content", always = False }
-        : Spec.Type
-      ]
-    : List Spec.Type

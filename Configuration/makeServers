@@ -1,8 +1,0 @@
-let map = https://prelude.dhall-lang.org/List/map.dhall
-
-let concat = https://prelude.dhall-lang.org/Text/concat.dhall
-
-let Server = ../Server/Spec
-
-in  λ(servers : List Server.Type) →
-      concat (map Server.Type Text ../Server/makeServer servers)

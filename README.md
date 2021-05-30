@@ -11,18 +11,16 @@ server {
     server_name example.com;
     listen localhost:3000;
 
-
     error_log /var/log/nginx/example.com_error.log;
 
-
     location ~* ^/admin {
-      rewrite regex replacement;
-      add_header X-Custom Custom;
+        rewrite regex replacement;
+        add_header X-Custom Custom;
 
-      proxy_set_header X-Forward-Proto https;
+        proxy_set_header X-Forward-Proto https;
 
-      proxy_pass localhost:3000;
-  }
+        proxy_pass localhost:3000;
+    }
 
 }
 ```
