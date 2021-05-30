@@ -1,32 +1,24 @@
 # dhall-nginx
 
-**This is still in a really early stage. PRs/issues are welcome.**
+## To do
 
-## Tryout some of the examples
+Easy:
 
-`dhall text <<< './Server/makeServer ./Server/Spec.example'`
+- [ ] Support `if` parameter for `access_log` directive
 
-```nginx
-server {
-    server_name example.com;
-    listen localhost:3000;
+Medium:
 
-    error_log /var/log/nginx/example.com_error.log;
+- [ ] Make log_format a map between log name and configuration
 
-    location ~* ^/admin {
-        rewrite regex replacement;
-        add_header X-Custom Custom;
+Hard:
 
-        proxy_set_header X-Forward-Proto https;
+- [ ] Add recursive data type for handling blocks, directives and their indentation
+- [ ] Add support for recursive `location` -- except for named locations (`@name`)
 
-        proxy_pass localhost:3000;
-    }
+## Development
 
-}
-```
+Each directive record can have one or more of the follow functions:
 
-## Content
-
-Every directory contains a `Spec` file which is the specification for the folder `name`, i.e. `Location/Spec` is the specification for the `location` directive.
-
-Most directories contain a `Spec.empty` and `Spec.example` file, where `.empty` populates the record with default values and `.example` provides a record with example values.
+- `make` - return `Text` representation of the directive
+- `makeMany` - return `Text` representation of a list of directives
+- `opt` - return `None Text` if the value is `None a`, otherwise return `Some Text`

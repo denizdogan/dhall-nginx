@@ -1,5 +1,15 @@
-let types = ./types/package.dhall
+let size = ./utils/size.dhall
 
-let schemas = ./schemas/package.dhall
+let interval = ./utils/interval.dhall
 
-in  types // schemas
+let LogLevel = ./types/LogLevel.dhall
+
+let Escape = ./types/Escape.dhall
+
+in      { config = ./main.dhall
+        , Interval = interval.Interval
+        , Size = size.Size
+        , LogLevel
+        , Escape
+        }
+    /\  ./directives/package.dhall
