@@ -1,24 +1,13 @@
 # dhall-nginx
 
-## To do
+Generate your Nginx configuration files using Dhall.
 
-Easy:
+Loosely based on [torbencarstens/dhall-nginx](https://github.com/torbencarstens/dhall-nginx).
 
-- [ ] Support `if` parameter for `access_log` directive
+## Usage
 
-Medium:
+See [example 1](./_tests/example/example1.dhall) and its accompanying .conf file for example input and output.
 
-- [ ] Make log_format a map between log name and configuration
-
-Hard:
-
-- [ ] Add recursive data type for handling blocks, directives and their indentation
-- [ ] Add support for recursive `location` -- except for named locations (`@name`)
-
-## Development
-
-Each directive record can have one or more of the follow functions:
-
-- `make` - return `Text` representation of the directive
-- `makeMany` - return `Text` representation of a list of directives
-- `opt` - return `None Text` if the value is `None a`, otherwise return `Some Text`
+```console
+$ dhall text --file config.dhall
+```
