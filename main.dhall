@@ -17,6 +17,7 @@ let type =
       { error_log : Optional ./directives/ngx_core_module/error_log/type.dhall
       , events : Optional ./directives/ngx_core_module/events/type.dhall
       , http : Optional ./directives/ngx_http_core_module/http/type.dhall
+      , pcre_jit : Optional ./directives/ngx_core_module/pcre_jit/type.dhall
       , pid : Optional ./directives/ngx_core_module/pid/type.dhall
       , user : Optional ./directives/ngx_core_module/user/type.dhall
       , worker_cpu_affinity :
@@ -29,6 +30,8 @@ let events = ./directives/ngx_core_module/events/schema.dhall
 
 let http = ./directives/ngx_http_core_module/http/schema.dhall
 
+let pcre_jit = ./directives/ngx_core_module/pcre_jit/schema.dhall
+
 let pid = ./directives/ngx_core_module/pid/schema.dhall
 
 let error_log = ./directives/ngx_core_module/error_log/schema.dhall
@@ -37,6 +40,7 @@ let default =
       { error_log = None ./directives/ngx_core_module/error_log/type.dhall
       , events = None ./directives/ngx_core_module/events/type.dhall
       , http = None ./directives/ngx_http_core_module/http/type.dhall
+      , pcre_jit = None ./directives/ngx_core_module/pcre_jit/type.dhall
       , pid = None ./directives/ngx_core_module/pid/type.dhall
       , user = None ./directives/ngx_core_module/user/type.dhall
       , worker_cpu_affinity =
@@ -87,6 +91,13 @@ let make =
                 }
                 c.http
 
+        let pcre_jit =
+              merge
+                { Some = λ(x : pcre_jit.Type) → Some (pcre_jit.make n x)
+                , None = None Text
+                }
+                c.pcre_jit
+
         let pid =
               merge
                 { Some = λ(x : pid.Type) → Some (pid.make n x)
@@ -104,8 +115,15 @@ let make =
         let directives =
               List/concat
                 (Optional Text)
-                [ [ error_log, events, http, pid ]
-                , [ user, worker_cpu_affinity, worker_processes ]
+                [ [ error_log
+                  , events
+                  , http
+                  , pcre_jit
+                  , pid
+                  , user
+                  , worker_cpu_affinity
+                  , worker_processes
+                  ]
                 ]
 
         in  Text/concatSep "\n" (List/unpackOptionals Text directives) ++ "\n"

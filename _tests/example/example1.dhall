@@ -98,6 +98,7 @@ let config =
             }
           ]
         }
+      , pcre_jit = Some True
       , pid = Some "pidfile"
       , error_log = Some ng.error_log::{
         , file = "/tmp/error.log"
