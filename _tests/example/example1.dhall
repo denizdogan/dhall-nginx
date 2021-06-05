@@ -42,6 +42,7 @@ let config =
         , if_modified_since = Some ng.if_modified_since.exact
         , index = Some ng.index::{ files = [ "index.html", "index.php" ] }
         , log_format = [ myLogger, jsonLogger ]
+        , log_not_found = Some False
         , maps = [ mapLoggable ]
         , sendfile = Some True
         , servers =
@@ -61,6 +62,7 @@ let config =
               [ ng.location::{
                 , default_type = Some "text/html"
                 , index = Some ng.index::{ files = [ "foobar.html" ] }
+                , log_not_found = Some True
                 , log_subrequest = Some True
                 , max_ranges = Some 512
                 , modifier = ng.location.modifier.exact
@@ -82,6 +84,7 @@ let config =
                 , name = Some "bar"
                 }
               ]
+            , log_not_found = Some False
             , root = Some "/var/root"
             , server_name = [ "hello.net", "there.com" ]
             , tcp_nodelay = Some True

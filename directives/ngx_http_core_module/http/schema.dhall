@@ -13,6 +13,8 @@ let if_modified_since = ../if_modified_since/schema.dhall
 
 let index = ../../ngx_http_index_module/index/schema.dhall
 
+let log_not_found = ../log_not_found/schema.dhall
+
 let sendfile = ../sendfile/schema.dhall
 
 let server = ../server/schema.dhall
@@ -57,6 +59,13 @@ let make =
                 (log_format.make (n + 2))
                 c.log_format
 
+        let log_not_found =
+              Optional/map
+                log_not_found.Type
+                Text
+                (log_not_found.make (n + 2))
+                c.log_not_found
+
         let maps = List/map map.Type Text (map.make (n + 2)) c.maps
 
         let sendfile =
@@ -74,6 +83,7 @@ let make =
                   Text
                   [ default_type, if_modified_since, index ]
               # log_formats
+              # List/unpackOptionals Text [ log_not_found ]
               # maps
               # List/unpackOptionals Text [ sendfile ]
               # servers

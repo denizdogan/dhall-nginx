@@ -17,6 +17,8 @@ let default_type = ../default_type/schema.dhall
 
 let index = ../../ngx_http_index_module/index/schema.dhall
 
+let log_not_found = ../log_not_found/schema.dhall
+
 let log_subrequest = ../log_subrequest/schema.dhall
 
 let max_ranges = ../max_ranges/schema.dhall
@@ -32,6 +34,13 @@ let make =
               Optional/map Text Text (default_type.make (n + 2)) c.default_type
 
         let index = Optional/map index.Type Text (index.make (n + 2)) c.index
+
+        let log_not_found =
+              Optional/map
+                log_not_found.Type
+                Text
+                (log_not_found.make (n + 2))
+                c.log_not_found
 
         let log_subrequest =
               Optional/map
@@ -51,6 +60,7 @@ let make =
                 Text
                 [ default_type
                 , index
+                , log_not_found
                 , log_subrequest
                 , max_ranges
                 , msie_padding

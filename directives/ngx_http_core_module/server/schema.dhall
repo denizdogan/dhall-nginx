@@ -15,6 +15,8 @@ let default_type = ../default_type/schema.dhall
 
 let location = ../location/schema.dhall
 
+let log_not_found = ../log_not_found/schema.dhall
+
 let root = ../../ngx_http_core_module/root/schema.dhall
 
 let server_name = ../server_name/schema.dhall
@@ -49,6 +51,13 @@ let make =
         let location =
               List/map location.Type Text (location.make (n + 2)) c.location
 
+        let log_not_found =
+              Optional/map
+                log_not_found.Type
+                Text
+                (log_not_found.make (n + 2))
+                c.log_not_found
+
         let root = Optional/map root.Type Text (root.make (n + 2)) c.root
 
         let server_name =
@@ -61,7 +70,9 @@ let make =
         let directives =
                 List/unpackOptionals Text [ access_log, default_type, index ]
               # location
-              # List/unpackOptionals Text [ root, server_name, tcp_nodelay ]
+              # List/unpackOptionals
+                  Text
+                  [ log_not_found, root, server_name, tcp_nodelay ]
 
         in  Text/concatSep
               "\n"
