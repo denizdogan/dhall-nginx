@@ -1,11 +1,7 @@
-let List/map = https://prelude.dhall-lang.org/List/map.dhall
-
 let Text/concatSep = https://prelude.dhall-lang.org/Text/concatSep.dhall
 
 let List/unpackOptionals =
       https://prelude.dhall-lang.org/List/unpackOptionals.dhall
-
-let indent = ../../../utils/indent.dhall
 
 let accept_mutex = ../accept_mutex/schema.dhall
 

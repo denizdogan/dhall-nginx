@@ -5,9 +5,9 @@ let List/unpackOptionals =
 
 let Optional/map = https://prelude.dhall-lang.org/Optional/map.dhall
 
-let List/map = https://prelude.dhall-lang.org/List/map.dhall
-
 let indent = ../../../utils/indent.dhall
+
+let optList = ../../../utils/optList.dhall
 
 let if_modified_since = ../if_modified_since/schema.dhall
 
@@ -56,9 +56,8 @@ let make =
                 c.fastcgi_intercept_errors
 
         let fastcgi_params =
-              List/map
+              optList
                 fastcgi_param.Type
-                Text
                 (fastcgi_param.make (n + 2))
                 c.fastcgi_param
 
@@ -72,11 +71,7 @@ let make =
         let index = Optional/map index.Type Text (index.make (n + 2)) c.index
 
         let log_formats =
-              List/map
-                log_format.Type
-                Text
-                (log_format.make (n + 2))
-                c.log_format
+              optList log_format.Type (log_format.make (n + 2)) c.log_format
 
         let log_not_found =
               Optional/map
@@ -85,31 +80,33 @@ let make =
                 (log_not_found.make (n + 2))
                 c.log_not_found
 
-        let map = List/map map.Type Text (map.make (n + 2)) c.map
+        let map = optList map.Type (map.make (n + 2)) c.map
 
         let sendfile =
               Optional/map sendfile.Type Text (sendfile.make (n + 2)) c.sendfile
 
-        let server = List/map server.Type Text (server.make (n + 2)) c.server
+        let server = optList server.Type (server.make (n + 2)) c.server
 
         let types = Optional/map types.Type Text (types.make (n + 2)) c.types
 
-        let upstream =
-              List/map upstream.Type Text (upstream.make (n + 2)) c.upstream
+        let upstream = optList upstream.Type (upstream.make (n + 2)) c.upstream
 
         let directives =
-                List/unpackOptionals
-                  Text
-                  [ default_type, fastcgi_intercept_errors ]
-              # fastcgi_params
-              # List/unpackOptionals Text [ if_modified_since, index ]
-              # log_formats
-              # List/unpackOptionals Text [ log_not_found ]
-              # map
-              # List/unpackOptionals Text [ sendfile ]
-              # server
-              # List/unpackOptionals Text [ types ]
-              # upstream
+              List/unpackOptionals
+                Text
+                [ default_type
+                , fastcgi_intercept_errors
+                , fastcgi_params
+                , if_modified_since
+                , index
+                , log_formats
+                , log_not_found
+                , map
+                , sendfile
+                , server
+                , types
+                , upstream
+                ]
 
         in  Text/concatSep
               "\n"
