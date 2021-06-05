@@ -29,6 +29,8 @@ let msie_padding = ../msie_padding/schema.dhall
 
 let modifier = ./modifier.dhall
 
+let fastcgi_param = ../../ngx_http_fastcgi_module/fastcgi_param/schema.dhall
+
 let fastcgi_pass = ../../ngx_http_fastcgi_module/fastcgi_pass/schema.dhall
 
 let fastcgi_intercept_errors =
@@ -39,6 +41,13 @@ let make =
       λ(c : type) →
         let default_type =
               Optional/map Text Text (default_type.make (n + 2)) c.default_type
+
+        let fastcgi_params =
+              List/map
+                fastcgi_param.Type
+                Text
+                (fastcgi_param.make (n + 2))
+                c.fastcgi_param
 
         let index = Optional/map index.Type Text (index.make (n + 2)) c.index
 
@@ -73,17 +82,19 @@ let make =
                 c.fastcgi_intercept_errors
 
         let directives =
-              List/unpackOptionals
-                Text
-                [ default_type
-                , fastcgi_intercept_errors
-                , fastcgi_pass
-                , index
-                , log_not_found
-                , log_subrequest
-                , max_ranges
-                , msie_padding
-                ]
+                List/unpackOptionals
+                  Text
+                  [ default_type, fastcgi_intercept_errors ]
+              # fastcgi_params
+              # List/unpackOptionals
+                  Text
+                  [ fastcgi_pass
+                  , index
+                  , log_not_found
+                  , log_subrequest
+                  , max_ranges
+                  , msie_padding
+                  ]
 
         let nameOrUri =
               merge

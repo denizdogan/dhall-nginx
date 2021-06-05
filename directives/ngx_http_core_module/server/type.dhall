@@ -2,6 +2,7 @@
 , default_type : Optional ../default_type/type.dhall
 , fastcgi_intercept_errors :
     Optional ../../ngx_http_fastcgi_module/fastcgi_intercept_errors/type.dhall
+, fastcgi_param : List ../../ngx_http_fastcgi_module/fastcgi_param/type.dhall
 , index : Optional ../../ngx_http_index_module/index/type.dhall
 , location : List ../location/type.dhall
 , log_not_found : Optional ../log_not_found/type.dhall

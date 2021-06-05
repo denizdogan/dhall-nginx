@@ -16,6 +16,8 @@ let default_type = ../default_type/schema.dhall
 let fastcgi_intercept_errors =
       ../../ngx_http_fastcgi_module/fastcgi_intercept_errors/schema.dhall
 
+let fastcgi_param = ../../ngx_http_fastcgi_module/fastcgi_param/schema.dhall
+
 let location = ../location/schema.dhall
 
 let log_not_found = ../log_not_found/schema.dhall
@@ -56,6 +58,13 @@ let make =
                 (fastcgi_intercept_errors.make (n + 2))
                 c.fastcgi_intercept_errors
 
+        let fastcgi_params =
+              List/map
+                fastcgi_param.Type
+                Text
+                (fastcgi_param.make (n + 2))
+                c.fastcgi_param
+
         let index = Optional/map index.Type Text (index.make (n + 2)) c.index
 
         let location =
@@ -80,7 +89,9 @@ let make =
         let directives =
                 List/unpackOptionals
                   Text
-                  [ access_log, default_type, fastcgi_intercept_errors, index ]
+                  [ access_log, default_type, fastcgi_intercept_errors ]
+              # fastcgi_params
+              # List/unpackOptionals Text [ index ]
               # location
               # List/unpackOptionals
                   Text

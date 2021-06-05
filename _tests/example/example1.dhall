@@ -63,6 +63,12 @@ let config =
             , location =
               [ ng.location::{
                 , default_type = Some "text/html"
+                , fastcgi_param =
+                  [ ng.fastcgi_param::{
+                    , parameter = "SCRIPT_FILENAME"
+                    , value = "\$document_root\$fastcgi_script_name"
+                    }
+                  ]
                 , fastcgi_pass = Some "unix:/tmp/fastcgi.socket"
                 , index = Some ng.index::{ files = [ "foobar.html" ] }
                 , log_not_found = Some True
