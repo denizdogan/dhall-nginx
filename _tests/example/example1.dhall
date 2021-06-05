@@ -61,6 +61,7 @@ let config =
             , location =
               [ ng.location::{
                 , default_type = Some "text/html"
+                , fastcgi_pass = Some "unix:/tmp/fastcgi.socket"
                 , index = Some ng.index::{ files = [ "foobar.html" ] }
                 , log_not_found = Some True
                 , log_subrequest = Some True

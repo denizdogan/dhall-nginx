@@ -5,6 +5,8 @@ let List/unpackOptionals =
 
 let Optional/map = https://prelude.dhall-lang.org/Optional/map.dhall
 
+let List/map = https://prelude.dhall-lang.org/List/map.dhall
+
 let Optional/default = https://prelude.dhall-lang.org/Optional/default.dhall
 
 let type = ./type.dhall
@@ -26,6 +28,8 @@ let max_ranges = ../max_ranges/schema.dhall
 let msie_padding = ../msie_padding/schema.dhall
 
 let modifier = ./modifier.dhall
+
+let fastcgi_pass = ../../ngx_http_fastcgi_module/fastcgi_pass/schema.dhall
 
 let make =
       λ(n : Natural) →
@@ -55,10 +59,14 @@ let make =
         let msie_padding =
               Optional/map Bool Text (msie_padding.make (n + 2)) c.msie_padding
 
+        let fastcgi_pass =
+              Optional/map Text Text (fastcgi_pass.make (n + 2)) c.fastcgi_pass
+
         let directives =
               List/unpackOptionals
                 Text
                 [ default_type
+                , fastcgi_pass
                 , index
                 , log_not_found
                 , log_subrequest
