@@ -2,6 +2,7 @@
 , http = ./http/package.dhall
 , if_modified_since = ./if_modified_since/package.dhall
 , location = ./location/package.dhall
+, log_not_found = ./log_not_found/package.dhall
 , log_subrequest = ./log_subrequest/package.dhall
 , max_ranges = ./max_ranges/package.dhall
 , msie_padding = ./msie_padding/package.dhall
