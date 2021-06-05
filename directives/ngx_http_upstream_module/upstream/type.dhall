@@ -1,1 +1,1 @@
-{ name : Text, servers : List ../server/type.dhall }
+{ name : Text, server : List ../server/type.dhall }

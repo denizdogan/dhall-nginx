@@ -43,9 +43,9 @@ let config =
         , index = Some ng.index::{ files = [ "index.html", "index.php" ] }
         , log_format = [ myLogger, jsonLogger ]
         , log_not_found = Some False
-        , maps = [ mapLoggable ]
+        , map = [ mapLoggable ]
         , sendfile = Some True
-        , servers =
+        , server =
           [ ng.server::{
             , access_log = Some ng.access_log::{
               , buffer = Some (ng.Size.kilobytes 1024)
@@ -93,10 +93,10 @@ let config =
           ]
         , types = Some (toMap { fruits = [ "apple", "banana" ] })
         , default_type = Some "text/html"
-        , upstreams =
+        , upstream =
           [ ng.upstream::{
             , name = "django"
-            , servers =
+            , server =
               [ ng.upstream.server::{
                 , address = "localhost"
                 , fail_timeout = Some ng.Interval::{ minutes = Some 4 }

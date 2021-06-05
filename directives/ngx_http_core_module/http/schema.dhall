@@ -66,17 +66,17 @@ let make =
                 (log_not_found.make (n + 2))
                 c.log_not_found
 
-        let maps = List/map map.Type Text (map.make (n + 2)) c.maps
+        let map = List/map map.Type Text (map.make (n + 2)) c.map
 
         let sendfile =
               Optional/map sendfile.Type Text (sendfile.make (n + 2)) c.sendfile
 
-        let servers = List/map server.Type Text (server.make (n + 2)) c.servers
+        let server = List/map server.Type Text (server.make (n + 2)) c.server
 
         let types = Optional/map types.Type Text (types.make (n + 2)) c.types
 
-        let upstreams =
-              List/map upstream.Type Text (upstream.make (n + 2)) c.upstreams
+        let upstream =
+              List/map upstream.Type Text (upstream.make (n + 2)) c.upstream
 
         let directives =
                 List/unpackOptionals
@@ -84,11 +84,11 @@ let make =
                   [ default_type, if_modified_since, index ]
               # log_formats
               # List/unpackOptionals Text [ log_not_found ]
-              # maps
+              # map
               # List/unpackOptionals Text [ sendfile ]
-              # servers
+              # server
               # List/unpackOptionals Text [ types ]
-              # upstreams
+              # upstream
 
         in  Text/concatSep
               "\n"

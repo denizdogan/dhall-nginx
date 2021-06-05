@@ -14,7 +14,7 @@ let make =
       λ(n : Natural) →
       λ(c : type) →
         let directives =
-              List/map server.Type Text (server.make (n + 2)) c.servers
+              List/map server.Type Text (server.make (n + 2)) c.server
 
         in  Text/concatSep
               "\n"

@@ -1,1 +1,1 @@
-{ servers = [] : List ../server/type.dhall }
+{ server = [] : List ../server/type.dhall }
