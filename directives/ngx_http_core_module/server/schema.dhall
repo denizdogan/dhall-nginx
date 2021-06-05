@@ -1,13 +1,13 @@
 let Text/concatSep = https://prelude.dhall-lang.org/Text/concatSep.dhall
 
-let List/map = https://prelude.dhall-lang.org/List/map.dhall
-
 let Optional/map = https://prelude.dhall-lang.org/Optional/map.dhall
 
 let List/unpackOptionals =
       https://prelude.dhall-lang.org/List/unpackOptionals.dhall
 
 let indent = ../../../utils/indent.dhall
+
+let optList = ../../../utils/optList.dhall
 
 let access_log = ../../ngx_http_log_module/access_log/schema.dhall
 
@@ -61,16 +61,14 @@ let make =
                 c.fastcgi_intercept_errors
 
         let fastcgi_params =
-              List/map
+              optList
                 fastcgi_param.Type
-                Text
                 (fastcgi_param.make (n + 2))
                 c.fastcgi_param
 
         let index = Optional/map index.Type Text (index.make (n + 2)) c.index
 
-        let location =
-              List/map location.Type Text (location.make (n + 2)) c.location
+        let location = optList location.Type (location.make (n + 2)) c.location
 
         let log_not_found =
               Optional/map
@@ -96,15 +94,20 @@ let make =
                 c.try_files
 
         let directives =
-                List/unpackOptionals
-                  Text
-                  [ access_log, default_type, fastcgi_intercept_errors ]
-              # fastcgi_params
-              # List/unpackOptionals Text [ index ]
-              # location
-              # List/unpackOptionals
-                  Text
-                  [ log_not_found, root, server_name, tcp_nodelay, try_files ]
+              List/unpackOptionals
+                Text
+                [ access_log
+                , default_type
+                , fastcgi_intercept_errors
+                , fastcgi_params
+                , index
+                , location
+                , log_not_found
+                , root
+                , server_name
+                , tcp_nodelay
+                , try_files
+                ]
 
         in  Text/concatSep
               "\n"

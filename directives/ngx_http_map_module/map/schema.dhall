@@ -5,11 +5,11 @@ let List/unpackOptionals =
 
 let Optional/map = https://prelude.dhall-lang.org/Optional/map.dhall
 
-let List/map = https://prelude.dhall-lang.org/List/map.dhall
-
 let Entry = https://prelude.dhall-lang.org/Map/Entry.dhall
 
 let indent = ../../../utils/indent.dhall
+
+let optList = ../../../utils/optList.dhall
 
 let type = ./type.dhall
 
@@ -40,21 +40,22 @@ let make =
               else  None Text
 
         let entries =
-              List/map
+              optList
                 (Entry Text Text)
-                Text
                 ( λ(before : Entry Text Text) →
                     indent (n + 2) "${before.mapKey} ${before.mapValue};"
                 )
                 c.entries
 
         let directives =
-              List/unpackOptionals Text [ hostnames, volatile, default ]
+              List/unpackOptionals
+                Text
+                [ hostnames, volatile, default, entries ]
 
         in  Text/concatSep
               "\n"
               [ indent n "map \$${variable} \$${name} {"
-              , Text/concatSep "\n" (directives # entries)
+              , Text/concatSep "\n" directives
               , indent n "}"
               ]
 

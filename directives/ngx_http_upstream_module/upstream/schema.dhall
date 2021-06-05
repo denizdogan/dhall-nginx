@@ -23,6 +23,4 @@ let make =
               , indent n "}"
               ]
 
-let makeMany = λ(n : Natural) → λ(c : List type) → List/map type Text (make n) c
-
-in  { Type = type, default, make, makeMany, server }
+in  { Type = type, default, make, server }

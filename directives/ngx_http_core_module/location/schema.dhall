@@ -5,8 +5,6 @@ let List/unpackOptionals =
 
 let Optional/map = https://prelude.dhall-lang.org/Optional/map.dhall
 
-let List/map = https://prelude.dhall-lang.org/List/map.dhall
-
 let Optional/default = https://prelude.dhall-lang.org/Optional/default.dhall
 
 let type = ./type.dhall
@@ -14,6 +12,8 @@ let type = ./type.dhall
 let default = ./default.dhall
 
 let indent = ../../../utils/indent.dhall
+
+let optList = ../../../utils/optList.dhall
 
 let default_type = ../default_type/schema.dhall
 
@@ -45,9 +45,8 @@ let make =
               Optional/map Text Text (default_type.make (n + 2)) c.default_type
 
         let fastcgi_params =
-              List/map
+              optList
                 fastcgi_param.Type
-                Text
                 (fastcgi_param.make (n + 2))
                 c.fastcgi_param
 
@@ -91,20 +90,19 @@ let make =
                 c.fastcgi_intercept_errors
 
         let directives =
-                List/unpackOptionals
-                  Text
-                  [ default_type, fastcgi_intercept_errors ]
-              # fastcgi_params
-              # List/unpackOptionals
-                  Text
-                  [ fastcgi_pass
-                  , index
-                  , log_not_found
-                  , log_subrequest
-                  , max_ranges
-                  , msie_padding
-                  , try_files
-                  ]
+              List/unpackOptionals
+                Text
+                [ default_type
+                , fastcgi_intercept_errors
+                , fastcgi_params
+                , fastcgi_pass
+                , index
+                , log_not_found
+                , log_subrequest
+                , max_ranges
+                , msie_padding
+                , try_files
+                ]
 
         let nameOrUri =
               merge
