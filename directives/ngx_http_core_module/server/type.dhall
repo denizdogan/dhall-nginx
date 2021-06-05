@@ -9,4 +9,5 @@
 , root : Optional ../../ngx_http_core_module/root/type.dhall
 , server_name : ../server_name/type.dhall
 , tcp_nodelay : Optional ../tcp_nodelay/type.dhall
+, try_files : Optional ../try_files/type.dhall
 }

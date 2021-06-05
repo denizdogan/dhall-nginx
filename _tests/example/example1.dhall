@@ -75,6 +75,10 @@ let config =
                 , log_subrequest = Some True
                 , max_ranges = Some 512
                 , modifier = ng.location.modifier.exact
+                , try_files = Some ng.try_files::{
+                  , files = [ "foo", "bar" ]
+                  , uri = "=404"
+                  }
                 , uri = Some "/"
                 }
               , ng.location::{
@@ -98,6 +102,10 @@ let config =
             , root = Some "/var/root"
             , server_name = [ "hello.net", "there.com" ]
             , tcp_nodelay = Some True
+            , try_files = Some ng.try_files::{
+              , files = [ "index.html", "test.php" ]
+              , uri = "/foo"
+              }
             }
           ]
         , types = Some (toMap { fruits = [ "apple", "banana" ] })

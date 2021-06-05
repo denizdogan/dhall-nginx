@@ -28,6 +28,8 @@ let server_name = ../server_name/schema.dhall
 
 let tcp_nodelay = ../tcp_nodelay/schema.dhall
 
+let try_files = ../try_files/schema.dhall
+
 let index = ../../ngx_http_index_module/index/schema.dhall
 
 let type = ./type.dhall
@@ -86,6 +88,13 @@ let make =
 
         let tcp_nodelay = tcp_nodelay.opt (n + 2) c.tcp_nodelay
 
+        let try_files =
+              Optional/map
+                try_files.Type
+                Text
+                (try_files.make (n + 2))
+                c.try_files
+
         let directives =
                 List/unpackOptionals
                   Text
@@ -95,7 +104,7 @@ let make =
               # location
               # List/unpackOptionals
                   Text
-                  [ log_not_found, root, server_name, tcp_nodelay ]
+                  [ log_not_found, root, server_name, tcp_nodelay, try_files ]
 
         in  Text/concatSep
               "\n"

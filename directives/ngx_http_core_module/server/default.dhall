@@ -10,4 +10,5 @@
 , root = None ../../ngx_http_core_module/root/type.dhall
 , server_name = ../server_name/type.dhall
 , tcp_nodelay = ../tcp_nodelay/type.dhall
+, try_files = None ../try_files/type.dhall
 }

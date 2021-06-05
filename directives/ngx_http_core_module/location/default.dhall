@@ -13,5 +13,6 @@ in  { default_type = None ../default_type/type.dhall
     , modifier = modifier.prefix
     , msie_padding = None ../msie_padding/type.dhall
     , name = None Text
+    , try_files = None ../try_files/type.dhall
     , uri = None Text
     }

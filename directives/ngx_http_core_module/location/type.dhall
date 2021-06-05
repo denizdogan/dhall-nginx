@@ -10,5 +10,6 @@
 , modifier : ./modifier.dhall
 , msie_padding : Optional ../msie_padding/type.dhall
 , name : Optional Text
+, try_files : Optional ../try_files/type.dhall
 , uri : Optional Text
 }

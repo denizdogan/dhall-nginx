@@ -27,6 +27,8 @@ let max_ranges = ../max_ranges/schema.dhall
 
 let msie_padding = ../msie_padding/schema.dhall
 
+let try_files = ../try_files/schema.dhall
+
 let modifier = ./modifier.dhall
 
 let fastcgi_param = ../../ngx_http_fastcgi_module/fastcgi_param/schema.dhall
@@ -74,6 +76,13 @@ let make =
         let fastcgi_pass =
               Optional/map Text Text (fastcgi_pass.make (n + 2)) c.fastcgi_pass
 
+        let try_files =
+              Optional/map
+                try_files.Type
+                Text
+                (try_files.make (n + 2))
+                c.try_files
+
         let fastcgi_intercept_errors =
               Optional/map
                 Bool
@@ -94,6 +103,7 @@ let make =
                   , log_subrequest
                   , max_ranges
                   , msie_padding
+                  , try_files
                   ]
 
         let nameOrUri =

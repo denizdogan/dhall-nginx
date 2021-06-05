@@ -10,5 +10,6 @@
 , server = ./server/package.dhall
 , server_name = ./server_name/package.dhall
 , tcp_nodelay = ./tcp_nodelay/package.dhall
+, try_files = ./try_files/package.dhall
 , types = ./types/package.dhall
 }
