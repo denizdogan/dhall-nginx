@@ -1,6 +1,9 @@
 let modifier = ./modifier.dhall
 
-in  { default_type = None ../default_type/type.dhall
+in  { add_header = [] : List ../../ngx_http_headers_module/add_header/type.dhall
+    , add_trailer =
+        [] : List ../../ngx_http_headers_module/add_trailer/type.dhall
+    , default_type = None ../default_type/type.dhall
     , fastcgi_intercept_errors =
         None ../../ngx_http_fastcgi_module/fastcgi_intercept_errors/type.dhall
     , fastcgi_param =

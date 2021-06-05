@@ -39,6 +39,9 @@ let config =
         , worker_connections = Some 1024
         }
       , http = Some ng.http::{
+        , add_header =
+          [ ng.add_header::{ name = "X-Foo", value = "Bar", always = True } ]
+        , add_trailer = [ ng.add_trailer::{ name = "X-Baz", value = "Qux" } ]
         , fastcgi_intercept_errors = Some False
         , if_modified_since = Some ng.if_modified_since.exact
         , index = Some ng.index::{ files = [ "index.html", "index.php" ] }
@@ -62,6 +65,15 @@ let config =
             , index = Some ng.index::{ files = [ "other.htm" ] }
             , location =
               [ ng.location::{
+                , add_header =
+                  [ ng.add_header::{
+                    , name = "X-Country"
+                    , value = "Sweden"
+                    , always = True
+                    }
+                  ]
+                , add_trailer =
+                  [ ng.add_trailer::{ name = "X-Continent", value = "Europe" } ]
                 , default_type = Some "text/html"
                 , fastcgi_param =
                       [ ng.fastcgi_param::{

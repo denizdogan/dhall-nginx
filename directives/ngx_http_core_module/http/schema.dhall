@@ -11,6 +11,10 @@ let optList = ../../../utils/optList.dhall
 
 let if_modified_since = ../if_modified_since/schema.dhall
 
+let add_header = ../../ngx_http_headers_module/add_header/schema.dhall
+
+let add_trailer = ../../ngx_http_headers_module/add_trailer/schema.dhall
+
 let index = ../../ngx_http_index_module/index/schema.dhall
 
 let log_not_found = ../log_not_found/schema.dhall
@@ -41,6 +45,12 @@ let default = ./default.dhall
 let make =
       λ(n : Natural) →
       λ(c : type) →
+        let add_header =
+              optList add_header.Type (add_header.make (n + 2)) c.add_header
+
+        let add_trailer =
+              optList add_trailer.Type (add_trailer.make (n + 2)) c.add_trailer
+
         let default_type =
               Optional/map
                 default_type.Type
@@ -94,7 +104,9 @@ let make =
         let directives =
               List/unpackOptionals
                 Text
-                [ default_type
+                [ add_header
+                , add_trailer
+                , default_type
                 , fastcgi_intercept_errors
                 , fastcgi_params
                 , if_modified_since

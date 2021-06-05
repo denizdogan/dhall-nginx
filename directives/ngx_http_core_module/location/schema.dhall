@@ -15,6 +15,10 @@ let indent = ../../../utils/indent.dhall
 
 let optList = ../../../utils/optList.dhall
 
+let add_header = ../../ngx_http_headers_module/add_header/schema.dhall
+
+let add_trailer = ../../ngx_http_headers_module/add_trailer/schema.dhall
+
 let default_type = ../default_type/schema.dhall
 
 let index = ../../ngx_http_index_module/index/schema.dhall
@@ -41,6 +45,12 @@ let fastcgi_intercept_errors =
 let make =
       λ(n : Natural) →
       λ(c : type) →
+        let add_header =
+              optList add_header.Type (add_header.make (n + 2)) c.add_header
+
+        let add_trailer =
+              optList add_trailer.Type (add_trailer.make (n + 2)) c.add_trailer
+
         let default_type =
               Optional/map Text Text (default_type.make (n + 2)) c.default_type
 
@@ -92,7 +102,9 @@ let make =
         let directives =
               List/unpackOptionals
                 Text
-                [ default_type
+                [ add_header
+                , add_trailer
+                , default_type
                 , fastcgi_intercept_errors
                 , fastcgi_params
                 , fastcgi_pass
