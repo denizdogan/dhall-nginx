@@ -52,16 +52,24 @@ let config =
               , gzip = Some True
               , gzipLevel = Some 9
               , `if` = Some "\$loggable"
-              , path = Some "foo/bar.log"
+              , path = Some "/tmp/bar.log"
               }
             , default_type = Some "foobar"
             , location =
               [ ng.location::{
+                , default_type = Some "text/html"
+                , log_subrequest = Some True
+                , max_ranges = Some 512
+                , modifier = ng.location.modifier.exact
+                , uri = Some "/"
+                }
+              , ng.location::{
                 , default_type = Some "foo"
                 , log_subrequest = Some True
                 , max_ranges = Some 512
                 , msie_padding = Some False
-                , uri = Some "/foo"
+                , modifier = ng.location.modifier.regexCaseInsensitive
+                , uri = Some "^/users/(.+\\.(?:gif|jpe?g|png))\$"
                 }
               , ng.location::{
                 , default_type = Some "bar"
@@ -91,7 +99,10 @@ let config =
           ]
         }
       , pid = Some "pidfile"
-      , error_log = Some ng.error_log::{ level = Some ng.LogLevel.warn }
+      , error_log = Some ng.error_log::{
+        , file = "/tmp/error.log"
+        , level = Some ng.LogLevel.warn
+        }
       }
 
 in  ng.config.make 0 config

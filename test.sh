@@ -19,5 +19,5 @@ for filename in _tests/**/*.dhall; do
   fi
 
   # verify that nginx accepts the configuration
-  nginx -c "$(realpath $expected_filename)" -t
+  nginx -c "$(realpath $expected_filename)" -t -q
 done

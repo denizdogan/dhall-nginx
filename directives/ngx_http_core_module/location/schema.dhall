@@ -21,6 +21,8 @@ let max_ranges = ../max_ranges/schema.dhall
 
 let msie_padding = ../msie_padding/schema.dhall
 
+let modifier = ./modifier.dhall
+
 let make =
       λ(n : Natural) →
       λ(c : type) →
@@ -48,7 +50,18 @@ let make =
         let nameOrUri =
               merge
                 { Some = λ(n : Text) → "@" ++ n
-                , None = Optional/default Text "" c.uri
+                , None =
+                    let modif =
+                          merge
+                            { exact = "= "
+                            , regexCaseSensitive = "~ "
+                            , regexCaseInsensitive = "~* "
+                            , regexPrefix = "^~ "
+                            , prefix = ""
+                            }
+                            c.modifier
+
+                    in  "${modif}${Optional/default Text "" c.uri}"
                 }
                 c.name
 
@@ -59,4 +72,4 @@ let make =
               , indent n "}"
               ]
 
-in  { Type = type, default, make }
+in  { Type = type, default, make, modifier }
