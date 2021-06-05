@@ -27,6 +27,8 @@ let types = ../types/schema.dhall
 
 let default_type = ../default_type/schema.dhall
 
+let expires = ../../ngx_http_headers_module/expires/schema.dhall
+
 let fastcgi_intercept_errors =
       ../../ngx_http_fastcgi_module/fastcgi_intercept_errors/schema.dhall
 
@@ -57,6 +59,9 @@ let make =
                 Text
                 (default_type.make (n + 2))
                 c.default_type
+
+        let expires =
+              Optional/map expires.Type Text (expires.make (n + 2)) c.expires
 
         let fastcgi_intercept_errors =
               Optional/map
@@ -107,6 +112,7 @@ let make =
                 [ add_header
                 , add_trailer
                 , default_type
+                , expires
                 , fastcgi_intercept_errors
                 , fastcgi_params
                 , if_modified_since

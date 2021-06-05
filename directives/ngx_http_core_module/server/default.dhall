@@ -1,5 +1,6 @@
 { access_log = None ../../ngx_http_log_module/access_log/type.dhall
 , default_type = None ../default_type/type.dhall
+, expires = None ../../ngx_http_headers_module/expires/type.dhall
 , fastcgi_intercept_errors =
     None ../../ngx_http_fastcgi_module/fastcgi_intercept_errors/type.dhall
 , fastcgi_param =

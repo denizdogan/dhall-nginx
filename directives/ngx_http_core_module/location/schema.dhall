@@ -21,6 +21,8 @@ let add_trailer = ../../ngx_http_headers_module/add_trailer/schema.dhall
 
 let default_type = ../default_type/schema.dhall
 
+let expires = ../../ngx_http_headers_module/expires/schema.dhall
+
 let index = ../../ngx_http_index_module/index/schema.dhall
 
 let log_not_found = ../log_not_found/schema.dhall
@@ -53,6 +55,9 @@ let make =
 
         let default_type =
               Optional/map Text Text (default_type.make (n + 2)) c.default_type
+
+        let expires =
+              Optional/map expires.Type Text (expires.make (n + 2)) c.expires
 
         let fastcgi_params =
               optList
@@ -105,6 +110,7 @@ let make =
                 [ add_header
                 , add_trailer
                 , default_type
+                , expires
                 , fastcgi_intercept_errors
                 , fastcgi_params
                 , fastcgi_pass

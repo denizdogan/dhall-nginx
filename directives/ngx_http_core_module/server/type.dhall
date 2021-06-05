@@ -1,5 +1,6 @@
 { access_log : Optional ../../ngx_http_log_module/access_log/type.dhall
 , default_type : Optional ../default_type/type.dhall
+, expires : Optional ../../ngx_http_headers_module/expires/type.dhall
 , fastcgi_intercept_errors :
     Optional ../../ngx_http_fastcgi_module/fastcgi_intercept_errors/type.dhall
 , fastcgi_param : List ../../ngx_http_fastcgi_module/fastcgi_param/type.dhall
