@@ -22,14 +22,18 @@ let make =
       λ(c : type) →
         let accept_mutex =
               merge
-                { Some = λ(x : accept_mutex.Type) → Some (accept_mutex.make x)
+                { Some =
+                    λ(x : accept_mutex.Type) →
+                      Some (accept_mutex.make (n + 2) x)
                 , None = None Text
                 }
                 c.accept_mutex
 
         let multi_accept =
               merge
-                { Some = λ(x : multi_accept.Type) → Some (multi_accept.make x)
+                { Some =
+                    λ(x : multi_accept.Type) →
+                      Some (multi_accept.make (n + 2) x)
                 , None = None Text
                 }
                 c.multi_accept
@@ -38,24 +42,20 @@ let make =
               merge
                 { Some =
                     λ(x : worker_connections.Type) →
-                      Some (worker_connections.make x)
+                      Some (worker_connections.make (n + 2) x)
                 , None = None Text
                 }
                 c.worker_connections
 
-        let directives = [ accept_mutex, multi_accept, worker_connections ]
-
-        let indented =
-              List/map
+        let directives =
+              List/unpackOptionals
                 Text
-                Text
-                (indent (n + 2))
-                (List/unpackOptionals Text directives)
+                [ accept_mutex, multi_accept, worker_connections ]
 
         in      ''
                 events {
                 ''
-            ++  Text/concatSep "\n" indented
+            ++  Text/concatSep "\n" directives
             ++  ''
 
                 }''
