@@ -11,5 +11,6 @@ in      { config = ./main.dhall
         , Size = size.Size
         , LogLevel
         , Escape
+        , helpers = ./utils/helpers/package.dhall
         }
     /\  ./directives/package.dhall

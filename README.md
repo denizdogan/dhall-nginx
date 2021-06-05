@@ -12,6 +12,10 @@ See [example 1](./_tests/example/example1.dhall) and its accompanying [.conf fil
 $ dhall text --file config.dhall
 ```
 
+## Documentation
+
+- A Dhall version of the default `/etc/nginx/fastcgi_params` has been included in [utils/fastcgi_params.dhall](./utils/fastcgi_params.dhall).
+
 ## Missing features
 
 - **Help wanted:** No nested `location` blocks because [recursion is hard in Dhall](https://docs.dhall-lang.org/howtos/How-to-translate-recursive-code-to-Dhall.html), and [named locations cannot have sub-location blocks](https://nginx.org/en/docs/http/ngx_http_core_module.html#location), making it even harder.
