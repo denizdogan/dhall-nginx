@@ -23,6 +23,9 @@ let types = ../types/schema.dhall
 
 let default_type = ../default_type/schema.dhall
 
+let fastcgi_intercept_errors =
+      ../../ngx_http_fastcgi_module/fastcgi_intercept_errors/schema.dhall
+
 let log_format = ../../ngx_http_log_module/log_format/schema.dhall
 
 let map = ../../ngx_http_map_module/map/schema.dhall
@@ -42,6 +45,13 @@ let make =
                 Text
                 (default_type.make (n + 2))
                 c.default_type
+
+        let fastcgi_intercept_errors =
+              Optional/map
+                Bool
+                Text
+                (fastcgi_intercept_errors.make (n + 2))
+                c.fastcgi_intercept_errors
 
         let if_modified_since =
               Optional/map
@@ -81,7 +91,11 @@ let make =
         let directives =
                 List/unpackOptionals
                   Text
-                  [ default_type, if_modified_since, index ]
+                  [ default_type
+                  , fastcgi_intercept_errors
+                  , if_modified_since
+                  , index
+                  ]
               # log_formats
               # List/unpackOptionals Text [ log_not_found ]
               # map

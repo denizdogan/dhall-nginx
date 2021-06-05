@@ -31,6 +31,9 @@ let modifier = ./modifier.dhall
 
 let fastcgi_pass = ../../ngx_http_fastcgi_module/fastcgi_pass/schema.dhall
 
+let fastcgi_intercept_errors =
+      ../../ngx_http_fastcgi_module/fastcgi_intercept_errors/schema.dhall
+
 let make =
       λ(n : Natural) →
       λ(c : type) →
@@ -62,10 +65,18 @@ let make =
         let fastcgi_pass =
               Optional/map Text Text (fastcgi_pass.make (n + 2)) c.fastcgi_pass
 
+        let fastcgi_intercept_errors =
+              Optional/map
+                Bool
+                Text
+                (fastcgi_intercept_errors.make (n + 2))
+                c.fastcgi_intercept_errors
+
         let directives =
               List/unpackOptionals
                 Text
                 [ default_type
+                , fastcgi_intercept_errors
                 , fastcgi_pass
                 , index
                 , log_not_found

@@ -13,6 +13,9 @@ let access_log = ../../ngx_http_log_module/access_log/schema.dhall
 
 let default_type = ../default_type/schema.dhall
 
+let fastcgi_intercept_errors =
+      ../../ngx_http_fastcgi_module/fastcgi_intercept_errors/schema.dhall
+
 let location = ../location/schema.dhall
 
 let log_not_found = ../log_not_found/schema.dhall
@@ -46,6 +49,13 @@ let make =
                 (default_type.make (n + 2))
                 c.default_type
 
+        let fastcgi_intercept_errors =
+              Optional/map
+                Bool
+                Text
+                (fastcgi_intercept_errors.make (n + 2))
+                c.fastcgi_intercept_errors
+
         let index = Optional/map index.Type Text (index.make (n + 2)) c.index
 
         let location =
@@ -68,7 +78,9 @@ let make =
         let tcp_nodelay = tcp_nodelay.opt (n + 2) c.tcp_nodelay
 
         let directives =
-                List/unpackOptionals Text [ access_log, default_type, index ]
+                List/unpackOptionals
+                  Text
+                  [ access_log, default_type, fastcgi_intercept_errors, index ]
               # location
               # List/unpackOptionals
                   Text

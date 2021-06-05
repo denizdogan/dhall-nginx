@@ -39,6 +39,7 @@ let config =
         , worker_connections = Some 1024
         }
       , http = Some ng.http::{
+        , fastcgi_intercept_errors = Some False
         , if_modified_since = Some ng.if_modified_since.exact
         , index = Some ng.index::{ files = [ "index.html", "index.php" ] }
         , log_format = [ myLogger, jsonLogger ]
@@ -57,6 +58,7 @@ let config =
               , path = Some "/tmp/bar.log"
               }
             , default_type = Some "foobar"
+            , fastcgi_intercept_errors = Some True
             , index = Some ng.index::{ files = [ "other.htm" ] }
             , location =
               [ ng.location::{
@@ -71,6 +73,7 @@ let config =
                 }
               , ng.location::{
                 , default_type = Some "foo"
+                , fastcgi_intercept_errors = Some True
                 , log_subrequest = Some True
                 , max_ranges = Some 512
                 , msie_padding = Some False
