@@ -21,6 +21,8 @@ let server_name = ../server_name/schema.dhall
 
 let tcp_nodelay = ../tcp_nodelay/schema.dhall
 
+let index = ../../ngx_http_index_module/index/schema.dhall
+
 let type = ./type.dhall
 
 let default = ./default.dhall
@@ -42,6 +44,8 @@ let make =
                 (default_type.make (n + 2))
                 c.default_type
 
+        let index = Optional/map index.Type Text (index.make (n + 2)) c.index
+
         let location =
               List/map location.Type Text (location.make (n + 2)) c.location
 
@@ -55,7 +59,7 @@ let make =
         let tcp_nodelay = tcp_nodelay.opt (n + 2) c.tcp_nodelay
 
         let directives =
-                List/unpackOptionals Text [ access_log, default_type ]
+                List/unpackOptionals Text [ access_log, default_type, index ]
               # location
               # List/unpackOptionals Text [ root, server_name, tcp_nodelay ]
 

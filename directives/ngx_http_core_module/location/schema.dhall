@@ -15,6 +15,8 @@ let indent = ../../../utils/indent.dhall
 
 let default_type = ../default_type/schema.dhall
 
+let index = ../../ngx_http_index_module/index/schema.dhall
+
 let log_subrequest = ../log_subrequest/schema.dhall
 
 let max_ranges = ../max_ranges/schema.dhall
@@ -28,6 +30,8 @@ let make =
       λ(c : type) →
         let default_type =
               Optional/map Text Text (default_type.make (n + 2)) c.default_type
+
+        let index = Optional/map index.Type Text (index.make (n + 2)) c.index
 
         let log_subrequest =
               Optional/map
@@ -45,7 +49,12 @@ let make =
         let directives =
               List/unpackOptionals
                 Text
-                [ default_type, log_subrequest, max_ranges, msie_padding ]
+                [ default_type
+                , index
+                , log_subrequest
+                , max_ranges
+                , msie_padding
+                ]
 
         let nameOrUri =
               merge

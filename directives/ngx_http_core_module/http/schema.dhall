@@ -11,6 +11,8 @@ let indent = ../../../utils/indent.dhall
 
 let if_modified_since = ../if_modified_since/schema.dhall
 
+let index = ../../ngx_http_index_module/index/schema.dhall
+
 let sendfile = ../sendfile/schema.dhall
 
 let server = ../server/schema.dhall
@@ -46,6 +48,8 @@ let make =
                 (if_modified_since.make (n + 2))
                 c.if_modified_since
 
+        let index = Optional/map index.Type Text (index.make (n + 2)) c.index
+
         let log_formats =
               List/map
                 log_format.Type
@@ -66,7 +70,9 @@ let make =
               List/map upstream.Type Text (upstream.make (n + 2)) c.upstreams
 
         let directives =
-                List/unpackOptionals Text [ default_type, if_modified_since ]
+                List/unpackOptionals
+                  Text
+                  [ default_type, if_modified_since, index ]
               # log_formats
               # maps
               # List/unpackOptionals Text [ sendfile ]

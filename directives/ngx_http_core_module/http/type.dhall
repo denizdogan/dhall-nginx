@@ -1,5 +1,6 @@
 { default_type : Optional ../default_type/type.dhall
 , if_modified_since : Optional ../if_modified_since/type.dhall
+, index : Optional ../../ngx_http_index_module/index/type.dhall
 , log_format : List ../../ngx_http_log_module/log_format/type.dhall
 , maps : List ../../ngx_http_map_module/map/type.dhall
 , sendfile : Optional ../sendfile/type.dhall
