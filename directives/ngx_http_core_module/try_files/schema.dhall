@@ -13,6 +13,6 @@ let make =
 
         let uri = value.uri
 
-        in  indent n "try_files ${files}${uri};"
+        in  indent n "try_files ${files} ${uri};"
 
 in  { Type = type, default, make }
