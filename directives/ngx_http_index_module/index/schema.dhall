@@ -9,6 +9,6 @@ let indent = ../../../utils/indent.dhall
 let make =
       λ(n : Natural) →
       λ(c : type) →
-        indent n ("index " ++ Text/concatSep " " c.files ++ ";")
+        indent n ("index " ++ Text/concatSep " " c ++ ";")
 
 in  { Type = type, default, make }

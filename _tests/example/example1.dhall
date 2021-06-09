@@ -44,7 +44,7 @@ let config =
         , add_trailer = [ ng.add_trailer::{ name = "X-Baz", value = "Qux" } ]
         , fastcgi_intercept_errors = Some False
         , if_modified_since = Some ng.if_modified_since.exact
-        , index = Some ng.index::{ files = [ "index.html", "index.php" ] }
+        , index = Some [ "index.html", "index.php" ]
         , log_format = [ myLogger, jsonLogger ]
         , log_not_found = Some False
         , map = [ mapLoggable ]
@@ -62,7 +62,7 @@ let config =
               }
             , default_type = Some "foobar"
             , fastcgi_intercept_errors = Some True
-            , index = Some ng.index::{ files = [ "other.htm" ] }
+            , index = Some [ "other.htm" ]
             , location =
               [ ng.location::{
                 , add_header =
@@ -83,7 +83,7 @@ let config =
                       ]
                     # ng.helpers.fastcgi_params
                 , fastcgi_pass = Some "unix:/tmp/fastcgi.socket"
-                , index = Some ng.index::{ files = [ "foobar.html" ] }
+                , index = Some [ "foobar.html" ]
                 , log_not_found = Some True
                 , log_subrequest = Some True
                 , max_ranges = Some 512

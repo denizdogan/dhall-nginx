@@ -1,1 +1,1 @@
-{ files = [] : List Text }
+[] : List Text
