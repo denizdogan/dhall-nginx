@@ -1,3 +1,5 @@
+let ngx_http_fastcgi_module = ../../ngx_http_fastcgi_module/package.dhall
+
 let modifier = ./modifier.dhall
 
 in  { access_log = None ../../ngx_http_log_module/access_log/type.dhall
@@ -19,10 +21,10 @@ in  { access_log = None ../../ngx_http_log_module/access_log/type.dhall
     , default_type = None ../default_type/type.dhall
     , expires = None ../../ngx_http_headers_module/expires/type.dhall
     , fastcgi_intercept_errors =
-        None ../../ngx_http_fastcgi_module/fastcgi_intercept_errors/type.dhall
+        None ngx_http_fastcgi_module.fastcgi_intercept_errors.Type
     , fastcgi_param =
         [] : List ../../ngx_http_fastcgi_module/fastcgi_param/type.dhall
-    , fastcgi_pass = None ../../ngx_http_fastcgi_module/fastcgi_pass/type.dhall
+    , fastcgi_pass = None ngx_http_fastcgi_module.fastcgi_pass.Type
     , index = None ../../ngx_http_index_module/index/type.dhall
     , log_not_found = None ../log_not_found/type.dhall
     , log_subrequest = None ../log_subrequest/type.dhall

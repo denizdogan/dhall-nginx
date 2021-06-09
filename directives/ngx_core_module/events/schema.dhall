@@ -18,26 +18,12 @@ let default = ./default.dhall
 let make =
       λ(n : Natural) →
       λ(c : type) →
-        let accept_mutex =
-              Optional/map
-                accept_mutex.Type
-                Text
-                (accept_mutex.make (n + 2))
-                c.accept_mutex
+        let accept_mutex = accept_mutex.opt c.accept_mutex (n + 2)
 
-        let multi_accept =
-              Optional/map
-                multi_accept.Type
-                Text
-                (multi_accept.make (n + 2))
-                c.multi_accept
+        let multi_accept = multi_accept.opt c.multi_accept (n + 2)
 
         let worker_connections =
-              Optional/map
-                worker_connections.Type
-                Text
-                (worker_connections.make (n + 2))
-                c.worker_connections
+              worker_connections.opt c.worker_connections (n + 2)
 
         let directives =
               List/unpackOptionals

@@ -37,8 +37,9 @@ let default_type = ../default_type/schema.dhall
 
 let expires = ../../ngx_http_headers_module/expires/schema.dhall
 
-let fastcgi_intercept_errors =
-      ../../ngx_http_fastcgi_module/fastcgi_intercept_errors/schema.dhall
+let ngx_http_fastcgi_module = ../../ngx_http_fastcgi_module/package.dhall
+
+let fastcgi_intercept_errors = ngx_http_fastcgi_module.fastcgi_intercept_errors
 
 let fastcgi_param = ../../ngx_http_fastcgi_module/fastcgi_param/schema.dhall
 
@@ -134,11 +135,7 @@ let make =
               Optional/map expires.Type Text (expires.make (n + 2)) c.expires
 
         let fastcgi_intercept_errors =
-              Optional/map
-                Bool
-                Text
-                (fastcgi_intercept_errors.make (n + 2))
-                c.fastcgi_intercept_errors
+              fastcgi_intercept_errors.opt c.fastcgi_intercept_errors (n + 2)
 
         let fastcgi_params =
               optList

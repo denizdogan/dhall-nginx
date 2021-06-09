@@ -57,10 +57,11 @@ let modifier = ./modifier.dhall
 
 let fastcgi_param = ../../ngx_http_fastcgi_module/fastcgi_param/schema.dhall
 
-let fastcgi_pass = ../../ngx_http_fastcgi_module/fastcgi_pass/schema.dhall
+let ngx_http_fastcgi_module = ../../ngx_http_fastcgi_module/package.dhall
 
-let fastcgi_intercept_errors =
-      ../../ngx_http_fastcgi_module/fastcgi_intercept_errors/schema.dhall
+let fastcgi_intercept_errors = ngx_http_fastcgi_module.fastcgi_intercept_errors
+
+let fastcgi_pass = ngx_http_fastcgi_module.fastcgi_pass
 
 let satisfy = ../satisfy/schema.dhall
 
@@ -159,8 +160,7 @@ let make =
         let msie_padding =
               Optional/map Bool Text (msie_padding.make (n + 2)) c.msie_padding
 
-        let fastcgi_pass =
-              Optional/map Text Text (fastcgi_pass.make (n + 2)) c.fastcgi_pass
+        let fastcgi_pass = fastcgi_pass.opt c.fastcgi_pass (n + 2)
 
         let try_files =
               Optional/map
@@ -170,11 +170,7 @@ let make =
                 c.try_files
 
         let fastcgi_intercept_errors =
-              Optional/map
-                Bool
-                Text
-                (fastcgi_intercept_errors.make (n + 2))
-                c.fastcgi_intercept_errors
+              fastcgi_intercept_errors.opt c.fastcgi_intercept_errors (n + 2)
 
         let satisfy =
               Optional/map satisfy.Type Text (satisfy.make (n + 2)) c.satisfy
