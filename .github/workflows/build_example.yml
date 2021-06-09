@@ -11,4 +11,4 @@ jobs:
       - name: Install Nginx
         run: sudo apt install nginx
       - name: Run tests
-        run: test.sh
+        run: ./test.sh
