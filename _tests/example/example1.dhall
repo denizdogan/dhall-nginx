@@ -92,7 +92,7 @@ let config =
                   , files = [ "foo", "bar" ]
                   , uri = "=404"
                   }
-                , uri = Some "/"
+                , uri = "/"
                 }
               , ng.location::{
                 , default_type = Some "foo"
@@ -101,14 +101,14 @@ let config =
                 , max_ranges = Some 512
                 , msie_padding = Some False
                 , modifier = ng.location.modifier.regexCaseInsensitive
-                , uri = Some "^/users/(.+\\.(?:gif|jpe?g|png))\$"
+                , uri = "^/users/(.+\\.(?:gif|jpe?g|png))\$"
                 }
               , ng.location::{
                 , default_type = Some "bar"
                 , log_subrequest = Some False
                 , max_ranges = None Natural
                 , msie_padding = Some True
-                , name = Some "bar"
+                , uri = "@bar"
                 }
               ]
             , log_not_found = Some False

@@ -136,7 +136,7 @@ let make =
                             }
                             c.modifier
 
-                    in  "${modif}${Optional/default Text "" c.uri}"
+                    in  "${modif}${c.uri}"
                 }
                 c.name
 
