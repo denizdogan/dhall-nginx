@@ -2,9 +2,12 @@
 , add_header : List ../../ngx_http_headers_module/add_header/type.dhall
 , add_trailer : List ../../ngx_http_headers_module/add_trailer/type.dhall
 , autoindex : Optional ../../ngx_http_autoindex_module/autoindex/type.dhall
-, autoindex_exact_size : Optional ../../ngx_http_autoindex_module/autoindex_exact_size/type.dhall
-, autoindex_format : Optional ../../ngx_http_autoindex_module/autoindex_format/type.dhall
-, autoindex_localtime : Optional ../../ngx_http_autoindex_module/autoindex_localtime/type.dhall
+, autoindex_exact_size :
+    Optional ../../ngx_http_autoindex_module/autoindex_exact_size/type.dhall
+, autoindex_format :
+    Optional ../../ngx_http_autoindex_module/autoindex_format/type.dhall
+, autoindex_localtime :
+    Optional ../../ngx_http_autoindex_module/autoindex_localtime/type.dhall
 , default_type : Optional ../default_type/type.dhall
 , expires : Optional ../../ngx_http_headers_module/expires/type.dhall
 , fastcgi_intercept_errors :
