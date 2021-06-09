@@ -18,13 +18,13 @@ let config =
           , index = Some [ "index.php" ]
           , location =
             [ ng.location::{
-              , access_log = Some ng.access_log::{ path = None Text }
+              , access_log = Some ng.access_log.off
               , log_not_found = Some False
               , modifier = ng.location.modifier.exact
               , uri = "/favicon.ico"
               }
             , ng.location::{
-              , access_log = Some ng.access_log::{ path = None Text }
+              , access_log = Some ng.access_log.off
               , log_not_found = Some False
               , modifier = ng.location.modifier.exact
               , uri = "/robots.txt"

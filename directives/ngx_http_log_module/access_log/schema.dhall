@@ -81,4 +81,8 @@ let make =
 
         in  indent n "access_log ${Text/concatSep " " parts};"
 
-in  { Type = type, default, make }
+let schema = { Type = type, default }
+
+let off = schema::{ path = None Text }
+
+in  schema ⫽ { make, off }
