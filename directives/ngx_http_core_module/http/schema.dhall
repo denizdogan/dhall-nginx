@@ -17,6 +17,11 @@ let add_header = ../../ngx_http_headers_module/add_header/schema.dhall
 
 let add_trailer = ../../ngx_http_headers_module/add_trailer/schema.dhall
 
+let auth_basic = ../../ngx_http_auth_basic_module/auth_basic/schema.dhall
+
+let auth_basic_user_file =
+      ../../ngx_http_auth_basic_module/auth_basic_user_file/schema.dhall
+
 let autoindex = ../../ngx_http_autoindex_module/autoindex/schema.dhall
 
 let autoindex_exact_size =
@@ -70,6 +75,20 @@ let make =
 
         let add_trailer =
               optList add_trailer.Type (add_trailer.make (n + 2)) c.add_trailer
+
+        let auth_basic =
+              Optional/map
+                auth_basic.Type
+                Text
+                (auth_basic.make (n + 2))
+                c.auth_basic
+
+        let auth_basic_user_file =
+              Optional/map
+                auth_basic_user_file.Type
+                Text
+                (auth_basic_user_file.make (n + 2))
+                c.auth_basic_user_file
 
         let autoindex =
               Optional/map
@@ -161,6 +180,8 @@ let make =
                 [ access_rules
                 , add_header
                 , add_trailer
+                , auth_basic
+                , auth_basic_user_file
                 , autoindex
                 , autoindex_exact_size
                 , autoindex_format

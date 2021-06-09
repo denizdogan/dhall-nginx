@@ -1,6 +1,9 @@
 { access_rules : List ../../ngx_http_access_module/access_rule/type.dhall
 , add_header : List ../../ngx_http_headers_module/add_header/type.dhall
 , add_trailer : List ../../ngx_http_headers_module/add_trailer/type.dhall
+, auth_basic : Optional ../../ngx_http_auth_basic_module/auth_basic/type.dhall
+, auth_basic_user_file :
+    Optional ../../ngx_http_auth_basic_module/auth_basic_user_file/type.dhall
 , autoindex : Optional ../../ngx_http_autoindex_module/autoindex/type.dhall
 , autoindex_exact_size :
     Optional ../../ngx_http_autoindex_module/autoindex_exact_size/type.dhall
