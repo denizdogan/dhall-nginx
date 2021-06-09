@@ -32,6 +32,8 @@ let log_not_found = ../log_not_found/schema.dhall
 
 let root = ../../ngx_http_core_module/root/schema.dhall
 
+let satisfy = ../satisfy/schema.dhall
+
 let server_name = ../server_name/schema.dhall
 
 let tcp_nodelay = ../tcp_nodelay/schema.dhall
@@ -99,6 +101,9 @@ let make =
 
         let root = Optional/map root.Type Text (root.make (n + 2)) c.root
 
+        let satisfy =
+              Optional/map satisfy.Type Text (satisfy.make (n + 2)) c.satisfy
+
         let server_name =
               if    Natural/isZero (List/length Text c.server_name)
               then  None Text
@@ -128,6 +133,7 @@ let make =
                 , location
                 , log_not_found
                 , root
+                , satisfy
                 , server_name
                 , tcp_nodelay
                 , try_files

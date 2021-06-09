@@ -7,6 +7,7 @@
 , max_ranges = ./max_ranges/package.dhall
 , msie_padding = ./msie_padding/package.dhall
 , root = ./root/package.dhall
+, satisfy = ./satisfy/package.dhall
 , sendfile = ./sendfile/package.dhall
 , server = ./server/package.dhall
 , server_name = ./server_name/package.dhall

@@ -12,6 +12,7 @@
 , location = [] : List ../location/type.dhall
 , log_not_found = None ../log_not_found/type.dhall
 , root = None ../../ngx_http_core_module/root/type.dhall
+, satisfy = None ../satisfy/type.dhall
 , server_name = None ../server_name/type.dhall
 , tcp_nodelay = None ../tcp_nodelay/type.dhall
 , try_files = None ../try_files/type.dhall

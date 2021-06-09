@@ -20,6 +20,7 @@ in  { access_log = None ../../ngx_http_log_module/access_log/type.dhall
     , modifier = modifier.prefix
     , msie_padding = None ../msie_padding/type.dhall
     , name = None Text
+    , satisfy = None ../satisfy/type.dhall
     , try_files = None ../try_files/type.dhall
     , uri = None Text
     }

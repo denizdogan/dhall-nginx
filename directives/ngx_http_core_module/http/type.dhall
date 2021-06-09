@@ -11,6 +11,7 @@
 , log_format : List ../../ngx_http_log_module/log_format/type.dhall
 , log_not_found : Optional ../log_not_found/type.dhall
 , map : List ../../ngx_http_map_module/map/type.dhall
+, satisfy : Optional ../satisfy/type.dhall
 , sendfile : Optional ../sendfile/type.dhall
 , server : List ../../ngx_http_core_module/server/type.dhall
 , types : Optional ../types/type.dhall

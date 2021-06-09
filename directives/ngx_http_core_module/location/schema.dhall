@@ -46,6 +46,8 @@ let fastcgi_pass = ../../ngx_http_fastcgi_module/fastcgi_pass/schema.dhall
 let fastcgi_intercept_errors =
       ../../ngx_http_fastcgi_module/fastcgi_intercept_errors/schema.dhall
 
+let satisfy = ../satisfy/schema.dhall
+
 let make =
       λ(n : Natural) →
       λ(c : type) →
@@ -116,6 +118,9 @@ let make =
                 (fastcgi_intercept_errors.make (n + 2))
                 c.fastcgi_intercept_errors
 
+        let satisfy =
+              Optional/map satisfy.Type Text (satisfy.make (n + 2)) c.satisfy
+
         let directives =
               List/unpackOptionals
                 Text
@@ -133,6 +138,7 @@ let make =
                 , log_subrequest
                 , max_ranges
                 , msie_padding
+                , satisfy
                 , try_files
                 ]
 

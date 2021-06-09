@@ -40,6 +40,8 @@ let log_format = ../../ngx_http_log_module/log_format/schema.dhall
 
 let map = ../../ngx_http_map_module/map/schema.dhall
 
+let satisfy = ../satisfy/schema.dhall
+
 let upstream = ../../ngx_http_upstream_module/upstream/schema.dhall
 
 let type = ./type.dhall
@@ -102,6 +104,9 @@ let make =
 
         let map = optList map.Type (map.make (n + 2)) c.map
 
+        let satisfy =
+              Optional/map satisfy.Type Text (satisfy.make (n + 2)) c.satisfy
+
         let sendfile =
               Optional/map sendfile.Type Text (sendfile.make (n + 2)) c.sendfile
 
@@ -126,6 +131,7 @@ let make =
                 , log_formats
                 , log_not_found
                 , map
+                , satisfy
                 , sendfile
                 , server
                 , types
