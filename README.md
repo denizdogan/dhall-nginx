@@ -14,7 +14,13 @@ $ dhall text --file config.dhall
 
 ## Documentation
 
-- A Dhall version of the default `/etc/nginx/fastcgi_params` has been included in [utils/helpers/fastcgi_params.dhall](./utils/helpers/fastcgi_params.dhall).
+### Access rules (`allow` and `deny`)
+
+Since the internal order of the `allow` and `deny` directives matters, they are configured as a list of "access rules". Their common type is called [`access_rule`](./directives/ngx_http_access_module/access_rule/type.dhall).
+
+### `/etc/nginx/fastcgi_params`
+
+A Dhall version of the default `/etc/nginx/fastcgi_params` has been included in [utils/helpers/fastcgi_params.dhall](./utils/helpers/fastcgi_params.dhall).
 
 ## Missing features
 
