@@ -4,6 +4,8 @@ Generate your Nginx configuration files using Dhall.
 
 Loosely based on [torbencarstens/dhall-nginx](https://github.com/torbencarstens/dhall-nginx).
 
+[![Build](https://github.com/denizdogan/dhall-nginx/actions/workflows/build_example.yml/badge.svg)](https://github.com/denizdogan/dhall-nginx/actions/workflows/build_example.yml)
+
 ## Usage
 
 See [example 1](./_tests/example/example1.dhall) and its accompanying [.conf file](./_tests/example/example1.conf) for example input and output.
