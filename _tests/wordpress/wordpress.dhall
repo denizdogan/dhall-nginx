@@ -1,6 +1,6 @@
 let ng = ../../package.dhall
 
-let config =
+let http =
       ng.http::{
       , upstream =
         [ ng.upstream::{
@@ -62,4 +62,6 @@ let config =
         ]
       }
 
-in  ng.http.make 0 config
+let config = ng.config::{ events = Some ng.events::{=}, http = Some http }
+
+in  ng.config.make 0 config
