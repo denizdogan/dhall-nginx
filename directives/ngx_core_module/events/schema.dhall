@@ -3,6 +3,8 @@ let Text/concatSep = https://prelude.dhall-lang.org/Text/concatSep.dhall
 let List/unpackOptionals =
       https://prelude.dhall-lang.org/List/unpackOptionals.dhall
 
+let Optional/map = https://prelude.dhall-lang.org/Optional/map.dhall
+
 let accept_mutex = ../accept_mutex/schema.dhall
 
 let multi_accept = ../multi_accept/schema.dhall
@@ -17,30 +19,24 @@ let make =
       λ(n : Natural) →
       λ(c : type) →
         let accept_mutex =
-              merge
-                { Some =
-                    λ(x : accept_mutex.Type) →
-                      Some (accept_mutex.make (n + 2) x)
-                , None = None Text
-                }
+              Optional/map
+                accept_mutex.Type
+                Text
+                (accept_mutex.make (n + 2))
                 c.accept_mutex
 
         let multi_accept =
-              merge
-                { Some =
-                    λ(x : multi_accept.Type) →
-                      Some (multi_accept.make (n + 2) x)
-                , None = None Text
-                }
+              Optional/map
+                multi_accept.Type
+                Text
+                (multi_accept.make (n + 2))
                 c.multi_accept
 
         let worker_connections =
-              merge
-                { Some =
-                    λ(x : worker_connections.Type) →
-                      Some (worker_connections.make (n + 2) x)
-                , None = None Text
-                }
+              Optional/map
+                worker_connections.Type
+                Text
+                (worker_connections.make (n + 2))
                 c.worker_connections
 
         let directives =
