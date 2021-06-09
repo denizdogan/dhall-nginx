@@ -5,8 +5,6 @@ let List/unpackOptionals =
 
 let Optional/map = https://prelude.dhall-lang.org/Optional/map.dhall
 
-let Optional/default = https://prelude.dhall-lang.org/Optional/default.dhall
-
 let type = ./type.dhall
 
 let default = ./default.dhall
