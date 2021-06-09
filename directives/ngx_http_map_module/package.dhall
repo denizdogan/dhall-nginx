@@ -1,1 +1,1 @@
-{ map = ./map/package.dhall }
+{ map = ./map/schema.dhall }

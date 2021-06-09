@@ -1,4 +1,4 @@
-{ fastcgi_intercept_errors = ./fastcgi_intercept_errors/package.dhall
-, fastcgi_param = ./fastcgi_param/package.dhall
-, fastcgi_pass = ./fastcgi_pass/package.dhall
+{ fastcgi_intercept_errors = ./fastcgi_intercept_errors/schema.dhall
+, fastcgi_param = ./fastcgi_param/schema.dhall
+, fastcgi_pass = ./fastcgi_pass/schema.dhall
 }

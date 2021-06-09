@@ -1,1 +1,1 @@
-{ upstream = ./upstream/package.dhall }
+{ upstream = ./upstream/schema.dhall }

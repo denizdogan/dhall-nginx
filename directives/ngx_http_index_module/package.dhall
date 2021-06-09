@@ -1,1 +1,1 @@
-{ index = ./index/package.dhall }
+{ index = ./index/schema.dhall }
