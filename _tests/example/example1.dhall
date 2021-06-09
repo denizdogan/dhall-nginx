@@ -141,6 +141,8 @@ let config =
             }
           ]
         }
+      , load_modules =
+        [ "modules/ngx_mail_module.so", "modules/ngx_http_geoip_module.so" ]
       , pcre_jit = Some True
       , pid = Some "pidfile"
       , error_log = Some ng.error_log::{

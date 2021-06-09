@@ -1,11 +1,11 @@
 let Text/concatSep = https://prelude.dhall-lang.org/Text/concatSep.dhall
 
-let List/concat = https://prelude.dhall-lang.org/List/concat.dhall
-
 let List/unpackOptionals =
       https://prelude.dhall-lang.org/List/unpackOptionals.dhall
 
 let Optional/map = https://prelude.dhall-lang.org/Optional/map.dhall
+
+let optList = ./utils/optList.dhall
 
 let user = ./directives/ngx_core_module/user/schema.dhall
 
@@ -16,6 +16,8 @@ let worker_cpu_affinity =
       ./directives/ngx_core_module/worker_cpu_affinity/schema.dhall
 
 let events = ./directives/ngx_core_module/events/schema.dhall
+
+let load_module = ./directives/ngx_core_module/load_module/schema.dhall
 
 let http = ./directives/ngx_http_core_module/http/schema.dhall
 
@@ -28,6 +30,8 @@ let error_log = ./directives/ngx_core_module/error_log/schema.dhall
 let default =
       { error_log = None ./directives/ngx_core_module/error_log/type.dhall
       , http = None ./directives/ngx_http_core_module/http/type.dhall
+      , load_modules =
+          [] : List ./directives/ngx_core_module/load_module/type.dhall
       , pcre_jit = None ./directives/ngx_core_module/pcre_jit/type.dhall
       , pid = None ./directives/ngx_core_module/pid/type.dhall
       , user = None ./directives/ngx_core_module/user/type.dhall
@@ -41,6 +45,7 @@ let type =
       { error_log : Optional ./directives/ngx_core_module/error_log/type.dhall
       , events : ./directives/ngx_core_module/events/type.dhall
       , http : Optional ./directives/ngx_http_core_module/http/type.dhall
+      , load_modules : List ./directives/ngx_core_module/load_module/type.dhall
       , pcre_jit : Optional ./directives/ngx_core_module/pcre_jit/type.dhall
       , pid : Optional ./directives/ngx_core_module/pid/type.dhall
       , user : Optional ./directives/ngx_core_module/user/type.dhall
@@ -73,6 +78,9 @@ let make =
 
         let http = Optional/map http.Type Text (http.make n) c.http
 
+        let load_modules =
+              optList load_module.Type (load_module.make n) c.load_modules
+
         let pcre_jit =
               Optional/map pcre_jit.Type Text (pcre_jit.make n) c.pcre_jit
 
@@ -82,19 +90,19 @@ let make =
               Optional/map error_log.Type Text (error_log.make n) c.error_log
 
         let directives =
-              List/concat
-                (Optional Text)
-                [ [ error_log
-                  , events
-                  , http
-                  , pcre_jit
-                  , pid
-                  , user
-                  , worker_cpu_affinity
-                  , worker_processes
-                  ]
+              List/unpackOptionals
+                Text
+                [ load_modules
+                , error_log
+                , events
+                , http
+                , pcre_jit
+                , pid
+                , user
+                , worker_cpu_affinity
+                , worker_processes
                 ]
 
-        in  Text/concatSep "\n" (List/unpackOptionals Text directives) ++ "\n"
+        in  Text/concatSep "\n" directives ++ "\n"
 
 in  { Type = type, default, make }
