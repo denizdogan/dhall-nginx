@@ -14,7 +14,7 @@ $ dhall text --file config.dhall
 
 ## Documentation
 
-- A Dhall version of the default `/etc/nginx/fastcgi_params` has been included in [utils/fastcgi_params.dhall](./utils/fastcgi_params.dhall).
+- A Dhall version of the default `/etc/nginx/fastcgi_params` has been included in [utils/helpers/fastcgi_params.dhall](./utils/helpers/fastcgi_params.dhall).
 
 ## Missing features
 
