@@ -15,6 +15,8 @@ let indent = ../../../utils/indent.dhall
 
 let optList = ../../../utils/optList.dhall
 
+let access_log = ../../ngx_http_log_module/access_log/schema.dhall
+
 let add_header = ../../ngx_http_headers_module/add_header/schema.dhall
 
 let add_trailer = ../../ngx_http_headers_module/add_trailer/schema.dhall
@@ -47,6 +49,13 @@ let fastcgi_intercept_errors =
 let make =
       λ(n : Natural) →
       λ(c : type) →
+        let access_log =
+              Optional/map
+                access_log.Type
+                Text
+                (access_log.make (n + 2))
+                c.access_log
+
         let add_header =
               optList add_header.Type (add_header.make (n + 2)) c.add_header
 
@@ -107,7 +116,8 @@ let make =
         let directives =
               List/unpackOptionals
                 Text
-                [ add_header
+                [ access_log
+                , add_header
                 , add_trailer
                 , default_type
                 , expires

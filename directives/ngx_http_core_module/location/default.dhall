@@ -1,6 +1,7 @@
 let modifier = ./modifier.dhall
 
-in  { add_header = [] : List ../../ngx_http_headers_module/add_header/type.dhall
+in  { access_log = None ../../ngx_http_log_module/access_log/type.dhall
+    , add_header = [] : List ../../ngx_http_headers_module/add_header/type.dhall
     , add_trailer =
         [] : List ../../ngx_http_headers_module/add_trailer/type.dhall
     , default_type = None ../default_type/type.dhall
