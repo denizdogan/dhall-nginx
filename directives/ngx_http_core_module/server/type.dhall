@@ -1,4 +1,5 @@
-{ access_log : Optional ../../ngx_http_log_module/access_log/type.dhall
+{ access_rules : List ../../ngx_http_access_module/access_rule/type.dhall
+, access_log : Optional ../../ngx_http_log_module/access_log/type.dhall
 , add_header : List ../../ngx_http_headers_module/add_header/type.dhall
 , add_trailer : List ../../ngx_http_headers_module/add_trailer/type.dhall
 , default_type : Optional ../default_type/type.dhall

@@ -1,4 +1,5 @@
-{ add_header : List ../../ngx_http_headers_module/add_header/type.dhall
+{ access_rules : List ../../ngx_http_access_module/access_rule/type.dhall
+, add_header : List ../../ngx_http_headers_module/add_header/type.dhall
 , add_trailer : List ../../ngx_http_headers_module/add_trailer/type.dhall
 , default_type : Optional ../default_type/type.dhall
 , expires : Optional ../../ngx_http_headers_module/expires/type.dhall

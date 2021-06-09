@@ -11,6 +11,8 @@ let optList = ../../../utils/optList.dhall
 
 let access_log = ../../ngx_http_log_module/access_log/schema.dhall
 
+let access_rule = ../../ngx_http_access_module/access_rule/schema.dhall
+
 let add_header = ../../ngx_http_headers_module/add_header/schema.dhall
 
 let add_trailer = ../../ngx_http_headers_module/add_trailer/schema.dhall
@@ -51,6 +53,9 @@ let make =
                 Text
                 (access_log.make (n + 2))
                 c.access_log
+
+        let access_rules =
+              optList access_rule.Type (access_rule.make (n + 2)) c.access_rules
 
         let add_header =
               optList add_header.Type (add_header.make (n + 2)) c.add_header
@@ -112,6 +117,7 @@ let make =
               List/unpackOptionals
                 Text
                 [ access_log
+                , access_rules
                 , add_header
                 , add_trailer
                 , default_type

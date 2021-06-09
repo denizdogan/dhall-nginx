@@ -1,5 +1,6 @@
     ./ngx_core_module/package.dhall
 //  ./ngx_http_upstream_module/package.dhall
+//  ./ngx_http_access_module/package.dhall
 //  ./ngx_http_core_module/package.dhall
 //  ./ngx_http_fastcgi_module/package.dhall
 //  ./ngx_http_headers_module/package.dhall

@@ -25,6 +25,7 @@ let config =
               }
             , ng.location::{
               , access_log = Some ng.access_log.off
+              , access_rules = [ ng.allow "all" ]
               , log_not_found = Some False
               , modifier = ng.location.modifier.exact
               , uri = "/robots.txt"

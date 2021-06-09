@@ -11,6 +11,8 @@ let optList = ../../../utils/optList.dhall
 
 let if_modified_since = ../if_modified_since/schema.dhall
 
+let access_rule = ../../ngx_http_access_module/access_rule/schema.dhall
+
 let add_header = ../../ngx_http_headers_module/add_header/schema.dhall
 
 let add_trailer = ../../ngx_http_headers_module/add_trailer/schema.dhall
@@ -47,6 +49,9 @@ let default = ./default.dhall
 let make =
       λ(n : Natural) →
       λ(c : type) →
+        let access_rules =
+              optList access_rule.Type (access_rule.make (n + 2)) c.access_rules
+
         let add_header =
               optList add_header.Type (add_header.make (n + 2)) c.add_header
 
@@ -109,7 +114,8 @@ let make =
         let directives =
               List/unpackOptionals
                 Text
-                [ add_header
+                [ access_rules
+                , add_header
                 , add_trailer
                 , default_type
                 , expires
