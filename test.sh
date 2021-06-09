@@ -1,8 +1,15 @@
 #!/usr/bin/env bash
 
+# check if --nginx was passed
+test_nginx=false
+if [[ "$1" = "--nginx" ]]; then
+  test_nginx=true
+fi
+
 # type check all the code
 dhall type --quiet --file "package.dhall" || exit 1
 
+# run the test suites
 for filename in _tests/**/*.dhall; do
   [ -e "$filename" ] || continue
   input="$filename"
@@ -18,6 +25,8 @@ for filename in _tests/**/*.dhall; do
     continue
   fi
 
-  # verify that nginx accepts the configuration
-  nginx -c "$(realpath $expected_filename)" -t -q
+  # if requested, verify that nginx accepts the configuration
+  if [[ "$test_nginx" = true ]]; then
+    nginx -c "$(realpath $expected_filename)" -t -q
+  fi
 done
