@@ -2,6 +2,8 @@ let Function/identity = https://prelude.dhall-lang.org/Function/identity.dhall
 
 let Optional/map = https://prelude.dhall-lang.org/Optional/map.dhall
 
+let Text/concatSep = https://prelude.dhall-lang.org/Text/concatSep.dhall
+
 let indent = ./indent.dhall
 
 let opt =
@@ -28,4 +30,8 @@ let on_off = directive Bool (λ(value : Bool) → if value then "on" else "off")
 
 let text = directive Text (Function/identity Text)
 
-in  { natural, on_off, text }
+let textSep =
+      λ(sep : Text) →
+        directive (List Text) (λ(ss : List Text) → Text/concatSep sep ss)
+
+in  { natural, on_off, text, textSep }
