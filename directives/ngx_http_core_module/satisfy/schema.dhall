@@ -11,4 +11,4 @@ let make =
 
         in  indent n "satisfy ${text};"
 
-in  { Type = type, default, make }
+in  { Type = type, default, make, all = type.all, any = type.any }

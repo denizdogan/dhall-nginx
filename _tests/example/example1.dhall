@@ -65,6 +65,11 @@ let config =
             , index = Some [ "other.htm" ]
             , location =
               [ ng.location::{
+                , access_rules =
+                  [ ng.deny "10.11.12.13"
+                  , ng.allow "10.11.12.0/24"
+                  , ng.deny "all"
+                  ]
                 , add_header =
                   [ ng.add_header::{
                     , name = "X-Country"
@@ -113,6 +118,7 @@ let config =
               ]
             , log_not_found = Some False
             , root = Some "/var/root"
+            , satisfy = Some ng.satisfy.all
             , server_name = [ "hello.net", "there.com" ]
             , tcp_nodelay = Some True
             , try_files = Some ng.try_files::{
