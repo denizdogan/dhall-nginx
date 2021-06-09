@@ -5,6 +5,8 @@ let List/concat = https://prelude.dhall-lang.org/List/concat.dhall
 let List/unpackOptionals =
       https://prelude.dhall-lang.org/List/unpackOptionals.dhall
 
+let Optional/map = https://prelude.dhall-lang.org/Optional/map.dhall
+
 let user = ./directives/ngx_core_module/user/schema.dhall
 
 let worker_processes =
@@ -12,19 +14,6 @@ let worker_processes =
 
 let worker_cpu_affinity =
       ./directives/ngx_core_module/worker_cpu_affinity/schema.dhall
-
-let type =
-      { error_log : Optional ./directives/ngx_core_module/error_log/type.dhall
-      , events : Optional ./directives/ngx_core_module/events/type.dhall
-      , http : Optional ./directives/ngx_http_core_module/http/type.dhall
-      , pcre_jit : Optional ./directives/ngx_core_module/pcre_jit/type.dhall
-      , pid : Optional ./directives/ngx_core_module/pid/type.dhall
-      , user : Optional ./directives/ngx_core_module/user/type.dhall
-      , worker_cpu_affinity :
-          Optional ./directives/ngx_core_module/worker_cpu_affinity/type.dhall
-      , worker_processes :
-          Optional ./directives/ngx_core_module/worker_processes/type.dhall
-      }
 
 let events = ./directives/ngx_core_module/events/schema.dhall
 
@@ -49,68 +38,49 @@ let default =
           None ./directives/ngx_core_module/worker_processes/type.dhall
       }
 
+let type =
+      { error_log : Optional ./directives/ngx_core_module/error_log/type.dhall
+      , events : Optional ./directives/ngx_core_module/events/type.dhall
+      , http : Optional ./directives/ngx_http_core_module/http/type.dhall
+      , pcre_jit : Optional ./directives/ngx_core_module/pcre_jit/type.dhall
+      , pid : Optional ./directives/ngx_core_module/pid/type.dhall
+      , user : Optional ./directives/ngx_core_module/user/type.dhall
+      , worker_cpu_affinity :
+          Optional ./directives/ngx_core_module/worker_cpu_affinity/type.dhall
+      , worker_processes :
+          Optional ./directives/ngx_core_module/worker_processes/type.dhall
+      }
+
 let make =
       λ(n : Natural) →
       λ(c : type) →
-        let user =
-              merge
-                { Some = λ(x : user.Type) → Some (user.make n x)
-                , None = None Text
-                }
-                c.user
+        let user = Optional/map user.Type Text (user.make n) c.user
 
         let worker_processes =
-              merge
-                { Some =
-                    λ(x : worker_processes.Type) →
-                      Some (worker_processes.make n x)
-                , None = None Text
-                }
+              Optional/map
+                worker_processes.Type
+                Text
+                (worker_processes.make n)
                 c.worker_processes
 
         let worker_cpu_affinity =
-              merge
-                { Some =
-                    λ(x : worker_cpu_affinity.Type) →
-                      Some (worker_cpu_affinity.make n x)
-                , None = None Text
-                }
+              Optional/map
+                worker_cpu_affinity.Type
+                Text
+                (worker_cpu_affinity.make n)
                 c.worker_cpu_affinity
 
-        let events =
-              merge
-                { Some = λ(x : events.Type) → Some (events.make n x)
-                , None = None Text
-                }
-                c.events
+        let events = Optional/map events.Type Text (events.make n) c.events
 
-        let http =
-              merge
-                { Some = λ(x : http.Type) → Some (http.make n x)
-                , None = None Text
-                }
-                c.http
+        let http = Optional/map http.Type Text (http.make n) c.http
 
         let pcre_jit =
-              merge
-                { Some = λ(x : pcre_jit.Type) → Some (pcre_jit.make n x)
-                , None = None Text
-                }
-                c.pcre_jit
+              Optional/map pcre_jit.Type Text (pcre_jit.make n) c.pcre_jit
 
-        let pid =
-              merge
-                { Some = λ(x : pid.Type) → Some (pid.make n x)
-                , None = None Text
-                }
-                c.pid
+        let pid = Optional/map pid.Type Text (pid.make n) c.pid
 
         let error_log =
-              merge
-                { Some = λ(x : error_log.Type) → Some (error_log.make n x)
-                , None = None Text
-                }
-                c.error_log
+              Optional/map error_log.Type Text (error_log.make n) c.error_log
 
         let directives =
               List/concat
