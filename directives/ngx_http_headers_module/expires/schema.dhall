@@ -6,6 +6,8 @@ let type = ./type.dhall
 
 let default = ./default.dhall
 
+let Expires = ./Expires.dhall
+
 let make =
       λ(n : Natural) →
       λ(c : type) →
@@ -29,4 +31,4 @@ let make =
 
         in  indent n "expires${modified} ${text};"
 
-in  { Type = type, default, make }
+in  { Type = type, default, make, Expires }
