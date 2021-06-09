@@ -17,6 +17,17 @@ let add_header = ../../ngx_http_headers_module/add_header/schema.dhall
 
 let add_trailer = ../../ngx_http_headers_module/add_trailer/schema.dhall
 
+let autoindex = ../../ngx_http_autoindex_module/autoindex/schema.dhall
+
+let autoindex_exact_size =
+      ../../ngx_http_autoindex_module/autoindex_exact_size/schema.dhall
+
+let autoindex_format =
+      ../../ngx_http_autoindex_module/autoindex_format/schema.dhall
+
+let autoindex_localtime =
+      ../../ngx_http_autoindex_module/autoindex_localtime/schema.dhall
+
 let default_type = ../default_type/schema.dhall
 
 let expires = ../../ngx_http_headers_module/expires/schema.dhall
@@ -64,6 +75,34 @@ let make =
 
         let add_trailer =
               optList add_trailer.Type (add_trailer.make (n + 2)) c.add_trailer
+
+        let autoindex =
+              Optional/map
+                autoindex.Type
+                Text
+                (autoindex.make (n + 2))
+                c.autoindex
+
+        let autoindex_exact_size =
+              Optional/map
+                autoindex_exact_size.Type
+                Text
+                (autoindex_exact_size.make (n + 2))
+                c.autoindex_exact_size
+
+        let autoindex_format =
+              Optional/map
+                autoindex_format.Type
+                Text
+                (autoindex_format.make (n + 2))
+                c.autoindex_format
+
+        let autoindex_localtime =
+              Optional/map
+                autoindex_localtime.Type
+                Text
+                (autoindex_localtime.make (n + 2))
+                c.autoindex_localtime
 
         let default_type =
               Optional/map
@@ -125,6 +164,10 @@ let make =
                 , access_rules
                 , add_header
                 , add_trailer
+                , autoindex
+                , autoindex_exact_size
+                , autoindex_format
+                , autoindex_localtime
                 , default_type
                 , expires
                 , fastcgi_intercept_errors
