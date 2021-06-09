@@ -1,6 +1,6 @@
-let type = ../sendfile/type.dhall
+let type = ./type.dhall
 
-let default = ../sendfile/default.dhall
+let default = ./default.dhall
 
 let indent = ../../../utils/indent.dhall
 
