@@ -64,7 +64,7 @@ let http =
 
 let config =
       ng.config::{
-      , events = Some ng.events::{=}
+      , events = ng.events::{=}
       , http = Some http
       , pid = Some "pidfile"
       , error_log = Some ng.error_log::{

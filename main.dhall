@@ -27,7 +27,6 @@ let error_log = ./directives/ngx_core_module/error_log/schema.dhall
 
 let default =
       { error_log = None ./directives/ngx_core_module/error_log/type.dhall
-      , events = None ./directives/ngx_core_module/events/type.dhall
       , http = None ./directives/ngx_http_core_module/http/type.dhall
       , pcre_jit = None ./directives/ngx_core_module/pcre_jit/type.dhall
       , pid = None ./directives/ngx_core_module/pid/type.dhall
@@ -40,7 +39,7 @@ let default =
 
 let type =
       { error_log : Optional ./directives/ngx_core_module/error_log/type.dhall
-      , events : Optional ./directives/ngx_core_module/events/type.dhall
+      , events : ./directives/ngx_core_module/events/type.dhall
       , http : Optional ./directives/ngx_http_core_module/http/type.dhall
       , pcre_jit : Optional ./directives/ngx_core_module/pcre_jit/type.dhall
       , pid : Optional ./directives/ngx_core_module/pid/type.dhall
@@ -70,7 +69,7 @@ let make =
                 (worker_cpu_affinity.make n)
                 c.worker_cpu_affinity
 
-        let events = Optional/map events.Type Text (events.make n) c.events
+        let events = Some (events.make n c.events)
 
         let http = Optional/map http.Type Text (http.make n) c.http
 

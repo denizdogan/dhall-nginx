@@ -33,7 +33,7 @@ let config =
         , auto = Some True
         , mask = Some "0110"
         }
-      , events = Some ng.events::{
+      , events = ng.events::{
         , accept_mutex = Some True
         , multi_accept = Some True
         , worker_connections = Some 1024
