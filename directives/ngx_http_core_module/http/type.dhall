@@ -1,13 +1,17 @@
 let ngx_http_fastcgi_module = ../../ngx_http_fastcgi_module/package.dhall
 
-in  { access_rules : List ../../ngx_http_access_module/access_rule/type.dhall
+in  { absolute_redirect : Optional ../absolute_redirect/type.dhall
+    , access_rules : List ../../ngx_http_access_module/access_rule/type.dhall
     , add_header : List ../../ngx_http_headers_module/add_header/type.dhall
     , add_trailer : List ../../ngx_http_headers_module/add_trailer/type.dhall
+
+    , aio_write : Optional ../aio_write/type.dhall
     , auth_basic :
         Optional ../../ngx_http_auth_basic_module/auth_basic/type.dhall
     , auth_basic_user_file :
         Optional
           ../../ngx_http_auth_basic_module/auth_basic_user_file/type.dhall
+    , auth_delay : Optional ../auth_delay/type.dhall
     , autoindex : Optional ../../ngx_http_autoindex_module/autoindex/type.dhall
     , autoindex_exact_size :
         Optional ../../ngx_http_autoindex_module/autoindex_exact_size/type.dhall
@@ -15,6 +19,11 @@ in  { access_rules : List ../../ngx_http_access_module/access_rule/type.dhall
         Optional ../../ngx_http_autoindex_module/autoindex_format/type.dhall
     , autoindex_localtime :
         Optional ../../ngx_http_autoindex_module/autoindex_localtime/type.dhall
+    , chunked_transfer_encoding :
+        Optional ../chunked_transfer_encoding/type.dhall
+    , client_body_in_single_buffer :
+        Optional ../client_body_in_single_buffer/type.dhall
+    , client_body_timeout : Optional ../client_body_timeout/type.dhall
     , default_type : Optional ../default_type/type.dhall
     , expires : Optional ../../ngx_http_headers_module/expires/type.dhall
     , fastcgi_buffering :
@@ -56,6 +65,8 @@ in  { access_rules : List ../../ngx_http_access_module/access_rule/type.dhall
         Optional ngx_http_fastcgi_module.fastcgi_next_upstream_timeout.Type
     , fastcgi_next_upstream_tries :
         Optional ngx_http_fastcgi_module.fastcgi_next_upstream_tries.Type
+    , fastcgi_param :
+        List ../../ngx_http_fastcgi_module/fastcgi_param/type.dhall
     , fastcgi_pass_header :
         Optional ngx_http_fastcgi_module.fastcgi_pass_header.Type
     , fastcgi_pass_request_body :
@@ -70,16 +81,33 @@ in  { access_rules : List ../../ngx_http_access_module/access_rule/type.dhall
         Optional ngx_http_fastcgi_module.fastcgi_send_timeout.Type
     , fastcgi_socket_keepalive :
         Optional ngx_http_fastcgi_module.fastcgi_socket_keepalive.Type
-    , fastcgi_param :
-        List ../../ngx_http_fastcgi_module/fastcgi_param/type.dhall
     , if_modified_since : Optional ../if_modified_since/type.dhall
+    , ignore_invalid_headers : Optional ../ignore_invalid_headers/type.dhall
     , index : Optional ../../ngx_http_index_module/index/type.dhall
+    , keepalive_requests : Optional ../keepalive_requests/type.dhall
+    , keepalive_time : Optional ../keepalive_time/type.dhall
+    , lingering_time : Optional ../lingering_time/type.dhall
+    , lingering_timeout : Optional ../lingering_timeout/type.dhall
     , log_format : List ../../ngx_http_log_module/log_format/type.dhall
     , log_not_found : Optional ../log_not_found/type.dhall
     , map : List ../../ngx_http_map_module/map/type.dhall
+    , merge_slashes : Optional ../merge_slashes/type.dhall
+    , msie_refresh : Optional ../msie_refresh/type.dhall
+    , open_file_cache_errors : Optional ../open_file_cache_errors/type.dhall
+    , open_file_cache_min_uses : Optional ../open_file_cache_min_uses/type.dhall
+    , open_file_cache_valid : Optional ../open_file_cache_valid/type.dhall
+    , port_in_redirect : Optional ../port_in_redirect/type.dhall
+    , recursive_error_pages : Optional ../recursive_error_pages/type.dhall
+    , reset_timedout_connection :
+        Optional ../reset_timedout_connection/type.dhall
+    , resolver_timeout : Optional ../resolver_timeout/type.dhall
     , satisfy : Optional ../satisfy/type.dhall
+    , send_timeout : Optional ../send_timeout/type.dhall
     , sendfile : Optional ../sendfile/type.dhall
     , server : List ../../ngx_http_core_module/server/type.dhall
+    , server_name_in_redirect : Optional ../server_name_in_redirect/type.dhall
+    , tcp_nopush : Optional ../tcp_nopush/type.dhall
     , types : Optional ../types/type.dhall
+    , underscores_in_headers : Optional ../underscores_in_headers/type.dhall
     , upstream : List ../../ngx_http_upstream_module/upstream/type.dhall
     }

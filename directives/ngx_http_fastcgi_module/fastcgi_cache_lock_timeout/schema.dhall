@@ -1,1 +1,3 @@
-let d = ../../../utils/directives.dhall in d.interval "fastcgi_cache_lock_timeout"
+let d = ../../../utils/directives.dhall
+
+in  d.interval "fastcgi_cache_lock_timeout"
