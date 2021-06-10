@@ -121,9 +121,56 @@ let fastcgi_pass = ngx_http_fastcgi_module.fastcgi_pass
 
 let satisfy = ../satisfy/schema.dhall
 
+let absolute_redirect = ../absolute_redirect/schema.dhall
+
+let aio_write = ../aio_write/schema.dhall
+
+let auth_delay = ../auth_delay/schema.dhall
+
+let chunked_transfer_encoding = ../chunked_transfer_encoding/schema.dhall
+
+let client_body_in_single_buffer = ../client_body_in_single_buffer/schema.dhall
+
+let client_body_timeout = ../client_body_timeout/schema.dhall
+
+let keepalive_requests = ../keepalive_requests/schema.dhall
+
+let keepalive_time = ../keepalive_time/schema.dhall
+
+let lingering_time = ../lingering_time/schema.dhall
+
+let lingering_timeout = ../lingering_timeout/schema.dhall
+
+let msie_refresh = ../msie_refresh/schema.dhall
+
+let open_file_cache_errors = ../open_file_cache_errors/schema.dhall
+
+let open_file_cache_min_uses = ../open_file_cache_min_uses/schema.dhall
+
+let open_file_cache_valid = ../open_file_cache_valid/schema.dhall
+
+let port_in_redirect = ../port_in_redirect/schema.dhall
+
+let recursive_error_pages = ../recursive_error_pages/schema.dhall
+
+let reset_timedout_connection = ../reset_timedout_connection/schema.dhall
+
+let resolver_timeout = ../resolver_timeout/schema.dhall
+
+let send_timeout = ../send_timeout/schema.dhall
+
+let server_name_in_redirect = ../server_name_in_redirect/schema.dhall
+
+let tcp_nopush = ../tcp_nopush/schema.dhall
+
+let underscores_in_headers = ../underscores_in_headers/schema.dhall
+
 let make =
       λ(n : Natural) →
       λ(c : type) →
+        let absolute_redirect =
+              absolute_redirect.opt c.absolute_redirect (n + 2)
+
         let access_log =
               Optional/map
                 access_log.Type
@@ -140,6 +187,8 @@ let make =
         let add_trailer =
               optList add_trailer.Type (add_trailer.make (n + 2)) c.add_trailer
 
+        let aio_write = aio_write.opt c.aio_write (n + 2)
+
         let auth_basic =
               Optional/map
                 auth_basic.Type
@@ -153,6 +202,8 @@ let make =
                 Text
                 (auth_basic_user_file.make (n + 2))
                 c.auth_basic_user_file
+
+        let auth_delay = auth_delay.opt c.auth_delay (n + 2)
 
         let autoindex =
               Optional/map
@@ -181,6 +232,17 @@ let make =
                 Text
                 (autoindex_localtime.make (n + 2))
                 c.autoindex_localtime
+
+        let chunked_transfer_encoding =
+              chunked_transfer_encoding.opt c.chunked_transfer_encoding (n + 2)
+
+        let client_body_in_single_buffer =
+              client_body_in_single_buffer.opt
+                c.client_body_in_single_buffer
+                (n + 2)
+
+        let client_body_timeout =
+              client_body_timeout.opt c.client_body_timeout (n + 2)
 
         let default_type =
               Optional/map Text Text (default_type.make (n + 2)) c.default_type
@@ -265,6 +327,16 @@ let make =
 
         let index = Optional/map index.Type Text (index.make (n + 2)) c.index
 
+        let keepalive_requests =
+              keepalive_requests.opt c.keepalive_requests (n + 2)
+
+        let keepalive_time = keepalive_time.opt c.keepalive_time (n + 2)
+
+        let lingering_time = lingering_time.opt c.lingering_time (n + 2)
+
+        let lingering_timeout =
+              lingering_timeout.opt c.lingering_timeout (n + 2)
+
         let log_not_found =
               Optional/map
                 log_not_found.Type
@@ -282,8 +354,39 @@ let make =
         let max_ranges =
               Optional/map Natural Text (max_ranges.make (n + 2)) c.max_ranges
 
+        let msie_refresh = msie_refresh.opt c.msie_refresh (n + 2)
+
+        let open_file_cache_errors =
+              open_file_cache_errors.opt c.open_file_cache_errors (n + 2)
+
+        let open_file_cache_min_uses =
+              open_file_cache_min_uses.opt c.open_file_cache_min_uses (n + 2)
+
+        let open_file_cache_valid =
+              open_file_cache_valid.opt c.open_file_cache_valid (n + 2)
+
+        let port_in_redirect = port_in_redirect.opt c.port_in_redirect (n + 2)
+
+        let recursive_error_pages =
+              recursive_error_pages.opt c.recursive_error_pages (n + 2)
+
+        let reset_timedout_connection =
+              reset_timedout_connection.opt c.reset_timedout_connection (n + 2)
+
+        let resolver_timeout = resolver_timeout.opt c.resolver_timeout (n + 2)
+
         let msie_padding =
               Optional/map Bool Text (msie_padding.make (n + 2)) c.msie_padding
+
+        let satisfy =
+              Optional/map satisfy.Type Text (satisfy.make (n + 2)) c.satisfy
+
+        let send_timeout = send_timeout.opt c.send_timeout (n + 2)
+
+        let server_name_in_redirect =
+              server_name_in_redirect.opt c.server_name_in_redirect (n + 2)
+
+        let tcp_nopush = tcp_nopush.opt c.tcp_nopush (n + 2)
 
         let try_files =
               Optional/map
@@ -292,22 +395,25 @@ let make =
                 (try_files.make (n + 2))
                 c.try_files
 
-        let satisfy =
-              Optional/map satisfy.Type Text (satisfy.make (n + 2)) c.satisfy
-
         let directives =
               List/unpackOptionals
                 Text
-                [ access_log
+                [ absolute_redirect
+                , access_log
                 , access_rules
                 , add_header
                 , add_trailer
+                , aio_write
                 , auth_basic
                 , auth_basic_user_file
+                , auth_delay
                 , autoindex
                 , autoindex_exact_size
                 , autoindex_format
                 , autoindex_localtime
+                , chunked_transfer_encoding
+                , client_body_in_single_buffer
+                , client_body_timeout
                 , default_type
                 , expires
                 , fastcgi_buffering
@@ -325,19 +431,35 @@ let make =
                 , fastcgi_intercept_errors
                 , fastcgi_keep_conn
                 , fastcgi_limit_rate
-                , fastcgi_params
                 , fastcgi_next_upstream_tries
+                , fastcgi_params
                 , fastcgi_pass
                 , fastcgi_pass_header
                 , fastcgi_pass_request_body
                 , fastcgi_request_buffering
                 , fastcgi_socket_keepalive
                 , index
+                , keepalive_requests
+                , keepalive_time
+                , lingering_time
+                , lingering_timeout
                 , log_not_found
                 , log_subrequest
                 , max_ranges
                 , msie_padding
+                , msie_refresh
+                , open_file_cache_errors
+                , open_file_cache_min_uses
+                , open_file_cache_valid
+                , port_in_redirect
+                , recursive_error_pages
+                , reset_timedout_connection
+                , resolver_timeout
                 , satisfy
+                , satisfy
+                , send_timeout
+                , server_name_in_redirect
+                , tcp_nopush
                 , try_files
                 ]
 
