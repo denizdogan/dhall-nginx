@@ -164,7 +164,7 @@ let make =
               then  None Text
               else  Some (server_name.make (n + 2) c.server_name)
 
-        let tcp_nodelay = tcp_nodelay.opt (n + 2) c.tcp_nodelay
+        let tcp_nodelay = tcp_nodelay.opt c.tcp_nodelay (n + 2)
 
         let try_files =
               Optional/map

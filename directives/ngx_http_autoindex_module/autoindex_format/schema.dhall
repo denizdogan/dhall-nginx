@@ -1,7 +1,5 @@
 let type = ./type.dhall
 
-let default = ./default.dhall
-
 let indent = ../../../utils/indent.dhall
 
 let make =
@@ -15,7 +13,6 @@ let make =
         in  indent n "autoindex_format ${text};"
 
 in  { Type = type
-    , default
     , make
     , html = type.html
     , xml = type.xml

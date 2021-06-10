@@ -3,8 +3,6 @@ let Text/concatSep = https://prelude.dhall-lang.org/Text/concatSep.dhall
 let List/unpackOptionals =
       https://prelude.dhall-lang.org/List/unpackOptionals.dhall
 
-let Optional/map = https://prelude.dhall-lang.org/Optional/map.dhall
-
 let accept_mutex = ../accept_mutex/schema.dhall
 
 let multi_accept = ../multi_accept/schema.dhall
