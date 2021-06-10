@@ -17,8 +17,42 @@ in  { access_rules =
         None ../../ngx_http_autoindex_module/autoindex_localtime/type.dhall
     , default_type = None ../default_type/type.dhall
     , expires = None ../../ngx_http_headers_module/expires/type.dhall
+    , fastcgi_buffering = None ngx_http_fastcgi_module.fastcgi_buffering.Type
+    , fastcgi_cache_background_update =
+        None ngx_http_fastcgi_module.fastcgi_cache_background_update.Type
+    , fastcgi_cache_key = None ngx_http_fastcgi_module.fastcgi_cache_key.Type
+    , fastcgi_cache_lock = None ngx_http_fastcgi_module.fastcgi_cache_lock.Type
+    , fastcgi_cache_max_range_offset =
+        None ngx_http_fastcgi_module.fastcgi_cache_max_range_offset.Type
+    , fastcgi_cache_min_uses =
+        None ngx_http_fastcgi_module.fastcgi_cache_min_uses.Type
+    , fastcgi_cache_revalidate =
+        None ngx_http_fastcgi_module.fastcgi_cache_revalidate.Type
+    , fastcgi_catch_stderr =
+        None ngx_http_fastcgi_module.fastcgi_catch_stderr.Type
+    , fastcgi_force_ranges =
+        None ngx_http_fastcgi_module.fastcgi_force_ranges.Type
+    , fastcgi_hide_header =
+        None ngx_http_fastcgi_module.fastcgi_hide_header.Type
+    , fastcgi_ignore_client_abort =
+        None ngx_http_fastcgi_module.fastcgi_ignore_client_abort.Type
+    , fastcgi_index = None ngx_http_fastcgi_module.fastcgi_index.Type
     , fastcgi_intercept_errors =
         None ngx_http_fastcgi_module.fastcgi_intercept_errors.Type
+    , fastcgi_keep_conn = None ngx_http_fastcgi_module.fastcgi_keep_conn.Type
+    , fastcgi_limit_rate = None ngx_http_fastcgi_module.fastcgi_limit_rate.Type
+    , fastcgi_next_upstream_tries =
+        None ngx_http_fastcgi_module.fastcgi_next_upstream_tries.Type
+    , fastcgi_pass_header =
+        None ngx_http_fastcgi_module.fastcgi_pass_header.Type
+    , fastcgi_pass_request_body =
+        None ngx_http_fastcgi_module.fastcgi_pass_request_body.Type
+    , fastcgi_pass_request_headers =
+        None ngx_http_fastcgi_module.fastcgi_pass_request_headers.Type
+    , fastcgi_request_buffering =
+        None ngx_http_fastcgi_module.fastcgi_request_buffering.Type
+    , fastcgi_socket_keepalive =
+        None ngx_http_fastcgi_module.fastcgi_socket_keepalive.Type
     , fastcgi_param =
         [] : List ../../ngx_http_fastcgi_module/fastcgi_param/type.dhall
     , if_modified_since = None ../if_modified_since/type.dhall

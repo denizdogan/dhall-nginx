@@ -39,7 +39,63 @@ let expires = ../../ngx_http_headers_module/expires/schema.dhall
 
 let ngx_http_fastcgi_module = ../../ngx_http_fastcgi_module/package.dhall
 
+let fastcgi_buffering =
+      ../../ngx_http_fastcgi_module/fastcgi_buffering/schema.dhall
+
+let fastcgi_cache_background_update =
+      ../../ngx_http_fastcgi_module/fastcgi_cache_background_update/schema.dhall
+
+let fastcgi_cache_key =
+      ../../ngx_http_fastcgi_module/fastcgi_cache_key/schema.dhall
+
+let fastcgi_cache_lock =
+      ../../ngx_http_fastcgi_module/fastcgi_cache_lock/schema.dhall
+
+let fastcgi_cache_max_range_offset =
+      ../../ngx_http_fastcgi_module/fastcgi_cache_max_range_offset/schema.dhall
+
+let fastcgi_cache_min_uses =
+      ../../ngx_http_fastcgi_module/fastcgi_cache_min_uses/schema.dhall
+
+let fastcgi_cache_revalidate =
+      ../../ngx_http_fastcgi_module/fastcgi_cache_revalidate/schema.dhall
+
+let fastcgi_catch_stderr =
+      ../../ngx_http_fastcgi_module/fastcgi_catch_stderr/schema.dhall
+
+let fastcgi_force_ranges =
+      ../../ngx_http_fastcgi_module/fastcgi_force_ranges/schema.dhall
+
+let fastcgi_hide_header =
+      ../../ngx_http_fastcgi_module/fastcgi_hide_header/schema.dhall
+
+let fastcgi_ignore_client_abort =
+      ../../ngx_http_fastcgi_module/fastcgi_ignore_client_abort/schema.dhall
+
+let fastcgi_index = ../../ngx_http_fastcgi_module/fastcgi_index/schema.dhall
+
 let fastcgi_intercept_errors = ngx_http_fastcgi_module.fastcgi_intercept_errors
+
+let fastcgi_keep_conn =
+      ../../ngx_http_fastcgi_module/fastcgi_keep_conn/schema.dhall
+
+let fastcgi_limit_rate =
+      ../../ngx_http_fastcgi_module/fastcgi_limit_rate/schema.dhall
+
+let fastcgi_next_upstream_tries =
+      ../../ngx_http_fastcgi_module/fastcgi_next_upstream_tries/schema.dhall
+
+let fastcgi_pass_header =
+      ../../ngx_http_fastcgi_module/fastcgi_pass_header/schema.dhall
+
+let fastcgi_pass_request_body =
+      ../../ngx_http_fastcgi_module/fastcgi_pass_request_body/schema.dhall
+
+let fastcgi_request_buffering =
+      ../../ngx_http_fastcgi_module/fastcgi_request_buffering/schema.dhall
+
+let fastcgi_socket_keepalive =
+      ../../ngx_http_fastcgi_module/fastcgi_socket_keepalive/schema.dhall
 
 let fastcgi_param = ../../ngx_http_fastcgi_module/fastcgi_param/schema.dhall
 
@@ -134,8 +190,72 @@ let make =
         let expires =
               Optional/map expires.Type Text (expires.make (n + 2)) c.expires
 
+        let fastcgi_buffering =
+              fastcgi_buffering.opt c.fastcgi_buffering (n + 2)
+
+        let fastcgi_cache_background_update =
+              fastcgi_cache_background_update.opt
+                c.fastcgi_cache_background_update
+                (n + 2)
+
+        let fastcgi_cache_key =
+              fastcgi_cache_key.opt c.fastcgi_cache_key (n + 2)
+
+        let fastcgi_cache_lock =
+              fastcgi_cache_lock.opt c.fastcgi_cache_lock (n + 2)
+
+        let fastcgi_cache_max_range_offset =
+              fastcgi_cache_max_range_offset.opt
+                c.fastcgi_cache_max_range_offset
+                (n + 2)
+
+        let fastcgi_cache_min_uses =
+              fastcgi_cache_min_uses.opt c.fastcgi_cache_min_uses (n + 2)
+
+        let fastcgi_cache_revalidate =
+              fastcgi_cache_revalidate.opt c.fastcgi_cache_revalidate (n + 2)
+
+        let fastcgi_catch_stderr =
+              fastcgi_catch_stderr.opt c.fastcgi_catch_stderr (n + 2)
+
+        let fastcgi_force_ranges =
+              fastcgi_force_ranges.opt c.fastcgi_force_ranges (n + 2)
+
+        let fastcgi_hide_header =
+              fastcgi_hide_header.opt c.fastcgi_hide_header (n + 2)
+
+        let fastcgi_ignore_client_abort =
+              fastcgi_ignore_client_abort.opt
+                c.fastcgi_ignore_client_abort
+                (n + 2)
+
+        let fastcgi_index = fastcgi_index.opt c.fastcgi_index (n + 2)
+
         let fastcgi_intercept_errors =
               fastcgi_intercept_errors.opt c.fastcgi_intercept_errors (n + 2)
+
+        let fastcgi_keep_conn =
+              fastcgi_keep_conn.opt c.fastcgi_keep_conn (n + 2)
+
+        let fastcgi_limit_rate =
+              fastcgi_limit_rate.opt c.fastcgi_limit_rate (n + 2)
+
+        let fastcgi_next_upstream_tries =
+              fastcgi_next_upstream_tries.opt
+                c.fastcgi_next_upstream_tries
+                (n + 2)
+
+        let fastcgi_pass_header =
+              fastcgi_pass_header.opt c.fastcgi_pass_header (n + 2)
+
+        let fastcgi_pass_request_body =
+              fastcgi_pass_request_body.opt c.fastcgi_pass_request_body (n + 2)
+
+        let fastcgi_request_buffering =
+              fastcgi_request_buffering.opt c.fastcgi_request_buffering (n + 2)
+
+        let fastcgi_socket_keepalive =
+              fastcgi_socket_keepalive.opt c.fastcgi_socket_keepalive (n + 2)
 
         let fastcgi_params =
               optList
@@ -188,7 +308,27 @@ let make =
                 , autoindex_localtime
                 , default_type
                 , expires
+                , fastcgi_buffering
+                , fastcgi_cache_background_update
+                , fastcgi_cache_key
+                , fastcgi_cache_lock
+                , fastcgi_cache_max_range_offset
+                , fastcgi_cache_min_uses
+                , fastcgi_cache_revalidate
+                , fastcgi_catch_stderr
+                , fastcgi_force_ranges
+                , fastcgi_hide_header
+                , fastcgi_ignore_client_abort
+                , fastcgi_index
                 , fastcgi_intercept_errors
+                , fastcgi_keep_conn
+                , fastcgi_limit_rate
+                , fastcgi_params
+                , fastcgi_next_upstream_tries
+                , fastcgi_pass_header
+                , fastcgi_pass_request_body
+                , fastcgi_request_buffering
+                , fastcgi_socket_keepalive
                 , fastcgi_params
                 , index
                 , location
