@@ -47,67 +47,61 @@ let default_type = ../default_type/schema.dhall
 
 let expires = ../../ngx_http_headers_module/expires/schema.dhall
 
-let ngx_http_fastcgi_module = ../../ngx_http_fastcgi_module/package.dhall
+let fcgi = ../../ngx_http_fastcgi_module/package.dhall
 
-let fastcgi_buffering =
-      ../../ngx_http_fastcgi_module/fastcgi_buffering/schema.dhall
+let fastcgi_buffering = fcgi.fastcgi_buffering
 
-let fastcgi_cache_background_update =
-      ../../ngx_http_fastcgi_module/fastcgi_cache_background_update/schema.dhall
+let fastcgi_cache_background_update = fcgi.fastcgi_cache_background_update
 
-let fastcgi_cache_key =
-      ../../ngx_http_fastcgi_module/fastcgi_cache_key/schema.dhall
+let fastcgi_cache_key = fcgi.fastcgi_cache_key
 
-let fastcgi_cache_lock =
-      ../../ngx_http_fastcgi_module/fastcgi_cache_lock/schema.dhall
+let fastcgi_cache_lock = fcgi.fastcgi_cache_lock
 
-let fastcgi_cache_max_range_offset =
-      ../../ngx_http_fastcgi_module/fastcgi_cache_max_range_offset/schema.dhall
+let fastcgi_cache_lock_age = fcgi.fastcgi_cache_lock_age
 
-let fastcgi_cache_min_uses =
-      ../../ngx_http_fastcgi_module/fastcgi_cache_min_uses/schema.dhall
+let fastcgi_cache_lock_timeout = fcgi.fastcgi_cache_lock_timeout
 
-let fastcgi_cache_revalidate =
-      ../../ngx_http_fastcgi_module/fastcgi_cache_revalidate/schema.dhall
+let fastcgi_cache_max_range_offset = fcgi.fastcgi_cache_max_range_offset
 
-let fastcgi_catch_stderr =
-      ../../ngx_http_fastcgi_module/fastcgi_catch_stderr/schema.dhall
+let fastcgi_cache_min_uses = fcgi.fastcgi_cache_min_uses
 
-let fastcgi_force_ranges =
-      ../../ngx_http_fastcgi_module/fastcgi_force_ranges/schema.dhall
+let fastcgi_cache_revalidate = fcgi.fastcgi_cache_revalidate
 
-let fastcgi_hide_header =
-      ../../ngx_http_fastcgi_module/fastcgi_hide_header/schema.dhall
+let fastcgi_catch_stderr = fcgi.fastcgi_catch_stderr
 
-let fastcgi_ignore_client_abort =
-      ../../ngx_http_fastcgi_module/fastcgi_ignore_client_abort/schema.dhall
+let fastcgi_connect_timeout = fcgi.fastcgi_connect_timeout
 
-let fastcgi_index = ../../ngx_http_fastcgi_module/fastcgi_index/schema.dhall
+let fastcgi_force_ranges = fcgi.fastcgi_force_ranges
 
-let fastcgi_intercept_errors = ngx_http_fastcgi_module.fastcgi_intercept_errors
+let fastcgi_hide_header = fcgi.fastcgi_hide_header
 
-let fastcgi_keep_conn =
-      ../../ngx_http_fastcgi_module/fastcgi_keep_conn/schema.dhall
+let fastcgi_ignore_client_abort = fcgi.fastcgi_ignore_client_abort
 
-let fastcgi_limit_rate =
-      ../../ngx_http_fastcgi_module/fastcgi_limit_rate/schema.dhall
+let fastcgi_index = fcgi.fastcgi_index
 
-let fastcgi_next_upstream_tries =
-      ../../ngx_http_fastcgi_module/fastcgi_next_upstream_tries/schema.dhall
+let fastcgi_intercept_errors = fcgi.fastcgi_intercept_errors
 
-let fastcgi_pass_header =
-      ../../ngx_http_fastcgi_module/fastcgi_pass_header/schema.dhall
+let fastcgi_keep_conn = fcgi.fastcgi_keep_conn
 
-let fastcgi_pass_request_body =
-      ../../ngx_http_fastcgi_module/fastcgi_pass_request_body/schema.dhall
+let fastcgi_limit_rate = fcgi.fastcgi_limit_rate
 
-let fastcgi_request_buffering =
-      ../../ngx_http_fastcgi_module/fastcgi_request_buffering/schema.dhall
+let fastcgi_next_upstream_timeout = fcgi.fastcgi_next_upstream_timeout
 
-let fastcgi_socket_keepalive =
-      ../../ngx_http_fastcgi_module/fastcgi_socket_keepalive/schema.dhall
+let fastcgi_next_upstream_tries = fcgi.fastcgi_next_upstream_tries
 
-let fastcgi_param = ../../ngx_http_fastcgi_module/fastcgi_param/schema.dhall
+let fastcgi_pass_header = fcgi.fastcgi_pass_header
+
+let fastcgi_pass_request_body = fcgi.fastcgi_pass_request_body
+
+let fastcgi_read_timeout = fcgi.fastcgi_read_timeout
+
+let fastcgi_request_buffering = fcgi.fastcgi_request_buffering
+
+let fastcgi_send_timeout = fcgi.fastcgi_send_timeout
+
+let fastcgi_socket_keepalive = fcgi.fastcgi_socket_keepalive
+
+let fastcgi_param = fcgi.fastcgi_param
 
 let log_format = ../../ngx_http_log_module/log_format/schema.dhall
 
@@ -199,6 +193,14 @@ let make =
         let fastcgi_cache_lock =
               fastcgi_cache_lock.opt c.fastcgi_cache_lock (n + 2)
 
+        let fastcgi_cache_lock_age =
+              fastcgi_cache_lock_age.opt c.fastcgi_cache_lock_age (n + 2)
+
+        let fastcgi_cache_lock_timeout =
+              fastcgi_cache_lock_timeout.opt
+                c.fastcgi_cache_lock_timeout
+                (n + 2)
+
         let fastcgi_cache_max_range_offset =
               fastcgi_cache_max_range_offset.opt
                 c.fastcgi_cache_max_range_offset
@@ -212,6 +214,9 @@ let make =
 
         let fastcgi_catch_stderr =
               fastcgi_catch_stderr.opt c.fastcgi_catch_stderr (n + 2)
+
+        let fastcgi_connect_timeout =
+              fastcgi_connect_timeout.opt c.fastcgi_connect_timeout (n + 2)
 
         let fastcgi_force_ranges =
               fastcgi_force_ranges.opt c.fastcgi_force_ranges (n + 2)
@@ -235,6 +240,11 @@ let make =
         let fastcgi_limit_rate =
               fastcgi_limit_rate.opt c.fastcgi_limit_rate (n + 2)
 
+        let fastcgi_next_upstream_timeout =
+              fastcgi_next_upstream_timeout.opt
+                c.fastcgi_next_upstream_timeout
+                (n + 2)
+
         let fastcgi_next_upstream_tries =
               fastcgi_next_upstream_tries.opt
                 c.fastcgi_next_upstream_tries
@@ -246,8 +256,14 @@ let make =
         let fastcgi_pass_request_body =
               fastcgi_pass_request_body.opt c.fastcgi_pass_request_body (n + 2)
 
+        let fastcgi_read_timeout =
+              fastcgi_read_timeout.opt c.fastcgi_read_timeout (n + 2)
+
         let fastcgi_request_buffering =
               fastcgi_request_buffering.opt c.fastcgi_request_buffering (n + 2)
+
+        let fastcgi_send_timeout =
+              fastcgi_send_timeout.opt c.fastcgi_send_timeout (n + 2)
 
         let fastcgi_socket_keepalive =
               fastcgi_socket_keepalive.opt c.fastcgi_socket_keepalive (n + 2)
@@ -309,10 +325,13 @@ let make =
                 , fastcgi_cache_background_update
                 , fastcgi_cache_key
                 , fastcgi_cache_lock
+                , fastcgi_cache_lock_age
+                , fastcgi_cache_lock_timeout
                 , fastcgi_cache_max_range_offset
                 , fastcgi_cache_min_uses
                 , fastcgi_cache_revalidate
                 , fastcgi_catch_stderr
+                , fastcgi_connect_timeout
                 , fastcgi_force_ranges
                 , fastcgi_hide_header
                 , fastcgi_ignore_client_abort
@@ -320,11 +339,14 @@ let make =
                 , fastcgi_intercept_errors
                 , fastcgi_keep_conn
                 , fastcgi_limit_rate
+                , fastcgi_next_upstream_timeout
                 , fastcgi_params
                 , fastcgi_next_upstream_tries
                 , fastcgi_pass_header
                 , fastcgi_pass_request_body
+                , fastcgi_read_timeout
                 , fastcgi_request_buffering
+                , fastcgi_send_timeout
                 , fastcgi_socket_keepalive
                 , if_modified_since
                 , index

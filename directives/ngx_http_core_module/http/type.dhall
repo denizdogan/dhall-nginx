@@ -25,6 +25,10 @@ in  { access_rules : List ../../ngx_http_access_module/access_rule/type.dhall
         Optional ngx_http_fastcgi_module.fastcgi_cache_key.Type
     , fastcgi_cache_lock :
         Optional ngx_http_fastcgi_module.fastcgi_cache_lock.Type
+    , fastcgi_cache_lock_age :
+        Optional ngx_http_fastcgi_module.fastcgi_cache_lock_age.Type
+    , fastcgi_cache_lock_timeout :
+        Optional ngx_http_fastcgi_module.fastcgi_cache_lock_timeout.Type
     , fastcgi_cache_max_range_offset :
         Optional ngx_http_fastcgi_module.fastcgi_cache_max_range_offset.Type
     , fastcgi_cache_min_uses :
@@ -33,6 +37,8 @@ in  { access_rules : List ../../ngx_http_access_module/access_rule/type.dhall
         Optional ngx_http_fastcgi_module.fastcgi_cache_revalidate.Type
     , fastcgi_catch_stderr :
         Optional ngx_http_fastcgi_module.fastcgi_catch_stderr.Type
+    , fastcgi_connect_timeout :
+        Optional ngx_http_fastcgi_module.fastcgi_connect_timeout.Type
     , fastcgi_force_ranges :
         Optional ngx_http_fastcgi_module.fastcgi_force_ranges.Type
     , fastcgi_hide_header :
@@ -46,6 +52,8 @@ in  { access_rules : List ../../ngx_http_access_module/access_rule/type.dhall
         Optional ngx_http_fastcgi_module.fastcgi_keep_conn.Type
     , fastcgi_limit_rate :
         Optional ngx_http_fastcgi_module.fastcgi_limit_rate.Type
+    , fastcgi_next_upstream_timeout :
+        Optional ngx_http_fastcgi_module.fastcgi_next_upstream_timeout.Type
     , fastcgi_next_upstream_tries :
         Optional ngx_http_fastcgi_module.fastcgi_next_upstream_tries.Type
     , fastcgi_pass_header :
@@ -54,8 +62,12 @@ in  { access_rules : List ../../ngx_http_access_module/access_rule/type.dhall
         Optional ngx_http_fastcgi_module.fastcgi_pass_request_body.Type
     , fastcgi_pass_request_headers :
         Optional ngx_http_fastcgi_module.fastcgi_pass_request_headers.Type
+    , fastcgi_read_timeout :
+        Optional ngx_http_fastcgi_module.fastcgi_read_timeout.Type
     , fastcgi_request_buffering :
         Optional ngx_http_fastcgi_module.fastcgi_request_buffering.Type
+    , fastcgi_send_timeout :
+        Optional ngx_http_fastcgi_module.fastcgi_send_timeout.Type
     , fastcgi_socket_keepalive :
         Optional ngx_http_fastcgi_module.fastcgi_socket_keepalive.Type
     , fastcgi_param :
