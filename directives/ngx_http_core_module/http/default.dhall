@@ -22,6 +22,8 @@ in  { access_rules =
         None ngx_http_fastcgi_module.fastcgi_cache_background_update.Type
     , fastcgi_cache_key = None ngx_http_fastcgi_module.fastcgi_cache_key.Type
     , fastcgi_cache_lock = None ngx_http_fastcgi_module.fastcgi_cache_lock.Type
+    , fastcgi_cache_lock_age = None ngx_http_fastcgi_module.fastcgi_cache_lock_age.Type
+    , fastcgi_cache_lock_timeout = None ngx_http_fastcgi_module.fastcgi_cache_lock_timeout.Type
     , fastcgi_cache_max_range_offset =
         None ngx_http_fastcgi_module.fastcgi_cache_max_range_offset.Type
     , fastcgi_cache_min_uses =
@@ -30,6 +32,8 @@ in  { access_rules =
         None ngx_http_fastcgi_module.fastcgi_cache_revalidate.Type
     , fastcgi_catch_stderr =
         None ngx_http_fastcgi_module.fastcgi_catch_stderr.Type
+    , fastcgi_connect_timeout =
+        None ngx_http_fastcgi_module.fastcgi_connect_timeout.Type
     , fastcgi_force_ranges =
         None ngx_http_fastcgi_module.fastcgi_force_ranges.Type
     , fastcgi_hide_header =
@@ -41,6 +45,8 @@ in  { access_rules =
         None ngx_http_fastcgi_module.fastcgi_intercept_errors.Type
     , fastcgi_keep_conn = None ngx_http_fastcgi_module.fastcgi_keep_conn.Type
     , fastcgi_limit_rate = None ngx_http_fastcgi_module.fastcgi_limit_rate.Type
+    , fastcgi_next_upstream_timeout =
+        None ngx_http_fastcgi_module.fastcgi_next_upstream_timeout.Type
     , fastcgi_next_upstream_tries =
         None ngx_http_fastcgi_module.fastcgi_next_upstream_tries.Type
     , fastcgi_pass_header =
@@ -49,8 +55,12 @@ in  { access_rules =
         None ngx_http_fastcgi_module.fastcgi_pass_request_body.Type
     , fastcgi_pass_request_headers =
         None ngx_http_fastcgi_module.fastcgi_pass_request_headers.Type
+    , fastcgi_read_timeout =
+        None ngx_http_fastcgi_module.fastcgi_read_timeout.Type
     , fastcgi_request_buffering =
         None ngx_http_fastcgi_module.fastcgi_request_buffering.Type
+    , fastcgi_send_timeout =
+        None ngx_http_fastcgi_module.fastcgi_send_timeout.Type
     , fastcgi_socket_keepalive =
         None ngx_http_fastcgi_module.fastcgi_socket_keepalive.Type
     , fastcgi_param =

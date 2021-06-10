@@ -6,6 +6,8 @@ let Text/concatSep = https://prelude.dhall-lang.org/Text/concatSep.dhall
 
 let indent = ./indent.dhall
 
+let interval = ./interval.dhall
+
 let opt =
       λ(t : Type) →
       λ(make : Natural → t → Text) →
@@ -24,6 +26,8 @@ let directive =
 
         in  { Type = type, make, opt = opt type make }
 
+let interval = directive interval.Interval.Type interval.Interval/show
+
 let natural = directive Natural Natural/show
 
 let on_off = directive Bool (λ(value : Bool) → if value then "on" else "off")
@@ -34,4 +38,4 @@ let textSep =
       λ(sep : Text) →
         directive (List Text) (λ(ss : List Text) → Text/concatSep sep ss)
 
-in  { natural, on_off, text, textSep }
+in  { interval, natural, on_off, text, textSep }
