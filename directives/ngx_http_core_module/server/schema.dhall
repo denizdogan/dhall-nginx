@@ -111,6 +111,7 @@ let fastcgi_socket_keepalive =
 let index = ../../ngx_http_index_module/index/schema.dhall
 
 let limit_rate_after = ../limit_rate_after/schema.dhall
+let listen = ../listen/schema.dhall
 
 let location = ../location/schema.dhall
 
@@ -271,6 +272,7 @@ let make =
         let index = index.opt c.index (n + 2)
 
         let limit_rate_after = limit_rate_after.opt c.limit_rate_after (n + 2)
+        let listen = listen.listOpt c.listen (n + 2)
 
         let location = location.listOpt c.location (n + 2)
 
@@ -364,6 +366,7 @@ let make =
                 , fastcgi_socket_keepalive
                 , index
                 , limit_rate_after
+                , listen
                 , location
                 , log_not_found
                 , postpone_output

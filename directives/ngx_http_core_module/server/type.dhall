@@ -70,6 +70,7 @@ in  { access_rules : List ../../ngx_http_access_module/access_rule/type.dhall
         List ../../ngx_http_fastcgi_module/fastcgi_param/type.dhall
     , index : Optional ../../ngx_http_index_module/index/type.dhall
     , limit_rate_after : Optional ../limit_rate_after/type.dhall
+    , listen : List ../listen/type.dhall
     , location : List ../location/type.dhall
     , log_not_found : Optional ../log_not_found/type.dhall
     , postpone_output : Optional ../postpone_output/type.dhall

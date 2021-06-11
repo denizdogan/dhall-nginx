@@ -64,6 +64,7 @@ in  { access_rules =
         [] : List ../../ngx_http_fastcgi_module/fastcgi_param/type.dhall
     , index = None ../../ngx_http_index_module/index/type.dhall
     , limit_rate_after = None ../limit_rate_after/type.dhall
+    , listen = [] : List ../listen/type.dhall
     , location = [] : List ../location/type.dhall
     , log_not_found = None ../log_not_found/type.dhall
     , postpone_output = None ../postpone_output/type.dhall

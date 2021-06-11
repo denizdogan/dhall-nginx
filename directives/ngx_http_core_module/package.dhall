@@ -20,6 +20,7 @@
 , limit_rate_after = ./limit_rate_after/schema.dhall
 , lingering_time = ./lingering_time/schema.dhall
 , lingering_timeout = ./lingering_timeout/schema.dhall
+, listen = ./listen/schema.dhall
 , location = ./location/schema.dhall
 , log_not_found = ./log_not_found/schema.dhall
 , log_subrequest = ./log_subrequest/schema.dhall
