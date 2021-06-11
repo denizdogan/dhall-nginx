@@ -57,7 +57,12 @@ let make =
                 )
                 value.slow_start
 
-        let weight = Optional/map Natural Text Natural/show value.weight
+        let weight =
+              Optional/map
+                Natural
+                Text
+                (λ(n : Natural) → "weight=" ++ Natural/show n)
+                value.weight
 
         let params =
               List/unpackOptionals
