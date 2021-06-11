@@ -24,6 +24,10 @@ Since the internal order of the `allow` and `deny` directives matters, they are 
 
 A Dhall version of the default `/etc/nginx/fastcgi_params` has been included in [utils/helpers/fastcgi_params.dhall](./utils/helpers/fastcgi_params.dhall).
 
+### `mime.types`
+
+A Dhall version of the default `mime.types` has been included in [utils/helpers/mime_types.dhall](./utils/helpers/mime_types.dhall).
+
 ## Missing features
 
 - **Help wanted:** No nested `location` blocks because [recursion is hard in Dhall](https://docs.dhall-lang.org/howtos/How-to-translate-recursive-code-to-Dhall.html), and [named locations cannot have sub-location blocks](https://nginx.org/en/docs/http/ngx_http_core_module.html#location), making it even harder.
