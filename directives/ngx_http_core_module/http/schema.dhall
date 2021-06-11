@@ -230,27 +230,14 @@ let make =
                 c.auth_basic
 
         let auth_basic_user_file =
-              Optional/map
-                auth_basic_user_file.Type
-                Text
-                (auth_basic_user_file.make (n + 2))
-                c.auth_basic_user_file
+              auth_basic_user_file.opt c.auth_basic_user_file (n + 2)
 
         let auth_delay = auth_delay.opt c.auth_delay (n + 2)
 
-        let autoindex =
-              Optional/map
-                autoindex.Type
-                Text
-                (autoindex.make (n + 2))
-                c.autoindex
+        let autoindex = autoindex.opt c.autoindex (n + 2)
 
         let autoindex_exact_size =
-              Optional/map
-                autoindex_exact_size.Type
-                Text
-                (autoindex_exact_size.make (n + 2))
-                c.autoindex_exact_size
+              autoindex_exact_size.opt c.autoindex_exact_size (n + 2)
 
         let autoindex_format =
               Optional/map
@@ -260,11 +247,7 @@ let make =
                 c.autoindex_format
 
         let autoindex_localtime =
-              Optional/map
-                autoindex_localtime.Type
-                Text
-                (autoindex_localtime.make (n + 2))
-                c.autoindex_localtime
+              autoindex_localtime.opt c.autoindex_localtime (n + 2)
 
         let chunked_transfer_encoding =
               chunked_transfer_encoding.opt c.chunked_transfer_encoding (n + 2)
@@ -289,12 +272,7 @@ let make =
         let connection_pool_size =
               connection_pool_size.opt c.connection_pool_size (n + 2)
 
-        let default_type =
-              Optional/map
-                default_type.Type
-                Text
-                (default_type.make (n + 2))
-                c.default_type
+        let default_type = default_type.opt c.default_type (n + 2)
 
         let directio = directio.opt c.directio (n + 2)
 
@@ -426,12 +404,7 @@ let make =
         let log_formats =
               optList log_format.Type (log_format.make (n + 2)) c.log_format
 
-        let log_not_found =
-              Optional/map
-                log_not_found.Type
-                Text
-                (log_not_found.make (n + 2))
-                c.log_not_found
+        let log_not_found = log_not_found.opt c.log_not_found (n + 2)
 
         let map = optList map.Type (map.make (n + 2)) c.map
 
@@ -470,8 +443,7 @@ let make =
 
         let send_lowat = send_lowat.opt c.send_lowat (n + 2)
 
-        let sendfile =
-              Optional/map sendfile.Type Text (sendfile.make (n + 2)) c.sendfile
+        let sendfile = sendfile.opt c.sendfile (n + 2)
 
         let sendfile_max_chunk =
               sendfile_max_chunk.opt c.sendfile_max_chunk (n + 2)
