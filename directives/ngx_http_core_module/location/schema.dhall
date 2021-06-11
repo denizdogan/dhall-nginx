@@ -171,6 +171,8 @@ let proxy_redirect = ../../ngx_http_proxy_module/proxy_redirect/schema.dhall
 let proxy_send_timeout =
       ../../ngx_http_proxy_module/proxy_send_timeout/schema.dhall
 
+let proxy_set_header = ../../ngx_http_proxy_module/proxy_set_header/schema.dhall
+
 let recursive_error_pages = ../recursive_error_pages/schema.dhall
 
 let reset_timedout_connection = ../reset_timedout_connection/schema.dhall
@@ -398,6 +400,8 @@ let make =
         let proxy_send_timeout =
               proxy_send_timeout.opt c.proxy_send_timeout (n + 2)
 
+        let proxy_set_header = proxy_set_header.opt c.proxy_set_header (n + 2)
+
         let recursive_error_pages =
               recursive_error_pages.opt c.recursive_error_pages (n + 2)
 
@@ -515,6 +519,7 @@ let make =
                 , proxy_read_timeout
                 , proxy_redirect
                 , proxy_send_timeout
+                , proxy_set_header
                 , recursive_error_pages
                 , reset_timedout_connection
                 , resolver_timeout
