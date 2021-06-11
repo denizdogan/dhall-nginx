@@ -17,6 +17,8 @@ let add_trailer = ../../ngx_http_headers_module/add_trailer/schema.dhall
 
 let aio = ../aio/schema.dhall
 
+let aio_write = ../aio_write/schema.dhall
+
 let auth_basic = ../../ngx_http_auth_basic_module/auth_basic/schema.dhall
 
 let auth_basic_user_file =
@@ -113,6 +115,7 @@ let fastcgi_socket_keepalive =
 let index = ../../ngx_http_index_module/index/schema.dhall
 
 let limit_rate_after = ../limit_rate_after/schema.dhall
+
 let listen = ../listen/schema.dhall
 
 let location = ../location/schema.dhall
@@ -167,6 +170,8 @@ let make =
         let add_trailer = add_trailer.listOpt c.add_trailer (n + 2)
 
         let aio = aio.opt c.aio (n + 2)
+
+        let aio_write = aio_write.opt c.aio_write (n + 2)
 
         let auth_basic = auth_basic.opt c.auth_basic (n + 2)
 
@@ -276,6 +281,7 @@ let make =
         let index = index.opt c.index (n + 2)
 
         let limit_rate_after = limit_rate_after.opt c.limit_rate_after (n + 2)
+
         let listen = listen.listOpt c.listen (n + 2)
 
         let location = location.listOpt c.location (n + 2)
@@ -333,6 +339,7 @@ let make =
                 , add_header
                 , add_trailer
                 , aio
+                , aio_write
                 , auth_basic
                 , auth_basic_user_file
                 , autoindex
