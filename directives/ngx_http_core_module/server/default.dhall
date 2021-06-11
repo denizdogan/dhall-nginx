@@ -16,7 +16,13 @@ in  { access_rules =
         None ../../ngx_http_autoindex_module/autoindex_format/type.dhall
     , autoindex_localtime =
         None ../../ngx_http_autoindex_module/autoindex_localtime/type.dhall
+    , client_body_buffer_size = None ../client_body_buffer_size/type.dhall
+    , client_header_buffer_size = None ../client_header_buffer_size/type.dhall
+    , client_max_body_size = None ../client_max_body_size/type.dhall
+    , connection_pool_size = None ../connection_pool_size/type.dhall
     , default_type = None ../default_type/type.dhall
+    , directio = None ../directio/type.dhall
+    , directio_alignment = None ../directio_alignment/type.dhall
     , expires = None ../../ngx_http_headers_module/expires/type.dhall
     , fastcgi_buffering = None ngx_http_fastcgi_module.fastcgi_buffering.Type
     , fastcgi_cache_background_update =
@@ -57,11 +63,19 @@ in  { access_rules =
     , fastcgi_param =
         [] : List ../../ngx_http_fastcgi_module/fastcgi_param/type.dhall
     , index = None ../../ngx_http_index_module/index/type.dhall
+    , limit_rate_after = None ../limit_rate_after/type.dhall
     , location = [] : List ../location/type.dhall
     , log_not_found = None ../log_not_found/type.dhall
+    , postpone_output = None ../postpone_output/type.dhall
+    , request_pool_size = None ../request_pool_size/type.dhall
     , root = None ../../ngx_http_core_module/root/type.dhall
     , satisfy = None ../satisfy/type.dhall
-    , server_name = None ../server_name/type.dhall
+    , send_lowat = None ../send_lowat/type.dhall
+    , sendfile_max_chunk = None ../sendfile_max_chunk/type.dhall
+    , subrequest_output_buffer_size =
+        None ../subrequest_output_buffer_size/type.dhall
     , tcp_nodelay = None ../tcp_nodelay/type.dhall
     , try_files = None ../try_files/type.dhall
+    , types_hash_bucket_size = None ../types_hash_bucket_size/type.dhall
+    , types_hash_max_size = None ../types_hash_max_size/type.dhall
     }

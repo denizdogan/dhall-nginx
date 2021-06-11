@@ -4,7 +4,6 @@ in  { absolute_redirect : Optional ../absolute_redirect/type.dhall
     , access_rules : List ../../ngx_http_access_module/access_rule/type.dhall
     , add_header : List ../../ngx_http_headers_module/add_header/type.dhall
     , add_trailer : List ../../ngx_http_headers_module/add_trailer/type.dhall
-
     , aio_write : Optional ../aio_write/type.dhall
     , auth_basic :
         Optional ../../ngx_http_auth_basic_module/auth_basic/type.dhall
@@ -21,10 +20,17 @@ in  { absolute_redirect : Optional ../absolute_redirect/type.dhall
         Optional ../../ngx_http_autoindex_module/autoindex_localtime/type.dhall
     , chunked_transfer_encoding :
         Optional ../chunked_transfer_encoding/type.dhall
+    , client_body_buffer_size : Optional ../client_body_buffer_size/type.dhall
+    , client_header_buffer_size :
+        Optional ../client_header_buffer_size/type.dhall
+    , client_max_body_size : Optional ../client_max_body_size/type.dhall
     , client_body_in_single_buffer :
         Optional ../client_body_in_single_buffer/type.dhall
     , client_body_timeout : Optional ../client_body_timeout/type.dhall
+    , connection_pool_size : Optional ../connection_pool_size/type.dhall
     , default_type : Optional ../default_type/type.dhall
+    , directio : Optional ../directio/type.dhall
+    , directio_alignment : Optional ../directio_alignment/type.dhall
     , expires : Optional ../../ngx_http_headers_module/expires/type.dhall
     , fastcgi_buffering :
         Optional ngx_http_fastcgi_module.fastcgi_buffering.Type
@@ -86,6 +92,7 @@ in  { absolute_redirect : Optional ../absolute_redirect/type.dhall
     , index : Optional ../../ngx_http_index_module/index/type.dhall
     , keepalive_requests : Optional ../keepalive_requests/type.dhall
     , keepalive_time : Optional ../keepalive_time/type.dhall
+    , limit_rate_after : Optional ../limit_rate_after/type.dhall
     , lingering_time : Optional ../lingering_time/type.dhall
     , lingering_timeout : Optional ../lingering_timeout/type.dhall
     , log_format : List ../../ngx_http_log_module/log_format/type.dhall
@@ -97,17 +104,31 @@ in  { absolute_redirect : Optional ../absolute_redirect/type.dhall
     , open_file_cache_min_uses : Optional ../open_file_cache_min_uses/type.dhall
     , open_file_cache_valid : Optional ../open_file_cache_valid/type.dhall
     , port_in_redirect : Optional ../port_in_redirect/type.dhall
+    , postpone_output : Optional ../postpone_output/type.dhall
     , recursive_error_pages : Optional ../recursive_error_pages/type.dhall
+    , request_pool_size : Optional ../request_pool_size/type.dhall
     , reset_timedout_connection :
         Optional ../reset_timedout_connection/type.dhall
     , resolver_timeout : Optional ../resolver_timeout/type.dhall
     , satisfy : Optional ../satisfy/type.dhall
+    , send_lowat : Optional ../send_lowat/type.dhall
     , send_timeout : Optional ../send_timeout/type.dhall
     , sendfile : Optional ../sendfile/type.dhall
+    , sendfile_max_chunk : Optional ../sendfile_max_chunk/type.dhall
     , server : List ../../ngx_http_core_module/server/type.dhall
     , server_name_in_redirect : Optional ../server_name_in_redirect/type.dhall
+    , server_names_hash_bucket_size :
+        Optional ../server_names_hash_bucket_size/type.dhall
+    , server_names_hash_max_size :
+        Optional ../server_names_hash_max_size/type.dhall
+    , subrequest_output_buffer_size :
+        Optional ../subrequest_output_buffer_size/type.dhall
     , tcp_nopush : Optional ../tcp_nopush/type.dhall
     , types : Optional ../types/type.dhall
+    , types_hash_bucket_size : Optional ../types_hash_bucket_size/type.dhall
+    , types_hash_max_size : Optional ../types_hash_max_size/type.dhall
     , underscores_in_headers : Optional ../underscores_in_headers/type.dhall
     , upstream : List ../../ngx_http_upstream_module/upstream/type.dhall
+    , variables_hash_bucket_size : Optional ../variables_hash_bucket_size/type.dhall
+    , variables_hash_max_size : Optional ../variables_hash_max_size/type.dhall
     }
