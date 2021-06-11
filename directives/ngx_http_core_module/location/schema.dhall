@@ -164,6 +164,8 @@ let rewrite = ../../ngx_http_rewrite_module/rewrite/schema.dhall
 
 let rewrite_log = ../../ngx_http_rewrite_module/rewrite_log/schema.dhall
 
+let root = ../root/schema.dhall
+
 let satisfy = ../satisfy/schema.dhall
 
 let send_lowat = ../send_lowat/schema.dhall
@@ -374,6 +376,8 @@ let make =
 
         let rewrite_log = rewrite_log.opt c.rewrite_log (n + 2)
 
+        let root = root.opt c.root (n + 2)
+
         let satisfy = satisfy.opt c.satisfy (n + 2)
 
         let send_lowat = send_lowat.opt c.send_lowat (n + 2)
@@ -475,6 +479,7 @@ let make =
                 , resolver_timeout
                 , rewrite
                 , rewrite_log
+                , root
                 , satisfy
                 , satisfy
                 , send_lowat

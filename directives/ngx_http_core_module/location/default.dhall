@@ -94,6 +94,7 @@ in  { absolute_redirect = None ../absolute_redirect/type.dhall
     , resolver_timeout = None ../resolver_timeout/type.dhall
     , rewrite = None ../../ngx_http_rewrite_module/rewrite/type.dhall
     , rewrite_log = None ../../ngx_http_rewrite_module/rewrite_log/type.dhall
+    , root = None ../../ngx_http_core_module/root/type.dhall
     , satisfy = None ../satisfy/type.dhall
     , send_lowat = None ../send_lowat/type.dhall
     , send_timeout = None ../send_timeout/type.dhall

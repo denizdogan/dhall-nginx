@@ -100,6 +100,7 @@ in  { absolute_redirect : Optional ../absolute_redirect/type.dhall
     , rewrite : Optional ../../ngx_http_rewrite_module/rewrite/type.dhall
     , rewrite_log :
         Optional ../../ngx_http_rewrite_module/rewrite_log/type.dhall
+    , root : Optional ../../ngx_http_core_module/root/type.dhall
     , satisfy : Optional ../satisfy/type.dhall
     , send_lowat : Optional ../send_lowat/type.dhall
     , send_timeout : Optional ../send_timeout/type.dhall
