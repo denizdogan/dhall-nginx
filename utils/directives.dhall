@@ -10,6 +10,10 @@ let interval = ./interval.dhall
 
 let size = ./size.dhall
 
+let Size = size.Size
+
+let Size/show = size.Size/show
+
 let SizeOrOff = ../types/SizeOrOff.dhall
 
 let opt =
@@ -36,12 +40,12 @@ let natural = directive Natural Natural/show
 
 let on_off = directive Bool (λ(value : Bool) → if value then "on" else "off")
 
+let size = directive Size Size/show
+
 let sizeOrOff =
       directive
         SizeOrOff
-        (λ(v : SizeOrOff) → merge { off = "off", size = size.Size/show } v)
-
-let size = directive size.Size size.Size/show
+        (λ(v : SizeOrOff) → merge { off = "off", size = Size/show } v)
 
 let text = directive Text (Function/identity Text)
 
