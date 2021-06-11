@@ -1,3 +1,3 @@
 let d = ../../../utils/directives.dhall
 
-in  d.size "server_names_hash_bucket_size"
+in  d.natural "server_names_hash_bucket_size"
