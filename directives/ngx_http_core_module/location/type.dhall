@@ -97,6 +97,9 @@ in  { absolute_redirect : Optional ../absolute_redirect/type.dhall
     , reset_timedout_connection :
         Optional ../reset_timedout_connection/type.dhall
     , resolver_timeout : Optional ../resolver_timeout/type.dhall
+    , rewrite : Optional ../../ngx_http_rewrite_module/rewrite/type.dhall
+    , rewrite_log :
+        Optional ../../ngx_http_rewrite_module/rewrite_log/type.dhall
     , satisfy : Optional ../satisfy/type.dhall
     , send_lowat : Optional ../send_lowat/type.dhall
     , send_timeout : Optional ../send_timeout/type.dhall
@@ -108,5 +111,8 @@ in  { absolute_redirect : Optional ../absolute_redirect/type.dhall
     , try_files : Optional ../try_files/type.dhall
     , types_hash_bucket_size : Optional ../types_hash_bucket_size/type.dhall
     , types_hash_max_size : Optional ../types_hash_max_size/type.dhall
+    , uninitialized_variable_warn :
+        Optional
+          ../../ngx_http_rewrite_module/uninitialized_variable_warn/type.dhall
     , uri : Text
     }

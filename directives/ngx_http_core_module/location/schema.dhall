@@ -160,6 +160,10 @@ let reset_timedout_connection = ../reset_timedout_connection/schema.dhall
 
 let resolver_timeout = ../resolver_timeout/schema.dhall
 
+let rewrite = ../../ngx_http_rewrite_module/rewrite/schema.dhall
+
+let rewrite_log = ../../ngx_http_rewrite_module/rewrite_log/schema.dhall
+
 let satisfy = ../satisfy/schema.dhall
 
 let send_lowat = ../send_lowat/schema.dhall
@@ -180,6 +184,9 @@ let try_files = ../try_files/schema.dhall
 let types_hash_bucket_size = ../types_hash_bucket_size/schema.dhall
 
 let types_hash_max_size = ../types_hash_max_size/schema.dhall
+
+let uninitialized_variable_warn =
+      ../../ngx_http_rewrite_module/uninitialized_variable_warn/schema.dhall
 
 let default = ./default.dhall
 
@@ -363,6 +370,10 @@ let make =
 
         let resolver_timeout = resolver_timeout.opt c.resolver_timeout (n + 2)
 
+        let rewrite = rewrite.opt c.rewrite (n + 2)
+
+        let rewrite_log = rewrite_log.opt c.rewrite_log (n + 2)
+
         let satisfy = satisfy.opt c.satisfy (n + 2)
 
         let send_lowat = send_lowat.opt c.send_lowat (n + 2)
@@ -389,6 +400,11 @@ let make =
 
         let types_hash_max_size =
               types_hash_max_size.opt c.types_hash_max_size (n + 2)
+
+        let uninitialized_variable_warn =
+              uninitialized_variable_warn.opt
+                c.uninitialized_variable_warn
+                (n + 2)
 
         let directives =
               List/unpackOptionals
@@ -457,6 +473,8 @@ let make =
                 , recursive_error_pages
                 , reset_timedout_connection
                 , resolver_timeout
+                , rewrite
+                , rewrite_log
                 , satisfy
                 , satisfy
                 , send_lowat
@@ -468,6 +486,7 @@ let make =
                 , try_files
                 , types_hash_bucket_size
                 , types_hash_max_size
+                , uninitialized_variable_warn
                 ]
 
         let nameOrUri =

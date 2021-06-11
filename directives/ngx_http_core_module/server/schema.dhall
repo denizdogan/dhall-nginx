@@ -120,6 +120,10 @@ let postpone_output = ../postpone_output/schema.dhall
 
 let request_pool_size = ../request_pool_size/schema.dhall
 
+let rewrite = ../../ngx_http_rewrite_module/rewrite/schema.dhall
+
+let rewrite_log = ../../ngx_http_rewrite_module/rewrite_log/schema.dhall
+
 let root = ../../ngx_http_core_module/root/schema.dhall
 
 let satisfy = ../satisfy/schema.dhall
@@ -140,6 +144,9 @@ let try_files = ../try_files/schema.dhall
 let types_hash_bucket_size = ../types_hash_bucket_size/schema.dhall
 
 let types_hash_max_size = ../types_hash_max_size/schema.dhall
+
+let uninitialized_variable_warn =
+      ../../ngx_http_rewrite_module/uninitialized_variable_warn/schema.dhall
 
 let default = ./default.dhall
 
@@ -274,6 +281,10 @@ let make =
         let request_pool_size =
               request_pool_size.opt c.request_pool_size (n + 2)
 
+        let rewrite = rewrite.opt c.rewrite (n + 2)
+
+        let rewrite_log = rewrite_log.opt c.rewrite_log (n + 2)
+
         let root = root.opt c.root (n + 2)
 
         let satisfy = satisfy.opt c.satisfy (n + 2)
@@ -302,6 +313,11 @@ let make =
 
         let types_hash_max_size =
               types_hash_max_size.opt c.types_hash_max_size (n + 2)
+
+        let uninitialized_variable_warn =
+              uninitialized_variable_warn.opt
+                c.uninitialized_variable_warn
+                (n + 2)
 
         let directives =
               List/unpackOptionals
@@ -352,6 +368,8 @@ let make =
                 , log_not_found
                 , postpone_output
                 , request_pool_size
+                , rewrite
+                , rewrite_log
                 , root
                 , satisfy
                 , send_lowat
@@ -362,6 +380,7 @@ let make =
                 , try_files
                 , types_hash_bucket_size
                 , types_hash_max_size
+                , uninitialized_variable_warn
                 ]
 
         in  Text/concatSep

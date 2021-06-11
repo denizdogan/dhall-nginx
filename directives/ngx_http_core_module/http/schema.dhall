@@ -180,6 +180,8 @@ let reset_timedout_connection = ../reset_timedout_connection/schema.dhall
 
 let resolver_timeout = ../resolver_timeout/schema.dhall
 
+let rewrite_log = ../../ngx_http_rewrite_module/rewrite_log/schema.dhall
+
 let satisfy = ../satisfy/schema.dhall
 
 let send_lowat = ../send_lowat/schema.dhall
@@ -211,6 +213,9 @@ let types_hash_bucket_size = ../types_hash_bucket_size/schema.dhall
 let types_hash_max_size = ../types_hash_max_size/schema.dhall
 
 let underscores_in_headers = ../underscores_in_headers/schema.dhall
+
+let uninitialized_variable_warn =
+      ../../ngx_http_rewrite_module/uninitialized_variable_warn/schema.dhall
 
 let upstream = ../../ngx_http_upstream_module/upstream/schema.dhall
 
@@ -430,6 +435,8 @@ let make =
 
         let resolver_timeout = resolver_timeout.opt c.resolver_timeout (n + 2)
 
+        let rewrite_log = rewrite_log.opt c.rewrite_log (n + 2)
+
         let satisfy = satisfy.opt c.satisfy (n + 2)
 
         let send_lowat = send_lowat.opt c.send_lowat (n + 2)
@@ -473,6 +480,11 @@ let make =
 
         let underscores_in_headers =
               underscores_in_headers.opt c.underscores_in_headers (n + 2)
+
+        let uninitialized_variable_warn =
+              uninitialized_variable_warn.opt
+                c.uninitialized_variable_warn
+                (n + 2)
 
         let upstream = upstream.listOpt c.upstream (n + 2)
 
@@ -559,6 +571,7 @@ let make =
                 , request_pool_size
                 , reset_timedout_connection
                 , resolver_timeout
+                , rewrite_log
                 , satisfy
                 , send_lowat
                 , send_timeout
@@ -574,6 +587,7 @@ let make =
                 , types_hash_bucket_size
                 , types_hash_max_size
                 , underscores_in_headers
+                , uninitialized_variable_warn
                 , upstream
                 , variables_hash_bucket_size
                 , variables_hash_max_size

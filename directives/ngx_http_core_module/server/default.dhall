@@ -68,6 +68,8 @@ in  { access_rules =
     , log_not_found = None ../log_not_found/type.dhall
     , postpone_output = None ../postpone_output/type.dhall
     , request_pool_size = None ../request_pool_size/type.dhall
+    , rewrite = None ../../ngx_http_rewrite_module/rewrite/type.dhall
+    , rewrite_log = None ../../ngx_http_rewrite_module/rewrite_log/type.dhall
     , root = None ../../ngx_http_core_module/root/type.dhall
     , satisfy = None ../satisfy/type.dhall
     , send_lowat = None ../send_lowat/type.dhall
@@ -78,4 +80,7 @@ in  { access_rules =
     , try_files = None ../try_files/type.dhall
     , types_hash_bucket_size = None ../types_hash_bucket_size/type.dhall
     , types_hash_max_size = None ../types_hash_max_size/type.dhall
+    , uninitialized_variable_warn =
+        None
+          ../../ngx_http_rewrite_module/uninitialized_variable_warn/type.dhall
     }

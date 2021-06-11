@@ -102,6 +102,7 @@ in  { absolute_redirect = None ../absolute_redirect/type.dhall
     , request_pool_size = None ../request_pool_size/type.dhall
     , reset_timedout_connection = None ../reset_timedout_connection/type.dhall
     , resolver_timeout = None ../resolver_timeout/type.dhall
+    , rewrite_log = None ../../ngx_http_rewrite_module/rewrite_log/type.dhall
     , satisfy = None ../satisfy/type.dhall
     , send_lowat = None ../send_lowat/type.dhall
     , send_timeout = None ../send_timeout/type.dhall
@@ -119,6 +120,9 @@ in  { absolute_redirect = None ../absolute_redirect/type.dhall
     , types_hash_bucket_size = None ../types_hash_bucket_size/type.dhall
     , types_hash_max_size = None ../types_hash_max_size/type.dhall
     , underscores_in_headers = None ../underscores_in_headers/type.dhall
+    , uninitialized_variable_warn =
+        None
+          ../../ngx_http_rewrite_module/uninitialized_variable_warn/type.dhall
     , upstream = [] : List ../../ngx_http_upstream_module/upstream/type.dhall
     , variables_hash_bucket_size = None ../variables_hash_bucket_size/type.dhall
     , variables_hash_max_size = None ../variables_hash_max_size/type.dhall
