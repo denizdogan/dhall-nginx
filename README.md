@@ -16,6 +16,16 @@ $ dhall text --file config.dhall
 
 ## Documentation
 
+### Examples
+
+The easiest way to get started is probably by looking at the examples in [./_tests/](./_tests/) where you can find pairings of Dhall input files and their output Nginx configurations. Note that some of the output files will look slightly different from what they were based on, because this library doesn't support e.g. `include` directives -- instead of that, just use Dhall's mechanisms to "include" parts.
+
+**example** - just a random configuration
+
+**nginx** - implementation of [Full Example Configuration](https://www.nginx.com/resources/wiki/start/topics/examples/full/) from the Nginx docs
+
+**wordpress** - implementation of the [Wordpress recipe](https://www.nginx.com/resources/wiki/start/topics/recipes/wordpress/)
+
 ### Access rules (`allow` and `deny`)
 
 Since the internal order of the `allow` and `deny` directives matters, they are configured as a list of "access rules". Their common type is called [`access_rule`](./directives/ngx_http_access_module/access_rule/type.dhall).
