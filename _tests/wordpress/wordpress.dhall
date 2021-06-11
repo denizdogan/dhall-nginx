@@ -42,13 +42,7 @@ let http =
               , uri = "\\.php\$"
               , fastcgi_intercept_errors = Some True
               , fastcgi_pass = Some "php"
-              , fastcgi_param =
-                    ng.helpers.fastcgi_params
-                  # [ ng.fastcgi_param::{
-                      , parameter = "SCRIPT_FILENAME"
-                      , value = "\$document_root\$fastcgi_script_name"
-                      }
-                    ]
+              , fastcgi_param = ng.helpers.fastcgi_params
               }
             , ng.location::{
               , log_not_found = Some False
