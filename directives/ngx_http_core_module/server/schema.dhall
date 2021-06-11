@@ -1,7 +1,7 @@
-let Text/concatSep = https://prelude.dhall-lang.org/Text/concatSep.dhall
-
 let List/unpackOptionals =
       https://prelude.dhall-lang.org/List/unpackOptionals.dhall
+
+let Text/concatSep = https://prelude.dhall-lang.org/Text/concatSep.dhall
 
 let directives = ../../../utils/directives.dhall
 
@@ -47,8 +47,6 @@ let directio_alignment = ../directio_alignment/schema.dhall
 
 let expires = ../../ngx_http_headers_module/expires/schema.dhall
 
-let ngx_http_fastcgi_module = ../../ngx_http_fastcgi_module/package.dhall
-
 let fastcgi_buffering =
       ../../ngx_http_fastcgi_module/fastcgi_buffering/schema.dhall
 
@@ -84,7 +82,8 @@ let fastcgi_ignore_client_abort =
 
 let fastcgi_index = ../../ngx_http_fastcgi_module/fastcgi_index/schema.dhall
 
-let fastcgi_intercept_errors = ngx_http_fastcgi_module.fastcgi_intercept_errors
+let fastcgi_intercept_errors =
+      ../../ngx_http_fastcgi_module/fastcgi_intercept_errors/schema.dhall
 
 let fastcgi_keep_conn =
       ../../ngx_http_fastcgi_module/fastcgi_keep_conn/schema.dhall
@@ -94,6 +93,8 @@ let fastcgi_limit_rate =
 
 let fastcgi_next_upstream_tries =
       ../../ngx_http_fastcgi_module/fastcgi_next_upstream_tries/schema.dhall
+
+let fastcgi_param = ../../ngx_http_fastcgi_module/fastcgi_param/schema.dhall
 
 let fastcgi_pass_header =
       ../../ngx_http_fastcgi_module/fastcgi_pass_header/schema.dhall
@@ -107,7 +108,7 @@ let fastcgi_request_buffering =
 let fastcgi_socket_keepalive =
       ../../ngx_http_fastcgi_module/fastcgi_socket_keepalive/schema.dhall
 
-let fastcgi_param = ../../ngx_http_fastcgi_module/fastcgi_param/schema.dhall
+let index = ../../ngx_http_index_module/index/schema.dhall
 
 let limit_rate_after = ../limit_rate_after/schema.dhall
 
@@ -140,11 +141,9 @@ let types_hash_bucket_size = ../types_hash_bucket_size/schema.dhall
 
 let types_hash_max_size = ../types_hash_max_size/schema.dhall
 
-let index = ../../ngx_http_index_module/index/schema.dhall
+let default = ./default.dhall
 
 let type = ./type.dhall
-
-let default = ./default.dhall
 
 let make =
       λ(n : Natural) →
@@ -248,6 +247,8 @@ let make =
                 c.fastcgi_next_upstream_tries
                 (n + 2)
 
+        let fastcgi_params = fastcgi_param.listOpt c.fastcgi_param (n + 2)
+
         let fastcgi_pass_header =
               fastcgi_pass_header.opt c.fastcgi_pass_header (n + 2)
 
@@ -259,8 +260,6 @@ let make =
 
         let fastcgi_socket_keepalive =
               fastcgi_socket_keepalive.opt c.fastcgi_socket_keepalive (n + 2)
-
-        let fastcgi_params = fastcgi_param.listOpt c.fastcgi_param (n + 2)
 
         let index = index.opt c.index (n + 2)
 
@@ -340,13 +339,13 @@ let make =
                 , fastcgi_intercept_errors
                 , fastcgi_keep_conn
                 , fastcgi_limit_rate
-                , fastcgi_params
                 , fastcgi_next_upstream_tries
+                , fastcgi_params
+                , fastcgi_params
                 , fastcgi_pass_header
                 , fastcgi_pass_request_body
                 , fastcgi_request_buffering
                 , fastcgi_socket_keepalive
-                , fastcgi_params
                 , index
                 , limit_rate_after
                 , location

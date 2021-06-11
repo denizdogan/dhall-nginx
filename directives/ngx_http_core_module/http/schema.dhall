@@ -1,13 +1,13 @@
-let Text/concatSep = https://prelude.dhall-lang.org/Text/concatSep.dhall
-
 let List/unpackOptionals =
       https://prelude.dhall-lang.org/List/unpackOptionals.dhall
 
-let indent = ../../../utils/indent.dhall
+let Text/concatSep = https://prelude.dhall-lang.org/Text/concatSep.dhall
 
 let directives = ../../../utils/directives.dhall
 
-let if_modified_since = ../if_modified_since/schema.dhall
+let indent = ../../../utils/indent.dhall
+
+let absolute_redirect = ../absolute_redirect/schema.dhall
 
 let access_rule = ../../ngx_http_access_module/access_rule/schema.dhall
 
@@ -15,10 +15,14 @@ let add_header = ../../ngx_http_headers_module/add_header/schema.dhall
 
 let add_trailer = ../../ngx_http_headers_module/add_trailer/schema.dhall
 
+let aio_write = ../aio_write/schema.dhall
+
 let auth_basic = ../../ngx_http_auth_basic_module/auth_basic/schema.dhall
 
 let auth_basic_user_file =
       ../../ngx_http_auth_basic_module/auth_basic_user_file/schema.dhall
+
+let auth_delay = ../auth_delay/schema.dhall
 
 let autoindex = ../../ngx_http_autoindex_module/autoindex/schema.dhall
 
@@ -31,101 +35,112 @@ let autoindex_format =
 let autoindex_localtime =
       ../../ngx_http_autoindex_module/autoindex_localtime/schema.dhall
 
-let index = ../../ngx_http_index_module/index/schema.dhall
-
-let log_not_found = ../log_not_found/schema.dhall
-
-let sendfile = ../sendfile/schema.dhall
-
-let server = ../server/schema.dhall
-
-let types = ../types/schema.dhall
-
-let default_type = ../default_type/schema.dhall
-
-let expires = ../../ngx_http_headers_module/expires/schema.dhall
-
-let fcgi = ../../ngx_http_fastcgi_module/package.dhall
-
-let fastcgi_buffering = fcgi.fastcgi_buffering
-
-let fastcgi_cache_background_update = fcgi.fastcgi_cache_background_update
-
-let fastcgi_cache_key = fcgi.fastcgi_cache_key
-
-let fastcgi_cache_lock = fcgi.fastcgi_cache_lock
-
-let fastcgi_cache_lock_age = fcgi.fastcgi_cache_lock_age
-
-let fastcgi_cache_lock_timeout = fcgi.fastcgi_cache_lock_timeout
-
-let fastcgi_cache_max_range_offset = fcgi.fastcgi_cache_max_range_offset
-
-let fastcgi_cache_min_uses = fcgi.fastcgi_cache_min_uses
-
-let fastcgi_cache_revalidate = fcgi.fastcgi_cache_revalidate
-
-let fastcgi_catch_stderr = fcgi.fastcgi_catch_stderr
-
-let fastcgi_connect_timeout = fcgi.fastcgi_connect_timeout
-
-let fastcgi_force_ranges = fcgi.fastcgi_force_ranges
-
-let fastcgi_hide_header = fcgi.fastcgi_hide_header
-
-let fastcgi_ignore_client_abort = fcgi.fastcgi_ignore_client_abort
-
-let fastcgi_index = fcgi.fastcgi_index
-
-let fastcgi_intercept_errors = fcgi.fastcgi_intercept_errors
-
-let fastcgi_keep_conn = fcgi.fastcgi_keep_conn
-
-let fastcgi_limit_rate = fcgi.fastcgi_limit_rate
-
-let fastcgi_next_upstream_timeout = fcgi.fastcgi_next_upstream_timeout
-
-let fastcgi_next_upstream_tries = fcgi.fastcgi_next_upstream_tries
-
-let fastcgi_pass_header = fcgi.fastcgi_pass_header
-
-let fastcgi_pass_request_body = fcgi.fastcgi_pass_request_body
-
-let fastcgi_read_timeout = fcgi.fastcgi_read_timeout
-
-let fastcgi_request_buffering = fcgi.fastcgi_request_buffering
-
-let fastcgi_send_timeout = fcgi.fastcgi_send_timeout
-
-let fastcgi_socket_keepalive = fcgi.fastcgi_socket_keepalive
-
-let fastcgi_param = fcgi.fastcgi_param
-
-let absolute_redirect = ../absolute_redirect/schema.dhall
-
-let aio_write = ../aio_write/schema.dhall
-
-let auth_delay = ../auth_delay/schema.dhall
-
 let chunked_transfer_encoding = ../chunked_transfer_encoding/schema.dhall
 
 let client_body_buffer_size = ../client_body_buffer_size/schema.dhall
-
-let client_header_buffer_size = ../client_header_buffer_size/schema.dhall
-
-let client_max_body_size = ../client_max_body_size/schema.dhall
 
 let client_body_in_single_buffer = ../client_body_in_single_buffer/schema.dhall
 
 let client_body_timeout = ../client_body_timeout/schema.dhall
 
+let client_header_buffer_size = ../client_header_buffer_size/schema.dhall
+
+let client_max_body_size = ../client_max_body_size/schema.dhall
+
 let connection_pool_size = ../connection_pool_size/schema.dhall
+
+let default_type = ../default_type/schema.dhall
 
 let directio = ../directio/schema.dhall
 
 let directio_alignment = ../directio_alignment/schema.dhall
 
+let expires = ../../ngx_http_headers_module/expires/schema.dhall
+
+let fastcgi_buffering =
+      ../../ngx_http_fastcgi_module/fastcgi_buffering/schema.dhall
+
+let fastcgi_cache_background_update =
+      ../../ngx_http_fastcgi_module/fastcgi_cache_background_update/schema.dhall
+
+let fastcgi_cache_key =
+      ../../ngx_http_fastcgi_module/fastcgi_cache_key/schema.dhall
+
+let fastcgi_cache_lock =
+      ../../ngx_http_fastcgi_module/fastcgi_cache_lock/schema.dhall
+
+let fastcgi_cache_lock_age =
+      ../../ngx_http_fastcgi_module/fastcgi_cache_lock_age/schema.dhall
+
+let fastcgi_cache_lock_timeout =
+      ../../ngx_http_fastcgi_module/fastcgi_cache_lock_timeout/schema.dhall
+
+let fastcgi_cache_max_range_offset =
+      ../../ngx_http_fastcgi_module/fastcgi_cache_max_range_offset/schema.dhall
+
+let fastcgi_cache_min_uses =
+      ../../ngx_http_fastcgi_module/fastcgi_cache_min_uses/schema.dhall
+
+let fastcgi_cache_revalidate =
+      ../../ngx_http_fastcgi_module/fastcgi_cache_revalidate/schema.dhall
+
+let fastcgi_catch_stderr =
+      ../../ngx_http_fastcgi_module/fastcgi_catch_stderr/schema.dhall
+
+let fastcgi_connect_timeout =
+      ../../ngx_http_fastcgi_module/fastcgi_connect_timeout/schema.dhall
+
+let fastcgi_force_ranges =
+      ../../ngx_http_fastcgi_module/fastcgi_force_ranges/schema.dhall
+
+let fastcgi_hide_header =
+      ../../ngx_http_fastcgi_module/fastcgi_hide_header/schema.dhall
+
+let fastcgi_ignore_client_abort =
+      ../../ngx_http_fastcgi_module/fastcgi_ignore_client_abort/schema.dhall
+
+let fastcgi_index = ../../ngx_http_fastcgi_module/fastcgi_index/schema.dhall
+
+let fastcgi_intercept_errors =
+      ../../ngx_http_fastcgi_module/fastcgi_intercept_errors/schema.dhall
+
+let fastcgi_keep_conn =
+      ../../ngx_http_fastcgi_module/fastcgi_keep_conn/schema.dhall
+
+let fastcgi_limit_rate =
+      ../../ngx_http_fastcgi_module/fastcgi_limit_rate/schema.dhall
+
+let fastcgi_next_upstream_timeout =
+      ../../ngx_http_fastcgi_module/fastcgi_next_upstream_timeout/schema.dhall
+
+let fastcgi_next_upstream_tries =
+      ../../ngx_http_fastcgi_module/fastcgi_next_upstream_tries/schema.dhall
+
+let fastcgi_param = ../../ngx_http_fastcgi_module/fastcgi_param/schema.dhall
+
+let fastcgi_pass_header =
+      ../../ngx_http_fastcgi_module/fastcgi_pass_header/schema.dhall
+
+let fastcgi_pass_request_body =
+      ../../ngx_http_fastcgi_module/fastcgi_pass_request_body/schema.dhall
+
+let fastcgi_read_timeout =
+      ../../ngx_http_fastcgi_module/fastcgi_read_timeout/schema.dhall
+
+let fastcgi_request_buffering =
+      ../../ngx_http_fastcgi_module/fastcgi_request_buffering/schema.dhall
+
+let fastcgi_send_timeout =
+      ../../ngx_http_fastcgi_module/fastcgi_send_timeout/schema.dhall
+
+let fastcgi_socket_keepalive =
+      ../../ngx_http_fastcgi_module/fastcgi_socket_keepalive/schema.dhall
+
+let if_modified_since = ../if_modified_since/schema.dhall
+
 let ignore_invalid_headers = ../ignore_invalid_headers/schema.dhall
+
+let index = ../../ngx_http_index_module/index/schema.dhall
 
 let keepalive_requests = ../keepalive_requests/schema.dhall
 
@@ -136,6 +151,12 @@ let limit_rate_after = ../limit_rate_after/schema.dhall
 let lingering_time = ../lingering_time/schema.dhall
 
 let lingering_timeout = ../lingering_timeout/schema.dhall
+
+let log_format = ../../ngx_http_log_module/log_format/schema.dhall
+
+let log_not_found = ../log_not_found/schema.dhall
+
+let map = ../../ngx_http_map_module/map/schema.dhall
 
 let merge_slashes = ../merge_slashes/schema.dhall
 
@@ -159,11 +180,17 @@ let reset_timedout_connection = ../reset_timedout_connection/schema.dhall
 
 let resolver_timeout = ../resolver_timeout/schema.dhall
 
-let send_timeout = ../send_timeout/schema.dhall
+let satisfy = ../satisfy/schema.dhall
 
 let send_lowat = ../send_lowat/schema.dhall
 
+let send_timeout = ../send_timeout/schema.dhall
+
+let sendfile = ../sendfile/schema.dhall
+
 let sendfile_max_chunk = ../sendfile_max_chunk/schema.dhall
+
+let server = ../server/schema.dhall
 
 let server_name_in_redirect = ../server_name_in_redirect/schema.dhall
 
@@ -177,27 +204,23 @@ let subrequest_output_buffer_size =
 
 let tcp_nopush = ../tcp_nopush/schema.dhall
 
+let types = ../types/schema.dhall
+
 let types_hash_bucket_size = ../types_hash_bucket_size/schema.dhall
 
 let types_hash_max_size = ../types_hash_max_size/schema.dhall
 
 let underscores_in_headers = ../underscores_in_headers/schema.dhall
 
+let upstream = ../../ngx_http_upstream_module/upstream/schema.dhall
+
 let variables_hash_bucket_size = ../variables_hash_bucket_size/schema.dhall
 
 let variables_hash_max_size = ../variables_hash_max_size/schema.dhall
 
-let log_format = ../../ngx_http_log_module/log_format/schema.dhall
-
-let map = ../../ngx_http_map_module/map/schema.dhall
-
-let satisfy = ../satisfy/schema.dhall
-
-let upstream = ../../ngx_http_upstream_module/upstream/schema.dhall
+let default = ./default.dhall
 
 let type = ./type.dhall
-
-let default = ./default.dhall
 
 let make =
       λ(n : Natural) →
@@ -236,12 +259,6 @@ let make =
         let client_body_buffer_size =
               client_body_buffer_size.opt c.client_body_buffer_size (n + 2)
 
-        let client_header_buffer_size =
-              client_header_buffer_size.opt c.client_header_buffer_size (n + 2)
-
-        let client_max_body_size =
-              client_max_body_size.opt c.client_max_body_size (n + 2)
-
         let client_body_in_single_buffer =
               client_body_in_single_buffer.opt
                 c.client_body_in_single_buffer
@@ -249,6 +266,12 @@ let make =
 
         let client_body_timeout =
               client_body_timeout.opt c.client_body_timeout (n + 2)
+
+        let client_header_buffer_size =
+              client_header_buffer_size.opt c.client_header_buffer_size (n + 2)
+
+        let client_max_body_size =
+              client_max_body_size.opt c.client_max_body_size (n + 2)
 
         let connection_pool_size =
               connection_pool_size.opt c.connection_pool_size (n + 2)
@@ -333,6 +356,8 @@ let make =
                 c.fastcgi_next_upstream_tries
                 (n + 2)
 
+        let fastcgi_params = fastcgi_param.listOpt c.fastcgi_param (n + 2)
+
         let fastcgi_pass_header =
               fastcgi_pass_header.opt c.fastcgi_pass_header (n + 2)
 
@@ -350,8 +375,6 @@ let make =
 
         let fastcgi_socket_keepalive =
               fastcgi_socket_keepalive.opt c.fastcgi_socket_keepalive (n + 2)
-
-        let fastcgi_params = fastcgi_param.listOpt c.fastcgi_param (n + 2)
 
         let if_modified_since =
               if_modified_since.opt c.if_modified_since (n + 2)
@@ -409,9 +432,9 @@ let make =
 
         let satisfy = satisfy.opt c.satisfy (n + 2)
 
-        let send_timeout = send_timeout.opt c.send_timeout (n + 2)
-
         let send_lowat = send_lowat.opt c.send_lowat (n + 2)
+
+        let send_timeout = send_timeout.opt c.send_timeout (n + 2)
 
         let sendfile = sendfile.opt c.sendfile (n + 2)
 
@@ -440,13 +463,13 @@ let make =
 
         let tcp_nopush = tcp_nopush.opt c.tcp_nopush (n + 2)
 
+        let types = types.opt c.types (n + 2)
+
         let types_hash_bucket_size =
               types_hash_bucket_size.opt c.types_hash_bucket_size (n + 2)
 
         let types_hash_max_size =
               types_hash_max_size.opt c.types_hash_max_size (n + 2)
-
-        let types = types.opt c.types (n + 2)
 
         let underscores_in_headers =
               underscores_in_headers.opt c.underscores_in_headers (n + 2)
@@ -478,9 +501,9 @@ let make =
                 , autoindex_localtime
                 , chunked_transfer_encoding
                 , client_body_buffer_size
-                , client_header_buffer_size
                 , client_body_in_single_buffer
                 , client_body_timeout
+                , client_header_buffer_size
                 , client_max_body_size
                 , connection_pool_size
                 , default_type

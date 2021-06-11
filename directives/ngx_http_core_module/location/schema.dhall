@@ -1,15 +1,11 @@
-let Text/concatSep = https://prelude.dhall-lang.org/Text/concatSep.dhall
-
 let List/unpackOptionals =
       https://prelude.dhall-lang.org/List/unpackOptionals.dhall
 
-let type = ./type.dhall
-
-let default = ./default.dhall
+let Text/concatSep = https://prelude.dhall-lang.org/Text/concatSep.dhall
 
 let directives = ../../../utils/directives.dhall
 
-let indent = ../../../utils/indent.dhall
+let absolute_redirect = ../absolute_redirect/schema.dhall
 
 let access_log = ../../ngx_http_log_module/access_log/schema.dhall
 
@@ -19,10 +15,14 @@ let add_header = ../../ngx_http_headers_module/add_header/schema.dhall
 
 let add_trailer = ../../ngx_http_headers_module/add_trailer/schema.dhall
 
+let aio_write = ../aio_write/schema.dhall
+
 let auth_basic = ../../ngx_http_auth_basic_module/auth_basic/schema.dhall
 
 let auth_basic_user_file =
       ../../ngx_http_auth_basic_module/auth_basic_user_file/schema.dhall
+
+let auth_delay = ../auth_delay/schema.dhall
 
 let autoindex = ../../ngx_http_autoindex_module/autoindex/schema.dhall
 
@@ -35,37 +35,25 @@ let autoindex_format =
 let autoindex_localtime =
       ../../ngx_http_autoindex_module/autoindex_localtime/schema.dhall
 
+let chunked_transfer_encoding = ../chunked_transfer_encoding/schema.dhall
+
 let client_body_buffer_size = ../client_body_buffer_size/schema.dhall
+
+let client_body_in_single_buffer = ../client_body_in_single_buffer/schema.dhall
+
+let client_body_timeout = ../client_body_timeout/schema.dhall
 
 let client_max_body_size = ../client_max_body_size/schema.dhall
 
 let connection_pool_size = ../connection_pool_size/schema.dhall
 
+let default_type = ../default_type/schema.dhall
+
 let directio = ../directio/schema.dhall
 
 let directio_alignment = ../directio_alignment/schema.dhall
 
-let default_type = ../default_type/schema.dhall
-
 let expires = ../../ngx_http_headers_module/expires/schema.dhall
-
-let index = ../../ngx_http_index_module/index/schema.dhall
-
-let log_not_found = ../log_not_found/schema.dhall
-
-let log_subrequest = ../log_subrequest/schema.dhall
-
-let max_ranges = ../max_ranges/schema.dhall
-
-let msie_padding = ../msie_padding/schema.dhall
-
-let try_files = ../try_files/schema.dhall
-
-let modifier = ./modifier.dhall
-
-let fastcgi_param = ../../ngx_http_fastcgi_module/fastcgi_param/schema.dhall
-
-let ngx_http_fastcgi_module = ../../ngx_http_fastcgi_module/package.dhall
 
 let fastcgi_buffering =
       ../../ngx_http_fastcgi_module/fastcgi_buffering/schema.dhall
@@ -102,7 +90,8 @@ let fastcgi_ignore_client_abort =
 
 let fastcgi_index = ../../ngx_http_fastcgi_module/fastcgi_index/schema.dhall
 
-let fastcgi_intercept_errors = ngx_http_fastcgi_module.fastcgi_intercept_errors
+let fastcgi_intercept_errors =
+      ../../ngx_http_fastcgi_module/fastcgi_intercept_errors/schema.dhall
 
 let fastcgi_keep_conn =
       ../../ngx_http_fastcgi_module/fastcgi_keep_conn/schema.dhall
@@ -112,6 +101,10 @@ let fastcgi_limit_rate =
 
 let fastcgi_next_upstream_tries =
       ../../ngx_http_fastcgi_module/fastcgi_next_upstream_tries/schema.dhall
+
+let fastcgi_param = ../../ngx_http_fastcgi_module/fastcgi_param/schema.dhall
+
+let fastcgi_pass = ../../ngx_http_fastcgi_module/fastcgi_pass/schema.dhall
 
 let fastcgi_pass_header =
       ../../ngx_http_fastcgi_module/fastcgi_pass_header/schema.dhall
@@ -125,21 +118,9 @@ let fastcgi_request_buffering =
 let fastcgi_socket_keepalive =
       ../../ngx_http_fastcgi_module/fastcgi_socket_keepalive/schema.dhall
 
-let fastcgi_pass = ngx_http_fastcgi_module.fastcgi_pass
+let indent = ../../../utils/indent.dhall
 
-let satisfy = ../satisfy/schema.dhall
-
-let absolute_redirect = ../absolute_redirect/schema.dhall
-
-let aio_write = ../aio_write/schema.dhall
-
-let auth_delay = ../auth_delay/schema.dhall
-
-let chunked_transfer_encoding = ../chunked_transfer_encoding/schema.dhall
-
-let client_body_in_single_buffer = ../client_body_in_single_buffer/schema.dhall
-
-let client_body_timeout = ../client_body_timeout/schema.dhall
+let index = ../../ngx_http_index_module/index/schema.dhall
 
 let keepalive_requests = ../keepalive_requests/schema.dhall
 
@@ -150,6 +131,16 @@ let limit_rate_after = ../limit_rate_after/schema.dhall
 let lingering_time = ../lingering_time/schema.dhall
 
 let lingering_timeout = ../lingering_timeout/schema.dhall
+
+let log_not_found = ../log_not_found/schema.dhall
+
+let log_subrequest = ../log_subrequest/schema.dhall
+
+let max_ranges = ../max_ranges/schema.dhall
+
+let modifier = ./modifier.dhall
+
+let msie_padding = ../msie_padding/schema.dhall
 
 let msie_refresh = ../msie_refresh/schema.dhall
 
@@ -169,6 +160,8 @@ let reset_timedout_connection = ../reset_timedout_connection/schema.dhall
 
 let resolver_timeout = ../resolver_timeout/schema.dhall
 
+let satisfy = ../satisfy/schema.dhall
+
 let send_lowat = ../send_lowat/schema.dhall
 
 let send_timeout = ../send_timeout/schema.dhall
@@ -182,9 +175,15 @@ let subrequest_output_buffer_size =
 
 let tcp_nopush = ../tcp_nopush/schema.dhall
 
+let try_files = ../try_files/schema.dhall
+
 let types_hash_bucket_size = ../types_hash_bucket_size/schema.dhall
 
 let types_hash_max_size = ../types_hash_max_size/schema.dhall
+
+let default = ./default.dhall
+
+let type = ./type.dhall
 
 let make =
       λ(n : Natural) →
@@ -303,6 +302,8 @@ let make =
                 c.fastcgi_next_upstream_tries
                 (n + 2)
 
+        let fastcgi_params = fastcgi_param.listOpt c.fastcgi_param (n + 2)
+
         let fastcgi_pass = fastcgi_pass.opt c.fastcgi_pass (n + 2)
 
         let fastcgi_pass_header =
@@ -316,8 +317,6 @@ let make =
 
         let fastcgi_socket_keepalive =
               fastcgi_socket_keepalive.opt c.fastcgi_socket_keepalive (n + 2)
-
-        let fastcgi_params = fastcgi_param.listOpt c.fastcgi_param (n + 2)
 
         let index = index.opt c.index (n + 2)
 
@@ -338,6 +337,8 @@ let make =
         let log_subrequest = log_subrequest.opt c.log_subrequest (n + 2)
 
         let max_ranges = max_ranges.opt c.max_ranges (n + 2)
+
+        let msie_padding = msie_padding.opt c.msie_padding (n + 2)
 
         let msie_refresh = msie_refresh.opt c.msie_refresh (n + 2)
 
@@ -361,8 +362,6 @@ let make =
               reset_timedout_connection.opt c.reset_timedout_connection (n + 2)
 
         let resolver_timeout = resolver_timeout.opt c.resolver_timeout (n + 2)
-
-        let msie_padding = msie_padding.opt c.msie_padding (n + 2)
 
         let satisfy = satisfy.opt c.satisfy (n + 2)
 
