@@ -76,6 +76,8 @@ in  { access_rules : List ../../ngx_http_access_module/access_rule/type.dhall
     , location : List ../location/type.dhall
     , log_not_found : Optional ../log_not_found/type.dhall
     , postpone_output : Optional ../postpone_output/type.dhall
+    , proxy_buffers :
+        Optional ../../ngx_http_proxy_module/proxy_buffers/type.dhall
     , request_pool_size : Optional ../request_pool_size/type.dhall
     , rewrite : Optional ../../ngx_http_rewrite_module/rewrite/type.dhall
     , rewrite_log :

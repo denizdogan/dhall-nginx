@@ -90,6 +90,7 @@ in  { absolute_redirect = None ../absolute_redirect/type.dhall
     , open_file_cache_valid = None ../open_file_cache_valid/type.dhall
     , port_in_redirect = None ../port_in_redirect/type.dhall
     , postpone_output = None ../postpone_output/type.dhall
+    , proxy_buffers = None ../../ngx_http_proxy_module/proxy_buffers/type.dhall
     , proxy_pass = None ../../ngx_http_proxy_module/proxy_pass/type.dhall
     , recursive_error_pages = None ../recursive_error_pages/type.dhall
     , reset_timedout_connection = None ../reset_timedout_connection/type.dhall

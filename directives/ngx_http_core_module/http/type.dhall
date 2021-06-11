@@ -107,6 +107,8 @@ in  { absolute_redirect : Optional ../absolute_redirect/type.dhall
     , open_file_cache_valid : Optional ../open_file_cache_valid/type.dhall
     , port_in_redirect : Optional ../port_in_redirect/type.dhall
     , postpone_output : Optional ../postpone_output/type.dhall
+    , proxy_buffers :
+        Optional ../../ngx_http_proxy_module/proxy_buffers/type.dhall
     , recursive_error_pages : Optional ../recursive_error_pages/type.dhall
     , request_pool_size : Optional ../request_pool_size/type.dhall
     , reset_timedout_connection :

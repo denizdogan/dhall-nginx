@@ -156,6 +156,8 @@ let port_in_redirect = ../port_in_redirect/schema.dhall
 
 let postpone_output = ../postpone_output/schema.dhall
 
+let proxy_buffers = ../../ngx_http_proxy_module/proxy_buffers/schema.dhall
+
 let proxy_pass = ../../ngx_http_proxy_module/proxy_pass/schema.dhall
 
 let recursive_error_pages = ../recursive_error_pages/schema.dhall
@@ -370,6 +372,8 @@ let make =
 
         let postpone_output = postpone_output.opt c.postpone_output (n + 2)
 
+        let proxy_buffers = proxy_buffers.opt c.proxy_buffers (n + 2)
+
         let proxy_pass = proxy_pass.opt c.proxy_pass (n + 2)
 
         let recursive_error_pages =
@@ -483,6 +487,7 @@ let make =
                 , open_file_cache_valid
                 , port_in_redirect
                 , postpone_output
+                , proxy_buffers
                 , proxy_pass
                 , recursive_error_pages
                 , reset_timedout_connection

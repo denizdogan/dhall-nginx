@@ -124,6 +124,8 @@ let log_not_found = ../log_not_found/schema.dhall
 
 let postpone_output = ../postpone_output/schema.dhall
 
+let proxy_buffers = ../../ngx_http_proxy_module/proxy_buffers/schema.dhall
+
 let request_pool_size = ../request_pool_size/schema.dhall
 
 let rewrite = ../../ngx_http_rewrite_module/rewrite/schema.dhall
@@ -290,6 +292,8 @@ let make =
 
         let postpone_output = postpone_output.opt c.postpone_output (n + 2)
 
+        let proxy_buffers = proxy_buffers.opt c.proxy_buffers (n + 2)
+
         let request_pool_size =
               request_pool_size.opt c.request_pool_size (n + 2)
 
@@ -382,6 +386,7 @@ let make =
                 , location
                 , log_not_found
                 , postpone_output
+                , proxy_buffers
                 , request_pool_size
                 , rewrite
                 , rewrite_log

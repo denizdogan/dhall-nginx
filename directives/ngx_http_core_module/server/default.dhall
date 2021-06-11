@@ -70,6 +70,7 @@ in  { access_rules =
     , location = [] : List ../location/type.dhall
     , log_not_found = None ../log_not_found/type.dhall
     , postpone_output = None ../postpone_output/type.dhall
+    , proxy_buffers = None ../../ngx_http_proxy_module/proxy_buffers/type.dhall
     , request_pool_size = None ../request_pool_size/type.dhall
     , rewrite = None ../../ngx_http_rewrite_module/rewrite/type.dhall
     , rewrite_log = None ../../ngx_http_rewrite_module/rewrite_log/type.dhall
