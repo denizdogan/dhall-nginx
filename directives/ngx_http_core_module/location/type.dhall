@@ -96,6 +96,8 @@ in  { absolute_redirect : Optional ../absolute_redirect/type.dhall
     , postpone_output : Optional ../postpone_output/type.dhall
     , proxy_buffers :
         Optional ../../ngx_http_proxy_module/proxy_buffers/type.dhall
+    , proxy_connect_timeout :
+        Optional ../../ngx_http_proxy_module/proxy_connect_timeout/type.dhall
     , proxy_pass : Optional ../../ngx_http_proxy_module/proxy_pass/type.dhall
     , recursive_error_pages : Optional ../recursive_error_pages/type.dhall
     , reset_timedout_connection :
