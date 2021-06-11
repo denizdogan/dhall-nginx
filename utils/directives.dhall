@@ -8,6 +8,10 @@ let indent = ./indent.dhall
 
 let interval = ./interval.dhall
 
+let size = ./size.dhall
+
+let SizeOrOff = ../types/SizeOrOff.dhall
+
 let opt =
       λ(t : Type) →
       λ(make : Natural → t → Text) →
@@ -32,10 +36,17 @@ let natural = directive Natural Natural/show
 
 let on_off = directive Bool (λ(value : Bool) → if value then "on" else "off")
 
+let sizeOrOff =
+      directive
+        SizeOrOff
+        (λ(v : SizeOrOff) → merge { off = "off", size = size.Size/show } v)
+
+let size = directive size.Size size.Size/show
+
 let text = directive Text (Function/identity Text)
 
 let textSep =
       λ(sep : Text) →
         directive (List Text) (λ(ss : List Text) → Text/concatSep sep ss)
 
-in  { interval, natural, on_off, text, textSep }
+in  { interval, natural, on_off, size, sizeOrOff, SizeOrOff, text, textSep }

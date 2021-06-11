@@ -33,7 +33,19 @@ let autoindex_format =
 let autoindex_localtime =
       ../../ngx_http_autoindex_module/autoindex_localtime/schema.dhall
 
+let client_body_buffer_size = ../client_body_buffer_size/schema.dhall
+
+let client_header_buffer_size = ../client_header_buffer_size/schema.dhall
+
+let client_max_body_size = ../client_max_body_size/schema.dhall
+
+let connection_pool_size = ../connection_pool_size/schema.dhall
+
 let default_type = ../default_type/schema.dhall
+
+let directio = ../directio/schema.dhall
+
+let directio_alignment = ../directio_alignment/schema.dhall
 
 let expires = ../../ngx_http_headers_module/expires/schema.dhall
 
@@ -99,19 +111,36 @@ let fastcgi_socket_keepalive =
 
 let fastcgi_param = ../../ngx_http_fastcgi_module/fastcgi_param/schema.dhall
 
+let limit_rate_after = ../limit_rate_after/schema.dhall
+
 let location = ../location/schema.dhall
 
 let log_not_found = ../log_not_found/schema.dhall
+
+let postpone_output = ../postpone_output/schema.dhall
+
+let request_pool_size = ../request_pool_size/schema.dhall
 
 let root = ../../ngx_http_core_module/root/schema.dhall
 
 let satisfy = ../satisfy/schema.dhall
 
+let send_lowat = ../send_lowat/schema.dhall
+
+let sendfile_max_chunk = ../sendfile_max_chunk/schema.dhall
+
 let server_name = ../server_name/schema.dhall
+
+let subrequest_output_buffer_size =
+      ../subrequest_output_buffer_size/schema.dhall
 
 let tcp_nodelay = ../tcp_nodelay/schema.dhall
 
 let try_files = ../try_files/schema.dhall
+
+let types_hash_bucket_size = ../types_hash_bucket_size/schema.dhall
+
+let types_hash_max_size = ../types_hash_max_size/schema.dhall
 
 let index = ../../ngx_http_index_module/index/schema.dhall
 
@@ -180,12 +209,29 @@ let make =
                 (autoindex_localtime.make (n + 2))
                 c.autoindex_localtime
 
+        let client_body_buffer_size =
+              client_body_buffer_size.opt c.client_body_buffer_size (n + 2)
+
+        let client_header_buffer_size =
+              client_header_buffer_size.opt c.client_header_buffer_size (n + 2)
+
+        let client_max_body_size =
+              client_max_body_size.opt c.client_max_body_size (n + 2)
+
+        let connection_pool_size =
+              connection_pool_size.opt c.connection_pool_size (n + 2)
+
         let default_type =
               Optional/map
                 default_type.Type
                 Text
                 (default_type.make (n + 2))
                 c.default_type
+
+        let directio = directio.opt c.directio (n + 2)
+
+        let directio_alignment =
+              directio_alignment.opt c.directio_alignment (n + 2)
 
         let expires =
               Optional/map expires.Type Text (expires.make (n + 2)) c.expires
@@ -265,6 +311,8 @@ let make =
 
         let index = Optional/map index.Type Text (index.make (n + 2)) c.index
 
+        let limit_rate_after = limit_rate_after.opt c.limit_rate_after (n + 2)
+
         let location = optList location.Type (location.make (n + 2)) c.location
 
         let log_not_found =
@@ -274,15 +322,30 @@ let make =
                 (log_not_found.make (n + 2))
                 c.log_not_found
 
+        let postpone_output = postpone_output.opt c.postpone_output (n + 2)
+
+        let request_pool_size =
+              request_pool_size.opt c.request_pool_size (n + 2)
+
         let root = Optional/map root.Type Text (root.make (n + 2)) c.root
 
         let satisfy =
               Optional/map satisfy.Type Text (satisfy.make (n + 2)) c.satisfy
 
+        let send_lowat = send_lowat.opt c.send_lowat (n + 2)
+
+        let sendfile_max_chunk =
+              sendfile_max_chunk.opt c.sendfile_max_chunk (n + 2)
+
         let server_name =
               if    Natural/isZero (List/length Text c.server_name)
               then  None Text
               else  Some (server_name.make (n + 2) c.server_name)
+
+        let subrequest_output_buffer_size =
+              subrequest_output_buffer_size.opt
+                c.subrequest_output_buffer_size
+                (n + 2)
 
         let tcp_nodelay = tcp_nodelay.opt c.tcp_nodelay (n + 2)
 
@@ -292,6 +355,12 @@ let make =
                 Text
                 (try_files.make (n + 2))
                 c.try_files
+
+        let types_hash_bucket_size =
+              types_hash_bucket_size.opt c.types_hash_bucket_size (n + 2)
+
+        let types_hash_max_size =
+              types_hash_max_size.opt c.types_hash_max_size (n + 2)
 
         let directives =
               List/unpackOptionals
@@ -306,7 +375,13 @@ let make =
                 , autoindex_exact_size
                 , autoindex_format
                 , autoindex_localtime
+                , client_body_buffer_size
+                , client_header_buffer_size
+                , client_max_body_size
+                , connection_pool_size
                 , default_type
+                , directio
+                , directio_alignment
                 , expires
                 , fastcgi_buffering
                 , fastcgi_cache_background_update
@@ -331,13 +406,21 @@ let make =
                 , fastcgi_socket_keepalive
                 , fastcgi_params
                 , index
+                , limit_rate_after
                 , location
                 , log_not_found
+                , postpone_output
+                , request_pool_size
                 , root
                 , satisfy
+                , send_lowat
+                , sendfile_max_chunk
                 , server_name
+                , subrequest_output_buffer_size
                 , tcp_nodelay
                 , try_files
+                , types_hash_bucket_size
+                , types_hash_max_size
                 ]
 
         in  Text/concatSep

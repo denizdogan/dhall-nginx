@@ -19,10 +19,16 @@ in  { absolute_redirect = None ../absolute_redirect/type.dhall
     , autoindex_localtime =
         None ../../ngx_http_autoindex_module/autoindex_localtime/type.dhall
     , chunked_transfer_encoding = None ../chunked_transfer_encoding/type.dhall
+    , client_body_buffer_size = None ../client_body_buffer_size/type.dhall
+    , client_header_buffer_size = None ../client_header_buffer_size/type.dhall
+    , client_max_body_size = None ../client_max_body_size/type.dhall
     , client_body_in_single_buffer =
         None ../client_body_in_single_buffer/type.dhall
     , client_body_timeout = None ../client_body_timeout/type.dhall
+    , connection_pool_size = None ../connection_pool_size/type.dhall
     , default_type = None ../default_type/type.dhall
+    , directio = None ../directio/type.dhall
+    , directio_alignment = None ../directio_alignment/type.dhall
     , expires = None ../../ngx_http_headers_module/expires/type.dhall
     , fastcgi_buffering = None ngx_http_fastcgi_module.fastcgi_buffering.Type
     , fastcgi_cache_background_update =
@@ -79,6 +85,7 @@ in  { absolute_redirect = None ../absolute_redirect/type.dhall
     , index = None ../../ngx_http_index_module/index/type.dhall
     , keepalive_requests = None ../keepalive_requests/type.dhall
     , keepalive_time = None ../keepalive_time/type.dhall
+    , limit_rate_after = None ../limit_rate_after/type.dhall
     , lingering_time = None ../lingering_time/type.dhall
     , lingering_timeout = None ../lingering_timeout/type.dhall
     , log_format = [] : List ../../ngx_http_log_module/log_format/type.dhall
@@ -90,16 +97,29 @@ in  { absolute_redirect = None ../absolute_redirect/type.dhall
     , open_file_cache_min_uses = None ../open_file_cache_min_uses/type.dhall
     , open_file_cache_valid = None ../open_file_cache_valid/type.dhall
     , port_in_redirect = None ../port_in_redirect/type.dhall
+    , postpone_output = None ../postpone_output/type.dhall
     , recursive_error_pages = None ../recursive_error_pages/type.dhall
+    , request_pool_size = None ../request_pool_size/type.dhall
     , reset_timedout_connection = None ../reset_timedout_connection/type.dhall
     , resolver_timeout = None ../resolver_timeout/type.dhall
     , satisfy = None ../satisfy/type.dhall
+    , send_lowat = None ../send_lowat/type.dhall
     , send_timeout = None ../send_timeout/type.dhall
     , sendfile = None ../sendfile/type.dhall
+    , sendfile_max_chunk = None ../sendfile_max_chunk/type.dhall
     , server = [] : List ../../ngx_http_core_module/server/type.dhall
     , server_name_in_redirect = None ../server_name_in_redirect/type.dhall
+    , server_names_hash_bucket_size =
+        None ../server_names_hash_bucket_size/type.dhall
+    , server_names_hash_max_size = None ../server_names_hash_max_size/type.dhall
+    , subrequest_output_buffer_size =
+        None ../subrequest_output_buffer_size/type.dhall
     , tcp_nopush = None ../tcp_nopush/type.dhall
     , types = None ../types/type.dhall
+    , types_hash_bucket_size = None ../types_hash_bucket_size/type.dhall
+    , types_hash_max_size = None ../types_hash_max_size/type.dhall
     , underscores_in_headers = None ../underscores_in_headers/type.dhall
     , upstream = [] : List ../../ngx_http_upstream_module/upstream/type.dhall
+    , variables_hash_bucket_size = None ../variables_hash_bucket_size/type.dhall
+    , variables_hash_max_size = None ../variables_hash_max_size/type.dhall
     }

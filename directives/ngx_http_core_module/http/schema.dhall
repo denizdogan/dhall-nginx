@@ -111,15 +111,33 @@ let auth_delay = ../auth_delay/schema.dhall
 
 let chunked_transfer_encoding = ../chunked_transfer_encoding/schema.dhall
 
+let client_body_buffer_size = ../client_body_buffer_size/schema.dhall
+
+let client_header_buffer_size = ../client_header_buffer_size/schema.dhall
+
+let client_max_body_size = ../client_max_body_size/schema.dhall
+
 let client_body_in_single_buffer = ../client_body_in_single_buffer/schema.dhall
 
 let client_body_timeout = ../client_body_timeout/schema.dhall
+
+let connection_pool_size = ../connection_pool_size/schema.dhall
+
+let directio = ../directio/schema.dhall
+
+let directio_alignment = ../directio_alignment/schema.dhall
+
+let directio_alignment = ../directio/schema.dhall
+
+let directio_alignment = ../directio_alignment/schema.dhall
 
 let ignore_invalid_headers = ../ignore_invalid_headers/schema.dhall
 
 let keepalive_requests = ../keepalive_requests/schema.dhall
 
 let keepalive_time = ../keepalive_time/schema.dhall
+
+let limit_rate_after = ../limit_rate_after/schema.dhall
 
 let lingering_time = ../lingering_time/schema.dhall
 
@@ -137,7 +155,11 @@ let open_file_cache_valid = ../open_file_cache_valid/schema.dhall
 
 let port_in_redirect = ../port_in_redirect/schema.dhall
 
+let postpone_output = ../postpone_output/schema.dhall
+
 let recursive_error_pages = ../recursive_error_pages/schema.dhall
+
+let request_pool_size = ../request_pool_size/schema.dhall
 
 let reset_timedout_connection = ../reset_timedout_connection/schema.dhall
 
@@ -145,11 +167,31 @@ let resolver_timeout = ../resolver_timeout/schema.dhall
 
 let send_timeout = ../send_timeout/schema.dhall
 
+let send_lowat = ../send_lowat/schema.dhall
+
+let sendfile_max_chunk = ../sendfile_max_chunk/schema.dhall
+
 let server_name_in_redirect = ../server_name_in_redirect/schema.dhall
+
+let server_names_hash_bucket_size =
+      ../server_names_hash_bucket_size/schema.dhall
+
+let server_names_hash_max_size = ../server_names_hash_max_size/schema.dhall
+
+let subrequest_output_buffer_size =
+      ../subrequest_output_buffer_size/schema.dhall
 
 let tcp_nopush = ../tcp_nopush/schema.dhall
 
+let types_hash_bucket_size = ../types_hash_bucket_size/schema.dhall
+
+let types_hash_max_size = ../types_hash_max_size/schema.dhall
+
 let underscores_in_headers = ../underscores_in_headers/schema.dhall
+
+let variables_hash_bucket_size = ../variables_hash_bucket_size/schema.dhall
+
+let variables_hash_max_size = ../variables_hash_max_size/schema.dhall
 
 let log_format = ../../ngx_http_log_module/log_format/schema.dhall
 
@@ -227,6 +269,15 @@ let make =
         let chunked_transfer_encoding =
               chunked_transfer_encoding.opt c.chunked_transfer_encoding (n + 2)
 
+        let client_body_buffer_size =
+              client_body_buffer_size.opt c.client_body_buffer_size (n + 2)
+
+        let client_header_buffer_size =
+              client_header_buffer_size.opt c.client_header_buffer_size (n + 2)
+
+        let client_max_body_size =
+              client_max_body_size.opt c.client_max_body_size (n + 2)
+
         let client_body_in_single_buffer =
               client_body_in_single_buffer.opt
                 c.client_body_in_single_buffer
@@ -235,12 +286,20 @@ let make =
         let client_body_timeout =
               client_body_timeout.opt c.client_body_timeout (n + 2)
 
+        let connection_pool_size =
+              connection_pool_size.opt c.connection_pool_size (n + 2)
+
         let default_type =
               Optional/map
                 default_type.Type
                 Text
                 (default_type.make (n + 2))
                 c.default_type
+
+        let directio = directio.opt c.directio (n + 2)
+
+        let directio_alignment =
+              directio_alignment.opt c.directio_alignment (n + 2)
 
         let expires =
               Optional/map expires.Type Text (expires.make (n + 2)) c.expires
@@ -357,6 +416,8 @@ let make =
 
         let keepalive_time = keepalive_time.opt c.keepalive_time (n + 2)
 
+        let limit_rate_after = limit_rate_after.opt c.limit_rate_after (n + 2)
+
         let lingering_time = lingering_time.opt c.lingering_time (n + 2)
 
         let lingering_timeout =
@@ -389,8 +450,13 @@ let make =
 
         let port_in_redirect = port_in_redirect.opt c.port_in_redirect (n + 2)
 
+        let postpone_output = postpone_output.opt c.postpone_output (n + 2)
+
         let recursive_error_pages =
               recursive_error_pages.opt c.recursive_error_pages (n + 2)
+
+        let request_pool_size =
+              request_pool_size.opt c.request_pool_size (n + 2)
 
         let reset_timedout_connection =
               reset_timedout_connection.opt c.reset_timedout_connection (n + 2)
@@ -402,15 +468,41 @@ let make =
 
         let send_timeout = send_timeout.opt c.send_timeout (n + 2)
 
+        let send_lowat = send_lowat.opt c.send_lowat (n + 2)
+
         let sendfile =
               Optional/map sendfile.Type Text (sendfile.make (n + 2)) c.sendfile
+
+        let sendfile_max_chunk =
+              sendfile_max_chunk.opt c.sendfile_max_chunk (n + 2)
 
         let server = optList server.Type (server.make (n + 2)) c.server
 
         let server_name_in_redirect =
               server_name_in_redirect.opt c.server_name_in_redirect (n + 2)
 
+        let server_names_hash_bucket_size =
+              server_names_hash_bucket_size.opt
+                c.server_names_hash_bucket_size
+                (n + 2)
+
+        let server_names_hash_max_size =
+              server_names_hash_max_size.opt
+                c.server_names_hash_max_size
+                (n + 2)
+
+        let subrequest_output_buffer_size =
+              subrequest_output_buffer_size.opt
+                c.subrequest_output_buffer_size
+                (n + 2)
+
         let tcp_nopush = tcp_nopush.opt c.tcp_nopush (n + 2)
+
+        let types_hash_bucket_size =
+              types_hash_bucket_size.opt c.types_hash_bucket_size (n + 2)
+
+        let types_hash_max_size =
+              types_hash_max_size.opt c.types_hash_max_size (n + 2)
 
         let types = Optional/map types.Type Text (types.make (n + 2)) c.types
 
@@ -418,6 +510,14 @@ let make =
               underscores_in_headers.opt c.underscores_in_headers (n + 2)
 
         let upstream = optList upstream.Type (upstream.make (n + 2)) c.upstream
+
+        let variables_hash_bucket_size =
+              variables_hash_bucket_size.opt
+                c.variables_hash_bucket_size
+                (n + 2)
+
+        let variables_hash_max_size =
+              variables_hash_max_size.opt c.variables_hash_max_size (n + 2)
 
         let directives =
               List/unpackOptionals
@@ -435,9 +535,15 @@ let make =
                 , autoindex_format
                 , autoindex_localtime
                 , chunked_transfer_encoding
+                , client_body_buffer_size
+                , client_header_buffer_size
                 , client_body_in_single_buffer
                 , client_body_timeout
+                , client_max_body_size
+                , connection_pool_size
                 , default_type
+                , directio
+                , directio_alignment
                 , expires
                 , fastcgi_buffering
                 , fastcgi_cache_background_update
@@ -471,6 +577,7 @@ let make =
                 , index
                 , keepalive_requests
                 , keepalive_time
+                , limit_rate_after
                 , lingering_time
                 , lingering_timeout
                 , log_formats
@@ -482,18 +589,29 @@ let make =
                 , open_file_cache_min_uses
                 , open_file_cache_valid
                 , port_in_redirect
+                , postpone_output
                 , recursive_error_pages
+                , request_pool_size
                 , reset_timedout_connection
                 , resolver_timeout
                 , satisfy
+                , send_lowat
                 , send_timeout
                 , sendfile
+                , sendfile_max_chunk
                 , server
                 , server_name_in_redirect
+                , server_names_hash_bucket_size
+                , server_names_hash_max_size
+                , subrequest_output_buffer_size
                 , tcp_nopush
                 , types
+                , types_hash_bucket_size
+                , types_hash_max_size
                 , underscores_in_headers
                 , upstream
+                , variables_hash_bucket_size
+                , variables_hash_max_size
                 ]
 
         in  Text/concatSep

@@ -15,10 +15,12 @@ let Size/show =
           }
           size
 
-let example0 = assert : Size/show (Size.kilobytes 1) ≡ "1k"
+let example1 = assert : Size/show (Size.bytes 1) ≡ "1"
 
-let example1 = assert : Size/show (Size.megabytes 1) ≡ "1m"
+let example2 = assert : Size/show (Size.kilobytes 1) ≡ "1k"
 
-let example2 = assert : Size/show (Size.gigabytes 1) ≡ "1g"
+let example3 = assert : Size/show (Size.megabytes 1) ≡ "1m"
+
+let example4 = assert : Size/show (Size.gigabytes 1) ≡ "1g"
 
 in  { Size, Size/show }
