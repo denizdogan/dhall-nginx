@@ -17,6 +17,8 @@ let add_header = ../../ngx_http_headers_module/add_header/schema.dhall
 
 let add_trailer = ../../ngx_http_headers_module/add_trailer/schema.dhall
 
+let aio = ../aio/schema.dhall
+
 let aio_write = ../aio_write/schema.dhall
 
 let auth_basic = ../../ngx_http_auth_basic_module/auth_basic/schema.dhall
@@ -242,6 +244,8 @@ let make =
         let add_header = add_header.listOpt c.add_header (n + 2)
 
         let add_trailer = add_trailer.listOpt c.add_trailer (n + 2)
+
+        let aio = aio.opt c.aio (n + 2)
 
         let aio_write = aio_write.opt c.aio_write (n + 2)
 
@@ -510,6 +514,7 @@ let make =
                 , add_trailer
                 , aio_write
                 , auth_basic
+                , aio
                 , auth_basic_user_file
                 , auth_delay
                 , autoindex

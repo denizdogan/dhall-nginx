@@ -7,6 +7,7 @@ in  { absolute_redirect = None ../absolute_redirect/type.dhall
     , add_header = [] : List ../../ngx_http_headers_module/add_header/type.dhall
     , add_trailer =
         [] : List ../../ngx_http_headers_module/add_trailer/type.dhall
+    , aio = None ../aio/type.dhall
     , aio_write = None ../aio_write/type.dhall
     , auth_basic = None ../../ngx_http_auth_basic_module/auth_basic/type.dhall
     , auth_basic_user_file =
