@@ -73,6 +73,12 @@ in  { access_rules =
     , proxy_buffers = None ../../ngx_http_proxy_module/proxy_buffers/type.dhall
     , proxy_connect_timeout =
         None ../../ngx_http_proxy_module/proxy_connect_timeout/type.dhall
+    , proxy_read_timeout =
+        None ../../ngx_http_proxy_module/proxy_read_timeout/type.dhall
+    , proxy_redirect =
+        None ../../ngx_http_proxy_module/proxy_redirect/type.dhall
+    , proxy_send_timeout =
+        None ../../ngx_http_proxy_module/proxy_send_timeout/type.dhall
     , request_pool_size = None ../request_pool_size/type.dhall
     , rewrite = None ../../ngx_http_rewrite_module/rewrite/type.dhall
     , rewrite_log = None ../../ngx_http_rewrite_module/rewrite_log/type.dhall

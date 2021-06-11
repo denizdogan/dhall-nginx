@@ -94,6 +94,12 @@ in  { absolute_redirect = None ../absolute_redirect/type.dhall
     , proxy_connect_timeout =
         None ../../ngx_http_proxy_module/proxy_connect_timeout/type.dhall
     , proxy_pass = None ../../ngx_http_proxy_module/proxy_pass/type.dhall
+    , proxy_read_timeout =
+        None ../../ngx_http_proxy_module/proxy_read_timeout/type.dhall
+    , proxy_redirect =
+        None ../../ngx_http_proxy_module/proxy_redirect/type.dhall
+    , proxy_send_timeout =
+        None ../../ngx_http_proxy_module/proxy_send_timeout/type.dhall
     , recursive_error_pages = None ../recursive_error_pages/type.dhall
     , reset_timedout_connection = None ../reset_timedout_connection/type.dhall
     , resolver_timeout = None ../resolver_timeout/type.dhall

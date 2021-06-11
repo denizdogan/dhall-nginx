@@ -181,6 +181,14 @@ let proxy_buffers = ../../ngx_http_proxy_module/proxy_buffers/schema.dhall
 let proxy_connect_timeout =
       ../../ngx_http_proxy_module/proxy_connect_timeout/schema.dhall
 
+let proxy_read_timeout =
+      ../../ngx_http_proxy_module/proxy_read_timeout/schema.dhall
+
+let proxy_redirect = ../../ngx_http_proxy_module/proxy_redirect/schema.dhall
+
+let proxy_send_timeout =
+      ../../ngx_http_proxy_module/proxy_send_timeout/schema.dhall
+
 let recursive_error_pages = ../recursive_error_pages/schema.dhall
 
 let request_pool_size = ../request_pool_size/schema.dhall
@@ -442,6 +450,14 @@ let make =
         let proxy_connect_timeout =
               proxy_connect_timeout.opt c.proxy_connect_timeout (n + 2)
 
+        let proxy_read_timeout =
+              proxy_read_timeout.opt c.proxy_read_timeout (n + 2)
+
+        let proxy_redirect = proxy_redirect.opt c.proxy_redirect (n + 2)
+
+        let proxy_send_timeout =
+              proxy_send_timeout.opt c.proxy_send_timeout (n + 2)
+
         let recursive_error_pages =
               recursive_error_pages.opt c.recursive_error_pages (n + 2)
 
@@ -589,6 +605,9 @@ let make =
                 , postpone_output
                 , proxy_buffers
                 , proxy_connect_timeout
+                , proxy_read_timeout
+                , proxy_redirect
+                , proxy_send_timeout
                 , recursive_error_pages
                 , request_pool_size
                 , reset_timedout_connection

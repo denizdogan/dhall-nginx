@@ -99,6 +99,12 @@ in  { absolute_redirect : Optional ../absolute_redirect/type.dhall
     , proxy_connect_timeout :
         Optional ../../ngx_http_proxy_module/proxy_connect_timeout/type.dhall
     , proxy_pass : Optional ../../ngx_http_proxy_module/proxy_pass/type.dhall
+    , proxy_read_timeout :
+        Optional ../../ngx_http_proxy_module/proxy_read_timeout/type.dhall
+    , proxy_redirect :
+        Optional ../../ngx_http_proxy_module/proxy_redirect/type.dhall
+    , proxy_send_timeout :
+        Optional ../../ngx_http_proxy_module/proxy_send_timeout/type.dhall
     , recursive_error_pages : Optional ../recursive_error_pages/type.dhall
     , reset_timedout_connection :
         Optional ../reset_timedout_connection/type.dhall
