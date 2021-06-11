@@ -9,6 +9,8 @@ let indent = ../../../utils/indent.dhall
 
 let absolute_redirect = ../absolute_redirect/schema.dhall
 
+let access_log = ../../ngx_http_log_module/access_log/schema.dhall
+
 let access_rule = ../../ngx_http_access_module/access_rule/schema.dhall
 
 let add_header = ../../ngx_http_headers_module/add_header/schema.dhall
@@ -232,6 +234,8 @@ let make =
       λ(c : type) →
         let absolute_redirect =
               absolute_redirect.opt c.absolute_redirect (n + 2)
+
+        let access_log = access_log.opt c.access_log (n + 2)
 
         let access_rules = access_rule.listOpt c.access_rules (n + 2)
 
@@ -500,6 +504,7 @@ let make =
               List/unpackOptionals
                 Text
                 [ absolute_redirect
+                , access_log
                 , access_rules
                 , add_header
                 , add_trailer

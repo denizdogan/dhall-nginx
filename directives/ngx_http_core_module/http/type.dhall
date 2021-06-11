@@ -1,6 +1,7 @@
 let ngx_http_fastcgi_module = ../../ngx_http_fastcgi_module/package.dhall
 
 in  { absolute_redirect : Optional ../absolute_redirect/type.dhall
+    , access_log : Optional ../../ngx_http_log_module/access_log/type.dhall
     , access_rules : List ../../ngx_http_access_module/access_rule/type.dhall
     , add_header : List ../../ngx_http_headers_module/add_header/type.dhall
     , add_trailer : List ../../ngx_http_headers_module/add_trailer/type.dhall
