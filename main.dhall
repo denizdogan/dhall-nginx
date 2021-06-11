@@ -25,6 +25,12 @@ let pid = ./directives/ngx_core_module/pid/schema.dhall
 
 let error_log = ./directives/ngx_core_module/error_log/schema.dhall
 
+let worker_rlimit_core =
+      ./directives/ngx_core_module/worker_rlimit_core/schema.dhall
+
+let worker_rlimit_nofile =
+      ./directives/ngx_core_module/worker_rlimit_nofile/schema.dhall
+
 let default =
       { error_log = None ./directives/ngx_core_module/error_log/type.dhall
       , http = None ./directives/ngx_http_core_module/http/type.dhall
@@ -37,6 +43,10 @@ let default =
           None ./directives/ngx_core_module/worker_cpu_affinity/type.dhall
       , worker_processes =
           None ./directives/ngx_core_module/worker_processes/type.dhall
+      , worker_rlimit_core =
+          None ./directives/ngx_core_module/worker_rlimit_core/type.dhall
+      , worker_rlimit_nofile =
+          None ./directives/ngx_core_module/worker_rlimit_nofile/type.dhall
       }
 
 let type =
@@ -51,6 +61,10 @@ let type =
           Optional ./directives/ngx_core_module/worker_cpu_affinity/type.dhall
       , worker_processes :
           Optional ./directives/ngx_core_module/worker_processes/type.dhall
+      , worker_rlimit_core :
+          Optional ./directives/ngx_core_module/worker_rlimit_core/type.dhall
+      , worker_rlimit_nofile :
+          Optional ./directives/ngx_core_module/worker_rlimit_nofile/type.dhall
       }
 
 let make =
@@ -75,6 +89,11 @@ let make =
 
         let error_log = error_log.opt c.error_log n
 
+        let worker_rlimit_core = worker_rlimit_core.opt c.worker_rlimit_core n
+
+        let worker_rlimit_nofile =
+              worker_rlimit_nofile.opt c.worker_rlimit_nofile n
+
         let directives =
               List/unpackOptionals
                 Text
@@ -87,6 +106,8 @@ let make =
                 , user
                 , worker_cpu_affinity
                 , worker_processes
+                , worker_rlimit_core
+                , worker_rlimit_nofile
                 ]
 
         in  Text/concatSep "\n" directives ++ "\n"
