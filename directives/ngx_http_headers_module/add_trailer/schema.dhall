@@ -1,3 +1,5 @@
+let directives = ../../../utils/directives.dhall
+
 let indent = ../../../utils/indent.dhall
 
 let type = ./type.dhall
@@ -11,4 +13,4 @@ let make =
 
         in  indent n "add_trailer ${c.name} ${c.value}${always};"
 
-in  { Type = type, default, make }
+in  directives.makeDirective type make ⫽ { default }

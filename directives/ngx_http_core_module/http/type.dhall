@@ -129,6 +129,7 @@ in  { absolute_redirect : Optional ../absolute_redirect/type.dhall
     , types_hash_max_size : Optional ../types_hash_max_size/type.dhall
     , underscores_in_headers : Optional ../underscores_in_headers/type.dhall
     , upstream : List ../../ngx_http_upstream_module/upstream/type.dhall
-    , variables_hash_bucket_size : Optional ../variables_hash_bucket_size/type.dhall
+    , variables_hash_bucket_size :
+        Optional ../variables_hash_bucket_size/type.dhall
     , variables_hash_max_size : Optional ../variables_hash_max_size/type.dhall
     }

@@ -8,6 +8,8 @@ let default = ./default.dhall
 
 let server = ../server/schema.dhall
 
+let directives = ../../../utils/directives.dhall
+
 let indent = ../../../utils/indent.dhall
 
 let make =
@@ -23,4 +25,4 @@ let make =
               , indent n "}"
               ]
 
-in  { Type = type, default, make, server }
+in  directives.makeDirective type make ⫽ { default, server }

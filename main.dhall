@@ -3,9 +3,7 @@ let Text/concatSep = https://prelude.dhall-lang.org/Text/concatSep.dhall
 let List/unpackOptionals =
       https://prelude.dhall-lang.org/List/unpackOptionals.dhall
 
-let Optional/map = https://prelude.dhall-lang.org/Optional/map.dhall
-
-let optList = ./utils/optList.dhall
+let directives = ./utils/directives.dhall
 
 let user = ./directives/ngx_core_module/user/schema.dhall
 
@@ -58,36 +56,24 @@ let type =
 let make =
       λ(n : Natural) →
       λ(c : type) →
-        let user = Optional/map user.Type Text (user.make n) c.user
+        let user = user.opt c.user n
 
-        let worker_processes =
-              Optional/map
-                worker_processes.Type
-                Text
-                (worker_processes.make n)
-                c.worker_processes
+        let worker_processes = worker_processes.opt c.worker_processes n
 
         let worker_cpu_affinity =
-              Optional/map
-                worker_cpu_affinity.Type
-                Text
-                (worker_cpu_affinity.make n)
-                c.worker_cpu_affinity
+              worker_cpu_affinity.opt c.worker_cpu_affinity n
 
         let events = Some (events.make n c.events)
 
-        let http = Optional/map http.Type Text (http.make n) c.http
+        let http = http.opt c.http n
 
-        let load_modules =
-              optList load_module.Type (load_module.make n) c.load_modules
+        let load_modules = load_module.listOpt c.load_modules n
 
-        let pcre_jit =
-              Optional/map pcre_jit.Type Text (pcre_jit.make n) c.pcre_jit
+        let pcre_jit = pcre_jit.opt c.pcre_jit n
 
-        let pid = Optional/map pid.Type Text (pid.make n) c.pid
+        let pid = pid.opt c.pid n
 
-        let error_log =
-              Optional/map error_log.Type Text (error_log.make n) c.error_log
+        let error_log = error_log.opt c.error_log n
 
         let directives =
               List/unpackOptionals
@@ -105,4 +91,4 @@ let make =
 
         in  Text/concatSep "\n" directives ++ "\n"
 
-in  { Type = type, default, make }
+in  directives.makeDirective type make ⫽ { default }

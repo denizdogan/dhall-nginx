@@ -1,5 +1,7 @@
 let type = ./type.dhall
 
+let directives = ../../../utils/directives.dhall
+
 let indent = ../../../utils/indent.dhall
 
 let make =
@@ -12,10 +14,5 @@ let make =
 
         in  indent n "autoindex_format ${text};"
 
-in  { Type = type
-    , make
-    , html = type.html
-    , xml = type.xml
-    , json = type.json
-    , jsonp = type.jsonp
-    }
+in    directives.makeDirective type make
+    ⫽ { html = type.html, xml = type.xml, json = type.json, jsonp = type.jsonp }

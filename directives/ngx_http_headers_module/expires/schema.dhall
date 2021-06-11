@@ -1,3 +1,5 @@
+let directives = ../../../utils/directives.dhall
+
 let interval = ../../../utils/interval.dhall
 
 let indent = ../../../utils/indent.dhall
@@ -31,4 +33,4 @@ let make =
 
         in  indent n "expires${modified} ${text};"
 
-in  { Type = type, default, make, Expires }
+in  directives.makeDirective type make ⫽ { default, Expires }

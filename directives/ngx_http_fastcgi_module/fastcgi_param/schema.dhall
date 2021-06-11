@@ -1,5 +1,7 @@
 let indent = ../../../utils/indent.dhall
 
+let directives = ../../../utils/directives.dhall
+
 let type = ./type.dhall
 
 let default = ./default.dhall
@@ -11,4 +13,4 @@ let make =
 
         in  indent n "fastcgi_param ${value.parameter} ${value.value}${empty};"
 
-in  { Type = type, default, make }
+in  directives.makeDirective type make ⫽ { default }

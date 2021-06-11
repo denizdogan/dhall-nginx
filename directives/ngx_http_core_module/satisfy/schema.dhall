@@ -2,6 +2,8 @@ let type = ./type.dhall
 
 let default = ./default.dhall
 
+let directives = ../../../utils/directives.dhall
+
 let indent = ../../../utils/indent.dhall
 
 let make =
@@ -11,4 +13,5 @@ let make =
 
         in  indent n "satisfy ${text};"
 
-in  { Type = type, default, make, all = type.all, any = type.any }
+in    directives.makeDirective type make
+    ⫽ { default, all = type.all, any = type.any }

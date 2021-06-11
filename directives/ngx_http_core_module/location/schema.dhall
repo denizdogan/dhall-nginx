@@ -3,15 +3,13 @@ let Text/concatSep = https://prelude.dhall-lang.org/Text/concatSep.dhall
 let List/unpackOptionals =
       https://prelude.dhall-lang.org/List/unpackOptionals.dhall
 
-let Optional/map = https://prelude.dhall-lang.org/Optional/map.dhall
-
 let type = ./type.dhall
 
 let default = ./default.dhall
 
-let indent = ../../../utils/indent.dhall
+let directives = ../../../utils/directives.dhall
 
-let optList = ../../../utils/optList.dhall
+let indent = ../../../utils/indent.dhall
 
 let access_log = ../../ngx_http_log_module/access_log/schema.dhall
 
@@ -194,67 +192,32 @@ let make =
         let absolute_redirect =
               absolute_redirect.opt c.absolute_redirect (n + 2)
 
-        let access_log =
-              Optional/map
-                access_log.Type
-                Text
-                (access_log.make (n + 2))
-                c.access_log
+        let access_log = access_log.opt c.access_log (n + 2)
 
-        let access_rules =
-              optList access_rule.Type (access_rule.make (n + 2)) c.access_rules
+        let access_rules = access_rule.listOpt c.access_rules (n + 2)
 
-        let add_header =
-              optList add_header.Type (add_header.make (n + 2)) c.add_header
+        let add_header = add_header.listOpt c.add_header (n + 2)
 
-        let add_trailer =
-              optList add_trailer.Type (add_trailer.make (n + 2)) c.add_trailer
+        let add_trailer = add_trailer.listOpt c.add_trailer (n + 2)
 
         let aio_write = aio_write.opt c.aio_write (n + 2)
 
-        let auth_basic =
-              Optional/map
-                auth_basic.Type
-                Text
-                (auth_basic.make (n + 2))
-                c.auth_basic
+        let auth_basic = auth_basic.opt c.auth_basic (n + 2)
 
         let auth_basic_user_file =
-              Optional/map
-                auth_basic_user_file.Type
-                Text
-                (auth_basic_user_file.make (n + 2))
-                c.auth_basic_user_file
+              auth_basic_user_file.opt c.auth_basic_user_file (n + 2)
 
         let auth_delay = auth_delay.opt c.auth_delay (n + 2)
 
-        let autoindex =
-              Optional/map
-                autoindex.Type
-                Text
-                (autoindex.make (n + 2))
-                c.autoindex
+        let autoindex = autoindex.opt c.autoindex (n + 2)
 
         let autoindex_exact_size =
-              Optional/map
-                autoindex_exact_size.Type
-                Text
-                (autoindex_exact_size.make (n + 2))
-                c.autoindex_exact_size
+              autoindex_exact_size.opt c.autoindex_exact_size (n + 2)
 
-        let autoindex_format =
-              Optional/map
-                autoindex_format.Type
-                Text
-                (autoindex_format.make (n + 2))
-                c.autoindex_format
+        let autoindex_format = autoindex_format.opt c.autoindex_format (n + 2)
 
         let autoindex_localtime =
-              Optional/map
-                autoindex_localtime.Type
-                Text
-                (autoindex_localtime.make (n + 2))
-                c.autoindex_localtime
+              autoindex_localtime.opt c.autoindex_localtime (n + 2)
 
         let chunked_transfer_encoding =
               chunked_transfer_encoding.opt c.chunked_transfer_encoding (n + 2)
@@ -276,16 +239,14 @@ let make =
         let connection_pool_size =
               connection_pool_size.opt c.connection_pool_size (n + 2)
 
-        let default_type =
-              Optional/map Text Text (default_type.make (n + 2)) c.default_type
+        let default_type = default_type.opt c.default_type (n + 2)
 
         let directio = directio.opt c.directio (n + 2)
 
         let directio_alignment =
               directio_alignment.opt c.directio_alignment (n + 2)
 
-        let expires =
-              Optional/map expires.Type Text (expires.make (n + 2)) c.expires
+        let expires = expires.opt c.expires (n + 2)
 
         let fastcgi_buffering =
               fastcgi_buffering.opt c.fastcgi_buffering (n + 2)
@@ -356,13 +317,9 @@ let make =
         let fastcgi_socket_keepalive =
               fastcgi_socket_keepalive.opt c.fastcgi_socket_keepalive (n + 2)
 
-        let fastcgi_params =
-              optList
-                fastcgi_param.Type
-                (fastcgi_param.make (n + 2))
-                c.fastcgi_param
+        let fastcgi_params = fastcgi_param.listOpt c.fastcgi_param (n + 2)
 
-        let index = Optional/map index.Type Text (index.make (n + 2)) c.index
+        let index = index.opt c.index (n + 2)
 
         let keepalive_requests =
               keepalive_requests.opt c.keepalive_requests (n + 2)
@@ -376,22 +333,11 @@ let make =
         let lingering_timeout =
               lingering_timeout.opt c.lingering_timeout (n + 2)
 
-        let log_not_found =
-              Optional/map
-                log_not_found.Type
-                Text
-                (log_not_found.make (n + 2))
-                c.log_not_found
+        let log_not_found = log_not_found.opt c.log_not_found (n + 2)
 
-        let log_subrequest =
-              Optional/map
-                Bool
-                Text
-                (log_subrequest.make (n + 2))
-                c.log_subrequest
+        let log_subrequest = log_subrequest.opt c.log_subrequest (n + 2)
 
-        let max_ranges =
-              Optional/map Natural Text (max_ranges.make (n + 2)) c.max_ranges
+        let max_ranges = max_ranges.opt c.max_ranges (n + 2)
 
         let msie_refresh = msie_refresh.opt c.msie_refresh (n + 2)
 
@@ -416,11 +362,9 @@ let make =
 
         let resolver_timeout = resolver_timeout.opt c.resolver_timeout (n + 2)
 
-        let msie_padding =
-              Optional/map Bool Text (msie_padding.make (n + 2)) c.msie_padding
+        let msie_padding = msie_padding.opt c.msie_padding (n + 2)
 
-        let satisfy =
-              Optional/map satisfy.Type Text (satisfy.make (n + 2)) c.satisfy
+        let satisfy = satisfy.opt c.satisfy (n + 2)
 
         let send_lowat = send_lowat.opt c.send_lowat (n + 2)
 
@@ -439,12 +383,7 @@ let make =
 
         let tcp_nopush = tcp_nopush.opt c.tcp_nopush (n + 2)
 
-        let try_files =
-              Optional/map
-                try_files.Type
-                Text
-                (try_files.make (n + 2))
-                c.try_files
+        let try_files = try_files.opt c.try_files (n + 2)
 
         let types_hash_bucket_size =
               types_hash_bucket_size.opt c.types_hash_bucket_size (n + 2)
@@ -557,4 +496,4 @@ let make =
               , indent n "}"
               ]
 
-in  { Type = type, default, make, modifier }
+in  directives.makeDirective type make ⫽ { default, modifier }

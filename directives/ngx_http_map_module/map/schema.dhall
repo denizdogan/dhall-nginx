@@ -7,6 +7,8 @@ let Optional/map = https://prelude.dhall-lang.org/Optional/map.dhall
 
 let Entry = https://prelude.dhall-lang.org/Map/Entry.dhall
 
+let directives = ../../../utils/directives.dhall
+
 let indent = ../../../utils/indent.dhall
 
 let optList = ../../../utils/optList.dhall
@@ -59,4 +61,4 @@ let make =
               , indent n "}"
               ]
 
-in  { Type = type, default, make }
+in  directives.makeDirective type make ⫽ { default }

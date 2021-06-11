@@ -3,11 +3,9 @@ let Text/concatSep = https://prelude.dhall-lang.org/Text/concatSep.dhall
 let List/unpackOptionals =
       https://prelude.dhall-lang.org/List/unpackOptionals.dhall
 
-let Optional/map = https://prelude.dhall-lang.org/Optional/map.dhall
-
 let indent = ../../../utils/indent.dhall
 
-let optList = ../../../utils/optList.dhall
+let directives = ../../../utils/directives.dhall
 
 let if_modified_since = ../if_modified_since/schema.dhall
 
@@ -127,10 +125,6 @@ let directio = ../directio/schema.dhall
 
 let directio_alignment = ../directio_alignment/schema.dhall
 
-let directio_alignment = ../directio/schema.dhall
-
-let directio_alignment = ../directio_alignment/schema.dhall
-
 let ignore_invalid_headers = ../ignore_invalid_headers/schema.dhall
 
 let keepalive_requests = ../keepalive_requests/schema.dhall
@@ -211,23 +205,15 @@ let make =
         let absolute_redirect =
               absolute_redirect.opt c.absolute_redirect (n + 2)
 
-        let access_rules =
-              optList access_rule.Type (access_rule.make (n + 2)) c.access_rules
+        let access_rules = access_rule.listOpt c.access_rules (n + 2)
 
-        let add_header =
-              optList add_header.Type (add_header.make (n + 2)) c.add_header
+        let add_header = add_header.listOpt c.add_header (n + 2)
 
-        let add_trailer =
-              optList add_trailer.Type (add_trailer.make (n + 2)) c.add_trailer
+        let add_trailer = add_trailer.listOpt c.add_trailer (n + 2)
 
         let aio_write = aio_write.opt c.aio_write (n + 2)
 
-        let auth_basic =
-              Optional/map
-                auth_basic.Type
-                Text
-                (auth_basic.make (n + 2))
-                c.auth_basic
+        let auth_basic = auth_basic.opt c.auth_basic (n + 2)
 
         let auth_basic_user_file =
               auth_basic_user_file.opt c.auth_basic_user_file (n + 2)
@@ -239,12 +225,7 @@ let make =
         let autoindex_exact_size =
               autoindex_exact_size.opt c.autoindex_exact_size (n + 2)
 
-        let autoindex_format =
-              Optional/map
-                autoindex_format.Type
-                Text
-                (autoindex_format.make (n + 2))
-                c.autoindex_format
+        let autoindex_format = autoindex_format.opt c.autoindex_format (n + 2)
 
         let autoindex_localtime =
               autoindex_localtime.opt c.autoindex_localtime (n + 2)
@@ -279,8 +260,7 @@ let make =
         let directio_alignment =
               directio_alignment.opt c.directio_alignment (n + 2)
 
-        let expires =
-              Optional/map expires.Type Text (expires.make (n + 2)) c.expires
+        let expires = expires.opt c.expires (n + 2)
 
         let fastcgi_buffering =
               fastcgi_buffering.opt c.fastcgi_buffering (n + 2)
@@ -371,23 +351,15 @@ let make =
         let fastcgi_socket_keepalive =
               fastcgi_socket_keepalive.opt c.fastcgi_socket_keepalive (n + 2)
 
-        let fastcgi_params =
-              optList
-                fastcgi_param.Type
-                (fastcgi_param.make (n + 2))
-                c.fastcgi_param
+        let fastcgi_params = fastcgi_param.listOpt c.fastcgi_param (n + 2)
 
         let if_modified_since =
-              Optional/map
-                if_modified_since.Type
-                Text
-                (if_modified_since.make (n + 2))
-                c.if_modified_since
+              if_modified_since.opt c.if_modified_since (n + 2)
 
         let ignore_invalid_headers =
               ignore_invalid_headers.opt c.ignore_invalid_headers (n + 2)
 
-        let index = Optional/map index.Type Text (index.make (n + 2)) c.index
+        let index = index.opt c.index (n + 2)
 
         let keepalive_requests =
               keepalive_requests.opt c.keepalive_requests (n + 2)
@@ -401,12 +373,11 @@ let make =
         let lingering_timeout =
               lingering_timeout.opt c.lingering_timeout (n + 2)
 
-        let log_formats =
-              optList log_format.Type (log_format.make (n + 2)) c.log_format
+        let log_formats = log_format.listOpt c.log_format (n + 2)
 
         let log_not_found = log_not_found.opt c.log_not_found (n + 2)
 
-        let map = optList map.Type (map.make (n + 2)) c.map
+        let map = map.listOpt c.map (n + 2)
 
         let merge_slashes = merge_slashes.opt c.merge_slashes (n + 2)
 
@@ -436,8 +407,7 @@ let make =
 
         let resolver_timeout = resolver_timeout.opt c.resolver_timeout (n + 2)
 
-        let satisfy =
-              Optional/map satisfy.Type Text (satisfy.make (n + 2)) c.satisfy
+        let satisfy = satisfy.opt c.satisfy (n + 2)
 
         let send_timeout = send_timeout.opt c.send_timeout (n + 2)
 
@@ -448,7 +418,7 @@ let make =
         let sendfile_max_chunk =
               sendfile_max_chunk.opt c.sendfile_max_chunk (n + 2)
 
-        let server = optList server.Type (server.make (n + 2)) c.server
+        let server = server.listOpt c.server (n + 2)
 
         let server_name_in_redirect =
               server_name_in_redirect.opt c.server_name_in_redirect (n + 2)
@@ -476,12 +446,12 @@ let make =
         let types_hash_max_size =
               types_hash_max_size.opt c.types_hash_max_size (n + 2)
 
-        let types = Optional/map types.Type Text (types.make (n + 2)) c.types
+        let types = types.opt c.types (n + 2)
 
         let underscores_in_headers =
               underscores_in_headers.opt c.underscores_in_headers (n + 2)
 
-        let upstream = optList upstream.Type (upstream.make (n + 2)) c.upstream
+        let upstream = upstream.listOpt c.upstream (n + 2)
 
         let variables_hash_bucket_size =
               variables_hash_bucket_size.opt
@@ -593,4 +563,4 @@ let make =
               , indent n "}"
               ]
 
-in  { Type = type, default, make }
+in  directives.makeDirective type make ⫽ { default }

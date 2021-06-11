@@ -4,6 +4,8 @@ let default = ./default.dhall
 
 let indent = ../../../utils/indent.dhall
 
+let directives = ../../../utils/directives.dhall
+
 let make =
       λ(n : Natural) →
       λ(value : type) →
@@ -16,4 +18,4 @@ let make =
 
         in  indent n "worker_cpu_affinity${auto}${mask};"
 
-in  { Type = type, default, make }
+in  directives.makeDirective type make ⫽ { default }

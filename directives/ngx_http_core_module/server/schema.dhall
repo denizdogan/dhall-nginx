@@ -1,13 +1,11 @@
 let Text/concatSep = https://prelude.dhall-lang.org/Text/concatSep.dhall
 
-let Optional/map = https://prelude.dhall-lang.org/Optional/map.dhall
-
 let List/unpackOptionals =
       https://prelude.dhall-lang.org/List/unpackOptionals.dhall
 
-let indent = ../../../utils/indent.dhall
+let directives = ../../../utils/directives.dhall
 
-let optList = ../../../utils/optList.dhall
+let indent = ../../../utils/indent.dhall
 
 let access_log = ../../ngx_http_log_module/access_log/schema.dhall
 
@@ -151,63 +149,28 @@ let default = ./default.dhall
 let make =
       λ(n : Natural) →
       λ(c : type) →
-        let access_log =
-              Optional/map
-                access_log.Type
-                Text
-                (access_log.make (n + 2))
-                c.access_log
+        let access_log = access_log.opt c.access_log (n + 2)
 
-        let access_rules =
-              optList access_rule.Type (access_rule.make (n + 2)) c.access_rules
+        let access_rules = access_rule.listOpt c.access_rules (n + 2)
 
-        let add_header =
-              optList add_header.Type (add_header.make (n + 2)) c.add_header
+        let add_header = add_header.listOpt c.add_header (n + 2)
 
-        let add_trailer =
-              optList add_trailer.Type (add_trailer.make (n + 2)) c.add_trailer
+        let add_trailer = add_trailer.listOpt c.add_trailer (n + 2)
 
-        let auth_basic =
-              Optional/map
-                auth_basic.Type
-                Text
-                (auth_basic.make (n + 2))
-                c.auth_basic
+        let auth_basic = auth_basic.opt c.auth_basic (n + 2)
 
         let auth_basic_user_file =
-              Optional/map
-                auth_basic_user_file.Type
-                Text
-                (auth_basic_user_file.make (n + 2))
-                c.auth_basic_user_file
+              auth_basic_user_file.opt c.auth_basic_user_file (n + 2)
 
-        let autoindex =
-              Optional/map
-                autoindex.Type
-                Text
-                (autoindex.make (n + 2))
-                c.autoindex
+        let autoindex = autoindex.opt c.autoindex (n + 2)
 
         let autoindex_exact_size =
-              Optional/map
-                autoindex_exact_size.Type
-                Text
-                (autoindex_exact_size.make (n + 2))
-                c.autoindex_exact_size
+              autoindex_exact_size.opt c.autoindex_exact_size (n + 2)
 
-        let autoindex_format =
-              Optional/map
-                autoindex_format.Type
-                Text
-                (autoindex_format.make (n + 2))
-                c.autoindex_format
+        let autoindex_format = autoindex_format.opt c.autoindex_format (n + 2)
 
         let autoindex_localtime =
-              Optional/map
-                autoindex_localtime.Type
-                Text
-                (autoindex_localtime.make (n + 2))
-                c.autoindex_localtime
+              autoindex_localtime.opt c.autoindex_localtime (n + 2)
 
         let client_body_buffer_size =
               client_body_buffer_size.opt c.client_body_buffer_size (n + 2)
@@ -221,20 +184,14 @@ let make =
         let connection_pool_size =
               connection_pool_size.opt c.connection_pool_size (n + 2)
 
-        let default_type =
-              Optional/map
-                default_type.Type
-                Text
-                (default_type.make (n + 2))
-                c.default_type
+        let default_type = default_type.opt c.default_type (n + 2)
 
         let directio = directio.opt c.directio (n + 2)
 
         let directio_alignment =
               directio_alignment.opt c.directio_alignment (n + 2)
 
-        let expires =
-              Optional/map expires.Type Text (expires.make (n + 2)) c.expires
+        let expires = expires.opt c.expires (n + 2)
 
         let fastcgi_buffering =
               fastcgi_buffering.opt c.fastcgi_buffering (n + 2)
@@ -303,34 +260,24 @@ let make =
         let fastcgi_socket_keepalive =
               fastcgi_socket_keepalive.opt c.fastcgi_socket_keepalive (n + 2)
 
-        let fastcgi_params =
-              optList
-                fastcgi_param.Type
-                (fastcgi_param.make (n + 2))
-                c.fastcgi_param
+        let fastcgi_params = fastcgi_param.listOpt c.fastcgi_param (n + 2)
 
-        let index = Optional/map index.Type Text (index.make (n + 2)) c.index
+        let index = index.opt c.index (n + 2)
 
         let limit_rate_after = limit_rate_after.opt c.limit_rate_after (n + 2)
 
-        let location = optList location.Type (location.make (n + 2)) c.location
+        let location = location.listOpt c.location (n + 2)
 
-        let log_not_found =
-              Optional/map
-                log_not_found.Type
-                Text
-                (log_not_found.make (n + 2))
-                c.log_not_found
+        let log_not_found = log_not_found.opt c.log_not_found (n + 2)
 
         let postpone_output = postpone_output.opt c.postpone_output (n + 2)
 
         let request_pool_size =
               request_pool_size.opt c.request_pool_size (n + 2)
 
-        let root = Optional/map root.Type Text (root.make (n + 2)) c.root
+        let root = root.opt c.root (n + 2)
 
-        let satisfy =
-              Optional/map satisfy.Type Text (satisfy.make (n + 2)) c.satisfy
+        let satisfy = satisfy.opt c.satisfy (n + 2)
 
         let send_lowat = send_lowat.opt c.send_lowat (n + 2)
 
@@ -349,12 +296,7 @@ let make =
 
         let tcp_nodelay = tcp_nodelay.opt c.tcp_nodelay (n + 2)
 
-        let try_files =
-              Optional/map
-                try_files.Type
-                Text
-                (try_files.make (n + 2))
-                c.try_files
+        let try_files = try_files.opt c.try_files (n + 2)
 
         let types_hash_bucket_size =
               types_hash_bucket_size.opt c.types_hash_bucket_size (n + 2)
@@ -430,4 +372,4 @@ let make =
               , indent n "}"
               ]
 
-in  { Type = type, default, make }
+in  directives.makeDirective type make ⫽ { default }

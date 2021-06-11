@@ -2,6 +2,8 @@ let type = ./type.dhall
 
 let default = ./default.dhall
 
+let directives = ../../../utils/directives.dhall
+
 let indent = ../../../utils/indent.dhall
 
 let make =
@@ -12,4 +14,4 @@ let make =
 
         in  indent n "user ${value.user}${group};"
 
-in  { Type = type, default, make }
+in  directives.makeDirective type make ⫽ { default }

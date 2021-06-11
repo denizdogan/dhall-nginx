@@ -15,6 +15,8 @@ let default = ./default.dhall
 
 let log_format = ../../ngx_http_log_module/log_format/schema.dhall
 
+let directives = ../../../utils/directives.dhall
+
 let indent = ../../../utils/indent.dhall
 
 let interval = ../../../utils/interval.dhall
@@ -81,8 +83,6 @@ let make =
 
         in  indent n "access_log ${Text/concatSep " " parts};"
 
-let schema = { Type = type, default }
+let schema = directives.makeDirective type make ⫽ { default }
 
-let off = schema::{ path = None Text }
-
-in  schema ⫽ { make, off }
+in  schema ⫽ { off = schema::{ path = None Text } }
