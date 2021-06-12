@@ -1,1 +1,1 @@
-let d = ../../../utils/directives.dhall in d.on_off "chunked_transfer_encoding"
+let d = ../../../utils/directives.dhall in d.bool "chunked_transfer_encoding"

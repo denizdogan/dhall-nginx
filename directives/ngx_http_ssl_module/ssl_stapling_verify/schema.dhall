@@ -1,1 +1,1 @@
-let d = ../../../utils/directives.dhall in d.on_off "ssl_stapling_verify"
+let d = ../../../utils/directives.dhall in d.bool "ssl_stapling_verify"

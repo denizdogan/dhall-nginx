@@ -1,1 +1,1 @@
-let d = ../../../utils/directives.dhall in d.on_off "tcp_nodelay"
+let d = ../../../utils/directives.dhall in d.bool "tcp_nodelay"

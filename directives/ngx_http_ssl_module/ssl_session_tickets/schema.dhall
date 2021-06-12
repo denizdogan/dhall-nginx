@@ -1,1 +1,1 @@
-let d = ../../../utils/directives.dhall in d.on_off "ssl_session_tickets"
+let d = ../../../utils/directives.dhall in d.bool "ssl_session_tickets"

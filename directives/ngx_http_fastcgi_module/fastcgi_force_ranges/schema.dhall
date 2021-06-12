@@ -1,1 +1,1 @@
-let d = ../../../utils/directives.dhall in d.on_off "fastcgi_force_ranges"
+let d = ../../../utils/directives.dhall in d.bool "fastcgi_force_ranges"

@@ -1,1 +1,1 @@
-let d = ../../../utils/directives.dhall in d.on_off "fastcgi_intercept_errors"
+let d = ../../../utils/directives.dhall in d.bool "fastcgi_intercept_errors"

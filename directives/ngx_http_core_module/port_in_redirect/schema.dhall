@@ -1,1 +1,1 @@
-let d = ../../../utils/directives.dhall in d.on_off "port_in_redirect"
+let d = ../../../utils/directives.dhall in d.bool "port_in_redirect"

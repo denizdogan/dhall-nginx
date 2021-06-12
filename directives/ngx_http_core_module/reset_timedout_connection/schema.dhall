@@ -1,1 +1,1 @@
-let d = ../../../utils/directives.dhall in d.on_off "reset_timedout_connection"
+let d = ../../../utils/directives.dhall in d.bool "reset_timedout_connection"

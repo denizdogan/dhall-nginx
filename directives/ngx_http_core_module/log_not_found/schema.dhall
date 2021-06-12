@@ -1,1 +1,1 @@
-let d = ../../../utils/directives.dhall in d.on_off "log_not_found"
+let d = ../../../utils/directives.dhall in d.bool "log_not_found"

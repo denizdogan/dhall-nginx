@@ -1,1 +1,1 @@
-let d = ../../../utils/directives.dhall in d.on_off "autoindex_localtime"
+let d = ../../../utils/directives.dhall in d.bool "autoindex_localtime"

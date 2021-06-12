@@ -1,1 +1,1 @@
-let d = ../../../utils/directives.dhall in d.on_off "log_subrequest"
+let d = ../../../utils/directives.dhall in d.bool "log_subrequest"

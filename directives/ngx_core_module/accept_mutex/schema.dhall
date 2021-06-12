@@ -1,1 +1,1 @@
-let d = ../../../utils/directives.dhall in d.on_off "accept_mutex"
+let d = ../../../utils/directives.dhall in d.bool "accept_mutex"

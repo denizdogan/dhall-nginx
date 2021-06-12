@@ -1,1 +1,1 @@
-let d = ../../../utils/directives.dhall in d.on_off "fastcgi_socket_keepalive"
+let d = ../../../utils/directives.dhall in d.bool "fastcgi_socket_keepalive"

@@ -1,1 +1,1 @@
-let d = ../../../utils/directives.dhall in d.on_off "msie_refresh"
+let d = ../../../utils/directives.dhall in d.bool "msie_refresh"

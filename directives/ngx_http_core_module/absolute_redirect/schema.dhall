@@ -1,1 +1,1 @@
-let d = ../../../utils/directives.dhall in d.on_off "absolute_redirect"
+let d = ../../../utils/directives.dhall in d.bool "absolute_redirect"

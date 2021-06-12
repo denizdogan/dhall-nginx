@@ -1,1 +1,1 @@
-let d = ../../../utils/directives.dhall in d.on_off "fastcgi_cache_lock"
+let d = ../../../utils/directives.dhall in d.bool "fastcgi_cache_lock"

@@ -1,1 +1,1 @@
-let d = ../../../utils/directives.dhall in d.on_off "msie_padding"
+let d = ../../../utils/directives.dhall in d.bool "msie_padding"

@@ -1,1 +1,1 @@
-let d = ../../../utils/directives.dhall in d.on_off "ssl_early_data"
+let d = ../../../utils/directives.dhall in d.bool "ssl_early_data"

@@ -1,1 +1,1 @@
-let d = ../../../utils/directives.dhall in d.on_off "multi_accept"
+let d = ../../../utils/directives.dhall in d.bool "multi_accept"

@@ -1,3 +1,3 @@
 let directives = ../../../utils/directives.dhall
 
-in  directives.on_off "uninitialized_variable_warn"
+in  directives.bool "uninitialized_variable_warn"

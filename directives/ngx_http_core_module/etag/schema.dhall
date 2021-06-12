@@ -1,1 +1,1 @@
-let d = ../../../utils/directives.dhall in d.on_off "etag"
+let d = ../../../utils/directives.dhall in d.bool "etag"

@@ -99,7 +99,7 @@ let offOrSharedNameSize =
               value
         )
 
-let on_off = directive Bool (λ(value : Bool) → if value then "on" else "off")
+let bool = directive Bool (λ(value : Bool) → if value then "on" else "off")
 
 let on_off_leaf =
       directive
@@ -173,7 +173,7 @@ in  { interval
     , OffOrNoneOrBuiltinOrShared
     , offOrSharedNameSize
     , OffOrSharedNameSize
-    , on_off
+    , bool
     , on_off_leaf
     , onOrOffOrOptionalOrOptionalNoCa
     , OnOrOffOrOptionalOrOptionalNoCa
