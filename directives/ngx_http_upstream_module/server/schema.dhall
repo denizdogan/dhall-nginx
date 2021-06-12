@@ -11,6 +11,8 @@ let type = ./type.dhall
 
 let default = ./default.dhall
 
+let d = ../../../utils/directives.dhall
+
 let indent = ../../../utils/indent.dhall
 
 let interval = ../../../utils/interval.dhall
@@ -86,4 +88,4 @@ let make =
 
         in  indent n "server ${address}${paramText};"
 
-in  { Type = type, default, make }
+in  d.makeDirective type make ⫽ { default }
