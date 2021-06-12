@@ -82,11 +82,14 @@ in  { absolute_redirect = None ../absolute_redirect/type.dhall
         None ngx_http_fastcgi_module.fastcgi_send_timeout.Type
     , fastcgi_socket_keepalive =
         None ngx_http_fastcgi_module.fastcgi_socket_keepalive.Type
+    , gzip = None ../../ngx_http_gzip_module/gzip/type.dhall
+    , gzip_types = [] : ../../ngx_http_gzip_module/gzip_types/type.dhall
     , if_modified_since = None ../if_modified_since/type.dhall
     , ignore_invalid_headers = None ../ignore_invalid_headers/type.dhall
     , index = None ../../ngx_http_index_module/index/type.dhall
     , keepalive_requests = None ../keepalive_requests/type.dhall
     , keepalive_time = None ../keepalive_time/type.dhall
+    , keepalive_timeout = None ../keepalive_timeout/type.dhall
     , limit_rate_after = None ../limit_rate_after/type.dhall
     , lingering_time = None ../lingering_time/type.dhall
     , lingering_timeout = None ../lingering_timeout/type.dhall

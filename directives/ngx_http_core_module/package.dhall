@@ -18,6 +18,7 @@
 , ignore_invalid_headers = ./ignore_invalid_headers/schema.dhall
 , keepalive_requests = ./keepalive_requests/schema.dhall
 , keepalive_time = ./keepalive_time/schema.dhall
+, keepalive_timeout = ./keepalive_timeout/schema.dhall
 , limit_rate_after = ./limit_rate_after/schema.dhall
 , lingering_time = ./lingering_time/schema.dhall
 , lingering_timeout = ./lingering_timeout/schema.dhall

@@ -64,7 +64,10 @@ in  { access_rules =
         None ngx_http_fastcgi_module.fastcgi_socket_keepalive.Type
     , fastcgi_param =
         [] : List ../../ngx_http_fastcgi_module/fastcgi_param/type.dhall
+    , gzip = None ../../ngx_http_gzip_module/gzip/type.dhall
+    , gzip_types = [] : ../../ngx_http_gzip_module/gzip_types/type.dhall
     , index = None ../../ngx_http_index_module/index/type.dhall
+    , keepalive_timeout = None ../keepalive_timeout/type.dhall
     , limit_rate_after = None ../limit_rate_after/type.dhall
     , listen = [] : List ../listen/type.dhall
     , location = [] : List ../location/type.dhall

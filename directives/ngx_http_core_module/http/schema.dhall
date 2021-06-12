@@ -140,6 +140,10 @@ let fastcgi_send_timeout =
 let fastcgi_socket_keepalive =
       ../../ngx_http_fastcgi_module/fastcgi_socket_keepalive/schema.dhall
 
+let gzip = ../../ngx_http_gzip_module/gzip/schema.dhall
+
+let gzip_types = ../../ngx_http_gzip_module/gzip_types/schema.dhall
+
 let if_modified_since = ../if_modified_since/schema.dhall
 
 let ignore_invalid_headers = ../ignore_invalid_headers/schema.dhall
@@ -149,6 +153,8 @@ let index = ../../ngx_http_index_module/index/schema.dhall
 let keepalive_requests = ../keepalive_requests/schema.dhall
 
 let keepalive_time = ../keepalive_time/schema.dhall
+
+let keepalive_timeout = ../keepalive_timeout/schema.dhall
 
 let limit_rate_after = ../limit_rate_after/schema.dhall
 
@@ -404,6 +410,13 @@ let make =
         let fastcgi_socket_keepalive =
               fastcgi_socket_keepalive.opt c.fastcgi_socket_keepalive (n + 2)
 
+        let gzip = gzip.opt c.gzip (n + 2)
+
+        let gzip_types =
+              if    Natural/isZero (List/length Text c.gzip_types)
+              then  None Text
+              else  Some (gzip_types.make (n + 2) c.gzip_types)
+
         let if_modified_since =
               if_modified_since.opt c.if_modified_since (n + 2)
 
@@ -416,6 +429,9 @@ let make =
               keepalive_requests.opt c.keepalive_requests (n + 2)
 
         let keepalive_time = keepalive_time.opt c.keepalive_time (n + 2)
+
+        let keepalive_timeout =
+              keepalive_timeout.opt c.keepalive_timeout (n + 2)
 
         let limit_rate_after = limit_rate_after.opt c.limit_rate_after (n + 2)
 
@@ -589,11 +605,14 @@ let make =
                 , fastcgi_request_buffering
                 , fastcgi_send_timeout
                 , fastcgi_socket_keepalive
+                , gzip
+                , gzip_types
                 , if_modified_since
                 , ignore_invalid_headers
                 , index
                 , keepalive_requests
                 , keepalive_time
+                , keepalive_timeout
                 , limit_rate_after
                 , lingering_time
                 , lingering_timeout

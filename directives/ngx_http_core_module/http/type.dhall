@@ -89,11 +89,14 @@ in  { absolute_redirect : Optional ../absolute_redirect/type.dhall
         Optional ngx_http_fastcgi_module.fastcgi_send_timeout.Type
     , fastcgi_socket_keepalive :
         Optional ngx_http_fastcgi_module.fastcgi_socket_keepalive.Type
+    , gzip : Optional ../../ngx_http_gzip_module/gzip/type.dhall
+    , gzip_types : ../../ngx_http_gzip_module/gzip_types/type.dhall
     , if_modified_since : Optional ../if_modified_since/type.dhall
     , ignore_invalid_headers : Optional ../ignore_invalid_headers/type.dhall
     , index : Optional ../../ngx_http_index_module/index/type.dhall
     , keepalive_requests : Optional ../keepalive_requests/type.dhall
     , keepalive_time : Optional ../keepalive_time/type.dhall
+    , keepalive_timeout : Optional ../keepalive_timeout/type.dhall
     , limit_rate_after : Optional ../limit_rate_after/type.dhall
     , lingering_time : Optional ../lingering_time/type.dhall
     , lingering_timeout : Optional ../lingering_timeout/type.dhall

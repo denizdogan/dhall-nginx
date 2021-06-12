@@ -3,6 +3,7 @@
 /\  ./ngx_http_autoindex_module/package.dhall
 /\  ./ngx_http_core_module/package.dhall
 /\  ./ngx_http_fastcgi_module/package.dhall
+/\  ./ngx_http_gzip_module/package.dhall
 /\  ./ngx_http_headers_module/package.dhall
 /\  ./ngx_http_index_module/package.dhall
 /\  ./ngx_http_log_module/package.dhall
