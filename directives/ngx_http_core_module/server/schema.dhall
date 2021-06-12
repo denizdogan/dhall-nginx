@@ -230,7 +230,7 @@ let make =
         let directio_alignment =
               directio_alignment.opt c.directio_alignment (n + 2)
 
-        let error_page = error_page.opt c.error_page (n + 2)
+        let error_page = error_page.listOpt c.error_page (n + 2)
 
         let expires = expires.opt c.expires (n + 2)
 
