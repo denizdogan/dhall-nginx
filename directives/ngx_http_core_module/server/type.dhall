@@ -26,6 +26,7 @@ in  { access_rules : List ../../ngx_http_access_module/access_rule/type.dhall
     , default_type : Optional ../default_type/type.dhall
     , directio : Optional ../directio/type.dhall
     , directio_alignment : Optional ../directio_alignment/type.dhall
+    , error_page : Optional ../error_page/type.dhall
     , expires : Optional ../../ngx_http_headers_module/expires/type.dhall
     , fastcgi_buffering :
         Optional ngx_http_fastcgi_module.fastcgi_buffering.Type

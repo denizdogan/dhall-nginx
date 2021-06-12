@@ -55,6 +55,8 @@ let directio = ../directio/schema.dhall
 
 let directio_alignment = ../directio_alignment/schema.dhall
 
+let error_page = ../error_page/schema.dhall
+
 let expires = ../../ngx_http_headers_module/expires/schema.dhall
 
 let fastcgi_buffering =
@@ -281,6 +283,8 @@ let make =
         let directio_alignment =
               directio_alignment.opt c.directio_alignment (n + 2)
 
+        let error_page = error_page.opt c.error_page (n + 2)
+
         let expires = expires.opt c.expires (n + 2)
 
         let fastcgi_buffering =
@@ -490,6 +494,7 @@ let make =
                 , default_type
                 , directio
                 , directio_alignment
+                , error_page
                 , expires
                 , fastcgi_buffering
                 , fastcgi_cache_background_update

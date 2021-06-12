@@ -34,6 +34,7 @@ in  { absolute_redirect : Optional ../absolute_redirect/type.dhall
     , directio : Optional ../directio/type.dhall
     , directio_alignment : Optional ../directio_alignment/type.dhall
     , expires : Optional ../../ngx_http_headers_module/expires/type.dhall
+    , error_page : Optional ../error_page/type.dhall
     , fastcgi_buffering :
         Optional ngx_http_fastcgi_module.fastcgi_buffering.Type
     , fastcgi_cache_background_update :
