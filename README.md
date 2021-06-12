@@ -20,11 +20,10 @@ $ dhall text --file config.dhall
 
 The easiest way to get started is probably by looking at the examples in [./_tests/](./_tests/) where you can find pairings of Dhall input files and their output Nginx configurations. Note that some of the output files will look slightly different from what they were based on, because this library doesn't support e.g. `include` directives -- instead of that, just use Dhall's mechanisms to "include" parts.
 
-**example** - just a random configuration
-
-**nginx** - implementation of [Full Example Configuration](https://www.nginx.com/resources/wiki/start/topics/examples/full/) from the Nginx docs
-
-**wordpress** - implementation of the [Wordpress recipe](https://www.nginx.com/resources/wiki/start/topics/recipes/wordpress/)
+- **example** - just a random configuration
+- **ruby_fcgi** - [Simple Ruby FCGI](https://www.nginx.com/resources/wiki/start/topics/examples/simplerubyfcgi/)
+- **nginx** - [Full Example Configuration](https://www.nginx.com/resources/wiki/start/topics/examples/full/)
+- **wordpress** - [Wordpress recipe](https://www.nginx.com/resources/wiki/start/topics/recipes/wordpress/)
 
 ### Access rules (`allow` and `deny`)
 
