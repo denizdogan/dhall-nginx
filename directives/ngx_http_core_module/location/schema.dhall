@@ -203,6 +203,8 @@ let sendfile_max_chunk = ../sendfile_max_chunk/schema.dhall
 
 let server_name_in_redirect = ../server_name_in_redirect/schema.dhall
 
+let server_tokens = ../server_tokens/schema.dhall
+
 let subrequest_output_buffer_size =
       ../subrequest_output_buffer_size/schema.dhall
 
@@ -448,6 +450,8 @@ let make =
         let server_name_in_redirect =
               server_name_in_redirect.opt c.server_name_in_redirect (n + 2)
 
+        let server_tokens = server_tokens.opt c.server_tokens (n + 2)
+
         let subrequest_output_buffer_size =
               subrequest_output_buffer_size.opt
                 c.subrequest_output_buffer_size
@@ -556,6 +560,7 @@ let make =
                 , send_timeout
                 , sendfile_max_chunk
                 , server_name_in_redirect
+                , server_tokens
                 , subrequest_output_buffer_size
                 , tcp_nopush
                 , try_files

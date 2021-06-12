@@ -117,6 +117,7 @@ in  { absolute_redirect = None ../absolute_redirect/type.dhall
     , send_timeout = None ../send_timeout/type.dhall
     , sendfile_max_chunk = None ../sendfile_max_chunk/type.dhall
     , server_name_in_redirect = None ../server_name_in_redirect/type.dhall
+    , server_tokens = None ../server_tokens/type.dhall
     , subrequest_output_buffer_size =
         None ../subrequest_output_buffer_size/type.dhall
     , tcp_nopush = None ../tcp_nopush/type.dhall

@@ -228,6 +228,8 @@ let server_names_hash_bucket_size =
 
 let server_names_hash_max_size = ../server_names_hash_max_size/schema.dhall
 
+let server_tokens = ../server_tokens/schema.dhall
+
 let subrequest_output_buffer_size =
       ../subrequest_output_buffer_size/schema.dhall
 
@@ -521,6 +523,8 @@ let make =
                 c.server_names_hash_max_size
                 (n + 2)
 
+        let server_tokens = server_tokens.opt c.server_tokens (n + 2)
+
         let subrequest_output_buffer_size =
               subrequest_output_buffer_size.opt
                 c.subrequest_output_buffer_size
@@ -651,6 +655,7 @@ let make =
                 , server_name_in_redirect
                 , server_names_hash_bucket_size
                 , server_names_hash_max_size
+                , server_tokens
                 , subrequest_output_buffer_size
                 , tcp_nopush
                 , types

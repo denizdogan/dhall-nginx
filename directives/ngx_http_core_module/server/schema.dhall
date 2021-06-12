@@ -163,6 +163,8 @@ let sendfile_max_chunk = ../sendfile_max_chunk/schema.dhall
 
 let server_name = ../server_name/schema.dhall
 
+let server_tokens = ../server_tokens/schema.dhall
+
 let subrequest_output_buffer_size =
       ../subrequest_output_buffer_size/schema.dhall
 
@@ -361,6 +363,8 @@ let make =
               then  None Text
               else  Some (server_name.make (n + 2) c.server_name)
 
+        let server_tokens = server_tokens.opt c.server_tokens (n + 2)
+
         let subrequest_output_buffer_size =
               subrequest_output_buffer_size.opt
                 c.subrequest_output_buffer_size
@@ -450,6 +454,7 @@ let make =
                 , send_lowat
                 , sendfile_max_chunk
                 , server_name
+                , server_tokens
                 , subrequest_output_buffer_size
                 , tcp_nodelay
                 , try_files

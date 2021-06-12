@@ -130,6 +130,7 @@ in  { absolute_redirect = None ../absolute_redirect/type.dhall
     , server_names_hash_bucket_size =
         None ../server_names_hash_bucket_size/type.dhall
     , server_names_hash_max_size = None ../server_names_hash_max_size/type.dhall
+    , server_tokens = None ../server_tokens/type.dhall
     , ssl = None ../../ngx_http_ssl_module/ssl/type.dhall
     , ssl_buffer_size =
         None ../../ngx_http_ssl_module/ssl_buffer_size/type.dhall

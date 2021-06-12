@@ -50,6 +50,7 @@
 , server_name_in_redirect = ./server_name_in_redirect/schema.dhall
 , server_names_hash_bucket_size = ./server_names_hash_bucket_size/schema.dhall
 , server_names_hash_max_size = ./server_names_hash_max_size/schema.dhall
+, server_tokens = ./server_tokens/schema.dhall
 , subrequest_output_buffer_size = ./subrequest_output_buffer_size/schema.dhall
 , tcp_nodelay = ./tcp_nodelay/schema.dhall
 , tcp_nopush = ./tcp_nopush/schema.dhall

@@ -140,6 +140,7 @@ in  { absolute_redirect : Optional ../absolute_redirect/type.dhall
         Optional ../server_names_hash_bucket_size/type.dhall
     , server_names_hash_max_size :
         Optional ../server_names_hash_max_size/type.dhall
+    , server_tokens : Optional ../server_tokens/type.dhall
     , ssl : Optional ../../ngx_http_ssl_module/ssl/type.dhall
     , ssl_buffer_size :
         Optional ../../ngx_http_ssl_module/ssl_buffer_size/type.dhall

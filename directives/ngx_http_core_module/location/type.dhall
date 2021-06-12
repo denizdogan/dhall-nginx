@@ -123,6 +123,7 @@ in  { absolute_redirect : Optional ../absolute_redirect/type.dhall
     , send_timeout : Optional ../send_timeout/type.dhall
     , sendfile_max_chunk : Optional ../sendfile_max_chunk/type.dhall
     , server_name_in_redirect : Optional ../server_name_in_redirect/type.dhall
+    , server_tokens : Optional ../server_tokens/type.dhall
     , subrequest_output_buffer_size :
         Optional ../subrequest_output_buffer_size/type.dhall
     , tcp_nopush : Optional ../tcp_nopush/type.dhall
