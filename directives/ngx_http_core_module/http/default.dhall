@@ -129,6 +129,54 @@ in  { absolute_redirect = None ../absolute_redirect/type.dhall
     , server_names_hash_bucket_size =
         None ../server_names_hash_bucket_size/type.dhall
     , server_names_hash_max_size = None ../server_names_hash_max_size/type.dhall
+    , ssl = None ../../ngx_http_ssl_module/ssl/type.dhall
+    , ssl_buffer_size =
+        None ../../ngx_http_ssl_module/ssl_buffer_size/type.dhall
+    , ssl_certificate =
+        None ../../ngx_http_ssl_module/ssl_certificate/type.dhall
+    , ssl_certificate_key =
+        None ../../ngx_http_ssl_module/ssl_certificate_key/type.dhall
+    , ssl_ciphers = None ../../ngx_http_ssl_module/ssl_ciphers/type.dhall
+    , ssl_client_certificate =
+        None ../../ngx_http_ssl_module/ssl_client_certificate/type.dhall
+    , ssl_conf_command =
+        None ../../ngx_http_ssl_module/ssl_conf_command/type.dhall
+    , ssl_crl = None ../../ngx_http_ssl_module/ssl_crl/type.dhall
+    , ssl_dhparam = None ../../ngx_http_ssl_module/ssl_dhparam/type.dhall
+    , ssl_early_data = None ../../ngx_http_ssl_module/ssl_early_data/type.dhall
+    , ssl_ecdh_curve = None ../../ngx_http_ssl_module/ssl_ecdh_curve/type.dhall
+    , ssl_ocsp = None ../../ngx_http_ssl_module/ssl_ocsp/type.dhall
+    , ssl_ocsp_cache = None ../../ngx_http_ssl_module/ssl_ocsp_cache/type.dhall
+    , ssl_ocsp_responder =
+        None ../../ngx_http_ssl_module/ssl_ocsp_responder/type.dhall
+    , ssl_password_file =
+        None ../../ngx_http_ssl_module/ssl_password_file/type.dhall
+    , ssl_prefer_server_ciphers =
+        None ../../ngx_http_ssl_module/ssl_prefer_server_ciphers/type.dhall
+    , ssl_protocols = None ../../ngx_http_ssl_module/ssl_protocols/type.dhall
+    , ssl_reject_handshake =
+        None ../../ngx_http_ssl_module/ssl_reject_handshake/type.dhall
+    , ssl_session_cache =
+        None ../../ngx_http_ssl_module/ssl_session_cache/type.dhall
+    , ssl_session_ticket_key =
+        None ../../ngx_http_ssl_module/ssl_session_ticket_key/type.dhall
+    , ssl_session_tickets =
+        None ../../ngx_http_ssl_module/ssl_session_tickets/type.dhall
+    , ssl_session_timeout =
+        None ../../ngx_http_ssl_module/ssl_session_timeout/type.dhall
+    , ssl_stapling = None ../../ngx_http_ssl_module/ssl_stapling/type.dhall
+    , ssl_stapling_file =
+        None ../../ngx_http_ssl_module/ssl_stapling_file/type.dhall
+    , ssl_stapling_responder =
+        None ../../ngx_http_ssl_module/ssl_stapling_responder/type.dhall
+    , ssl_stapling_verify =
+        None ../../ngx_http_ssl_module/ssl_stapling_verify/type.dhall
+    , ssl_trusted_certificate =
+        None ../../ngx_http_ssl_module/ssl_trusted_certificate/type.dhall
+    , ssl_verify_client =
+        None ../../ngx_http_ssl_module/ssl_verify_client/type.dhall
+    , ssl_verify_depth =
+        None ../../ngx_http_ssl_module/ssl_verify_depth/type.dhall
     , subrequest_output_buffer_size =
         None ../subrequest_output_buffer_size/type.dhall
     , tcp_nopush = None ../tcp_nopush/type.dhall

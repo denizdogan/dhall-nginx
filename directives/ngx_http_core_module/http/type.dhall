@@ -139,6 +139,58 @@ in  { absolute_redirect : Optional ../absolute_redirect/type.dhall
         Optional ../server_names_hash_bucket_size/type.dhall
     , server_names_hash_max_size :
         Optional ../server_names_hash_max_size/type.dhall
+    , ssl : Optional ../../ngx_http_ssl_module/ssl/type.dhall
+    , ssl_buffer_size :
+        Optional ../../ngx_http_ssl_module/ssl_buffer_size/type.dhall
+    , ssl_certificate :
+        Optional ../../ngx_http_ssl_module/ssl_certificate/type.dhall
+    , ssl_certificate_key :
+        Optional ../../ngx_http_ssl_module/ssl_certificate_key/type.dhall
+    , ssl_ciphers : Optional ../../ngx_http_ssl_module/ssl_ciphers/type.dhall
+    , ssl_client_certificate :
+        Optional ../../ngx_http_ssl_module/ssl_client_certificate/type.dhall
+    , ssl_conf_command :
+        Optional ../../ngx_http_ssl_module/ssl_conf_command/type.dhall
+    , ssl_crl : Optional ../../ngx_http_ssl_module/ssl_crl/type.dhall
+    , ssl_dhparam : Optional ../../ngx_http_ssl_module/ssl_dhparam/type.dhall
+    , ssl_early_data :
+        Optional ../../ngx_http_ssl_module/ssl_early_data/type.dhall
+    , ssl_ecdh_curve :
+        Optional ../../ngx_http_ssl_module/ssl_ecdh_curve/type.dhall
+    , ssl_ocsp : Optional ../../ngx_http_ssl_module/ssl_ocsp/type.dhall
+    , ssl_ocsp_cache :
+        Optional ../../ngx_http_ssl_module/ssl_ocsp_cache/type.dhall
+    , ssl_ocsp_responder :
+        Optional ../../ngx_http_ssl_module/ssl_ocsp_responder/type.dhall
+    , ssl_password_file :
+        Optional ../../ngx_http_ssl_module/ssl_password_file/type.dhall
+    , ssl_prefer_server_ciphers :
+        Optional ../../ngx_http_ssl_module/ssl_prefer_server_ciphers/type.dhall
+    , ssl_protocols :
+        Optional ../../ngx_http_ssl_module/ssl_protocols/type.dhall
+    , ssl_reject_handshake :
+        Optional ../../ngx_http_ssl_module/ssl_reject_handshake/type.dhall
+    , ssl_session_cache :
+        Optional ../../ngx_http_ssl_module/ssl_session_cache/type.dhall
+    , ssl_session_ticket_key :
+        Optional ../../ngx_http_ssl_module/ssl_session_ticket_key/type.dhall
+    , ssl_session_tickets :
+        Optional ../../ngx_http_ssl_module/ssl_session_tickets/type.dhall
+    , ssl_session_timeout :
+        Optional ../../ngx_http_ssl_module/ssl_session_timeout/type.dhall
+    , ssl_stapling : Optional ../../ngx_http_ssl_module/ssl_stapling/type.dhall
+    , ssl_stapling_file :
+        Optional ../../ngx_http_ssl_module/ssl_stapling_file/type.dhall
+    , ssl_stapling_responder :
+        Optional ../../ngx_http_ssl_module/ssl_stapling_responder/type.dhall
+    , ssl_stapling_verify :
+        Optional ../../ngx_http_ssl_module/ssl_stapling_verify/type.dhall
+    , ssl_trusted_certificate :
+        Optional ../../ngx_http_ssl_module/ssl_trusted_certificate/type.dhall
+    , ssl_verify_client :
+        Optional ../../ngx_http_ssl_module/ssl_verify_client/type.dhall
+    , ssl_verify_depth :
+        Optional ../../ngx_http_ssl_module/ssl_verify_depth/type.dhall
     , subrequest_output_buffer_size :
         Optional ../subrequest_output_buffer_size/type.dhall
     , tcp_nopush : Optional ../tcp_nopush/type.dhall
