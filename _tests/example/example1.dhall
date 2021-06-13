@@ -89,6 +89,7 @@ let config =
                     # ng.helpers.fastcgi_params
                 , fastcgi_pass = Some "unix:/tmp/fastcgi.socket"
                 , index = Some [ "foobar.html" ]
+                , internal = Some {=}
                 , log_not_found = Some True
                 , log_subrequest = Some True
                 , max_ranges = Some 512

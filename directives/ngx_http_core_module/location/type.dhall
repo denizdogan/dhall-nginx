@@ -81,6 +81,7 @@ in  { absolute_redirect : Optional ../absolute_redirect/type.dhall
     , gzip : Optional ../../ngx_http_gzip_module/gzip/type.dhall
     , gzip_types : ../../ngx_http_gzip_module/gzip_types/type.dhall
     , index : Optional ../../ngx_http_index_module/index/type.dhall
+    , internal : Optional ../internal/type.dhall
     , keepalive_requests : Optional ../keepalive_requests/type.dhall
     , keepalive_time : Optional ../keepalive_time/type.dhall
     , keepalive_timeout : Optional ../keepalive_timeout/type.dhall

@@ -132,6 +132,8 @@ let indent = ../../../utils/indent.dhall
 
 let index = ../../ngx_http_index_module/index/schema.dhall
 
+let internal = ../internal/schema.dhall
+
 let keepalive_requests = ../keepalive_requests/schema.dhall
 
 let keepalive_time = ../keepalive_time/schema.dhall
@@ -375,6 +377,8 @@ let make =
 
         let index = index.opt c.index (n + 2)
 
+        let internal = internal.opt c.internal (n + 2)
+
         let keepalive_requests =
               keepalive_requests.opt c.keepalive_requests (n + 2)
 
@@ -534,6 +538,7 @@ let make =
                 , gzip
                 , gzip_types
                 , index
+                , internal
                 , keepalive_requests
                 , keepalive_time
                 , keepalive_timeout

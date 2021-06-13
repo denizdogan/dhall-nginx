@@ -31,6 +31,7 @@
 , merge_slashes = ./merge_slashes/schema.dhall
 , msie_padding = ./msie_padding/schema.dhall
 , msie_refresh = ./msie_refresh/schema.dhall
+, internal = ./internal/schema.dhall
 , open_file_cache_errors = ./open_file_cache_errors/schema.dhall
 , open_file_cache_min_uses = ./open_file_cache_min_uses/schema.dhall
 , open_file_cache_valid = ./open_file_cache_valid/schema.dhall
