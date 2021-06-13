@@ -19,6 +19,8 @@ let aio = ../aio/schema.dhall
 
 let aio_write = ../aio_write/schema.dhall
 
+let alias = ../alias/schema.dhall
+
 let auth_basic = ../../ngx_http_auth_basic_module/auth_basic/schema.dhall
 
 let auth_basic_user_file =
@@ -240,6 +242,8 @@ let make =
         let aio = aio.opt c.aio (n + 2)
 
         let aio_write = aio_write.opt c.aio_write (n + 2)
+
+        let alias = alias.opt c.alias (n + 2)
 
         let auth_basic = auth_basic.opt c.auth_basic (n + 2)
 
@@ -482,6 +486,7 @@ let make =
                 , add_trailer
                 , aio
                 , aio_write
+                , alias
                 , auth_basic
                 , auth_basic_user_file
                 , auth_delay

@@ -1,6 +1,7 @@
 { absolute_redirect = ./absolute_redirect/schema.dhall
 , aio = ./aio/schema.dhall
 , aio_write = ./aio_write/schema.dhall
+, alias = ./alias/schema.dhall
 , auth_delay = ./auth_delay/schema.dhall
 , chunked_transfer_encoding = ./chunked_transfer_encoding/schema.dhall
 , client_body_buffer_size = ./client_body_buffer_size/schema.dhall
