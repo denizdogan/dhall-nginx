@@ -92,6 +92,7 @@ in  { access_rules : List ../../ngx_http_access_module/access_rule/type.dhall
         Optional ../../ngx_http_proxy_module/proxy_send_timeout/type.dhall
     , proxy_set_header : ../../ngx_http_proxy_module/proxy_set_header/type.dhall
     , request_pool_size : Optional ../request_pool_size/type.dhall
+    , read_ahead : Optional ../read_ahead/type.dhall
     , rewrite : Optional ../../ngx_http_rewrite_module/rewrite/type.dhall
     , rewrite_log :
         Optional ../../ngx_http_rewrite_module/rewrite_log/type.dhall

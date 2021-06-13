@@ -36,6 +36,7 @@
 , open_file_cache_valid = ./open_file_cache_valid/schema.dhall
 , port_in_redirect = ./port_in_redirect/schema.dhall
 , postpone_output = ./postpone_output/schema.dhall
+, read_ahead = ./read_ahead/schema.dhall
 , recursive_error_pages = ./recursive_error_pages/schema.dhall
 , request_pool_size = ./request_pool_size/schema.dhall
 , reset_timedout_connection = ./reset_timedout_connection/schema.dhall

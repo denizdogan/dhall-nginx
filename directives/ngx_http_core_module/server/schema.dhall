@@ -147,6 +147,8 @@ let proxy_send_timeout =
 
 let proxy_set_header = ../../ngx_http_proxy_module/proxy_set_header/schema.dhall
 
+let read_ahead = ../read_ahead/schema.dhall
+
 let request_pool_size = ../request_pool_size/schema.dhall
 
 let rewrite = ../../ngx_http_rewrite_module/rewrite/schema.dhall
@@ -342,6 +344,8 @@ let make =
 
         let proxy_set_header = proxy_set_header.opt c.proxy_set_header (n + 2)
 
+        let read_ahead = read_ahead.opt c.read_ahead (n + 2)
+
         let request_pool_size =
               request_pool_size.opt c.request_pool_size (n + 2)
 
@@ -446,6 +450,7 @@ let make =
                 , proxy_redirect
                 , proxy_send_timeout
                 , proxy_set_header
+                , read_ahead
                 , request_pool_size
                 , rewrite
                 , rewrite_log
