@@ -23,6 +23,7 @@ in  { absolute_redirect : Optional ../absolute_redirect/type.dhall
     , chunked_transfer_encoding :
         Optional ../chunked_transfer_encoding/type.dhall
     , client_body_buffer_size : Optional ../client_body_buffer_size/type.dhall
+    , client_body_temp_path : Optional ../client_body_temp_path/type.dhall
     , client_header_buffer_size :
         Optional ../client_header_buffer_size/type.dhall
     , client_max_body_size : Optional ../client_max_body_size/type.dhall

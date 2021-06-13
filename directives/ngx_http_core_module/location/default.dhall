@@ -27,6 +27,7 @@ in  { absolute_redirect = None ../absolute_redirect/type.dhall
     , client_body_buffer_size = None ../client_body_buffer_size/type.dhall
     , client_body_in_single_buffer =
         None ../client_body_in_single_buffer/type.dhall
+    , client_body_temp_path = None ../client_body_temp_path/type.dhall
     , client_body_timeout = None ../client_body_timeout/type.dhall
     , client_max_body_size = None ../client_max_body_size/type.dhall
     , connection_pool_size = None ../connection_pool_size/type.dhall

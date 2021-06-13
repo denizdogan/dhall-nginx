@@ -45,6 +45,8 @@ let client_body_buffer_size = ../client_body_buffer_size/schema.dhall
 
 let client_body_in_single_buffer = ../client_body_in_single_buffer/schema.dhall
 
+let client_body_temp_path = ../client_body_temp_path/schema.dhall
+
 let client_body_timeout = ../client_body_timeout/schema.dhall
 
 let client_max_body_size = ../client_max_body_size/schema.dhall
@@ -279,6 +281,9 @@ let make =
                 c.client_body_in_single_buffer
                 (n + 2)
 
+        let client_body_temp_path =
+              client_body_temp_path.opt c.client_body_temp_path (n + 2)
+
         let client_body_timeout =
               client_body_timeout.opt c.client_body_timeout (n + 2)
 
@@ -509,6 +514,7 @@ let make =
                 , chunked_transfer_encoding
                 , client_body_buffer_size
                 , client_body_in_single_buffer
+                , client_body_temp_path
                 , client_body_timeout
                 , client_max_body_size
                 , connection_pool_size

@@ -4,6 +4,8 @@ let List/map = https://prelude.dhall-lang.org/List/map.dhall
 
 let Optional/map = https://prelude.dhall-lang.org/Optional/map.dhall
 
+let Text/concat = https://prelude.dhall-lang.org/Text/concat.dhall
+
 let Text/concatSep = https://prelude.dhall-lang.org/Text/concatSep.dhall
 
 let indent = ./indent.dhall
@@ -17,6 +19,8 @@ let Size = size.Size
 let Size/show = size.Size/show
 
 let SizeOrOff = ../types/SizeOrOff.dhall
+
+let TempPathAndLevels = ../types/TempPathAndLevels.dhall
 
 let TextOrAuto = ../types/TextOrAuto.dhall
 
@@ -156,6 +160,27 @@ let sslProtocolList =
               )
         )
 
+let tempPathAndLevels =
+      λ(name : Text) →
+          directive
+            TempPathAndLevels
+            ( λ(value : TempPathAndLevels) →
+                let path = value.path
+
+                let levels =
+                      Text/concat
+                        ( List/map
+                            Natural
+                            Text
+                            (λ(level : Natural) → " ${Natural/show level}")
+                            value.levels
+                        )
+
+                in  "${path}${levels}"
+            )
+            name
+        ⫽ { default.levels = [] : List Natural }
+
 let textOrAuto =
       directive
         TextOrAuto
@@ -188,6 +213,8 @@ in  { interval
     , SizeOrOff
     , sslProtocolList
     , SslProtocol
+    , tempPathAndLevels
+    , TempPathAndLevels
     , text
     , textOrAuto
     , TextOrAuto

@@ -19,6 +19,7 @@ in  { access_rules =
     , autoindex_localtime =
         None ../../ngx_http_autoindex_module/autoindex_localtime/type.dhall
     , client_body_buffer_size = None ../client_body_buffer_size/type.dhall
+    , client_body_temp_path = None ../client_body_temp_path/type.dhall
     , client_header_buffer_size = None ../client_header_buffer_size/type.dhall
     , client_max_body_size = None ../client_max_body_size/type.dhall
     , connection_pool_size = None ../connection_pool_size/type.dhall

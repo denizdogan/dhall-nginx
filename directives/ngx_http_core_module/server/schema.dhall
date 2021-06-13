@@ -37,6 +37,8 @@ let autoindex_localtime =
 
 let client_body_buffer_size = ../client_body_buffer_size/schema.dhall
 
+let client_body_temp_path = ../client_body_temp_path/schema.dhall
+
 let client_header_buffer_size = ../client_header_buffer_size/schema.dhall
 
 let client_max_body_size = ../client_max_body_size/schema.dhall
@@ -219,6 +221,9 @@ let make =
 
         let client_body_buffer_size =
               client_body_buffer_size.opt c.client_body_buffer_size (n + 2)
+
+        let client_body_temp_path =
+              client_body_temp_path.opt c.client_body_temp_path (n + 2)
 
         let client_header_buffer_size =
               client_header_buffer_size.opt c.client_header_buffer_size (n + 2)
@@ -409,6 +414,7 @@ let make =
                 , autoindex_format
                 , autoindex_localtime
                 , client_body_buffer_size
+                , client_body_temp_path
                 , client_header_buffer_size
                 , client_max_body_size
                 , connection_pool_size

@@ -6,6 +6,7 @@
 , chunked_transfer_encoding = ./chunked_transfer_encoding/schema.dhall
 , client_body_buffer_size = ./client_body_buffer_size/schema.dhall
 , client_body_in_single_buffer = ./client_body_in_single_buffer/schema.dhall
+, client_body_temp_path = ./client_body_temp_path/schema.dhall
 , client_body_timeout = ./client_body_timeout/schema.dhall
 , client_header_buffer_size = ./client_header_buffer_size/schema.dhall
 , client_max_body_size = ./client_max_body_size/schema.dhall
