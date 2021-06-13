@@ -112,6 +112,8 @@ in  { absolute_redirect : Optional ../absolute_redirect/type.dhall
     , proxy_send_timeout :
         Optional ../../ngx_http_proxy_module/proxy_send_timeout/type.dhall
     , proxy_set_header : ../../ngx_http_proxy_module/proxy_set_header/type.dhall
+    , proxy_temp_path :
+        Optional ../../ngx_http_proxy_module/proxy_temp_path/type.dhall
     , read_ahead : Optional ../read_ahead/type.dhall
     , recursive_error_pages : Optional ../recursive_error_pages/type.dhall
     , reset_timedout_connection :

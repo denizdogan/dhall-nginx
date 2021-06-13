@@ -85,6 +85,8 @@ in  { access_rules =
         None ../../ngx_http_proxy_module/proxy_send_timeout/type.dhall
     , proxy_set_header =
         [] : ../../ngx_http_proxy_module/proxy_set_header/type.dhall
+    , proxy_temp_path =
+        None ../../ngx_http_proxy_module/proxy_temp_path/type.dhall
     , read_ahead = None ../read_ahead/type.dhall
     , request_pool_size = None ../request_pool_size/type.dhall
     , rewrite = None ../../ngx_http_rewrite_module/rewrite/type.dhall

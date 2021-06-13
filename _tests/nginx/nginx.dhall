@@ -48,6 +48,10 @@ let server_domain2 =
           , expires = Some ng.expires::{
             , time = ng.expires.Expires.addTime ng.Interval::{ days = Some 30 }
             }
+          , proxy_temp_path = Some ng.proxy_temp_path::{
+            , path = "/tmp/var/proxy"
+            , levels = [ 1, 2 ]
+            }
           , root = Some "/var/www/virtual/big.server.com/htdocs"
           , modifier = ng.location.modifier.regexCaseSensitive
           , uri = "^/(images|javascript|js|css|flash|media|static)/"
@@ -97,6 +101,7 @@ let http =
             , X-Forwarded-For = "\$proxy_add_x_forwarded_for"
             , X-Real-IP = "\$remote_addr"
             }
+        , proxy_temp_path = Some ng.proxy_temp_path::{ path = "/tmp/var/proxy" }
         , sendfile = Some True
         , server = [ server_domain1, server_domain2, server_big ]
         , server_names_hash_bucket_size = Some 128

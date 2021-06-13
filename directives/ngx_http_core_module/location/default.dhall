@@ -108,6 +108,8 @@ in  { absolute_redirect = None ../absolute_redirect/type.dhall
         None ../../ngx_http_proxy_module/proxy_send_timeout/type.dhall
     , proxy_set_header =
         [] : ../../ngx_http_proxy_module/proxy_set_header/type.dhall
+    , proxy_temp_path =
+        None ../../ngx_http_proxy_module/proxy_temp_path/type.dhall
     , read_ahead = None ../read_ahead/type.dhall
     , recursive_error_pages = None ../recursive_error_pages/type.dhall
     , reset_timedout_connection = None ../reset_timedout_connection/type.dhall
