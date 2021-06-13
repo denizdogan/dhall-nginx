@@ -61,11 +61,15 @@ let directive =
               λ(value : type) →
                 let text = f value in indent n "${name} ${text};"
 
-        in  { Type = type
-            , make
-            , opt = opt type make
-            , listOpt = listOpt type make
-            }
+        in  makeDirective type make
+
+let nil =
+      λ(name : Text) →
+        let type = {}
+
+        let make = λ(n : Natural) → λ(_ : type) → indent n "${name};"
+
+        in  makeDirective type make
 
 let interval = directive interval.Interval.Type interval.Interval/show
 
@@ -174,6 +178,7 @@ in  { interval
     , offOrSharedNameSize
     , OffOrSharedNameSize
     , bool
+    , nil
     , on_off_leaf
     , onOrOffOrOptionalOrOptionalNoCa
     , OnOrOffOrOptionalOrOptionalNoCa
