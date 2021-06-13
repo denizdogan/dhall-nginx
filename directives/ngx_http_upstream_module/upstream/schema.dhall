@@ -7,6 +7,8 @@ let type = ./type.dhall
 
 let default = ./default.dhall
 
+let ntlm = ../ntlm/schema.dhall
+
 let server = ../server/schema.dhall
 
 let zone = ../zone/schema.dhall
@@ -18,11 +20,13 @@ let indent = ../../../utils/indent.dhall
 let make =
       λ(n : Natural) →
       λ(c : type) →
+        let ntlm = ntlm.opt c.ntlm (n + 2)
+
         let servers = server.listOpt c.server (n + 2)
 
         let zone = zone.opt c.zone (n + 2)
 
-        let directives = List/unpackOptionals Text [ servers, zone ]
+        let directives = List/unpackOptionals Text [ ntlm, servers, zone ]
 
         in  Text/concatSep
               "\n"

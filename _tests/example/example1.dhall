@@ -133,6 +133,7 @@ let config =
         , upstream =
           [ ng.upstream::{
             , name = "django"
+            , ntlm = Some {=}
             , server =
               [ ng.upstream.server::{
                 , address = "localhost"

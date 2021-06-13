@@ -1,1 +1,4 @@
-{ upstream = ./upstream/schema.dhall, zone = ./zone/schema.dhall }
+{ ntlm = ./ntlm/schema.dhall
+, upstream = ./upstream/schema.dhall
+, zone = ./zone/schema.dhall
+}
