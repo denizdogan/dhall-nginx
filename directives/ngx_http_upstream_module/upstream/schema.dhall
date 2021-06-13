@@ -1,7 +1,5 @@
 let Text/concatSep = https://prelude.dhall-lang.org/Text/concatSep.dhall
 
-let List/map = https://prelude.dhall-lang.org/List/map.dhall
-
 let List/unpackOptionals =
       https://prelude.dhall-lang.org/List/unpackOptionals.dhall
 
