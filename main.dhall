@@ -31,6 +31,9 @@ let worker_rlimit_core =
 let worker_rlimit_nofile =
       ./directives/ngx_core_module/worker_rlimit_nofile/schema.dhall
 
+let working_directory =
+      ./directives/ngx_core_module/working_directory/schema.dhall
+
 let default =
       { error_log = None ./directives/ngx_core_module/error_log/type.dhall
       , http = None ./directives/ngx_http_core_module/http/type.dhall
@@ -47,6 +50,8 @@ let default =
           None ./directives/ngx_core_module/worker_rlimit_core/type.dhall
       , worker_rlimit_nofile =
           None ./directives/ngx_core_module/worker_rlimit_nofile/type.dhall
+      , working_directory =
+          None ./directives/ngx_core_module/working_directory/type.dhall
       }
 
 let type =
@@ -65,6 +70,8 @@ let type =
           Optional ./directives/ngx_core_module/worker_rlimit_core/type.dhall
       , worker_rlimit_nofile :
           Optional ./directives/ngx_core_module/worker_rlimit_nofile/type.dhall
+      , working_directory :
+          Optional ./directives/ngx_core_module/working_directory/type.dhall
       }
 
 let make =
@@ -94,6 +101,8 @@ let make =
         let worker_rlimit_nofile =
               worker_rlimit_nofile.opt c.worker_rlimit_nofile n
 
+        let working_directory = working_directory.opt c.working_directory n
+
         let directives =
               List/unpackOptionals
                 Text
@@ -108,6 +117,7 @@ let make =
                 , worker_processes
                 , worker_rlimit_core
                 , worker_rlimit_nofile
+                , working_directory
                 ]
 
         in  Text/concatSep "\n" directives ++ "\n"

@@ -11,4 +11,5 @@
 , worker_processes = ./worker_processes/schema.dhall
 , worker_rlimit_core = ./worker_rlimit_core/schema.dhall
 , worker_rlimit_nofile = ./worker_rlimit_nofile/schema.dhall
+, working_directory = ./working_directory/schema.dhall
 }
