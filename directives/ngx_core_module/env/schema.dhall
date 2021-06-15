@@ -11,7 +11,7 @@ let make =
       λ(c : type) →
         let variable = c.variable
 
-        let value = merge { None = "", Some = λ(s : Text) → " ${s}" } c.value
+        let value = merge { None = "", Some = λ(s : Text) → "=${s}" } c.value
 
         in  indent n "env ${variable}${value};"
 
