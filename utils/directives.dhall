@@ -18,6 +18,8 @@ let Size = size.Size
 
 let Size/show = size.Size/show
 
+let ConnectionProcessingMethod = ../types/ConnectionProcessingMethod.dhall
+
 let SizeOrOff = ../types/SizeOrOff.dhall
 
 let TempPathAndLevels = ../types/TempPathAndLevels.dhall
@@ -108,6 +110,21 @@ let offOrSharedNameSize =
         )
 
 let bool = directive Bool (λ(value : Bool) → if value then "on" else "off")
+
+let connectionProcessingMethod =
+      directive
+        ConnectionProcessingMethod
+        ( λ(value : ConnectionProcessingMethod) →
+            merge
+              { select = "select"
+              , poll = "poll"
+              , kqueue = "kqueue"
+              , epoll = "epoll"
+              , devpoll = "/dev/poll"
+              , eventport = "eventport"
+              }
+              value
+        )
 
 let on_off_leaf =
       directive
@@ -202,6 +219,7 @@ in  { interval
     , OffOrNoneOrBuiltinOrShared
     , offOrSharedNameSize
     , OffOrSharedNameSize
+    , connectionProcessingMethod
     , bool
     , nil
     , on_off_leaf
