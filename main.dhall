@@ -5,6 +5,8 @@ let List/unpackOptionals =
 
 let directives = ./utils/directives.dhall
 
+let env = ./directives/ngx_core_module/env/schema.dhall
+
 let user = ./directives/ngx_core_module/user/schema.dhall
 
 let worker_processes =
@@ -35,7 +37,8 @@ let working_directory =
       ./directives/ngx_core_module/working_directory/schema.dhall
 
 let default =
-      { error_log = None ./directives/ngx_core_module/error_log/type.dhall
+      { env = None ./directives/ngx_core_module/env/type.dhall
+      , error_log = None ./directives/ngx_core_module/error_log/type.dhall
       , http = None ./directives/ngx_http_core_module/http/type.dhall
       , load_modules =
           [] : List ./directives/ngx_core_module/load_module/type.dhall
@@ -55,7 +58,8 @@ let default =
       }
 
 let type =
-      { error_log : Optional ./directives/ngx_core_module/error_log/type.dhall
+      { env : Optional ./directives/ngx_core_module/env/type.dhall
+      , error_log : Optional ./directives/ngx_core_module/error_log/type.dhall
       , events : ./directives/ngx_core_module/events/type.dhall
       , http : Optional ./directives/ngx_http_core_module/http/type.dhall
       , load_modules : List ./directives/ngx_core_module/load_module/type.dhall
@@ -77,6 +81,8 @@ let type =
 let make =
       λ(n : Natural) →
       λ(c : type) →
+        let env = env.opt c.env n
+
         let user = user.opt c.user n
 
         let worker_processes = worker_processes.opt c.worker_processes n
@@ -107,6 +113,7 @@ let make =
               List/unpackOptionals
                 Text
                 [ load_modules
+                , env
                 , error_log
                 , events
                 , http
