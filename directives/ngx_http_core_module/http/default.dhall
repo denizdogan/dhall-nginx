@@ -84,6 +84,7 @@ in  { absolute_redirect = None ../absolute_redirect/type.dhall
         None ngx_http_fastcgi_module.fastcgi_send_timeout.Type
     , fastcgi_socket_keepalive =
         None ngx_http_fastcgi_module.fastcgi_socket_keepalive.Type
+    , fastcgi_temp_path = None ngx_http_fastcgi_module.fastcgi_temp_path.Type
     , gzip = None ../../ngx_http_gzip_module/gzip/type.dhall
     , gzip_types = [] : ../../ngx_http_gzip_module/gzip_types/type.dhall
     , if_modified_since = None ../if_modified_since/type.dhall

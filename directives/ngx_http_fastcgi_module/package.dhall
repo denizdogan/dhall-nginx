@@ -29,4 +29,5 @@
 , fastcgi_split_path_info = ./fastcgi_split_path_info/schema.dhall
 , fastcgi_param = ./fastcgi_param/schema.dhall
 , fastcgi_pass = ./fastcgi_pass/schema.dhall
+, fastcgi_temp_path = ./fastcgi_temp_path/schema.dhall
 }

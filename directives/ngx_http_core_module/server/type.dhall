@@ -72,6 +72,8 @@ in  { access_rules : List ../../ngx_http_access_module/access_rule/type.dhall
         Optional ngx_http_fastcgi_module.fastcgi_socket_keepalive.Type
     , fastcgi_param :
         List ../../ngx_http_fastcgi_module/fastcgi_param/type.dhall
+    , fastcgi_temp_path :
+        Optional ngx_http_fastcgi_module.fastcgi_temp_path.Type
     , gzip : Optional ../../ngx_http_gzip_module/gzip/type.dhall
     , gzip_types : ../../ngx_http_gzip_module/gzip_types/type.dhall
     , index : Optional ../../ngx_http_index_module/index/type.dhall

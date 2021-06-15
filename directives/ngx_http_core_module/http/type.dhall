@@ -91,6 +91,8 @@ in  { absolute_redirect : Optional ../absolute_redirect/type.dhall
         Optional ngx_http_fastcgi_module.fastcgi_send_timeout.Type
     , fastcgi_socket_keepalive :
         Optional ngx_http_fastcgi_module.fastcgi_socket_keepalive.Type
+    , fastcgi_temp_path :
+        Optional ngx_http_fastcgi_module.fastcgi_temp_path.Type
     , gzip : Optional ../../ngx_http_gzip_module/gzip/type.dhall
     , gzip_types : ../../ngx_http_gzip_module/gzip_types/type.dhall
     , if_modified_since : Optional ../if_modified_since/type.dhall
