@@ -116,6 +116,9 @@ let fastcgi_request_buffering =
 let fastcgi_socket_keepalive =
       ../../ngx_http_fastcgi_module/fastcgi_socket_keepalive/schema.dhall
 
+let fastcgi_temp_file_write_size =
+      ../../ngx_http_fastcgi_module/fastcgi_temp_file_write_size/schema.dhall
+
 let fastcgi_temp_path =
       ../../ngx_http_fastcgi_module/fastcgi_temp_path/schema.dhall
 
@@ -317,6 +320,11 @@ let make =
         let fastcgi_socket_keepalive =
               fastcgi_socket_keepalive.opt c.fastcgi_socket_keepalive (n + 2)
 
+        let fastcgi_temp_file_write_size =
+              fastcgi_temp_file_write_size.opt
+                c.fastcgi_temp_file_write_size
+                (n + 2)
+
         let fastcgi_temp_path =
               fastcgi_temp_path.opt c.fastcgi_temp_path (n + 2)
 
@@ -451,6 +459,7 @@ let make =
                 , fastcgi_pass_request_body
                 , fastcgi_request_buffering
                 , fastcgi_socket_keepalive
+                , fastcgi_temp_file_write_size
                 , fastcgi_temp_path
                 , gzip
                 , gzip_types

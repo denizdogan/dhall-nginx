@@ -43,6 +43,7 @@ let config =
           [ ng.add_header::{ name = "X-Foo", value = "Bar", always = True } ]
         , add_trailer = [ ng.add_trailer::{ name = "X-Baz", value = "Qux" } ]
         , fastcgi_intercept_errors = Some False
+        , fastcgi_temp_file_write_size = Some (ng.Size.kilobytes 1024)
         , if_modified_since = Some ng.if_modified_since.exact
         , index = Some [ "index.html", "index.php" ]
         , log_format = [ myLogger, jsonLogger ]
