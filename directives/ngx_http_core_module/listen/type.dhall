@@ -1,4 +1,4 @@
-let size = ../../../utils/size.dhall
+let Size = ../../../types/Size/type.dhall
 
 in  { address : Text
     , accept_filter : Optional < dataready | httpready >
@@ -10,10 +10,10 @@ in  { address : Text
     , http2 : Bool
     , ipv6only : Optional Bool
     , proxy_protocol : Bool
-    , rcvbuf : Optional size.Size
+    , rcvbuf : Optional Size
     , reuseport : Bool
     , setfib : Optional Natural
-    , sndbuf : Optional size.Size
+    , sndbuf : Optional Size
     , so_keepalive : Optional < on | off >
     , ssl : Bool
     }

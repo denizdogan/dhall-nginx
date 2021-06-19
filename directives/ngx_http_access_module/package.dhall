@@ -1,4 +1,4 @@
-let access_rule = ./access_rule/schema.dhall
+let access_rule = ./access_rule/directive.dhall
 
 let allow = \(s : Text) -> access_rule::{ allow = Some s }
 

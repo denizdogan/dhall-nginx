@@ -1,1 +1,1 @@
-{ index = ./index/schema.dhall }
+{ index = ./index/directive.dhall }

@@ -1,1 +1,1 @@
-{ escape = None ../../../types/Escape.dhall }
+{ escape = None ../../../types/Escape/type.dhall }

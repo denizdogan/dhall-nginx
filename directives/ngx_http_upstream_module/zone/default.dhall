@@ -1,1 +1,1 @@
-let size = ../../../utils/size.dhall in { size = None size.Size }
+let Size = ../../../types/Size/type.dhall in { size = None Size }

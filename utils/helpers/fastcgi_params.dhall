@@ -1,5 +1,5 @@
 let fastcgi_param =
-      ../../directives/ngx_http_fastcgi_module/fastcgi_param/schema.dhall
+      ../../directives/ngx_http_fastcgi_module/fastcgi_param/directive.dhall
 
 let p =
       \(param : Text) ->

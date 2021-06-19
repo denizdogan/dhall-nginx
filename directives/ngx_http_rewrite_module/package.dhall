@@ -1,1 +1,3 @@
-{ rewrite = ./rewrite/schema.dhall, rewrite_log = ./rewrite_log/schema.dhall }
+{ rewrite = ./rewrite/directive.dhall
+, rewrite_log = ./rewrite_log/directive.dhall
+}

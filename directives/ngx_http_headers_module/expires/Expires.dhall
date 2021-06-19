@@ -1,10 +1,10 @@
-let interval = ../../../utils/interval.dhall
+let Interval = ../../../types/Interval/type.dhall
 
 in  < epoch
     | max
     | off
-    | addTime : interval.Interval.Type
-    | subtractTime : interval.Interval.Type
-    | timeOfDay : interval.Interval.Type
+    | addTime : Interval
+    | subtractTime : Interval
+    | timeOfDay : Interval
     | text : Text
     >

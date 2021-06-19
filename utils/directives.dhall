@@ -1,42 +1,65 @@
-let Function/identity = https://prelude.dhall-lang.org/Function/identity.dhall
+let Function/identity =
+      https://prelude.dhall-lang.org/Function/identity.dhall sha256:f78b96792b459cb664f41c6119bd8897dd04353a3343521d436cd82ad71cb4d4
 
-let List/map = https://prelude.dhall-lang.org/List/map.dhall
+let List/map =
+      https://prelude.dhall-lang.org/List/map.dhall sha256:dd845ffb4568d40327f2a817eb42d1c6138b929ca758d50bc33112ef3c885680
 
-let Optional/map = https://prelude.dhall-lang.org/Optional/map.dhall
+let Optional/map =
+      https://prelude.dhall-lang.org/Optional/map.dhall sha256:501534192d988218d43261c299cc1d1e0b13d25df388937add784778ab0054fa
 
-let Text/concat = https://prelude.dhall-lang.org/Text/concat.dhall
-
-let Text/concatSep = https://prelude.dhall-lang.org/Text/concatSep.dhall
+let Text/concatSep =
+      https://prelude.dhall-lang.org/Text/concatSep.dhall sha256:e4401d69918c61b92a4c0288f7d60a6560ca99726138ed8ebc58dca2cd205e58
 
 let indent = ./indent.dhall
 
-let interval = ./interval.dhall
+let Interval = ../types/Interval/type.dhall
 
-let size = ./size.dhall
+let Interval/show = ../types/Interval/show.dhall
 
-let Size = size.Size
+let ConnectionProcessingMethod = ../types/ConnectionProcessingMethod/type.dhall
 
-let Size/show = size.Size/show
+let ConnectionProcessingMethod/show =
+      ../types/ConnectionProcessingMethod/show.dhall
 
-let ConnectionProcessingMethod = ../types/ConnectionProcessingMethod.dhall
+let Permission = ../types/Permission/type.dhall
 
-let Permission = ../types/Permission.dhall
+let Permission/show = ../types/Permission/show.dhall
 
-let SizeOff = ../types/SizeOff.dhall
+let SizeOff = ../types/SizeOff/type.dhall
 
-let TempPathAndLevels = ../types/TempPathAndLevels.dhall
+let SizeOff/show = ../types/SizeOff/show.dhall
 
-let TextOrAuto = ../types/TextOrAuto.dhall
+let TempPathLevels = ../types/TempPathLevels/type.dhall
 
-let OffNoneBuiltinShared = ../types/OffNoneBuiltinShared.dhall
+let TempPathLevels/show = ../types/TempPathLevels/show.dhall
 
-let OffSharedNameSize = ../types/OffSharedNameSize.dhall
+let TextAuto = ../types/TextAuto/type.dhall
 
-let OnOffLeaf = ../types/OnOffLeaf.dhall
+let TextAuto/show = ../types/TextAuto/show.dhall
 
-let OnOffOptionalNoCa = ../types/OnOffOptionalNoCa.dhall
+let OffNoneBuiltinShared = ../types/OffNoneBuiltinShared/type.dhall
 
-let SslProtocol = ../types/SslProtocol.dhall
+let OffNoneBuiltinShared/show = ../types/OffNoneBuiltinShared/show.dhall
+
+let OffSharedNameSize = ../types/OffSharedNameSize/type.dhall
+
+let OffSharedNameSize/show = ../types/OffSharedNameSize/show.dhall
+
+let OnOffLeaf = ../types/OnOffLeaf/type.dhall
+
+let OnOffLeaf/show = ../types/OnOffLeaf/show.dhall
+
+let OnOffOptionalNoCa = ../types/OnOffOptionalNoCa/type.dhall
+
+let OnOffOptionalNoCa/show = ../types/OnOffOptionalNoCa/show.dhall
+
+let SSLProtocol = ../types/SSLProtocol/type.dhall
+
+let SSLProtocol/show = ../types/SSLProtocol/show.dhall
+
+let Size = ../types/Size/type.dhall
+
+let Size/show = ../types/Size/show.dhall
 
 let opt =
       λ(t : Type) →
@@ -78,135 +101,43 @@ let nil =
 
         in  makeDirective type make
 
-let interval = directive interval.Interval.Type interval.Interval/show
+let interval = directive Interval Interval/show
 
 let natural = directive Natural Natural/show
 
 let offNoneBuiltinShared =
-      directive
-        OffNoneBuiltinShared
-        ( λ(value : OffNoneBuiltinShared) →
-            merge
-              { off = "off"
-              , none = "none"
-              , builtin = λ(v : Size) → "builtin:${Size/show v}"
-              , shared =
-                  λ(v : { name : Text, size : Size }) →
-                    "shared:${v.name}:${Size/show v.size}"
-              }
-              value
-        )
+      directive OffNoneBuiltinShared OffNoneBuiltinShared/show
 
-let offSharedNameSize =
-      directive
-        OffSharedNameSize
-        ( λ(value : OffSharedNameSize) →
-            merge
-              { off = "off"
-              , shared =
-                  λ(v : { name : Text, size : Size }) →
-                    "shared:${v.name}:${Size/show v.size}"
-              }
-              value
-        )
+let offSharedNameSize = directive OffSharedNameSize OffSharedNameSize/show
 
 let bool = directive Bool (λ(value : Bool) → if value then "on" else "off")
 
 let connectionProcessingMethod =
-      directive
-        ConnectionProcessingMethod
-        ( λ(value : ConnectionProcessingMethod) →
-            merge
-              { select = "select"
-              , poll = "poll"
-              , kqueue = "kqueue"
-              , epoll = "epoll"
-              , devpoll = "/dev/poll"
-              , eventport = "eventport"
-              }
-              value
-        )
+      directive ConnectionProcessingMethod ConnectionProcessingMethod/show
 
-let onOffLeaf =
-      directive
-        OnOffLeaf
-        ( λ(value : OnOffLeaf) →
-            merge { on = "on", off = "off", leaf = "leaf" } value
-        )
+let onOffLeaf = directive OnOffLeaf OnOffLeaf/show
 
-let onOffOptionalNoCa =
-      directive
-        OnOffOptionalNoCa
-        ( λ(value : OnOffOptionalNoCa) →
-            merge
-              { on = "on"
-              , off = "off"
-              , optional = "optional"
-              , optional_no_ca = "optional_no_ca"
-              }
-              value
-        )
+let onOffOptionalNoCa = directive OnOffOptionalNoCa OnOffOptionalNoCa/show
 
-let permission = directive Permission.Type Permission.show
+let permission = directive Permission Permission/show
 
 let size = directive Size Size/show
 
-let sizeOff =
-      directive
-        SizeOff
-        (λ(v : SizeOff) → merge { off = "off", size = Size/show } v)
+let sizeOff = directive SizeOff SizeOff/show
 
 let sslProtocolList =
       directive
-        (List SslProtocol)
-        ( λ(v : List SslProtocol) →
-            Text/concatSep
-              " "
-              ( List/map
-                  SslProtocol
-                  Text
-                  ( λ(s : SslProtocol) →
-                      merge
-                        { SSLv2 = "SSLv2"
-                        , SSLv3 = "SSLv3"
-                        , TLSv1 = "TLSv1"
-                        , TLSv11 = "TLSv11"
-                        , TLSv12 = "TLSv12"
-                        , TLSv13 = "TLSv13"
-                        }
-                        s
-                  )
-                  v
-              )
+        (List SSLProtocol)
+        ( λ(v : List SSLProtocol) →
+            Text/concatSep " " (List/map SSLProtocol Text SSLProtocol/show v)
         )
 
-let tempPathAndLevels =
+let tempPathLevels =
       λ(name : Text) →
-          directive
-            TempPathAndLevels
-            ( λ(value : TempPathAndLevels) →
-                let path = value.path
-
-                let levels =
-                      Text/concat
-                        ( List/map
-                            Natural
-                            Text
-                            (λ(level : Natural) → " ${Natural/show level}")
-                            value.levels
-                        )
-
-                in  "${path}${levels}"
-            )
-            name
+          directive TempPathLevels TempPathLevels/show name
         ⫽ { default.levels = [] : List Natural }
 
-let textOrAuto =
-      directive
-        TextOrAuto
-        ( λ(v : TextOrAuto) →
-            merge { auto = "auto", text = Function/identity Text } v
-        )
+let textAuto = directive TextAuto TextAuto/show
 
 let text = directive Text (Function/identity Text)
 
@@ -219,26 +150,19 @@ in  { interval
     , makeDirective
     , listOpt
     , offNoneBuiltinShared
-    , OffNoneBuiltinShared
     , offSharedNameSize
-    , OffSharedNameSize
     , connectionProcessingMethod
     , bool
     , nil
     , onOffLeaf
     , onOffOptionalNoCa
-    , OnOffOptionalNoCa
     , opt
     , permission
     , size
     , sizeOff
-    , SizeOff
     , sslProtocolList
-    , SslProtocol
-    , tempPathAndLevels
-    , TempPathAndLevels
+    , tempPathLevels
     , text
-    , textOrAuto
-    , TextOrAuto
+    , textAuto
     , textSep
     }

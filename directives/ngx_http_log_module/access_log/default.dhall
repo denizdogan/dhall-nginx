@@ -1,9 +1,9 @@
-let interval = ../../../utils/interval.dhall
+let Interval = ../../../types/Interval/type.dhall
 
-let size = ../../../utils/size.dhall
+let Size = ../../../types/Size/type.dhall
 
-in  { buffer = None size.Size
-    , flush = None interval.Interval.Type
+in  { buffer = None Size
+    , flush = None Interval
     , format = None ../../ngx_http_log_module/log_format/type.dhall
     , gzip = None Bool
     , gzipLevel = None Natural

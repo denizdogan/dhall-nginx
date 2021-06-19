@@ -1,3 +1,3 @@
-let interval = ../../../utils/interval.dhall
+let Interval = ../../../types/Interval/type.dhall
 
-in  { header_timeout = None interval.Interval.Type }
+in  { header_timeout = None Interval }

@@ -1,40 +1,41 @@
-let Text/concatSep = https://prelude.dhall-lang.org/Text/concatSep.dhall
+let Text/concatSep =
+      https://prelude.dhall-lang.org/Text/concatSep.dhall sha256:e4401d69918c61b92a4c0288f7d60a6560ca99726138ed8ebc58dca2cd205e58
 
 let List/unpackOptionals =
-      https://prelude.dhall-lang.org/List/unpackOptionals.dhall
+      https://prelude.dhall-lang.org/List/unpackOptionals.dhall sha256:0cbaa920f429cf7fc3907f8a9143203fe948883913560e6e1043223e6b3d05e4
 
 let directives = ./utils/directives.dhall
 
-let env = ./directives/ngx_core_module/env/schema.dhall
+let env = ./directives/ngx_core_module/env/directive.dhall
 
-let user = ./directives/ngx_core_module/user/schema.dhall
+let user = ./directives/ngx_core_module/user/directive.dhall
 
 let worker_processes =
-      ./directives/ngx_core_module/worker_processes/schema.dhall
+      ./directives/ngx_core_module/worker_processes/directive.dhall
 
 let worker_cpu_affinity =
-      ./directives/ngx_core_module/worker_cpu_affinity/schema.dhall
+      ./directives/ngx_core_module/worker_cpu_affinity/directive.dhall
 
-let events = ./directives/ngx_core_module/events/schema.dhall
+let events = ./directives/ngx_core_module/events/directive.dhall
 
-let load_module = ./directives/ngx_core_module/load_module/schema.dhall
+let load_module = ./directives/ngx_core_module/load_module/directive.dhall
 
-let http = ./directives/ngx_http_core_module/http/schema.dhall
+let http = ./directives/ngx_http_core_module/http/directive.dhall
 
-let pcre_jit = ./directives/ngx_core_module/pcre_jit/schema.dhall
+let pcre_jit = ./directives/ngx_core_module/pcre_jit/directive.dhall
 
-let pid = ./directives/ngx_core_module/pid/schema.dhall
+let pid = ./directives/ngx_core_module/pid/directive.dhall
 
-let error_log = ./directives/ngx_core_module/error_log/schema.dhall
+let error_log = ./directives/ngx_core_module/error_log/directive.dhall
 
 let worker_rlimit_core =
-      ./directives/ngx_core_module/worker_rlimit_core/schema.dhall
+      ./directives/ngx_core_module/worker_rlimit_core/directive.dhall
 
 let worker_rlimit_nofile =
-      ./directives/ngx_core_module/worker_rlimit_nofile/schema.dhall
+      ./directives/ngx_core_module/worker_rlimit_nofile/directive.dhall
 
 let working_directory =
-      ./directives/ngx_core_module/working_directory/schema.dhall
+      ./directives/ngx_core_module/working_directory/directive.dhall
 
 let default =
       { env = None ./directives/ngx_core_module/env/type.dhall

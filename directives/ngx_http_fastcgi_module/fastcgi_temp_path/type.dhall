@@ -1,1 +1,1 @@
-let schema = ./schema.dhall in schema.Type
+let schema = ./directive.dhall in schema.Type

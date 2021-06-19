@@ -1,1 +1,1 @@
-{ map = ./map/schema.dhall }
+{ map = ./map/directive.dhall }

@@ -1,1 +1,1 @@
-{ gzip = ./gzip/schema.dhall, gzip_types = ./gzip_types/schema.dhall }
+{ gzip = ./gzip/directive.dhall, gzip_types = ./gzip_types/directive.dhall }
