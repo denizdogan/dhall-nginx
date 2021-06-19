@@ -1,5 +1,3 @@
-let ngx_http_fastcgi_module = ../../ngx_http_fastcgi_module/package.dhall
-
 let modifier = ./modifier.dhall
 
 in  { absolute_redirect = None ../absolute_redirect/type.dhall
@@ -36,51 +34,65 @@ in  { absolute_redirect = None ../absolute_redirect/type.dhall
     , directio_alignment = None ../directio_alignment/type.dhall
     , error_page = [] : List ../error_page/type.dhall
     , expires = None ../../ngx_http_headers_module/expires/type.dhall
-    , fastcgi_buffering = None ngx_http_fastcgi_module.fastcgi_buffering.Type
+    , fastcgi_buffering =
+        None ../../ngx_http_fastcgi_module/fastcgi_buffering/type.dhall
     , fastcgi_cache_background_update =
-        None ngx_http_fastcgi_module.fastcgi_cache_background_update.Type
-    , fastcgi_cache_key = None ngx_http_fastcgi_module.fastcgi_cache_key.Type
-    , fastcgi_cache_lock = None ngx_http_fastcgi_module.fastcgi_cache_lock.Type
+        None
+          ../../ngx_http_fastcgi_module/fastcgi_cache_background_update/type.dhall
+    , fastcgi_cache_key =
+        None ../../ngx_http_fastcgi_module/fastcgi_cache_key/type.dhall
+    , fastcgi_cache_lock =
+        None ../../ngx_http_fastcgi_module/fastcgi_cache_lock/type.dhall
     , fastcgi_cache_max_range_offset =
-        None ngx_http_fastcgi_module.fastcgi_cache_max_range_offset.Type
+        None
+          ../../ngx_http_fastcgi_module/fastcgi_cache_max_range_offset/type.dhall
     , fastcgi_cache_min_uses =
-        None ngx_http_fastcgi_module.fastcgi_cache_min_uses.Type
+        None ../../ngx_http_fastcgi_module/fastcgi_cache_min_uses/type.dhall
     , fastcgi_cache_revalidate =
-        None ngx_http_fastcgi_module.fastcgi_cache_revalidate.Type
+        None ../../ngx_http_fastcgi_module/fastcgi_cache_revalidate/type.dhall
     , fastcgi_catch_stderr =
-        None ngx_http_fastcgi_module.fastcgi_catch_stderr.Type
+        None ../../ngx_http_fastcgi_module/fastcgi_catch_stderr/type.dhall
     , fastcgi_force_ranges =
-        None ngx_http_fastcgi_module.fastcgi_force_ranges.Type
+        None ../../ngx_http_fastcgi_module/fastcgi_force_ranges/type.dhall
     , fastcgi_hide_header =
-        None ngx_http_fastcgi_module.fastcgi_hide_header.Type
+        None ../../ngx_http_fastcgi_module/fastcgi_hide_header/type.dhall
     , fastcgi_ignore_client_abort =
-        None ngx_http_fastcgi_module.fastcgi_ignore_client_abort.Type
-    , fastcgi_index = None ngx_http_fastcgi_module.fastcgi_index.Type
+        None
+          ../../ngx_http_fastcgi_module/fastcgi_ignore_client_abort/type.dhall
+    , fastcgi_index =
+        None ../../ngx_http_fastcgi_module/fastcgi_index/type.dhall
     , fastcgi_intercept_errors =
-        None ngx_http_fastcgi_module.fastcgi_intercept_errors.Type
-    , fastcgi_keep_conn = None ngx_http_fastcgi_module.fastcgi_keep_conn.Type
-    , fastcgi_limit_rate = None ngx_http_fastcgi_module.fastcgi_limit_rate.Type
+        None ../../ngx_http_fastcgi_module/fastcgi_intercept_errors/type.dhall
+    , fastcgi_keep_conn =
+        None ../../ngx_http_fastcgi_module/fastcgi_keep_conn/type.dhall
+    , fastcgi_limit_rate =
+        None ../../ngx_http_fastcgi_module/fastcgi_limit_rate/type.dhall
     , fastcgi_next_upstream_tries =
-        None ngx_http_fastcgi_module.fastcgi_next_upstream_tries.Type
+        None
+          ../../ngx_http_fastcgi_module/fastcgi_next_upstream_tries/type.dhall
     , fastcgi_param =
         [] : List ../../ngx_http_fastcgi_module/fastcgi_param/type.dhall
-    , fastcgi_pass = None ngx_http_fastcgi_module.fastcgi_pass.Type
+    , fastcgi_pass = None ../../ngx_http_fastcgi_module/fastcgi_pass/type.dhall
     , fastcgi_pass_header =
-        None ngx_http_fastcgi_module.fastcgi_pass_header.Type
+        None ../../ngx_http_fastcgi_module/fastcgi_pass_header/type.dhall
     , fastcgi_pass_request_body =
-        None ngx_http_fastcgi_module.fastcgi_pass_request_body.Type
+        None ../../ngx_http_fastcgi_module/fastcgi_pass_request_body/type.dhall
     , fastcgi_pass_request_headers =
-        None ngx_http_fastcgi_module.fastcgi_pass_request_headers.Type
+        None
+          ../../ngx_http_fastcgi_module/fastcgi_pass_request_headers/type.dhall
     , fastcgi_request_buffering =
-        None ngx_http_fastcgi_module.fastcgi_request_buffering.Type
+        None ../../ngx_http_fastcgi_module/fastcgi_request_buffering/type.dhall
     , fastcgi_socket_keepalive =
-        None ngx_http_fastcgi_module.fastcgi_socket_keepalive.Type
-    , fastcgi_store = None ngx_http_fastcgi_module.fastcgi_store.Type
+        None ../../ngx_http_fastcgi_module/fastcgi_socket_keepalive/type.dhall
+    , fastcgi_store =
+        None ../../ngx_http_fastcgi_module/fastcgi_store/type.dhall
     , fastcgi_store_access =
-        None ngx_http_fastcgi_module.fastcgi_store_access.Type
+        None ../../ngx_http_fastcgi_module/fastcgi_store_access/type.dhall
     , fastcgi_temp_file_write_size =
-        None ngx_http_fastcgi_module.fastcgi_temp_file_write_size.Type
-    , fastcgi_temp_path = None ngx_http_fastcgi_module.fastcgi_temp_path.Type
+        None
+          ../../ngx_http_fastcgi_module/fastcgi_temp_file_write_size/type.dhall
+    , fastcgi_temp_path =
+        None ../../ngx_http_fastcgi_module/fastcgi_temp_path/type.dhall
     , gzip = None ../../ngx_http_gzip_module/gzip/type.dhall
     , gzip_types = [] : ../../ngx_http_gzip_module/gzip_types/type.dhall
     , index = None ../../ngx_http_index_module/index/type.dhall
