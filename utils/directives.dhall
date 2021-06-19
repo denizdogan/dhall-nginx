@@ -22,20 +22,19 @@ let ConnectionProcessingMethod = ../types/ConnectionProcessingMethod.dhall
 
 let Permission = ../types/Permission.dhall
 
-let SizeOrOff = ../types/SizeOrOff.dhall
+let SizeOff = ../types/SizeOff.dhall
 
 let TempPathAndLevels = ../types/TempPathAndLevels.dhall
 
 let TextOrAuto = ../types/TextOrAuto.dhall
 
-let OffOrNoneOrBuiltinOrShared = ../types/OffOrNoneOrBuiltinOrShared.dhall
+let OffNoneBuiltinShared = ../types/OffNoneBuiltinShared.dhall
 
-let OffOrSharedNameSize = ../types/OffOrSharedNameSize.dhall
+let OffSharedNameSize = ../types/OffSharedNameSize.dhall
 
-let OnOrOffOrLeaf = ../types/OnOrOffOrLeaf.dhall
+let OnOffLeaf = ../types/OnOffLeaf.dhall
 
-let OnOrOffOrOptionalOrOptionalNoCa =
-      ../types/OnOrOffOrOptionalOrOptionalNoCa.dhall
+let OnOffOptionalNoCa = ../types/OnOffOptionalNoCa.dhall
 
 let SslProtocol = ../types/SslProtocol.dhall
 
@@ -83,10 +82,10 @@ let interval = directive interval.Interval.Type interval.Interval/show
 
 let natural = directive Natural Natural/show
 
-let offOrNoneOrBuiltinOrShared =
+let offNoneBuiltinShared =
       directive
-        OffOrNoneOrBuiltinOrShared
-        ( λ(value : OffOrNoneOrBuiltinOrShared) →
+        OffNoneBuiltinShared
+        ( λ(value : OffNoneBuiltinShared) →
             merge
               { off = "off"
               , none = "none"
@@ -98,10 +97,10 @@ let offOrNoneOrBuiltinOrShared =
               value
         )
 
-let offOrSharedNameSize =
+let offSharedNameSize =
       directive
-        OffOrSharedNameSize
-        ( λ(value : OffOrSharedNameSize) →
+        OffSharedNameSize
+        ( λ(value : OffSharedNameSize) →
             merge
               { off = "off"
               , shared =
@@ -128,17 +127,17 @@ let connectionProcessingMethod =
               value
         )
 
-let on_off_leaf =
+let onOffLeaf =
       directive
-        OnOrOffOrLeaf
-        ( λ(value : OnOrOffOrLeaf) →
+        OnOffLeaf
+        ( λ(value : OnOffLeaf) →
             merge { on = "on", off = "off", leaf = "leaf" } value
         )
 
-let onOrOffOrOptionalOrOptionalNoCa =
+let onOffOptionalNoCa =
       directive
-        OnOrOffOrOptionalOrOptionalNoCa
-        ( λ(value : OnOrOffOrOptionalOrOptionalNoCa) →
+        OnOffOptionalNoCa
+        ( λ(value : OnOffOptionalNoCa) →
             merge
               { on = "on"
               , off = "off"
@@ -152,10 +151,10 @@ let permission = directive Permission.Type Permission.show
 
 let size = directive Size Size/show
 
-let sizeOrOff =
+let sizeOff =
       directive
-        SizeOrOff
-        (λ(v : SizeOrOff) → merge { off = "off", size = Size/show } v)
+        SizeOff
+        (λ(v : SizeOff) → merge { off = "off", size = Size/show } v)
 
 let sslProtocolList =
       directive
@@ -219,21 +218,21 @@ in  { interval
     , natural
     , makeDirective
     , listOpt
-    , offOrNoneOrBuiltinOrShared
-    , OffOrNoneOrBuiltinOrShared
-    , offOrSharedNameSize
-    , OffOrSharedNameSize
+    , offNoneBuiltinShared
+    , OffNoneBuiltinShared
+    , offSharedNameSize
+    , OffSharedNameSize
     , connectionProcessingMethod
     , bool
     , nil
-    , on_off_leaf
-    , onOrOffOrOptionalOrOptionalNoCa
-    , OnOrOffOrOptionalOrOptionalNoCa
+    , onOffLeaf
+    , onOffOptionalNoCa
+    , OnOffOptionalNoCa
     , opt
     , permission
     , size
-    , sizeOrOff
-    , SizeOrOff
+    , sizeOff
+    , SizeOff
     , sslProtocolList
     , SslProtocol
     , tempPathAndLevels

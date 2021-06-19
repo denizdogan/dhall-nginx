@@ -1,3 +1,3 @@
 let d = ../../../utils/directives.dhall
 
-in  d.offOrNoneOrBuiltinOrShared "ssl_session_cache"
+in  d.offNoneBuiltinShared "ssl_session_cache"

@@ -1,3 +1,1 @@
-let d = ../../../utils/directives.dhall
-
-in  d.offOrSharedNameSize "ssl_ocsp_cache"
+let d = ../../../utils/directives.dhall in d.offSharedNameSize "ssl_ocsp_cache"
