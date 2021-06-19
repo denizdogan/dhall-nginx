@@ -117,6 +117,8 @@ let fastcgi_request_buffering =
 let fastcgi_socket_keepalive =
       ../../ngx_http_fastcgi_module/fastcgi_socket_keepalive/directive.dhall
 
+let fastcgi_store = ../../ngx_http_fastcgi_module/fastcgi_store/directive.dhall
+
 let fastcgi_store_access =
       ../../ngx_http_fastcgi_module/fastcgi_store_access/directive.dhall
 
@@ -326,6 +328,8 @@ let make =
         let fastcgi_socket_keepalive =
               fastcgi_socket_keepalive.opt c.fastcgi_socket_keepalive (n + 2)
 
+        let fastcgi_store = fastcgi_store.opt c.fastcgi_store (n + 2)
+
         let fastcgi_store_access =
               fastcgi_store_access.opt c.fastcgi_store_access (n + 2)
 
@@ -468,6 +472,7 @@ let make =
                 , fastcgi_pass_request_body
                 , fastcgi_request_buffering
                 , fastcgi_socket_keepalive
+                , fastcgi_store
                 , fastcgi_store_access
                 , fastcgi_temp_file_write_size
                 , fastcgi_temp_path

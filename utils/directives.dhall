@@ -53,6 +53,10 @@ let OnOffOptionalNoCa = ../types/OnOffOptionalNoCa/type.dhall
 
 let OnOffOptionalNoCa/show = ../types/OnOffOptionalNoCa/show.dhall
 
+let OnOffString = ../types/OnOffString/type.dhall
+
+let OnOffString/show = ../types/OnOffString/show.dhall
+
 let SSLProtocol = ../types/SSLProtocol/type.dhall
 
 let SSLProtocol/show = ../types/SSLProtocol/show.dhall
@@ -119,6 +123,8 @@ let onOffLeaf = directive OnOffLeaf OnOffLeaf/show
 
 let onOffOptionalNoCa = directive OnOffOptionalNoCa OnOffOptionalNoCa/show
 
+let onOffString = directive OnOffString OnOffString/show
+
 let permission = directive Permission Permission/show
 
 let size = directive Size Size/show
@@ -156,6 +162,7 @@ in  { interval
     , nil
     , onOffLeaf
     , onOffOptionalNoCa
+    , onOffString
     , opt
     , permission
     , size

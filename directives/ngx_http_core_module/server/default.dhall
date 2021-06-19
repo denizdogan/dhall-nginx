@@ -66,6 +66,8 @@ in  { access_rules =
         None ngx_http_fastcgi_module.fastcgi_socket_keepalive.Type
     , fastcgi_param =
         [] : List ../../ngx_http_fastcgi_module/fastcgi_param/type.dhall
+    , fastcgi_store =
+        None ../../ngx_http_fastcgi_module/fastcgi_store/type.dhall
     , fastcgi_store_access =
         None ../../ngx_http_fastcgi_module/fastcgi_store_access/type.dhall
     , fastcgi_temp_file_write_size =

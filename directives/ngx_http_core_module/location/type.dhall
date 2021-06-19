@@ -79,6 +79,7 @@ in  { absolute_redirect : Optional ../absolute_redirect/type.dhall
         Optional ngx_http_fastcgi_module.fastcgi_request_buffering.Type
     , fastcgi_socket_keepalive :
         Optional ngx_http_fastcgi_module.fastcgi_socket_keepalive.Type
+    , fastcgi_store : Optional ngx_http_fastcgi_module.fastcgi_store.Type
     , fastcgi_store_access :
         Optional ngx_http_fastcgi_module.fastcgi_store_access.Type
     , fastcgi_temp_file_write_size :

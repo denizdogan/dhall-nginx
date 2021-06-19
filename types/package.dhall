@@ -6,6 +6,7 @@
 , OffSharedNameSize = ./OffSharedNameSize/package.dhall
 , OnOffLeaf = ./OnOffLeaf/package.dhall
 , OnOffOptionalNoCa = ./OnOffOptionalNoCa/package.dhall
+, OnOffString = ./OnOffString/package.dhall
 , Permission = ./Permission/package.dhall
 , RWX = ./RWX/package.dhall
 , Size = ./Size/package.dhall

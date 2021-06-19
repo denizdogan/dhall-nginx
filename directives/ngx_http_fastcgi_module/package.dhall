@@ -29,6 +29,7 @@
 , fastcgi_send_timeout = ./fastcgi_send_timeout/directive.dhall
 , fastcgi_socket_keepalive = ./fastcgi_socket_keepalive/directive.dhall
 , fastcgi_split_path_info = ./fastcgi_split_path_info/directive.dhall
+, fastcgi_store = ./fastcgi_store/directive.dhall
 , fastcgi_store_access = ./fastcgi_store_access/directive.dhall
 , fastcgi_param = ./fastcgi_param/directive.dhall
 , fastcgi_pass = ./fastcgi_pass/directive.dhall
