@@ -75,6 +75,8 @@ in  { absolute_redirect = None ../absolute_redirect/type.dhall
         None ngx_http_fastcgi_module.fastcgi_request_buffering.Type
     , fastcgi_socket_keepalive =
         None ngx_http_fastcgi_module.fastcgi_socket_keepalive.Type
+    , fastcgi_store_access =
+        None ngx_http_fastcgi_module.fastcgi_store_access.Type
     , fastcgi_temp_file_write_size =
         None ngx_http_fastcgi_module.fastcgi_temp_file_write_size.Type
     , fastcgi_temp_path = None ngx_http_fastcgi_module.fastcgi_temp_path.Type

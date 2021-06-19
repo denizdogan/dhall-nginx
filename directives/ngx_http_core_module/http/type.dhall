@@ -91,6 +91,8 @@ in  { absolute_redirect : Optional ../absolute_redirect/type.dhall
         Optional ngx_http_fastcgi_module.fastcgi_send_timeout.Type
     , fastcgi_socket_keepalive :
         Optional ngx_http_fastcgi_module.fastcgi_socket_keepalive.Type
+    , fastcgi_store_access :
+        Optional ngx_http_fastcgi_module.fastcgi_store_access.Type
     , fastcgi_temp_file_write_size :
         Optional ngx_http_fastcgi_module.fastcgi_temp_file_write_size.Type
     , fastcgi_temp_path :

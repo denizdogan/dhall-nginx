@@ -63,6 +63,11 @@ let config =
               }
             , default_type = Some "foobar"
             , fastcgi_intercept_errors = Some True
+            , fastcgi_store_access = Some
+              { user = ng.Permission.all
+              , group = ng.Permission.none
+              , all = ng.Permission.all
+              }
             , index = Some [ "other.htm" ]
             , location =
               [ ng.location::{

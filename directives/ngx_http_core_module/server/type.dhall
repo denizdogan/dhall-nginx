@@ -72,6 +72,8 @@ in  { access_rules : List ../../ngx_http_access_module/access_rule/type.dhall
         Optional ngx_http_fastcgi_module.fastcgi_socket_keepalive.Type
     , fastcgi_param :
         List ../../ngx_http_fastcgi_module/fastcgi_param/type.dhall
+    , fastcgi_store_access :
+        Optional ../../ngx_http_fastcgi_module/fastcgi_store_access/type.dhall
     , fastcgi_temp_file_write_size :
         Optional ngx_http_fastcgi_module.fastcgi_temp_file_write_size.Type
     , fastcgi_temp_path :

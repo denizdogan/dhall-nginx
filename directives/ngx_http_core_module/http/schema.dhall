@@ -144,6 +144,9 @@ let fastcgi_send_timeout =
 let fastcgi_socket_keepalive =
       ../../ngx_http_fastcgi_module/fastcgi_socket_keepalive/schema.dhall
 
+let fastcgi_store_access =
+      ../../ngx_http_fastcgi_module/fastcgi_store_access/schema.dhall
+
 let fastcgi_temp_path =
       ../../ngx_http_fastcgi_module/fastcgi_temp_path/schema.dhall
 
@@ -431,6 +434,9 @@ let make =
         let fastcgi_socket_keepalive =
               fastcgi_socket_keepalive.opt c.fastcgi_socket_keepalive (n + 2)
 
+        let fastcgi_store_access =
+              fastcgi_store_access.opt c.fastcgi_store_access (n + 2)
+
         let fastcgi_temp_file_write_size =
               fastcgi_temp_file_write_size.opt
                 c.fastcgi_temp_file_write_size
@@ -642,6 +648,7 @@ let make =
                 , fastcgi_request_buffering
                 , fastcgi_send_timeout
                 , fastcgi_socket_keepalive
+                , fastcgi_store_access
                 , fastcgi_temp_file_write_size
                 , fastcgi_temp_path
                 , gzip

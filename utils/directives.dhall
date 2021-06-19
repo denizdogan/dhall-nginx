@@ -20,6 +20,8 @@ let Size/show = size.Size/show
 
 let ConnectionProcessingMethod = ../types/ConnectionProcessingMethod.dhall
 
+let Permission = ../types/Permission.dhall
+
 let SizeOrOff = ../types/SizeOrOff.dhall
 
 let TempPathAndLevels = ../types/TempPathAndLevels.dhall
@@ -146,6 +148,8 @@ let onOrOffOrOptionalOrOptionalNoCa =
               value
         )
 
+let permission = directive Permission.Type Permission.show
+
 let size = directive Size Size/show
 
 let sizeOrOff =
@@ -226,6 +230,7 @@ in  { interval
     , onOrOffOrOptionalOrOptionalNoCa
     , OnOrOffOrOptionalOrOptionalNoCa
     , opt
+    , permission
     , size
     , sizeOrOff
     , SizeOrOff

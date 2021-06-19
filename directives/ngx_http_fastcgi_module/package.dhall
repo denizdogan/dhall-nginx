@@ -27,6 +27,7 @@
 , fastcgi_send_timeout = ./fastcgi_send_timeout/schema.dhall
 , fastcgi_socket_keepalive = ./fastcgi_socket_keepalive/schema.dhall
 , fastcgi_split_path_info = ./fastcgi_split_path_info/schema.dhall
+, fastcgi_store_access = ./fastcgi_store_access/schema.dhall
 , fastcgi_param = ./fastcgi_param/schema.dhall
 , fastcgi_pass = ./fastcgi_pass/schema.dhall
 , fastcgi_temp_file_write_size = ./fastcgi_temp_file_write_size/schema.dhall
