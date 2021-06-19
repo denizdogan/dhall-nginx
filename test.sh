@@ -21,7 +21,7 @@ for filename in _tests/**/*.dhall; do
   if [[ "$output" != "$expected" ]]; then
     echo "$filename did not produce the expected output in $expected_filename:"
     diff -u <(echo "$expected") <(echo "$output")
-    echo "-----------------------------"
+    exit 1
     continue
   fi
 
