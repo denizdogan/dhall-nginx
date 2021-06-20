@@ -18,6 +18,7 @@
 , fastcgi_intercept_errors = ./fastcgi_intercept_errors/directive.dhall
 , fastcgi_keep_conn = ./fastcgi_keep_conn/directive.dhall
 , fastcgi_limit_rate = ./fastcgi_limit_rate/directive.dhall
+, fastcgi_max_temp_file_size = ./fastcgi_max_temp_file_size/directive.dhall
 , fastcgi_next_upstream_timeout =
     ./fastcgi_next_upstream_timeout/directive.dhall
 , fastcgi_next_upstream_tries = ./fastcgi_next_upstream_tries/directive.dhall

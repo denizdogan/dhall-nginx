@@ -65,6 +65,8 @@
     None ../../ngx_http_fastcgi_module/fastcgi_keep_conn/type.dhall
 , fastcgi_limit_rate =
     None ../../ngx_http_fastcgi_module/fastcgi_limit_rate/type.dhall
+, fastcgi_max_temp_file_size =
+    None ../../ngx_http_fastcgi_module/fastcgi_max_temp_file_size/type.dhall
 , fastcgi_next_upstream_timeout =
     None ../../ngx_http_fastcgi_module/fastcgi_next_upstream_timeout/type.dhall
 , fastcgi_next_upstream_tries =

@@ -120,6 +120,9 @@ let fastcgi_keep_conn =
 let fastcgi_limit_rate =
       ../../ngx_http_fastcgi_module/fastcgi_limit_rate/directive.dhall
 
+let fastcgi_max_temp_file_size =
+      ../../ngx_http_fastcgi_module/fastcgi_max_temp_file_size/directive.dhall
+
 let fastcgi_next_upstream_timeout =
       ../../ngx_http_fastcgi_module/fastcgi_next_upstream_timeout/directive.dhall
 
@@ -413,6 +416,11 @@ let make =
         let fastcgi_limit_rate =
               fastcgi_limit_rate.opt c.fastcgi_limit_rate (n + 2)
 
+        let fastcgi_max_temp_file_size =
+              fastcgi_max_temp_file_size.opt
+                c.fastcgi_max_temp_file_size
+                (n + 2)
+
         let fastcgi_next_upstream_timeout =
               fastcgi_next_upstream_timeout.opt
                 c.fastcgi_next_upstream_timeout
@@ -653,6 +661,7 @@ let make =
                 , fastcgi_intercept_errors
                 , fastcgi_keep_conn
                 , fastcgi_limit_rate
+                , fastcgi_max_temp_file_size
                 , fastcgi_next_upstream_timeout
                 , fastcgi_next_upstream_tries
                 , fastcgi_params
