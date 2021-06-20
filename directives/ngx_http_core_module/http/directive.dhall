@@ -140,6 +140,9 @@ let fastcgi_read_timeout =
 let fastcgi_request_buffering =
       ../../ngx_http_fastcgi_module/fastcgi_request_buffering/directive.dhall
 
+let fastcgi_send_lowat =
+      ../../ngx_http_fastcgi_module/fastcgi_send_lowat/directive.dhall
+
 let fastcgi_send_timeout =
       ../../ngx_http_fastcgi_module/fastcgi_send_timeout/directive.dhall
 
@@ -434,6 +437,9 @@ let make =
         let fastcgi_request_buffering =
               fastcgi_request_buffering.opt c.fastcgi_request_buffering (n + 2)
 
+        let fastcgi_send_lowat =
+              fastcgi_send_lowat.opt c.fastcgi_send_lowat (n + 2)
+
         let fastcgi_send_timeout =
               fastcgi_send_timeout.opt c.fastcgi_send_timeout (n + 2)
 
@@ -654,6 +660,7 @@ let make =
                 , fastcgi_pass_request_body
                 , fastcgi_read_timeout
                 , fastcgi_request_buffering
+                , fastcgi_send_lowat
                 , fastcgi_send_timeout
                 , fastcgi_socket_keepalive
                 , fastcgi_store

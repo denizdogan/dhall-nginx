@@ -125,6 +125,9 @@ let fastcgi_pass_request_body =
 let fastcgi_request_buffering =
       ../../ngx_http_fastcgi_module/fastcgi_request_buffering/directive.dhall
 
+let fastcgi_send_lowat =
+      ../../ngx_http_fastcgi_module/fastcgi_send_lowat/directive.dhall
+
 let fastcgi_socket_keepalive =
       ../../ngx_http_fastcgi_module/fastcgi_socket_keepalive/directive.dhall
 
@@ -387,6 +390,9 @@ let make =
         let fastcgi_request_buffering =
               fastcgi_request_buffering.opt c.fastcgi_request_buffering (n + 2)
 
+        let fastcgi_send_lowat =
+              fastcgi_send_lowat.opt c.fastcgi_send_lowat (n + 2)
+
         let fastcgi_socket_keepalive =
               fastcgi_socket_keepalive.opt c.fastcgi_socket_keepalive (n + 2)
 
@@ -572,6 +578,7 @@ let make =
                 , fastcgi_pass_header
                 , fastcgi_pass_request_body
                 , fastcgi_request_buffering
+                , fastcgi_send_lowat
                 , fastcgi_socket_keepalive
                 , fastcgi_store
                 , fastcgi_store_access

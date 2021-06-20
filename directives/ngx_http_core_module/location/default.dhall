@@ -82,6 +82,8 @@ in  { absolute_redirect = None ../absolute_redirect/type.dhall
           ../../ngx_http_fastcgi_module/fastcgi_pass_request_headers/type.dhall
     , fastcgi_request_buffering =
         None ../../ngx_http_fastcgi_module/fastcgi_request_buffering/type.dhall
+    , fastcgi_send_lowat =
+        None ../../ngx_http_fastcgi_module/fastcgi_send_lowat/type.dhall
     , fastcgi_socket_keepalive =
         None ../../ngx_http_fastcgi_module/fastcgi_socket_keepalive/type.dhall
     , fastcgi_store =

@@ -87,6 +87,8 @@
     Optional ../../ngx_http_fastcgi_module/fastcgi_read_timeout/type.dhall
 , fastcgi_request_buffering :
     Optional ../../ngx_http_fastcgi_module/fastcgi_request_buffering/type.dhall
+, fastcgi_send_lowat :
+    Optional ../../ngx_http_fastcgi_module/fastcgi_send_lowat/type.dhall
 , fastcgi_send_timeout :
     Optional ../../ngx_http_fastcgi_module/fastcgi_send_timeout/type.dhall
 , fastcgi_socket_keepalive :

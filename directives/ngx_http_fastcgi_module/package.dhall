@@ -26,6 +26,7 @@
 , fastcgi_pass_request_headers = ./fastcgi_pass_request_headers/directive.dhall
 , fastcgi_read_timeout = ./fastcgi_read_timeout/directive.dhall
 , fastcgi_request_buffering = ./fastcgi_request_buffering/directive.dhall
+, fastcgi_send_lowat = ./fastcgi_send_lowat/directive.dhall
 , fastcgi_send_timeout = ./fastcgi_send_timeout/directive.dhall
 , fastcgi_socket_keepalive = ./fastcgi_socket_keepalive/directive.dhall
 , fastcgi_split_path_info = ./fastcgi_split_path_info/directive.dhall

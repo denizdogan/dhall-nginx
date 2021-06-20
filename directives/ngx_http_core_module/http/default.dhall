@@ -81,6 +81,8 @@
     None ../../ngx_http_fastcgi_module/fastcgi_read_timeout/type.dhall
 , fastcgi_request_buffering =
     None ../../ngx_http_fastcgi_module/fastcgi_request_buffering/type.dhall
+, fastcgi_send_lowat =
+    None ../../ngx_http_fastcgi_module/fastcgi_send_lowat/type.dhall
 , fastcgi_send_timeout =
     None ../../ngx_http_fastcgi_module/fastcgi_send_timeout/type.dhall
 , fastcgi_socket_keepalive =

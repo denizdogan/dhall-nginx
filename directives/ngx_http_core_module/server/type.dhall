@@ -72,6 +72,8 @@
 , fastcgi_socket_keepalive :
     Optional ../../ngx_http_fastcgi_module/fastcgi_socket_keepalive/type.dhall
 , fastcgi_param : List ../../ngx_http_fastcgi_module/fastcgi_param/type.dhall
+, fastcgi_send_lowat :
+    Optional ../../ngx_http_fastcgi_module/fastcgi_send_lowat/type.dhall
 , fastcgi_store :
     Optional ../../ngx_http_fastcgi_module/fastcgi_store/type.dhall
 , fastcgi_store_access :
