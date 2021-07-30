@@ -8,19 +8,13 @@ let directives = ./utils/directives.dhall
 
 let env = ./directives/ngx_core_module/env/directive.dhall
 
-let user = ./directives/ngx_core_module/user/directive.dhall
-
-let worker_processes =
-      ./directives/ngx_core_module/worker_processes/directive.dhall
-
-let worker_cpu_affinity =
-      ./directives/ngx_core_module/worker_cpu_affinity/directive.dhall
+let error_log = ./directives/ngx_core_module/error_log/directive.dhall
 
 let events = ./directives/ngx_core_module/events/directive.dhall
 
-let load_module = ./directives/ngx_core_module/load_module/directive.dhall
-
 let http = ./directives/ngx_http_core_module/http/directive.dhall
+
+let load_module = ./directives/ngx_core_module/load_module/directive.dhall
 
 let pcre_jit = ./directives/ngx_core_module/pcre_jit/directive.dhall
 
@@ -29,13 +23,19 @@ let pid = ./directives/ngx_core_module/pid/directive.dhall
 let timer_resolution =
       ./directives/ngx_core_module/timer_resolution/directive.dhall
 
-let error_log = ./directives/ngx_core_module/error_log/directive.dhall
+let user = ./directives/ngx_core_module/user/directive.dhall
 
 let worker_aio_requests =
       ./directives/ngx_core_module/worker_aio_requests/directive.dhall
 
+let worker_cpu_affinity =
+      ./directives/ngx_core_module/worker_cpu_affinity/directive.dhall
+
 let worker_priority =
       ./directives/ngx_core_module/worker_priority/directive.dhall
+
+let worker_processes =
+      ./directives/ngx_core_module/worker_processes/directive.dhall
 
 let worker_rlimit_core =
       ./directives/ngx_core_module/worker_rlimit_core/directive.dhall
@@ -60,10 +60,10 @@ let default =
       , timer_resolution =
           None ./directives/ngx_core_module/timer_resolution/type.dhall
       , user = None ./directives/ngx_core_module/user/type.dhall
-      , worker_cpu_affinity =
-          None ./directives/ngx_core_module/worker_cpu_affinity/type.dhall
       , worker_aio_requests =
           None ./directives/ngx_core_module/worker_aio_requests/type.dhall
+      , worker_cpu_affinity =
+          None ./directives/ngx_core_module/worker_cpu_affinity/type.dhall
       , worker_priority =
           None ./directives/ngx_core_module/worker_priority/type.dhall
       , worker_processes =
@@ -113,17 +113,7 @@ let make =
       λ(c : type) →
         let env = env.opt c.env n
 
-        let timer_resolution = timer_resolution.opt c.timer_resolution n
-
-        let user = user.opt c.user n
-
-        let worker_aio_requests =
-              worker_aio_requests.opt c.worker_aio_requests n
-
-        let worker_processes = worker_processes.opt c.worker_processes n
-
-        let worker_cpu_affinity =
-              worker_cpu_affinity.opt c.worker_cpu_affinity n
+        let error_log = error_log.opt c.error_log n
 
         let events = Some (events.make n c.events)
 
@@ -135,9 +125,19 @@ let make =
 
         let pid = pid.opt c.pid n
 
-        let error_log = error_log.opt c.error_log n
+        let timer_resolution = timer_resolution.opt c.timer_resolution n
+
+        let user = user.opt c.user n
+
+        let worker_aio_requests =
+              worker_aio_requests.opt c.worker_aio_requests n
+
+        let worker_cpu_affinity =
+              worker_cpu_affinity.opt c.worker_cpu_affinity n
 
         let worker_priority = worker_priority.opt c.worker_priority n
+
+        let worker_processes = worker_processes.opt c.worker_processes n
 
         let worker_rlimit_core = worker_rlimit_core.opt c.worker_rlimit_core n
 
