@@ -28,6 +28,7 @@ let mapLoggable =
 let config =
       ng.config::{
       , user = Some ng.user::{ user = "foo" }
+      , worker_aio_requests = Some 3
       , worker_priority = Some -10
       , worker_processes = Some (ng.worker_processes.Type.number 4)
       , worker_cpu_affinity = Some ng.worker_cpu_affinity::{

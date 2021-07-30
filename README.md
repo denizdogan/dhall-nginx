@@ -41,3 +41,12 @@ A Dhall version of the default `mime.types` has been included in [utils/helpers/
 
 - **Help wanted:** No nested `location` blocks because [recursion is hard in Dhall](https://docs.dhall-lang.org/howtos/How-to-translate-recursive-code-to-Dhall.html), and [named locations cannot have sub-location blocks](https://nginx.org/en/docs/http/ngx_http_core_module.html#location), making it even harder.
 - **Not going to happen:** No `if` statements: because [if is evil](https://www.nginx.com/resources/wiki/start/topics/depth/ifisevil/), and it would turn the configuration file into an imperative script rather than a declarative description.
+
+## Development
+
+```console
+$ make format
+$ make freeze
+$ make lint
+$ make test
+```

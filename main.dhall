@@ -28,6 +28,9 @@ let pid = ./directives/ngx_core_module/pid/directive.dhall
 
 let error_log = ./directives/ngx_core_module/error_log/directive.dhall
 
+let worker_aio_requests =
+      ./directives/ngx_core_module/worker_aio_requests/directive.dhall
+
 let worker_priority =
       ./directives/ngx_core_module/worker_priority/directive.dhall
 
@@ -54,6 +57,8 @@ let default =
       , user = None ./directives/ngx_core_module/user/type.dhall
       , worker_cpu_affinity =
           None ./directives/ngx_core_module/worker_cpu_affinity/type.dhall
+      , worker_aio_requests =
+          None ./directives/ngx_core_module/worker_aio_requests/type.dhall
       , worker_priority =
           None ./directives/ngx_core_module/worker_priority/type.dhall
       , worker_processes =
@@ -77,6 +82,8 @@ let type =
       , pcre_jit : Optional ./directives/ngx_core_module/pcre_jit/type.dhall
       , pid : Optional ./directives/ngx_core_module/pid/type.dhall
       , user : Optional ./directives/ngx_core_module/user/type.dhall
+      , worker_aio_requests :
+          Optional ./directives/ngx_core_module/worker_aio_requests/type.dhall
       , worker_cpu_affinity :
           Optional ./directives/ngx_core_module/worker_cpu_affinity/type.dhall
       , worker_priority :
@@ -100,6 +107,9 @@ let make =
         let env = env.opt c.env n
 
         let user = user.opt c.user n
+
+        let worker_aio_requests =
+              worker_aio_requests.opt c.worker_aio_requests n
 
         let worker_processes = worker_processes.opt c.worker_processes n
 
@@ -141,6 +151,7 @@ let make =
                 , pcre_jit
                 , pid
                 , user
+                , worker_aio_requests
                 , worker_cpu_affinity
                 , worker_priority
                 , worker_processes
