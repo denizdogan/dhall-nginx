@@ -28,6 +28,9 @@ let pid = ./directives/ngx_core_module/pid/directive.dhall
 
 let error_log = ./directives/ngx_core_module/error_log/directive.dhall
 
+let worker_priority =
+      ./directives/ngx_core_module/worker_priority/directive.dhall
+
 let worker_rlimit_core =
       ./directives/ngx_core_module/worker_rlimit_core/directive.dhall
 
@@ -48,6 +51,8 @@ let default =
       , user = None ./directives/ngx_core_module/user/type.dhall
       , worker_cpu_affinity =
           None ./directives/ngx_core_module/worker_cpu_affinity/type.dhall
+      , worker_priority =
+          None ./directives/ngx_core_module/worker_priority/type.dhall
       , worker_processes =
           None ./directives/ngx_core_module/worker_processes/type.dhall
       , worker_rlimit_core =
@@ -69,6 +74,8 @@ let type =
       , user : Optional ./directives/ngx_core_module/user/type.dhall
       , worker_cpu_affinity :
           Optional ./directives/ngx_core_module/worker_cpu_affinity/type.dhall
+      , worker_priority :
+          Optional ./directives/ngx_core_module/worker_priority/type.dhall
       , worker_processes :
           Optional ./directives/ngx_core_module/worker_processes/type.dhall
       , worker_rlimit_core :
@@ -103,6 +110,8 @@ let make =
 
         let error_log = error_log.opt c.error_log n
 
+        let worker_priority = worker_priority.opt c.worker_priority n
+
         let worker_rlimit_core = worker_rlimit_core.opt c.worker_rlimit_core n
 
         let worker_rlimit_nofile =
@@ -122,6 +131,7 @@ let make =
                 , pid
                 , user
                 , worker_cpu_affinity
+                , worker_priority
                 , worker_processes
                 , worker_rlimit_core
                 , worker_rlimit_nofile

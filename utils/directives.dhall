@@ -107,6 +107,8 @@ let nil =
 
 let interval = directive Interval Interval/show
 
+let integer = directive Integer Integer/show
+
 let natural = directive Natural Natural/show
 
 let offNoneBuiltinShared =
@@ -159,6 +161,7 @@ in  { interval
     , offSharedNameSize
     , connectionProcessingMethod
     , bool
+    , integer
     , nil
     , onOffLeaf
     , onOffOptionalNoCa
