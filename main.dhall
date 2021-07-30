@@ -37,6 +37,9 @@ let worker_rlimit_core =
 let worker_rlimit_nofile =
       ./directives/ngx_core_module/worker_rlimit_nofile/directive.dhall
 
+let worker_shutdown_timeout =
+      ./directives/ngx_core_module/worker_shutdown_timeout/directive.dhall
+
 let working_directory =
       ./directives/ngx_core_module/working_directory/directive.dhall
 
@@ -59,6 +62,8 @@ let default =
           None ./directives/ngx_core_module/worker_rlimit_core/type.dhall
       , worker_rlimit_nofile =
           None ./directives/ngx_core_module/worker_rlimit_nofile/type.dhall
+      , worker_shutdown_timeout =
+          None ./directives/ngx_core_module/worker_shutdown_timeout/type.dhall
       , working_directory =
           None ./directives/ngx_core_module/working_directory/type.dhall
       }
@@ -82,6 +87,9 @@ let type =
           Optional ./directives/ngx_core_module/worker_rlimit_core/type.dhall
       , worker_rlimit_nofile :
           Optional ./directives/ngx_core_module/worker_rlimit_nofile/type.dhall
+      , worker_shutdown_timeout :
+          Optional
+            ./directives/ngx_core_module/worker_shutdown_timeout/type.dhall
       , working_directory :
           Optional ./directives/ngx_core_module/working_directory/type.dhall
       }
@@ -117,6 +125,9 @@ let make =
         let worker_rlimit_nofile =
               worker_rlimit_nofile.opt c.worker_rlimit_nofile n
 
+        let worker_shutdown_timeout =
+              worker_shutdown_timeout.opt c.worker_shutdown_timeout n
+
         let working_directory = working_directory.opt c.working_directory n
 
         let directives =
@@ -135,6 +146,7 @@ let make =
                 , worker_processes
                 , worker_rlimit_core
                 , worker_rlimit_nofile
+                , worker_shutdown_timeout
                 , working_directory
                 ]
 

@@ -34,6 +34,7 @@ let config =
         , auto = Some True
         , mask = Some "0110"
         }
+      , worker_shutdown_timeout = Some ng.Interval::{ seconds = Some 10 }
       , events = ng.events::{
         , accept_mutex = Some True
         , multi_accept = Some True
