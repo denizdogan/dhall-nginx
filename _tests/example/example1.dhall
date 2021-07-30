@@ -27,6 +27,7 @@ let mapLoggable =
 
 let config =
       ng.config::{
+      , timer_resolution = Some ng.Interval::{ milliseconds = Some 100 }
       , user = Some ng.user::{ user = "foo" }
       , worker_aio_requests = Some 3
       , worker_priority = Some -10

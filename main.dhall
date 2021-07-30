@@ -26,6 +26,9 @@ let pcre_jit = ./directives/ngx_core_module/pcre_jit/directive.dhall
 
 let pid = ./directives/ngx_core_module/pid/directive.dhall
 
+let timer_resolution =
+      ./directives/ngx_core_module/timer_resolution/directive.dhall
+
 let error_log = ./directives/ngx_core_module/error_log/directive.dhall
 
 let worker_aio_requests =
@@ -54,6 +57,8 @@ let default =
           [] : List ./directives/ngx_core_module/load_module/type.dhall
       , pcre_jit = None ./directives/ngx_core_module/pcre_jit/type.dhall
       , pid = None ./directives/ngx_core_module/pid/type.dhall
+      , timer_resolution =
+          None ./directives/ngx_core_module/timer_resolution/type.dhall
       , user = None ./directives/ngx_core_module/user/type.dhall
       , worker_cpu_affinity =
           None ./directives/ngx_core_module/worker_cpu_affinity/type.dhall
@@ -81,6 +86,8 @@ let type =
       , load_modules : List ./directives/ngx_core_module/load_module/type.dhall
       , pcre_jit : Optional ./directives/ngx_core_module/pcre_jit/type.dhall
       , pid : Optional ./directives/ngx_core_module/pid/type.dhall
+      , timer_resolution :
+          Optional ./directives/ngx_core_module/timer_resolution/type.dhall
       , user : Optional ./directives/ngx_core_module/user/type.dhall
       , worker_aio_requests :
           Optional ./directives/ngx_core_module/worker_aio_requests/type.dhall
@@ -105,6 +112,8 @@ let make =
       λ(n : Natural) →
       λ(c : type) →
         let env = env.opt c.env n
+
+        let timer_resolution = timer_resolution.opt c.timer_resolution n
 
         let user = user.opt c.user n
 
@@ -150,6 +159,7 @@ let make =
                 , http
                 , pcre_jit
                 , pid
+                , timer_resolution
                 , user
                 , worker_aio_requests
                 , worker_cpu_affinity
