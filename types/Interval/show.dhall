@@ -1,6 +1,6 @@
-let Text/concat =
-      https://prelude.dhall-lang.org/Text/concat.dhall
-        sha256:731265b0288e8a905ecff95c97333ee2db614c39d69f1514cb8eed9259745fc0
+let Prelude = ../../Prelude.dhall
+
+let Text/concat = Prelude.Text.concat
 
 let type = ./type.dhall
 

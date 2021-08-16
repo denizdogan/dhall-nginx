@@ -1,18 +1,12 @@
-let Map/map =
-      https://prelude.dhall-lang.org/Map/map.dhall
-        sha256:23e09b0b9f08649797dfe1ca39755d5e1c7cad2d0944bdd36c7a0bf804bde8d0
+let Prelude = ../../../Prelude.dhall
 
-let Text/concatSep =
-      https://prelude.dhall-lang.org/Text/concatSep.dhall
-        sha256:e4401d69918c61b92a4c0288f7d60a6560ca99726138ed8ebc58dca2cd205e58
+let Map/map = Prelude.Map.map
 
-let List/map =
-      https://prelude.dhall-lang.org/List/map.dhall
-        sha256:dd845ffb4568d40327f2a817eb42d1c6138b929ca758d50bc33112ef3c885680
+let Text/concatSep = Prelude.Text.concatSep
 
-let Entry =
-      https://prelude.dhall-lang.org/Map/Entry.dhall
-        sha256:f334283bdd9cd88e6ea510ca914bc221fc2dab5fb424d24514b2e0df600d5346
+let List/map = Prelude.List.map
+
+let Entry = Prelude.Map.Entry
 
 let type = ./type.dhall
 

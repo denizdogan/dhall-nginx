@@ -1,22 +1,14 @@
-let Text/concatSep =
-      https://prelude.dhall-lang.org/Text/concatSep.dhall
-        sha256:e4401d69918c61b92a4c0288f7d60a6560ca99726138ed8ebc58dca2cd205e58
+let Prelude = ../../../Prelude.dhall
 
-let Optional/default =
-      https://prelude.dhall-lang.org/Optional/default.dhall
-        sha256:5bd665b0d6605c374b3c4a7e2e2bd3b9c1e39323d41441149ed5e30d86e889ad
+let Text/concatSep = Prelude.Text.concatSep
 
-let Bool/not =
-      https://prelude.dhall-lang.org/Bool/not.dhall
-        sha256:723df402df24377d8a853afed08d9d69a0a6d86e2e5b2bac8960b0d4756c7dc4
+let Optional/default = Prelude.Optional.default
 
-let List/unpackOptionals =
-      https://prelude.dhall-lang.org/List/unpackOptionals.dhall
-        sha256:0cbaa920f429cf7fc3907f8a9143203fe948883913560e6e1043223e6b3d05e4
+let Bool/not = Prelude.Bool.not
 
-let Optional/map =
-      https://prelude.dhall-lang.org/Optional/map.dhall
-        sha256:501534192d988218d43261c299cc1d1e0b13d25df388937add784778ab0054fa
+let List/unpackOptionals = Prelude.List.unpackOptionals
+
+let Optional/map = Prelude.Optional.map
 
 let type = ./type.dhall
 

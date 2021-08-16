@@ -1,18 +1,12 @@
-let Function/identity =
-      https://prelude.dhall-lang.org/Function/identity.dhall
-        sha256:f78b96792b459cb664f41c6119bd8897dd04353a3343521d436cd82ad71cb4d4
+let Prelude = ../Prelude.dhall
 
-let List/map =
-      https://prelude.dhall-lang.org/List/map.dhall
-        sha256:dd845ffb4568d40327f2a817eb42d1c6138b929ca758d50bc33112ef3c885680
+let Function/identity = Prelude.Function.identity
 
-let Optional/map =
-      https://prelude.dhall-lang.org/Optional/map.dhall
-        sha256:501534192d988218d43261c299cc1d1e0b13d25df388937add784778ab0054fa
+let List/map = Prelude.List.map
 
-let Text/concatSep =
-      https://prelude.dhall-lang.org/Text/concatSep.dhall
-        sha256:e4401d69918c61b92a4c0288f7d60a6560ca99726138ed8ebc58dca2cd205e58
+let Optional/map = Prelude.Optional.map
+
+let Text/concatSep = Prelude.Text.concatSep
 
 let indent = ./indent.dhall
 
