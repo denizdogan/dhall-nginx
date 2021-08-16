@@ -8,6 +8,12 @@ Loosely based on [torbencarstens/dhall-nginx](https://github.com/torbencarstens/
 
 ## Usage
 
+```dhall
+let ng = https://raw.githubusercontent.com/denizdogan/dhall-nginx/v0.2/package.dhall
+
+in ng.config::{ ... }
+```
+
 See [example 1](./_tests/example/example1.dhall) and its accompanying [.conf file](./_tests/example/example1.conf) for example input and output.
 
 ```console
@@ -18,24 +24,24 @@ $ dhall text --file config.dhall
 
 ### Examples
 
-The easiest way to get started is probably by looking at the examples in [./_tests/](./_tests/) where you can find pairings of Dhall input files and their output Nginx configurations. Note that some of the output files will look slightly different from what they were based on, because this library doesn't support e.g. `include` directives -- instead of that, just use Dhall's mechanisms to "include" parts.
+The easiest way to get started is probably by looking at the examples in [_tests](./_tests/) where you can find pairings of Dhall input files and their output Nginx configurations. Note that some of the output files will look slightly different from what they were based on, because this library doesn't support e.g. `include` directives -- instead of that, just use Dhall's mechanisms to "include" parts.
 
-- **example** - just a random configuration
-- **ruby_fcgi** - [Simple Ruby FCGI](https://www.nginx.com/resources/wiki/start/topics/examples/simplerubyfcgi/)
-- **nginx** - [Full Example Configuration](https://www.nginx.com/resources/wiki/start/topics/examples/full/)
-- **wordpress** - [Wordpress recipe](https://www.nginx.com/resources/wiki/start/topics/recipes/wordpress/)
+- [example](./_tests/example) - just a random configuration
+- [ruby_fcgi](./_tests/ruby_fcgi) - [Simple Ruby FCGI](https://www.nginx.com/resources/wiki/start/topics/examples/simplerubyfcgi/)
+- [nginx](./_tests/nginx) - [Full Example Configuration](https://www.nginx.com/resources/wiki/start/topics/examples/full/)
+- [wordpress](./_tests/wordpress) - [Wordpress recipe](https://www.nginx.com/resources/wiki/start/topics/recipes/wordpress/)
 
-### Access rules (`allow` and `deny`)
+### Access rules (allow and deny)
 
 Since the internal order of the `allow` and `deny` directives matters, they are configured as a list of "access rules". Their common type is called [`access_rule`](./directives/ngx_http_access_module/access_rule/type.dhall).
 
-### `/etc/nginx/fastcgi_params`
+### /etc/nginx/fastcgi_params
 
-A Dhall version of the default `/etc/nginx/fastcgi_params` has been included in [utils/helpers/fastcgi_params.dhall](./utils/helpers/fastcgi_params.dhall).
+A Dhall version of the default /etc/nginx/fastcgi_params has been included in [utils/helpers/fastcgi_params.dhall](./utils/helpers/fastcgi_params.dhall).
 
-### `mime.types`
+### mime.types
 
-A Dhall version of the default `mime.types` has been included in [utils/helpers/mime_types.dhall](./utils/helpers/mime_types.dhall).
+A Dhall version of the default mime.types has been included in [utils/helpers/mime_types.dhall](./utils/helpers/mime_types.dhall).
 
 ## Missing features
 
@@ -45,8 +51,8 @@ A Dhall version of the default `mime.types` has been included in [utils/helpers/
 ## Development
 
 ```console
-$ make format
-$ make freeze
-$ make lint
-$ make test
+$ make format  # format all files
+$ make freeze  # freeze all imports
+$ make lint    # lint all files
+$ make test    # run all tests
 ```
