@@ -9,4 +9,4 @@ jobs:
       - uses: actions/checkout@v2
       - uses: dhall-lang/setup-dhall@v4.2.0
       - name: Run tests
-        run: ./test.sh
+        run: make test

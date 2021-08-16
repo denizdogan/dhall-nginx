@@ -7,11 +7,13 @@ if [[ "$1" = "--nginx" ]]; then
 fi
 
 # type check all the code
+echo "Type-checking everything..."
 dhall type --quiet --file "package.dhall" || exit 1
 
 # run the test suites
 for filename in _tests/**/*.dhall; do
   [ -e "$filename" ] || continue
+  echo "Testing $filename..."
   input="$filename"
   expected_filename="${filename%.dhall}.conf"
   expected=$(<"$expected_filename")

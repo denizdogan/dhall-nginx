@@ -1,5 +1,5 @@
 test:
-	./test.sh
+	./_tests/all.sh
 
 lint:
 	fd -g "*.dhall" -0 | xargs -0 -I '{}' dhall lint {}
