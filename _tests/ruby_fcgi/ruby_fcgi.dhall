@@ -24,7 +24,7 @@ let config =
         , server =
           [ ng.server::{
             , server_name = [ ".example.com" ]
-            , listen = [ ng.listen::{ address = "80" } ]
+            , listen = [ ng.listen.port 80 ]
             , root = Some "/srv/http/my_app/public"
             , location =
               [ ng.location::{

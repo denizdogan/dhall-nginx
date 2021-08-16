@@ -1,14 +1,18 @@
 let Text/concatSep =
-      https://prelude.dhall-lang.org/Text/concatSep.dhall sha256:e4401d69918c61b92a4c0288f7d60a6560ca99726138ed8ebc58dca2cd205e58
+      https://prelude.dhall-lang.org/Text/concatSep.dhall
+        sha256:e4401d69918c61b92a4c0288f7d60a6560ca99726138ed8ebc58dca2cd205e58
 
 let List/unpackOptionals =
-      https://prelude.dhall-lang.org/List/unpackOptionals.dhall sha256:0cbaa920f429cf7fc3907f8a9143203fe948883913560e6e1043223e6b3d05e4
+      https://prelude.dhall-lang.org/List/unpackOptionals.dhall
+        sha256:0cbaa920f429cf7fc3907f8a9143203fe948883913560e6e1043223e6b3d05e4
 
 let Optional/map =
-      https://prelude.dhall-lang.org/Optional/map.dhall sha256:501534192d988218d43261c299cc1d1e0b13d25df388937add784778ab0054fa
+      https://prelude.dhall-lang.org/Optional/map.dhall
+        sha256:501534192d988218d43261c299cc1d1e0b13d25df388937add784778ab0054fa
 
 let Entry =
-      https://prelude.dhall-lang.org/Map/Entry.dhall sha256:f334283bdd9cd88e6ea510ca914bc221fc2dab5fb424d24514b2e0df600d5346
+      https://prelude.dhall-lang.org/Map/Entry.dhall
+        sha256:f334283bdd9cd88e6ea510ca914bc221fc2dab5fb424d24514b2e0df600d5346
 
 let directives = ../../../utils/directives.dhall
 

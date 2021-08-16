@@ -1,4 +1,4 @@
-let Size = ../../../types/Size/type.dhall
+let Size = ../../../../../types/Size/type.dhall
 
 in  { accept_filter = None < dataready | httpready >
     , backlog = None Natural
@@ -8,6 +8,7 @@ in  { accept_filter = None < dataready | httpready >
     , fastopen = None Natural
     , http2 = False
     , ipv6only = None Bool
+    , port = None Natural
     , proxy_protocol = False
     , rcvbuf = None Size
     , reuseport = False

@@ -24,7 +24,7 @@ let server_domain1 =
         , path = Some "logs/domain1.access.log"
         , format = Some mainLog
         }
-      , listen = [ ng.listen::{ address = "80" } ]
+      , listen = [ ng.listen.port 80 ]
       , location =
         [ ng.location::{
           , fastcgi_pass = Some "127.0.0.1:1025"
@@ -42,7 +42,7 @@ let server_domain2 =
         , path = Some "logs/domain2.access.log"
         , format = Some mainLog
         }
-      , listen = [ ng.listen::{ address = "80" } ]
+      , listen = [ ng.listen.port 80 ]
       , location =
         [ ng.location::{
           , expires = Some ng.expires::{
@@ -67,7 +67,7 @@ let server_big =
         , path = Some "logs/big.server.access.log"
         , format = Some mainLog
         }
-      , listen = [ ng.listen::{ address = "80" } ]
+      , listen = [ ng.listen.port 80 ]
       , location =
         [ ng.location::{ uri = "/", proxy_pass = Some "http://big_server_com" }
         ]

@@ -1,8 +1,10 @@
 let List/unpackOptionals =
-      https://prelude.dhall-lang.org/List/unpackOptionals.dhall sha256:0cbaa920f429cf7fc3907f8a9143203fe948883913560e6e1043223e6b3d05e4
+      https://prelude.dhall-lang.org/List/unpackOptionals.dhall
+        sha256:0cbaa920f429cf7fc3907f8a9143203fe948883913560e6e1043223e6b3d05e4
 
 let Text/concatSep =
-      https://prelude.dhall-lang.org/Text/concatSep.dhall sha256:e4401d69918c61b92a4c0288f7d60a6560ca99726138ed8ebc58dca2cd205e58
+      https://prelude.dhall-lang.org/Text/concatSep.dhall
+        sha256:e4401d69918c61b92a4c0288f7d60a6560ca99726138ed8ebc58dca2cd205e58
 
 let directives = ../../../utils/directives.dhall
 
@@ -369,7 +371,7 @@ let make =
 
         let limit_rate_after = limit_rate_after.opt c.limit_rate_after (n + 2)
 
-        let listen = listen.listOpt c.listen (n + 2)
+        let listen = directives.listOpt listen.type listen.make c.listen (n + 2)
 
         let location = location.listOpt c.location (n + 2)
 

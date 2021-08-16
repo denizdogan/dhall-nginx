@@ -69,6 +69,19 @@ let config =
             , fastcgi_intercept_errors = Some True
             , fastcgi_store_access = Some ng.Permission._777
             , index = Some [ "other.htm" ]
+            , listen =
+              [ ng.listen.address "localhost"
+              , ng.listen.addressPort "foobar.com" 420
+              , ng.listen.port 8000
+              , ng.listen.unixPath "/tmp/unix.sock"
+              , ng.listen.type.Address
+                  ng.listen.Address::{
+                  , address = "dhall-lang.org"
+                  , port = Some 9001
+                  , ipv6only = Some True
+                  , setfib = Some 1000
+                  }
+              ]
             , location =
               [ ng.location::{
                 , access_rules =
