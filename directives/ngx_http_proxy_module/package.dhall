@@ -1,4 +1,5 @@
 { proxy_buffers = ./proxy_buffers/directive.dhall
+, proxy_cache_path = ./proxy_cache_path/directive.dhall
 , proxy_connect_timeout = ./proxy_connect_timeout/directive.dhall
 , proxy_pass = ./proxy_pass/directive.dhall
 , proxy_read_timeout = ./proxy_read_timeout/directive.dhall

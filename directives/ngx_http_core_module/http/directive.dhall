@@ -215,6 +215,9 @@ let postpone_output = ../postpone_output/directive.dhall
 
 let proxy_buffers = ../../ngx_http_proxy_module/proxy_buffers/directive.dhall
 
+let proxy_cache_path =
+      ../../ngx_http_proxy_module/proxy_cache_path/directive.dhall
+
 let proxy_connect_timeout =
       ../../ngx_http_proxy_module/proxy_connect_timeout/directive.dhall
 
@@ -538,6 +541,8 @@ let make =
 
         let proxy_buffers = proxy_buffers.opt c.proxy_buffers (n + 2)
 
+        let proxy_cache_path = proxy_cache_path.opt c.proxy_cache_path (n + 2)
+
         let proxy_connect_timeout =
               proxy_connect_timeout.opt c.proxy_connect_timeout (n + 2)
 
@@ -718,6 +723,7 @@ let make =
                 , port_in_redirect
                 , postpone_output
                 , proxy_buffers
+                , proxy_cache_path
                 , proxy_connect_timeout
                 , proxy_read_timeout
                 , proxy_redirect

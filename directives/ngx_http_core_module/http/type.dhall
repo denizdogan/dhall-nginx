@@ -131,6 +131,8 @@
 , port_in_redirect : Optional ../port_in_redirect/type.dhall
 , postpone_output : Optional ../postpone_output/type.dhall
 , proxy_buffers : Optional ../../ngx_http_proxy_module/proxy_buffers/type.dhall
+, proxy_cache_path :
+    Optional ../../ngx_http_proxy_module/proxy_cache_path/type.dhall
 , proxy_connect_timeout :
     Optional ../../ngx_http_proxy_module/proxy_connect_timeout/type.dhall
 , proxy_read_timeout :
