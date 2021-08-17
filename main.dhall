@@ -16,6 +16,8 @@ let http = ./directives/ngx_http_core_module/http/directive.dhall
 
 let load_module = ./directives/ngx_core_module/load_module/directive.dhall
 
+let lock_file = ./directives/ngx_core_module/lock_file/directive.dhall
+
 let master_process = ./directives/ngx_core_module/master_process/directive.dhall
 
 let pcre_jit = ./directives/ngx_core_module/pcre_jit/directive.dhall
@@ -59,6 +61,7 @@ let default =
       , http = None ./directives/ngx_http_core_module/http/type.dhall
       , load_modules =
           [] : List ./directives/ngx_core_module/load_module/type.dhall
+      , lock_file = None ./directives/ngx_core_module/lock_file/type.dhall
       , master_process =
           None ./directives/ngx_core_module/master_process/type.dhall
       , pcre_jit = None ./directives/ngx_core_module/pcre_jit/type.dhall
@@ -91,6 +94,7 @@ let type =
       , events : ./directives/ngx_core_module/events/type.dhall
       , http : Optional ./directives/ngx_http_core_module/http/type.dhall
       , load_modules : List ./directives/ngx_core_module/load_module/type.dhall
+      , lock_file : Optional ./directives/ngx_core_module/lock_file/type.dhall
       , master_process :
           Optional ./directives/ngx_core_module/master_process/type.dhall
       , pcre_jit : Optional ./directives/ngx_core_module/pcre_jit/type.dhall
@@ -130,6 +134,8 @@ let make =
         let http = http.opt c.http n
 
         let load_modules = load_module.listOpt c.load_modules n
+
+        let lock_file = lock_file.opt c.lock_file n
 
         let master_process = master_process.opt c.master_process n
 
@@ -171,6 +177,7 @@ let make =
                 , error_log
                 , events
                 , http
+                , lock_file
                 , master_process
                 , pcre_jit
                 , pid
