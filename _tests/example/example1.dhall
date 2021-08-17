@@ -43,6 +43,7 @@ let config =
       , worker_shutdown_timeout = Some ng.Interval::{ seconds = Some 10 }
       , events = ng.events::{
         , accept_mutex = Some True
+        , accept_mutex_delay = Some ng.Interval::{ milliseconds = Some 500 }
         , debug_connection = Some "unix:"
         , multi_accept = Some True
         , worker_connections = Some 1024
