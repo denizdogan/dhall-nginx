@@ -6,6 +6,8 @@ let List/unpackOptionals = Prelude.List.unpackOptionals
 
 let directives = ./utils/directives.dhall
 
+let daemon = ./directives/ngx_core_module/daemon/directive.dhall
+
 let debug_points = ./directives/ngx_core_module/debug_points/directive.dhall
 
 let env = ./directives/ngx_core_module/env/directive.dhall
@@ -58,7 +60,8 @@ let working_directory =
       ./directives/ngx_core_module/working_directory/directive.dhall
 
 let default =
-      { debug_points = None ./directives/ngx_core_module/debug_points/type.dhall
+      { daemon = None ./directives/ngx_core_module/daemon/type.dhall
+      , debug_points = None ./directives/ngx_core_module/debug_points/type.dhall
       , env = None ./directives/ngx_core_module/env/type.dhall
       , error_log = None ./directives/ngx_core_module/error_log/type.dhall
       , http = None ./directives/ngx_http_core_module/http/type.dhall
@@ -92,7 +95,8 @@ let default =
       }
 
 let type =
-      { debug_points :
+      { daemon : Optional ./directives/ngx_core_module/daemon/type.dhall
+      , debug_points :
           Optional ./directives/ngx_core_module/debug_points/type.dhall
       , env : Optional ./directives/ngx_core_module/env/type.dhall
       , error_log : Optional ./directives/ngx_core_module/error_log/type.dhall
@@ -130,6 +134,8 @@ let type =
 let make =
       λ(n : Natural) →
       λ(c : type) →
+        let daemon = daemon.opt c.daemon n
+
         let debug_points = debug_points.opt c.debug_points n
 
         let env = env.opt c.env n
@@ -180,6 +186,7 @@ let make =
               List/unpackOptionals
                 Text
                 [ load_modules
+                , daemon
                 , debug_points
                 , env
                 , error_log

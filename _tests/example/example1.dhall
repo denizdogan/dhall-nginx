@@ -27,6 +27,7 @@ let mapLoggable =
 
 let config =
       ng.config::{
+      , daemon = Some False
       , debug_points = Some ng.DebugPoints.abort
       , lock_file = Some "/tmp/lock.tmp"
       , master_process = Some True

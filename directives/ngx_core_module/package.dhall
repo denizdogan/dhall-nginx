@@ -1,5 +1,6 @@
 { accept_mutex = ./accept_mutex/directive.dhall
 , accept_mutex_delay = ./accept_mutex_delay/directive.dhall
+, daemon = ./daemon/directive.dhall
 , debug_connection = ./debug_connection/directive.dhall
 , error_log = ./error_log/directive.dhall
 , events = ./events/directive.dhall
