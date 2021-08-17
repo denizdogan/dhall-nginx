@@ -6,6 +6,8 @@ let List/unpackOptionals = Prelude.List.unpackOptionals
 
 let directives = ./utils/directives.dhall
 
+let debug_points = ./directives/ngx_core_module/debug_points/directive.dhall
+
 let env = ./directives/ngx_core_module/env/directive.dhall
 
 let error_log = ./directives/ngx_core_module/error_log/directive.dhall
@@ -56,7 +58,8 @@ let working_directory =
       ./directives/ngx_core_module/working_directory/directive.dhall
 
 let default =
-      { env = None ./directives/ngx_core_module/env/type.dhall
+      { debug_points = None ./directives/ngx_core_module/debug_points/type.dhall
+      , env = None ./directives/ngx_core_module/env/type.dhall
       , error_log = None ./directives/ngx_core_module/error_log/type.dhall
       , http = None ./directives/ngx_http_core_module/http/type.dhall
       , load_modules =
@@ -89,7 +92,9 @@ let default =
       }
 
 let type =
-      { env : Optional ./directives/ngx_core_module/env/type.dhall
+      { debug_points :
+          Optional ./directives/ngx_core_module/debug_points/type.dhall
+      , env : Optional ./directives/ngx_core_module/env/type.dhall
       , error_log : Optional ./directives/ngx_core_module/error_log/type.dhall
       , events : ./directives/ngx_core_module/events/type.dhall
       , http : Optional ./directives/ngx_http_core_module/http/type.dhall
@@ -125,6 +130,8 @@ let type =
 let make =
       λ(n : Natural) →
       λ(c : type) →
+        let debug_points = debug_points.opt c.debug_points n
+
         let env = env.opt c.env n
 
         let error_log = error_log.opt c.error_log n
@@ -173,6 +180,7 @@ let make =
               List/unpackOptionals
                 Text
                 [ load_modules
+                , debug_points
                 , env
                 , error_log
                 , events

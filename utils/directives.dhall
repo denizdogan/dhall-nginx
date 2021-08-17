@@ -10,6 +10,10 @@ let Text/concatSep = Prelude.Text.concatSep
 
 let indent = ./indent.dhall
 
+let DebugPoints = ../types/DebugPoints/type.dhall
+
+let DebugPoints/show = ../types/DebugPoints/show.dhall
+
 let Interval = ../types/Interval/type.dhall
 
 let Interval/show = ../types/Interval/show.dhall
@@ -103,6 +107,8 @@ let nil =
 
         in  makeDirective type make
 
+let debugPoints = directive DebugPoints DebugPoints/show
+
 let interval = directive Interval Interval/show
 
 let integer = directive Integer Integer/show
@@ -151,7 +157,8 @@ let textSep =
       λ(sep : Text) →
         directive (List Text) (λ(ss : List Text) → Text/concatSep sep ss)
 
-in  { interval
+in  { debugPoints
+    , interval
     , natural
     , makeDirective
     , listOpt

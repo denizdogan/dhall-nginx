@@ -1,4 +1,5 @@
 { ConnectionProcessingMethod = ./ConnectionProcessingMethod/package.dhall
+, DebugPoints = ./DebugPoints/package.dhall
 , Escape = ./Escape/package.dhall
 , Interval = ./Interval/package.dhall
 , LogLevel = ./LogLevel/package.dhall
