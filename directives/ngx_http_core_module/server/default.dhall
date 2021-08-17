@@ -93,6 +93,7 @@
 , location = [] : List ../location/type.dhall
 , log_not_found = None ../log_not_found/type.dhall
 , postpone_output = None ../postpone_output/type.dhall
+, proxy_buffering = None ../../ngx_http_proxy_module/proxy_buffering/type.dhall
 , proxy_buffers = None ../../ngx_http_proxy_module/proxy_buffers/type.dhall
 , proxy_connect_timeout =
     None ../../ngx_http_proxy_module/proxy_connect_timeout/type.dhall

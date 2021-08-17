@@ -162,6 +162,9 @@ let log_not_found = ../log_not_found/directive.dhall
 
 let postpone_output = ../postpone_output/directive.dhall
 
+let proxy_buffering =
+      ../../ngx_http_proxy_module/proxy_buffering/directive.dhall
+
 let proxy_buffers = ../../ngx_http_proxy_module/proxy_buffers/directive.dhall
 
 let proxy_connect_timeout =
@@ -397,6 +400,8 @@ let make =
 
         let postpone_output = postpone_output.opt c.postpone_output (n + 2)
 
+        let proxy_buffering = proxy_buffering.opt c.proxy_buffering (n + 2)
+
         let proxy_buffers = proxy_buffers.opt c.proxy_buffers (n + 2)
 
         let proxy_connect_timeout =
@@ -526,6 +531,7 @@ let make =
                 , location
                 , log_not_found
                 , postpone_output
+                , proxy_buffering
                 , proxy_buffers
                 , proxy_connect_timeout
                 , proxy_read_timeout

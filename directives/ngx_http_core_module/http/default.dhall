@@ -121,6 +121,7 @@
 , open_file_cache_valid = None ../open_file_cache_valid/type.dhall
 , port_in_redirect = None ../port_in_redirect/type.dhall
 , postpone_output = None ../postpone_output/type.dhall
+, proxy_buffering = None ../../ngx_http_proxy_module/proxy_buffering/type.dhall
 , proxy_buffers = None ../../ngx_http_proxy_module/proxy_buffers/type.dhall
 , proxy_cache_path =
     None ../../ngx_http_proxy_module/proxy_cache_path/type.dhall
