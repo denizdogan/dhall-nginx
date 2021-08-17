@@ -38,45 +38,109 @@ let make =
                       (Text/concatMapSep ":" Natural Natural/show value.levels)
 
         let use_temp_path =
-              Optional/map Bool Text Bool/onOff value.use_temp_path
+              Optional/map
+                Bool
+                Text
+                (λ(v : Bool) → "use_temp_path=${Bool/onOff v}")
+                value.use_temp_path
 
         let keys_zone =
-              Some "${value.keys_zone.name}:${Size/show value.keys_zone.size}"
+              let name = value.keys_zone.name
 
-        let inactive = Optional/map Interval Text Interval/show value.inactive
+              let size = Size/show value.keys_zone.size
 
-        let max_size = Optional/map Size Text Size/show value.max_size
+              in  Some "keys_zone=${name}:${size}"
 
-        let min_free = Optional/map Size Text Size/show value.min_free
+        let inactive =
+              Optional/map
+                Interval
+                Text
+                (λ(v : Interval) → "inactive=${Interval/show v}")
+                value.inactive
+
+        let max_size =
+              Optional/map
+                Size
+                Text
+                (λ(v : Size) → "max_size=${Size/show v}")
+                value.max_size
+
+        let min_free =
+              Optional/map
+                Size
+                Text
+                (λ(v : Size) → "min_free=${Size/show v}")
+                value.min_free
 
         let manager_files =
-              Optional/map Natural Text Natural/show value.manager_files
+              Optional/map
+                Natural
+                Text
+                (λ(v : Natural) → "manager_files=${Natural/show v}")
+                value.manager_files
 
         let manager_sleep =
-              Optional/map Interval Text Interval/show value.manager_sleep
+              Optional/map
+                Interval
+                Text
+                (λ(v : Interval) → "manager_sleep=${Interval/show v}")
+                value.manager_sleep
 
         let manager_threshold =
-              Optional/map Interval Text Interval/show value.manager_threshold
+              Optional/map
+                Interval
+                Text
+                (λ(v : Interval) → "manager_threshold=${Interval/show v}")
+                value.manager_threshold
 
         let loader_files =
-              Optional/map Natural Text Natural/show value.loader_files
+              Optional/map
+                Natural
+                Text
+                (λ(v : Natural) → "loader_files=${Natural/show v}")
+                value.loader_files
 
         let loader_sleep =
-              Optional/map Natural Text Natural/show value.loader_sleep
+              Optional/map
+                Natural
+                Text
+                (λ(v : Natural) → "loader_sleep=${Natural/show v}")
+                value.loader_sleep
 
         let loader_threshold =
-              Optional/map Interval Text Interval/show value.loader_threshold
+              Optional/map
+                Interval
+                Text
+                (λ(v : Interval) → "loader_threshold=${Interval/show v}")
+                value.loader_threshold
 
-        let purger = Optional/map Bool Text Bool/onOff value.purger
+        let purger =
+              Optional/map
+                Bool
+                Text
+                (λ(v : Bool) → "purger=${Bool/onOff v}")
+                value.purger
 
         let purger_files =
-              Optional/map Natural Text Natural/show value.purger_files
+              Optional/map
+                Natural
+                Text
+                (λ(v : Natural) → "purger_files=${Natural/show v}")
+                value.purger_files
 
         let purger_sleep =
-              Optional/map Interval Text Interval/show value.purger_sleep
+              Optional/map
+                Interval
+                Text
+                (λ(v : Interval) → "purger_sleep=${Interval/show v}")
+                value.purger_sleep
 
         let purger_threshold =
-              Optional/map Interval Text Interval/show value.purger_threshold
+              Optional/map
+                Interval
+                Text
+                (λ(v : Interval) → "purger_threshold=${Interval/show v}")
+                value.purger_threshold
 
         let optionals =
               [ levels
