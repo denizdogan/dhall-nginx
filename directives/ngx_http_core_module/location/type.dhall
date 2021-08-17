@@ -99,6 +99,7 @@
 , keepalive_requests : Optional ../keepalive_requests/type.dhall
 , keepalive_time : Optional ../keepalive_time/type.dhall
 , keepalive_timeout : Optional ../keepalive_timeout/type.dhall
+, limit_rate : Optional ../limit_rate/type.dhall
 , limit_rate_after : Optional ../limit_rate_after/type.dhall
 , lingering_close : Optional ../lingering_close/type.dhall
 , lingering_time : Optional ../lingering_time/type.dhall

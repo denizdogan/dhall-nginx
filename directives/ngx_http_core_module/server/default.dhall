@@ -85,6 +85,7 @@
 , keepalive_timeout = None ../keepalive_timeout/type.dhall
 , lingering_close = None ../lingering_close/type.dhall
 , lingering_time = None ../lingering_time/type.dhall
+, limit_rate = None ../limit_rate/type.dhall
 , limit_rate_after = None ../limit_rate_after/type.dhall
 , listen = [] : List ../listen/type.dhall
 , location = [] : List ../location/type.dhall

@@ -104,6 +104,7 @@
 , keepalive_requests = None ../keepalive_requests/type.dhall
 , keepalive_time = None ../keepalive_time/type.dhall
 , keepalive_timeout = None ../keepalive_timeout/type.dhall
+, limit_rate = None ../limit_rate/type.dhall
 , limit_rate_after = None ../limit_rate_after/type.dhall
 , lingering_close = None ../lingering_close/type.dhall
 , lingering_time = None ../lingering_time/type.dhall

@@ -21,6 +21,7 @@
 , keepalive_requests = ./keepalive_requests/directive.dhall
 , keepalive_time = ./keepalive_time/directive.dhall
 , keepalive_timeout = ./keepalive_timeout/directive.dhall
+, limit_rate = ./limit_rate/directive.dhall
 , limit_rate_after = ./limit_rate_after/directive.dhall
 , lingering_time = ./lingering_time/directive.dhall
 , lingering_timeout = ./lingering_timeout/directive.dhall
