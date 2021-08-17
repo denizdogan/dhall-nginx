@@ -1,4 +1,5 @@
 { accept_mutex = ./accept_mutex/directive.dhall
+, debug_connection = ./debug_connection/directive.dhall
 , error_log = ./error_log/directive.dhall
 , events = ./events/directive.dhall
 , load_module = ./load_module/directive.dhall

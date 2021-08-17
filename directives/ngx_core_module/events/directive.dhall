@@ -6,6 +6,8 @@ let List/unpackOptionals = Prelude.List.unpackOptionals
 
 let accept_mutex = ../accept_mutex/directive.dhall
 
+let debug_connection = ../debug_connection/directive.dhall
+
 let multi_accept = ../multi_accept/directive.dhall
 
 let use = ../use/directive.dhall
@@ -21,6 +23,8 @@ let make =
       λ(c : type) →
         let accept_mutex = accept_mutex.opt c.accept_mutex (n + 2)
 
+        let debug_connection = debug_connection.opt c.debug_connection (n + 2)
+
         let multi_accept = multi_accept.opt c.multi_accept (n + 2)
 
         let use = use.opt c.use (n + 2)
@@ -31,7 +35,12 @@ let make =
         let directives =
               List/unpackOptionals
                 Text
-                [ accept_mutex, multi_accept, use, worker_connections ]
+                [ accept_mutex
+                , debug_connection
+                , multi_accept
+                , use
+                , worker_connections
+                ]
 
         in      ''
                 events {
