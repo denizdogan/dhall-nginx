@@ -112,6 +112,7 @@
 , satisfy = None ../satisfy/type.dhall
 , send_lowat = None ../send_lowat/type.dhall
 , sendfile_max_chunk = None ../sendfile_max_chunk/type.dhall
+, server_name = [] : ../server_name/type.dhall
 , server_tokens = None ../server_tokens/type.dhall
 , ssl = None ../../ngx_http_ssl_module/ssl/type.dhall
 , ssl_buffer_size = None ../../ngx_http_ssl_module/ssl_buffer_size/type.dhall
