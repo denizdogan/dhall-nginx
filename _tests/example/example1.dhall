@@ -55,6 +55,7 @@ let config =
         , add_trailer = [ ng.add_trailer::{ name = "X-Baz", value = "Qux" } ]
         , fastcgi_intercept_errors = Some False
         , fastcgi_temp_file_write_size = Some (ng.Size.kilobytes 1024)
+        , gzip_min_length = Some 1000
         , gzip_vary = Some False
         , if_modified_since = Some ng.if_modified_since.exact
         , index = Some [ "index.html", "index.php" ]
@@ -78,6 +79,7 @@ let config =
             , default_type = Some "foobar"
             , fastcgi_intercept_errors = Some True
             , fastcgi_store_access = Some ng.Permission._777
+            , gzip_min_length = Some 500
             , gzip_vary = Some True
             , index = Some [ "other.htm" ]
             , limit_rate = Some (ng.Size.kilobytes 16)
@@ -120,6 +122,7 @@ let config =
                       ]
                     # ng.helpers.fastcgi_params
                 , fastcgi_pass = Some "unix:/tmp/fastcgi.socket"
+                , gzip_min_length = Some 200
                 , gzip_vary = Some False
                 , index = Some [ "foobar.html" ]
                 , internal = Some {=}

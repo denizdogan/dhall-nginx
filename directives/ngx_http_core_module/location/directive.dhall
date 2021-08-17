@@ -147,6 +147,8 @@ let fastcgi_temp_path =
 
 let gzip = ../../ngx_http_gzip_module/gzip/directive.dhall
 
+let gzip_min_length = ../../ngx_http_gzip_module/gzip_min_length/directive.dhall
+
 let gzip_types = ../../ngx_http_gzip_module/gzip_types/directive.dhall
 
 let gzip_vary = ../../ngx_http_gzip_module/gzip_vary/directive.dhall
@@ -425,6 +427,8 @@ let make =
 
         let gzip = gzip.opt c.gzip (n + 2)
 
+        let gzip_min_length = gzip_min_length.opt c.gzip_min_length (n + 2)
+
         let gzip_types =
               if    Natural/isZero (List/length Text c.gzip_types)
               then  None Text
@@ -606,6 +610,7 @@ let make =
                 , fastcgi_temp_file_write_size
                 , fastcgi_temp_path
                 , gzip
+                , gzip_min_length
                 , gzip_types
                 , gzip_vary
                 , index
