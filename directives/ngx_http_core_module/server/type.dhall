@@ -90,6 +90,7 @@
 , index : Optional ../../ngx_http_index_module/index/type.dhall
 , keepalive_timeout : Optional ../keepalive_timeout/type.dhall
 , limit_rate_after : Optional ../limit_rate_after/type.dhall
+, lingering_close : Optional ../lingering_close/type.dhall
 , listen : List ../listen/type.dhall
 , location : List ../location/type.dhall
 , log_not_found : Optional ../log_not_found/type.dhall

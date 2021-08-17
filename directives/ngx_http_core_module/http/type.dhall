@@ -113,6 +113,7 @@
 , keepalive_time : Optional ../keepalive_time/type.dhall
 , keepalive_timeout : Optional ../keepalive_timeout/type.dhall
 , limit_rate_after : Optional ../limit_rate_after/type.dhall
+, lingering_close : Optional ../lingering_close/type.dhall
 , lingering_time : Optional ../lingering_time/type.dhall
 , lingering_timeout : Optional ../lingering_timeout/type.dhall
 , log_format : List ../../ngx_http_log_module/log_format/type.dhall

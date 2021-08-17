@@ -163,6 +163,8 @@ let keepalive_timeout = ../keepalive_timeout/directive.dhall
 
 let limit_rate_after = ../limit_rate_after/directive.dhall
 
+let lingering_close = ../lingering_close/directive.dhall
+
 let lingering_time = ../lingering_time/directive.dhall
 
 let lingering_timeout = ../lingering_timeout/directive.dhall
@@ -438,6 +440,8 @@ let make =
 
         let limit_rate_after = limit_rate_after.opt c.limit_rate_after (n + 2)
 
+        let lingering_close = lingering_close.opt c.lingering_close (n + 2)
+
         let lingering_time = lingering_time.opt c.lingering_time (n + 2)
 
         let lingering_timeout =
@@ -601,6 +605,7 @@ let make =
                 , keepalive_time
                 , keepalive_timeout
                 , limit_rate_after
+                , lingering_close
                 , lingering_time
                 , lingering_timeout
                 , log_not_found

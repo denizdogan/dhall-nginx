@@ -23,6 +23,10 @@ let ConnectionProcessingMethod = ../types/ConnectionProcessingMethod/type.dhall
 let ConnectionProcessingMethod/show =
       ../types/ConnectionProcessingMethod/show.dhall
 
+let LingeringClose = ../types/LingeringClose/type.dhall
+
+let LingeringClose/show = ../types/LingeringClose/show.dhall
+
 let Permission = ../types/Permission/type.dhall
 
 let Permission/show = ../types/Permission/show.dhall
@@ -113,6 +117,8 @@ let interval = directive Interval Interval/show
 
 let integer = directive Integer Integer/show
 
+let lingeringClose = directive LingeringClose LingeringClose/show
+
 let natural = directive Natural Natural/show
 
 let offNoneBuiltinShared =
@@ -161,6 +167,7 @@ in  { debugPoints
     , interval
     , natural
     , makeDirective
+    , lingeringClose
     , listOpt
     , offNoneBuiltinShared
     , offSharedNameSize

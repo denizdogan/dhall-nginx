@@ -57,6 +57,7 @@ let config =
         , fastcgi_temp_file_write_size = Some (ng.Size.kilobytes 1024)
         , if_modified_since = Some ng.if_modified_since.exact
         , index = Some [ "index.html", "index.php" ]
+        , lingering_close = Some ng.LingeringClose.on
         , log_format = [ myLogger, jsonLogger ]
         , log_not_found = Some False
         , map = [ mapLoggable ]
@@ -76,6 +77,7 @@ let config =
             , fastcgi_intercept_errors = Some True
             , fastcgi_store_access = Some ng.Permission._777
             , index = Some [ "other.htm" ]
+            , lingering_close = Some ng.LingeringClose.off
             , listen =
               [ ng.listen.address "localhost"
               , ng.listen.addressPort "foobar.com" 420
@@ -116,6 +118,7 @@ let config =
                 , fastcgi_pass = Some "unix:/tmp/fastcgi.socket"
                 , index = Some [ "foobar.html" ]
                 , internal = Some {=}
+                , lingering_close = Some ng.LingeringClose.always
                 , log_not_found = Some True
                 , log_subrequest = Some True
                 , max_ranges = Some 512

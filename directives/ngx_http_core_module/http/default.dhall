@@ -105,6 +105,7 @@
 , keepalive_time = None ../keepalive_time/type.dhall
 , keepalive_timeout = None ../keepalive_timeout/type.dhall
 , limit_rate_after = None ../limit_rate_after/type.dhall
+, lingering_close = None ../lingering_close/type.dhall
 , lingering_time = None ../lingering_time/type.dhall
 , lingering_timeout = None ../lingering_timeout/type.dhall
 , log_format = [] : List ../../ngx_http_log_module/log_format/type.dhall

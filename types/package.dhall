@@ -2,6 +2,7 @@
 , DebugPoints = ./DebugPoints/package.dhall
 , Escape = ./Escape/package.dhall
 , Interval = ./Interval/package.dhall
+, LingeringClose = ./LingeringClose/package.dhall
 , LogLevel = ./LogLevel/package.dhall
 , OffNoneBuiltinShared = ./OffNoneBuiltinShared/package.dhall
 , OffSharedNameSize = ./OffSharedNameSize/package.dhall
