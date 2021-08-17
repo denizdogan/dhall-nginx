@@ -99,6 +99,7 @@ in  { absolute_redirect = None ../absolute_redirect/type.dhall
         None ../../ngx_http_fastcgi_module/fastcgi_temp_path/type.dhall
     , gzip = None ../../ngx_http_gzip_module/gzip/type.dhall
     , gzip_types = [] : ../../ngx_http_gzip_module/gzip_types/type.dhall
+    , gzip_vary = None ../../ngx_http_gzip_module/gzip_vary/type.dhall
     , index = None ../../ngx_http_index_module/index/type.dhall
     , internal = None ../internal/type.dhall
     , keepalive_requests = None ../keepalive_requests/type.dhall

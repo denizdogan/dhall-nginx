@@ -167,6 +167,8 @@ let gzip = ../../ngx_http_gzip_module/gzip/directive.dhall
 
 let gzip_types = ../../ngx_http_gzip_module/gzip_types/directive.dhall
 
+let gzip_vary = ../../ngx_http_gzip_module/gzip_vary/directive.dhall
+
 let if_modified_since = ../if_modified_since/directive.dhall
 
 let ignore_invalid_headers = ../ignore_invalid_headers/directive.dhall
@@ -478,6 +480,8 @@ let make =
               then  None Text
               else  Some (gzip_types.make (n + 2) c.gzip_types)
 
+        let gzip_vary = gzip_vary.opt c.gzip_vary (n + 2)
+
         let if_modified_since =
               if_modified_since.opt c.if_modified_since (n + 2)
 
@@ -686,6 +690,7 @@ let make =
                 , fastcgi_temp_path
                 , gzip
                 , gzip_types
+                , gzip_vary
                 , if_modified_since
                 , ignore_invalid_headers
                 , index

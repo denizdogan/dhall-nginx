@@ -149,6 +149,8 @@ let gzip = ../../ngx_http_gzip_module/gzip/directive.dhall
 
 let gzip_types = ../../ngx_http_gzip_module/gzip_types/directive.dhall
 
+let gzip_vary = ../../ngx_http_gzip_module/gzip_vary/directive.dhall
+
 let indent = ../../../utils/indent.dhall
 
 let index = ../../ngx_http_index_module/index/directive.dhall
@@ -428,6 +430,8 @@ let make =
               then  None Text
               else  Some (gzip_types.make (n + 2) c.gzip_types)
 
+        let gzip_vary = gzip_vary.opt c.gzip_vary (n + 2)
+
         let index = index.opt c.index (n + 2)
 
         let internal = internal.opt c.internal (n + 2)
@@ -603,6 +607,7 @@ let make =
                 , fastcgi_temp_path
                 , gzip
                 , gzip_types
+                , gzip_vary
                 , index
                 , internal
                 , keepalive_requests

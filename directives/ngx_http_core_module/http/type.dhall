@@ -106,6 +106,7 @@
     Optional ../../ngx_http_fastcgi_module/fastcgi_temp_path/type.dhall
 , gzip : Optional ../../ngx_http_gzip_module/gzip/type.dhall
 , gzip_types : ../../ngx_http_gzip_module/gzip_types/type.dhall
+, gzip_vary : Optional ../../ngx_http_gzip_module/gzip_vary/type.dhall
 , if_modified_since : Optional ../if_modified_since/type.dhall
 , ignore_invalid_headers : Optional ../ignore_invalid_headers/type.dhall
 , index : Optional ../../ngx_http_index_module/index/type.dhall
