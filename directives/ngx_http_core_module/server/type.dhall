@@ -103,6 +103,7 @@
 , proxy_buffering :
     Optional ../../ngx_http_proxy_module/proxy_buffering/type.dhall
 , proxy_buffers : Optional ../../ngx_http_proxy_module/proxy_buffers/type.dhall
+, proxy_cache : Optional ../../ngx_http_proxy_module/proxy_cache/type.dhall
 , proxy_connect_timeout :
     Optional ../../ngx_http_proxy_module/proxy_connect_timeout/type.dhall
 , proxy_read_timeout :

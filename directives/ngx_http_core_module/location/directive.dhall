@@ -202,6 +202,8 @@ let proxy_buffering =
 
 let proxy_buffers = ../../ngx_http_proxy_module/proxy_buffers/directive.dhall
 
+let proxy_cache = ../../ngx_http_proxy_module/proxy_cache/directive.dhall
+
 let proxy_connect_timeout =
       ../../ngx_http_proxy_module/proxy_connect_timeout/directive.dhall
 
@@ -489,6 +491,8 @@ let make =
 
         let proxy_buffers = proxy_buffers.opt c.proxy_buffers (n + 2)
 
+        let proxy_cache = proxy_cache.opt c.proxy_cache (n + 2)
+
         let proxy_connect_timeout =
               proxy_connect_timeout.opt c.proxy_connect_timeout (n + 2)
 
@@ -640,6 +644,7 @@ let make =
                 , postpone_output
                 , proxy_buffering
                 , proxy_buffers
+                , proxy_cache
                 , proxy_connect_timeout
                 , proxy_pass
                 , proxy_read_timeout

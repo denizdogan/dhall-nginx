@@ -6,6 +6,7 @@
 , LogLevel = ./LogLevel/package.dhall
 , OffNoneBuiltinShared = ./OffNoneBuiltinShared/package.dhall
 , OffSharedNameSize = ./OffSharedNameSize/package.dhall
+, OffString = ./OffString/package.dhall
 , OnOffLeaf = ./OnOffLeaf/package.dhall
 , OnOffOptionalNoCa = ./OnOffOptionalNoCa/package.dhall
 , OnOffString = ./OnOffString/package.dhall

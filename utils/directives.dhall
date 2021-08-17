@@ -166,6 +166,7 @@ let textSep =
         directive (List Text) (λ(ss : List Text) → Text/concatSep sep ss)
 
 in  { debugPoints
+    , directive
     , interval
     , natural
     , makeDirective
