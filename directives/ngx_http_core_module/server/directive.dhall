@@ -146,6 +146,8 @@ let limit_rate_after = ../limit_rate_after/directive.dhall
 
 let lingering_close = ../lingering_close/directive.dhall
 
+let lingering_time = ../lingering_time/directive.dhall
+
 let listen = ../listen/directive.dhall
 
 let location = ../location/directive.dhall
@@ -373,6 +375,8 @@ let make =
 
         let lingering_close = lingering_close.opt c.lingering_close (n + 2)
 
+        let lingering_time = lingering_time.opt c.lingering_time (n + 2)
+
         let listen = directives.listOpt listen.type listen.make c.listen (n + 2)
 
         let location = location.listOpt c.location (n + 2)
@@ -502,6 +506,7 @@ let make =
                 , keepalive_timeout
                 , limit_rate_after
                 , lingering_close
+                , lingering_time
                 , listen
                 , location
                 , log_not_found
