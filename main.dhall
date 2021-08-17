@@ -16,6 +16,8 @@ let http = ./directives/ngx_http_core_module/http/directive.dhall
 
 let load_module = ./directives/ngx_core_module/load_module/directive.dhall
 
+let master_process = ./directives/ngx_core_module/master_process/directive.dhall
+
 let pcre_jit = ./directives/ngx_core_module/pcre_jit/directive.dhall
 
 let pid = ./directives/ngx_core_module/pid/directive.dhall
@@ -57,6 +59,8 @@ let default =
       , http = None ./directives/ngx_http_core_module/http/type.dhall
       , load_modules =
           [] : List ./directives/ngx_core_module/load_module/type.dhall
+      , master_process =
+          None ./directives/ngx_core_module/master_process/type.dhall
       , pcre_jit = None ./directives/ngx_core_module/pcre_jit/type.dhall
       , pid = None ./directives/ngx_core_module/pid/type.dhall
       , ssl_engine = None ./directives/ngx_core_module/ssl_engine/type.dhall
@@ -87,6 +91,8 @@ let type =
       , events : ./directives/ngx_core_module/events/type.dhall
       , http : Optional ./directives/ngx_http_core_module/http/type.dhall
       , load_modules : List ./directives/ngx_core_module/load_module/type.dhall
+      , master_process :
+          Optional ./directives/ngx_core_module/master_process/type.dhall
       , pcre_jit : Optional ./directives/ngx_core_module/pcre_jit/type.dhall
       , pid : Optional ./directives/ngx_core_module/pid/type.dhall
       , ssl_engine : Optional ./directives/ngx_core_module/ssl_engine/type.dhall
@@ -124,6 +130,8 @@ let make =
         let http = http.opt c.http n
 
         let load_modules = load_module.listOpt c.load_modules n
+
+        let master_process = master_process.opt c.master_process n
 
         let pcre_jit = pcre_jit.opt c.pcre_jit n
 
@@ -163,6 +171,7 @@ let make =
                 , error_log
                 , events
                 , http
+                , master_process
                 , pcre_jit
                 , pid
                 , ssl_engine

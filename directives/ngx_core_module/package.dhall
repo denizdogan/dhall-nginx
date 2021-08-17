@@ -2,6 +2,7 @@
 , error_log = ./error_log/directive.dhall
 , events = ./events/directive.dhall
 , load_module = ./load_module/directive.dhall
+, master_process = ./master_process/directive.dhall
 , multi_accept = ./multi_accept/directive.dhall
 , pcre_jit = ./pcre_jit/directive.dhall
 , pid = ./pid/directive.dhall
