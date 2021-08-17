@@ -5,6 +5,7 @@
 , multi_accept = ./multi_accept/directive.dhall
 , pcre_jit = ./pcre_jit/directive.dhall
 , pid = ./pid/directive.dhall
+, ssl_engine = ./ssl_engine/directive.dhall
 , user = ./user/directive.dhall
 , worker_connections = ./worker_connections/directive.dhall
 , worker_cpu_affinity = ./worker_cpu_affinity/directive.dhall

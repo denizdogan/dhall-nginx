@@ -27,6 +27,7 @@ let mapLoggable =
 
 let config =
       ng.config::{
+      , ssl_engine = Some "foossl"
       , timer_resolution = Some ng.Interval::{ milliseconds = Some 100 }
       , user = Some ng.user::{ user = "foo" }
       , worker_aio_requests = Some 3
