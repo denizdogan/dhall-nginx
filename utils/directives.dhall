@@ -10,6 +10,8 @@ let Text/concatSep = Prelude.Text.concatSep
 
 let indent = ./indent.dhall
 
+let Bool/onOff = ./Bool/onOff.dhall
+
 let DebugPoints = ../types/DebugPoints/type.dhall
 
 let DebugPoints/show = ../types/DebugPoints/show.dhall
@@ -126,7 +128,7 @@ let offNoneBuiltinShared =
 
 let offSharedNameSize = directive OffSharedNameSize OffSharedNameSize/show
 
-let bool = directive Bool (λ(value : Bool) → if value then "on" else "off")
+let bool = directive Bool Bool/onOff
 
 let connectionProcessingMethod =
       directive ConnectionProcessingMethod ConnectionProcessingMethod/show
