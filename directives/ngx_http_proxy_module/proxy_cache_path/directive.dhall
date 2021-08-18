@@ -34,8 +34,14 @@ let make =
         let levels =
               if    Natural/isZero (List/length Natural value.levels)
               then  None Text
-              else  Some
-                      (Text/concatMapSep ":" Natural Natural/show value.levels)
+              else  let string =
+                          Text/concatMapSep
+                            ":"
+                            Natural
+                            Natural/show
+                            value.levels
+
+                    in  Some "levels=${string}"
 
         let use_temp_path =
               Optional/map
