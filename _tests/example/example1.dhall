@@ -64,6 +64,7 @@ let config =
         , log_format = [ myLogger, jsonLogger ]
         , log_not_found = Some False
         , map = [ mapLoggable ]
+        , map_hash_max_size = Some (ng.Size.megabytes 1)
         , sendfile = Some True
         , server =
           [ ng.server::{

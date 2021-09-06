@@ -123,6 +123,7 @@
 , log_format : List ../../ngx_http_log_module/log_format/type.dhall
 , log_not_found : Optional ../log_not_found/type.dhall
 , map : List ../../ngx_http_map_module/map/type.dhall
+, map_hash_max_size : Optional ../../ngx_http_map_module/map_hash_max_size/type.dhall
 , merge_slashes : Optional ../merge_slashes/type.dhall
 , msie_refresh : Optional ../msie_refresh/type.dhall
 , open_file_cache_errors : Optional ../open_file_cache_errors/type.dhall

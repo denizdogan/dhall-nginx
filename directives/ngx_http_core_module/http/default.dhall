@@ -114,6 +114,7 @@
 , log_format = [] : List ../../ngx_http_log_module/log_format/type.dhall
 , log_not_found = None ../log_not_found/type.dhall
 , map = [] : List ../../ngx_http_map_module/map/type.dhall
+, map_hash_max_size = None ../../ngx_http_map_module/map_hash_max_size/type.dhall
 , merge_slashes = None ../merge_slashes/type.dhall
 , msie_refresh = None ../msie_refresh/type.dhall
 , open_file_cache_errors = None ../open_file_cache_errors/type.dhall

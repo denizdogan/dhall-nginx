@@ -198,6 +198,7 @@ let log_format = ../../ngx_http_log_module/log_format/directive.dhall
 let log_not_found = ../log_not_found/directive.dhall
 
 let map = ../../ngx_http_map_module/map/directive.dhall
+let map_hash_max_size = ../../ngx_http_map_module/map_hash_max_size/directive.dhall
 
 let merge_slashes = ../merge_slashes/directive.dhall
 
@@ -527,6 +528,8 @@ let make =
 
         let map = map.listOpt c.map (n + 2)
 
+        let map_hash_max_size = map_hash_max_size.opt c.map_hash_max_size (n + 2)
+
         let merge_slashes = merge_slashes.opt c.merge_slashes (n + 2)
 
         let msie_refresh = msie_refresh.opt c.msie_refresh (n + 2)
@@ -724,6 +727,7 @@ let make =
                 , log_formats
                 , log_not_found
                 , map
+                , map_hash_max_size
                 , merge_slashes
                 , msie_refresh
                 , open_file_cache_errors
